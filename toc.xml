@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="MDDTools - User&apos;s guide">
+	<topic label="MDDTools overview"  href="html/overview.html"> 
+	</topic>
+	<topic href="html/servicegen/overview.html" label="Servicegen">
+    <topic href="html/servicegen/howto_start.html" label="How to start">
+    </topic>
+    <topic href="html/servicegen/tutorials.html" label="Tutorials">
+       <topic href="html/servicegen/tutorials/helloworld/helloworld.html" label="Tutorial: hello service-generated world!">
+       </topic>
+       <topic href="html/servicegen/tutorials/sampleappl/sampleappl.html" label="Tutorial: esempio di servizio applicativo">
+       </topic>
+       <topic href="html/servicegen/tutorials/sampleorch/sampleorch.html" label="Tutorial: esempio di servizio di orchestrazione">
+       </topic>
+    </topic>
+    <topic href="html/servicegen/mm_reference.html" label="Guida di riferimento metamodello">
+    </topic>
+    <topic href="html/guigen/faq.html" label="F.A.Q.">
+    </topic>
+    <topic href="html/servicegen/rationale.html" label="Appendice: design rationale">
+    </topic>
+    <topic href="html/servicegen/bibl.html" label="Appendice: documenti di riferimento">
+    </topic>
+ </topic>
+ <topic href="html/guigen/overview.html" label="Guigen">
+    <topic href="html/guigen/howto_start.html" label="How to start">
+    </topic>
+    <topic href="html/guigen/tutorials.html" label="Tutorials">
+       <topic href="html/guigen/tutorials/helloworld/helloworld.html" label="Tutorial: hello gui-generated world!">
+       </topic>
+       <topic href="html/guigen/tutorials/events/events.html" label="Tutorial: collegamento eventi a widget e logica di business">
+       </topic>
+       <topic href="html/guigen/tutorials/binding/binding.html" label="Tutorial: strutture dati e binding view-model">
+       </topic>
+       <topic href="html/guigen/tutorials/validation/validation.html" label="Tutorial: validazione input utente">
+       </topic>
+       <topic href="html/guigen/tutorials/tree/tree.html" label="Tutorial: tree - visualizzazione e gestione eventi">
+       </topic>
+       <topic href="html/guigen/tutorials/tables/tables.html" label="Tutorial: tabelle - visualizzazione e gestione eventi">
+       </topic>
+       <topic href="html/guigen/tutorials/dynapanels/dynapanels.html" label="Tutorial: schermate con porzioni variabili (multipanel)">
+       </topic>
+       <topic href="html/guigen/tutorials/tabs/tabs.html" label="Tutorial: tabs &amp; wizards">
+       </topic>
+       <topic href="html/guigen/tutorials/userdefview/userdefview.html" label="Tutorial: integrazione porzioni user-defined nella view">
+       </topic>
+       <topic href="html/guigen/tutorials/security/security.html" label="Tutorial: autenticazione e autorizzazione">
+       </topic>
+       <topic href="html/guigen/tutorials/samplecrud/samplecrud.html" label="Tutorial: applicazione completa: CRUD">
+       </topic>
+       <topic href="html/guigen/tutorials/dependentselect/dependentselect.html" label="Tutorial: select-list dipendenti">
+       </topic>
+    </topic>
+    <topic href="html/guigen/mm_reference.html" label="Guida di riferimento metamodello">
+    </topic>
+    <topic label="F.A.Q.">
+    </topic>
+    <topic href="html/guigen/rationale.html" label="Appendice: design rationale">
+    </topic>
+    <topic href="html/guigen/bibl.html" label="Appendice: documenti di riferimento">
+    </topic>
+ </topic>
+</toc>
