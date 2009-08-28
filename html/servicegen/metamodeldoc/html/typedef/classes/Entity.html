@@ -1,3 +1,5 @@
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -7,7 +9,9 @@
 	</head><body>
 <h1>Class "typedef :: Entity"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../typedef/package.html">typedef</a></p>
-<p>[[ TODO - add documentation here ]]</p>
+<p>Tipo complesso costituito da 1 o più <b>feature</b> (campi).
+Non è prevista la possibilità di definire gerarchie.
+</p>
 
 
 
@@ -75,6 +79,10 @@
 
 
 <td>
+<p>Inherited References</p>
+<ul>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../typedef/classes/TypeAnnotation.html">typedef :: TypeAnnotation</a> <img src="../icons/ecore/EReference.gif" /><a href="../../typedef/classes/Type.html#re_annotations">annotations</a></li>
+</ul>
 
 </td>
 
@@ -93,7 +101,10 @@
 </ul>
 
 <h2><a name="at_versionuid" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EInt versionuid</h2>
-<p>[[ TODO - add documentation here ]]</p>
+<p>campo opzionale che serve come marcatore di discontinuità dal punto
+di vista della retrocompatibilità.
+Tra due versioni differenti di uno stesso complex type la variazione
+del versionuid indica una non retrocompatibilità tra i due tipi.</p>
 
 
 
@@ -145,7 +156,9 @@
 
 
 <h2><a name="re_features" /><img src="../icons/ecore/EReference.gif" />Reference typedef :: Feature features</h2>
-<p>[[ TODO - add documentation here ]]</p>
+<p>Campi che costituiscono il tipo complesso. 
+Ciascuna feature può essere definita con un tipo semplice, array o complesso.
+</p>
 
 
 
@@ -200,4 +213,4 @@
 
 
 
-<div>generated on 29-apr-2009 at 16.55.33 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 28-ago-2009 at 9.58.48 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

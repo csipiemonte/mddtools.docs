@@ -85,15 +85,26 @@
 	Ciascuna schermata contiene <b>Widget</b> di vario genere strutturati in pannelli (<b>Panel</b>) che possono essere dei seguenti tipi:
 	  
 	  <ul>
-	  <li><b>FormPanel</b>: pannello destinato a contenere <b>widget</b> o <b>sottopannelli</b></li>
-		
-	  <li><b>CommandPanel</b>: tipo specializzato di <b>FormPanel</b> che può contenere solo <b>widget</b> di tipo <b>Command</b> (pulsanti)</li>
+	  <li><b>FormPanel</b>: pannello destinato a contenere esclusivamente <b>sottopannelli</b></li>
+	
+	  <li><b>WidgetsPanel</b>: tipo specializzato di <b>Panel</b> destinato a contenere esclusivamente <b>widget</b></li>
+	  <li><b>CommandPanel</b>: tipo specializzato di <b>Panel</b> che può contenere solo <b>widget</b> di tipo <b>Command</b> (pulsanti)</li>
 		 
-	  <li><b>MenuPanel</b>: tipo specializzato di <b>FormPanel</b> che può contenere solo <b>widget</b> di tipo menu o affini (attualmente
+	  <li><b>MenuPanel</b>: tipo specializzato di <b>Panel</b> che può contenere solo <b>widget</b> di tipo menu o affini (attualmente
 		   solo <b>MenuView</b> o <b>TreeView</b>).</li>
-		
-	  <li><b>TabSetPanel</b>: il classico pannello a tab (il contenuto di ciascun tab è a sua volta un <b>pannello</b>)</li>
-		
+		   
+	  <li><b>StdMessagePanel</b>: pannello di visualizzazione di messaggi (di errore ed informativi)</li>
+	
+	  <li><b>MsgBoxPanel</b>: pannello utilizzabile per la visualizzazione di messaggi o html custom (può contenere soloun tipo di widget: il <b>PlainText</b></li>
+	  
+	  <li><b>UserInfoPanel</b>: pannello utilizzato pe rmostrare in modo standard le informazioni relative all'utente collegato</li>
+	  
+	  <li><b>TabSetPanel</b>: il classico pannello a tab (il contenuto di ciascun tab &egrave; a sua volta un <b>pannello</b>)</li>
+	
+	  <li><b>WizardPanel</b>: implementazione di wizard (il contenuto di ciascuno step &egrave; a sua volta un <b>pannello</b>)</li>
+	  
+	  <li><b>MultiPanel</b>: Pannello mutevole: può assumere differenti forme in base ai sottopannelli contenuti (il contenuto di ciascun sottopannello &egrave; a sua volta un <b>pannello</b>)</li>
+	  
 	  <li><b>DialogPanel</b>: pannello utilizzato per la visualizzazione di popup</li>
 	  </ul>
 	  
@@ -103,29 +114,29 @@
 	  <ul>  
 	  <li>Disposizione a cascata verticale su un'unica colonna (<b>VerticalFlowPanelLayout</b>); 
 	    <ul>	
-	  	<li>applicabile a sottopannelli e widget</li>;
+	  	<li>applicabile a sottopannelli e widget;</li>
 	  		
 	  	<li>l'ordine di visualizzazione è dall'alto in basso a seconda dell'ordine in cui i componenti appaiono nel modello (non sono 
-	  		necessarie delle <b>layout specification</b> aggiuntive</li>);
+	  		necessarie delle <b>layout specification</b> aggiuntive);</li>
 	  	</ul>
 	  </li>
 	  <li>	
 	  	Disposizione in sequenza orizzontale <b>left to right</b> su un'unica riga (<b>HorizontalFlowPanelLayout</b>)
 	  	<ul>
-	  	<li>applicabile a sottopannelli e widget</li>;
+	  	<li>applicabile a sottopannelli e widget;</li>
 	  		
 	  	<li>l'ordine di visualizzazione è dasinistra a destra a seconda dell'ordine in cui i componenti appaiono nel modello (non sono 
-	  		  necessarie delle <b>layout specification</b> aggiuntive</li>;
+	  		  necessarie delle <b>layout specification</b> aggiuntive;</li>
 	  	</ul>
 	  </li>
 	  <li>	
 	  	Disposizione a 5 quadranti (<b>UpDownLeftRightCenterPanelLayout</b>)
 		<ul>
 		<li>applicabile al pannello principale o a command panel (in questo caso sono disponibili solo le posizioni Left e Right e 
-			  servono per implementare plusantiere di navigazione del tipo indietro-prosegui)</li>;
+			  servono per implementare plusantiere di navigazione del tipo indietro-prosegui);</li>
 			
-		<li>pu&ograve; contenere al massimo 5 sottopannelli, 1 al massimo per sezione, ed è necessario specificare 
-			  esplicitamente per ciascun elemento il quadrante di destinazione (mediante una <b>UDLRCWidgetLayoutSpec</b>)</li>;
+		<li>pu&ograve; contenere al massimo 5 sottopannelli, 1 al massimo per sezione, ed &egrave; necessario specificare 
+			  esplicitamente per ciascun elemento il quadrante di destinazione (mediante una <b>UDLRCWidgetLayoutSpec</b>);</li>
 		</ul>   
 	  </li>
 	  <li>
@@ -145,18 +156,18 @@
 	   
 	I widget disponibili condividono alcuni comportamenti comuni:
 	<ul>	
-	<li>possono essere disabilitati o abilitati a comando (abiltazione/disabilitazione/stato di default): se disabilitati non possono 
-		accettare input o comandi dall'utente</li>
+	<li>possono essere disabilitati o abilitati a comando (abiltazione/disabilitazione/stato di default, comandabile singolarmente o utilizzando un concetto di <b>ScreenState</b>): se disabilitati non possono 
+		accettare input o comandi dall'utente;</li>
 	<li>possono essere visibili/invisibili o abilitati/disabilitati a fronte di <b>Security constraints</b> che possono essere
-	    o meno soddisfatti per l'utente correntemente collegato all'applicazione.			
+	    o meno soddisfatti per l'utente correntemente collegato all'applicazione;</li>			
 	
-	<li>possono essere resi invisibili o nuovamente visibili a comando (visibile/invisibile/stato di default)</li>
+	
 				
 	<li>possono essere posizionati con precisione nel pannello contenitore utilizzando una parametrizzazione specifica
-		  del tipo di layout del contenitore (vedi sopra)</li>
+		  del tipo di layout del contenitore (vedi sopra);</li>
 		  
 	<li>possono essere corredati da un <b>EventHandler</b> in grado di gestire eventi di interazione umana (per l'elenco delle tipologie
-	di eventi supportate da ciascun widget e per dettagli sulla gestione degli eventi si vedano le sezioni apposite).</li>
+	di eventi supportate da ciascun widget e per dettagli sulla gestione degli eventi si vedano le sezioni apposite);</li>
 	
     <h5> Widget disponibili</h5>
 
@@ -198,27 +209,55 @@
 			
 		  <li>Pulsanti a scelta esclusiva (<b>RadioButton</b>)</li>
 			
-		  <li>Tabella di visualizzazione (read-only) con possibilità di ordinamento, paginazione, export dei dati in vari formati, selezione di
-		  	  una o pi&ugrave; righe per l'esecuzione di un'azione su di esse</li>
+		  <li>Tabella di visualizzazione (<b>Table</b>) con possibilità di ordinamento, paginazione, export dei dati in vari formati, selezione di
+		  	  una o pi&ugrave; righe per l'esecuzione di un'azione su di esse, editing &quot;in place&quot; di una cella</li>
 		
 		  <li>Albero espandibile (<b>TreeView</b>)
-				
-		  <!--<li>Variante dell'albero espandibile <b>MenuTree</b> che serve per inserire la struttura di menu in una posizione particolare, come fosse
-			  un normale widget</li>-->
 			
 		  <li>Immagine (<b>Image</b>)</li>
 			
 		  <li>Testo puro (<b>PlainText</b>, widget per sola visualizzazione)</li>
+		  
+		  <li>Tool di selezione data (<b>Calendar</b>)</li>
 		  </ul>
 	    </li>
 	    </ul>
 	  </li>
 	</ul>				  
-	</p>
+	
+	</ul>
+
+<h4>Securizzazione dell'applicativo</h4>
+<p>
+E' possibile modellare la maggior parte delle caratteristiche di sicurezza dell'applicazione:
+
+<ul>
+<li>Autenticazione: &egrave; possibile definire il meccanismo utilizzato per l'autenticazione, scegliendolo tra:
+	<ul>
+	<li>Autenticazione in single sign on tramite <b>SSOBART</b></li>
+	<li>Autenticazione in single sign on tramite <b>Oracle Portal  - OPAUTH</b></li>
+	<li>Autenticazione in single sign on tramite <b>Shibboleth</b></li>
+	</ul>
+</li>
+
+<li>Autorizzazione/profilazione: &egrave; possibile definire eventuali constraint sulla visibilità o abilitazione di ciascun widget;
+	i possibili tipi di constraint utilizzabili sono:
+	<ul>
+	<li><b>Actor-based Security Constraint</b>: il widget viene visualizzato/reso attivo solo se l'utente corrente impersonifica un ben determinato Actor di IRIDE2</li>
+	<li><b>Role-based Security Constraint</b>: il widget viene visualizzato/reso attivo solo se l'utente corrente appartiene ad un ben determinato Ruolo di IRIDE2</li>
+	<li><b>UseCase-based Security Constraint</b>: il widget viene visualizzato/reso attivo solo se l'utente corrente è abilitato ad un determinato UseCase di IRIDE2</li>
+	<li><b>Custom Security Constraint</b>: il widget viene visualizzato/reso attivo solo se l'utente corrente soddisfa una logica custom (codificata manualmente)</li>
+	</ul>
+</li>
+</ul>
+
+Lo sviluppatore ha inoltre a disposizione nella business logic le info relative all'utente corrente, nell'ApplicationData denominato "currentUser".
+</p>
+	
 <h4>Definizione del <b>model</b> gestito nell'applicativo</h4>
 	
 	<p>
-	Lo strato di model nell'applicativo &egrave costituito da:
+	Lo strato di model nell'applicativo &egrave; costituito da:
 	
 	<ul>
 	<li>definizioni di <b>tipi</b> complessi relativi agli oggetti che dovranno essere maneggiati dalla logica applicativa (strutture dati)</li>
@@ -231,18 +270,23 @@
 	  	  
 	  	<li>sono tipizzati (tipi semplici o complessi o collezioni di tipi semplici o complessi)</li>
 	  	
-	  	<li>possono "vivere" per il solo tempo di una singola <b>interazione utente</b> (scope = USER_ACTION) oppure per più interazioni successive 
-	  	  scope USER_SESSION)</li>
+	  	<li>possono "vivere":
+	  		<ul>
+	  		<li>per il solo tempo di una singola <b>interazione utente</b> (scope = USER_ACTION)</li>
+	  		<li>per tutto il tempo in cui l'utente permane in uno <b>stesso ContentPanel</b>(scope = PAGE) anche a fronte di pi&ugrave; interazioni successive</li>
+	  		<li>per tutta la durata della <b>sessione utente</b> (scope = USER_SESSION)</li>
+	  		</ul>
+	  	</li>
 	  </ul>
 	</li>
 	</ul>
 	</p>
 	<p>
-	la logica di business sar&agrave; nettamente separata dalla logica di U.I e dovr&agrave; essere codificata manualmente:
+	La logica di business &egrave; nettamente separata dalla logica di U.I e deve essere codificata manualmente:
 	
 	<ul>
 	<li>avendo a disposizione gli <b>ApplicationData</b> necessari, il cui valore &egrave; pre-compilato (se necessario) a fronte dell'input utente sulle
-		GUI a cui tali dati sono collegati o a fronte del valore contenuto in sessione se l'<b>ApplicationData</b> &egrave; a scope USER_SESSION;</li>
+		GUI a cui tali dati sono collegati o a fronte del valore contenuto in sessione se l'<b>ApplicationData</b> &egrave; a scope USER_SESSION o PAGE;</li>
 		
 	<li>restituendo al gestore del contesto applicativo gli <b>ApplicationData</b> creati/modificati dalla logica, in modo che possano
 		  essere maneggiati dallo strato di presentation</li>
@@ -250,34 +294,65 @@
 	<li>implementando metodi con una interfaccia ben definita</li>
 		
 	<li>il collegamento tra U.I, controller e model/logica &egrave; modellato come spiegato nel paragrafo successivo</li>  
+	</ul>
+	
 </p>
 <h4>Definizione del comportamento dinamico dell'applicativo</h4>
 <p>
-	Il comportamento dinamico dell'applicativo si concretizza nella possibilit&agrave; di associare una serie di comandi agli
-	eventi di user interaction che avvengono sull'applicativo.
+	Il comportamento dinamico dell'applicativo si concretizza nella possibilità di a<b>ssociare una serie di comandi agli
+	eventi di user interaction</b> che avvengono sull'applicativo.
 	In particolare sono disponibili le seguenti possibilità/comandi:
 	<ul>
-	<li><b>ONOFFCommand</b>: abilitazione/disabilitazione di un set di widget definito a tempo di design</li>
+		<ul>
+		<li>comandi di gestione dello stato della schermata
+		<ul>
+			<li><b>ONOFFCommand</b>: abilitazione/disabilitazione di un set di widget definito a tempo di design</li>
 	
-	<li><b>VisibilityCommand</b>: rendere visibile/invisibile un set di widget definito a tempo di design</li>
+			<li><b>VisibilityCommand</b>: rendere visibile/invisibile un set di widget definito a tempo di design</li>
 	
-	<li><b>JumpCommand</b>: saltare ad una schermata (<b>ContentPanel</b>) differente da quella corrente</li>
+			<li><b>ScreenStateCommand</b>: permette di far passare la schermata corrente ad un particolare stato di abilitazione/visibilit&agrave; complessiva dei widget in esso contenuti;</li>
+		</ul>
+		</li>
+		<li>comandi di gestione del flusso di navigazione
+		<ul>
+			<li><b>JumpCommand</b>: saltare ad una schermata (<b>ContentPanel</b>) differente da quella corrente</li>
 	
-	<li><b>JumpExtCommand</b>: saltare ad una pagina, tramite link diretto (in genere utilizzato per uscire
-	  dal contesto applicativo corrente e puntare, ad esempio, ad una pagina statica o ad un'applicazione esterna</li>
+			<li><b>JumpExtCommand</b>: saltare ad una pagina, tramite link diretto (in genere utilizzato per uscire
+	  		dal contesto applicativo corrente e puntare, ad esempio, ad una pagina statica o ad un'applicazione esterna</li>
 	
-	<li><b>ExecCommand</b>: eseguire una logica applicativa java e, a seconda dell'esito (1 o più di uno) eseguire altre 
-	  sequenze di comandi</li>
-	
-	<li><b>SequenceCommand</b>: eseguire una sequenza di comandi</li>
-	
+			<li><b>ShowDialogCommand</b>: passare alla visualizzazione di una pagina corrispondente ad un <b>DialogPanel</b>;
+		</ul>
+		</li>		
+		<li>comandi di richiamo dell abusiness logic
+		<ul>
+			<li><b>ExecCommand</b>: eseguire una logica applicativa java (il cui codice deve essere scritto manualmente) e, a seconda dell'esito eseguire altre 
+	  		sequenze di comandi</li>
+		</ul>
+		</li>
+		<li>altri comandi
+		<ul>
+			<li><b>SequenceCommand</b>: eseguire una sequenza di comandi</li>
+		</ul>
+		</li>
+		</ul>
 	</ul>
 	
 	La struttura di comandi che devono essere eseguiti a fronte di un evento di U.I su un particolare widget sono modellati
 	e sono implementati automaticamente dal codice generato, ad esclusione dell'<b>ExecCommand</b>. In quest'ultimo caso, infatti,
 	sebbene il codice generato provveda a richiamare automaticamente un metodo di business fornendogli il contesto applicativo e 
-	modificando il contesto applicativo con i risultati dell'esecuzione di tale metodo, il metodo di business deve essere codificato 
-	manualmente inel linguaggio target (java). Al momento questo rappresenta l'unico punto di intervento manuale post-generazione sul codice.  
-    </p>
+	modificando il contesto applicativo con i risultati dell'esecuzione di tale metodo, il metodo di business deve essere <u>codificato 
+	manualmente nel linguaggio target</u> (java). Al momento questo rappresenta l'unico punto di intervento manuale post-generazione sul codice.  
+    
+   <br><br>I possibili punti di aggancio di un comando sono:
+   <ul>
+   <li>evento click su ConfirmButton: la logica viene  eseguita alla pressione del pulsante</li>
+   <li>selezione di una cella di una Table</li>
+   <li>selezione di una voce di menu</li>
+   <li>evento di cambiamento della selezione di una ComboBox: la logica viene  eseguita ogni volta che viene selezionato un valore nella combo</li>
+   <li>evento selezione di un radiobutton: la logica viene eseguita al click su uno dei radiobutton di un gruppo di radiobutton</li>
+   <li>refresh della pagina (contentPanel): questa logica viene eseguita ogni volta che viene ricaricata una pagina, comprese le volte in cui il refresh
+   &egrave; conseguente all'esecuzione di un altro evento.</li>
+   <li>inizializzazione dell'applicazione: la logica viene eseguita ogni volta che si passa dalla pagina iniziale</li>
+   </ul>
    </body>
 </html>

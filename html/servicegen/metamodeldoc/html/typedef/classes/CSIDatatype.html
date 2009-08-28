@@ -1,3 +1,5 @@
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -7,7 +9,11 @@
 	</head><body>
 <h1>Class "typedef :: CSIDatatype"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../typedef/package.html">typedef</a></p>
-<p>[[ TODO - add documentation here ]]</p>
+<p>Tipo base previsto dall'infrastruttura di cooperazione CSI.
+Normalmente un insieme di tipi predefiniti è incluso come risorsa nei vari
+modelli (definizione servizi, orchestrazioni, ...) e dunque in ogni insieme
+di risorse (modelli) interconnesse è opportuno che vi sia una sola istanza
+di <b>CSIDatatype</b> per ogni tipo semplice previsto.</p>
 
 
 
@@ -44,6 +50,10 @@
 
 
 
+<td>
+
+</td>
+
 
 
 
@@ -67,6 +77,14 @@
 
 
 
+<td>
+<p>Inherited References</p>
+<ul>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../typedef/classes/TypeAnnotation.html">typedef :: TypeAnnotation</a> <img src="../icons/ecore/EReference.gif" /><a href="../../typedef/classes/Type.html#re_annotations">annotations</a></li>
+</ul>
+
+</td>
+
 
 
 
@@ -78,7 +96,8 @@
 
 
 <h2><a name="at_code" /><img src="../icons/ecore/EAttribute.gif" />Attribute typedef :: CSIDatatypeCodes code</h2>
-<p>[[ TODO - add documentation here ]]</p>
+<p>Codice che determina il reale tipo. Vedere la documentazione della 
+enumeration <b>CSIDatatypeCodes</b> perl'elenco dei tipi supportati.<br /></p>
 
 
 
@@ -129,7 +148,13 @@
 </table>
 
 <h2><a name="at_nillable" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean nillable</h2>
-<p>[[ TODO - add documentation here ]]</p>
+<p>Qualificatore di tipo che defiisce se il tipo è un tipo che può assumere valore
+nullo oppure no.
+Es: 
+<ul>
+<li> code==CSIInteger & nillable == false: tipo intero non annullabile (es. java int)
+<li> code==CSIInteger & nillable == true: tipo intero annullabile (es. java Integer)
+</ul></p>
 
 
 
@@ -182,4 +207,4 @@
 
 
 
-<div>generated on 29-apr-2009 at 16.55.33 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 28-ago-2009 at 9.58.48 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

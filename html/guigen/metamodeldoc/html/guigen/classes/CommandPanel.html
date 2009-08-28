@@ -1,3 +1,5 @@
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,16 +16,12 @@
 
 <p>Super and Sub Types</p>
 
-
 <ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a>
-<ul><li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/FormPanel.html">guigen :: FormPanel</a>
 
 <ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: CommandPanel</b>
 
 </li></ul>
 
-
-</li></ul>
 </li></ul>
 
 
@@ -32,6 +30,34 @@
 
 <table border="1">
 
+
+<tr style="vertical-align:top">
+
+
+<td>
+<p>Direct Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/CommandStyles.html">guigen :: CommandStyles</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/CommandPanel.html#at_cmdStyle">cmdStyle</a></li>
+</ul>
+
+</td>
+
+
+
+
+<td>
+<p>Direct References</p>
+<ul>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandPanel.html#re_widgets">widgets</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
 
 
 
@@ -54,8 +80,6 @@
 <td>
 <p>Inherited References</p>
 <ul>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/FormPanel.html#re_subpanels">subpanels</a></li>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/FormPanel.html#re_widgets">widgets</a></li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/PanelLayout.html">guigen :: PanelLayout</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Panel.html#re_layout">layout</a></li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/WidgetLayoutSpecifier.html">guigen :: WidgetLayoutSpecifier</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Panel.html#re_layoutSpec">layoutSpec</a></li>
 </ul>
@@ -71,8 +95,115 @@
 
 </table>
 
+<p>Referenced by</p>
+<ul>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/CommandPanel.html">guigen :: CommandPanel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/DialogPanel.html#re_commands">commands</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/DialogPanel.html">guigen :: DialogPanel</a>)</li>
+</ul>
+
+<h2><a name="at_cmdStyle" /><img src="../icons/ecore/EAttribute.gif" />Attribute guigen :: CommandStyles cmdStyle</h2>
 
 
 
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/CommandStyles.html">guigen :: CommandStyles</a></td></tr>
 
-<div>generated on 29-apr-2009 at 16.51.07 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>cmdStyle</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+<h2><a name="re_widgets" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Widget widgets</h2>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>containment</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>widgets</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>resolveProxies</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>-1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+
+<div>generated on 28-ago-2009 at 9.57.28 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
