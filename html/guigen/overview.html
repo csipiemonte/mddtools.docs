@@ -105,10 +105,12 @@
 	  
 	  <li><b>MultiPanel</b>: Pannello mutevole: può assumere differenti forme in base ai sottopannelli contenuti (il contenuto di ciascun sottopannello &egrave; a sua volta un <b>pannello</b>)</li>
 	  
+	  <li><b>PanelDefUse</b>: Utilizzo di pannello definito esternamente: permette la definizione di frammenti di U.I. riusabili in pi&ugrave; modelli / punti del modello.</li>
+	  
 	  <li><b>DialogPanel</b>: pannello utilizzato per la visualizzazione di popup</li>
 	  </ul>
 	  
-	Ciascun singolo pannello prevede uno schema di layout (selezionabile in un insieme di possibilità) secondo cui i sottopannelli 
+	Ciascun singolo pannello prevede uno schema di layout (selezionabile in un insieme di possibilit&agrave;) secondo cui i sottopannelli 
 	e i widget vengono disposti:
 	
 	  <ul>  
@@ -132,8 +134,9 @@
 	  <li>	
 	  	Disposizione a 5 quadranti (<b>UpDownLeftRightCenterPanelLayout</b>)
 		<ul>
-		<li>applicabile al pannello principale o a command panel (in questo caso sono disponibili solo le posizioni Left e Right e 
-			  servono per implementare plusantiere di navigazione del tipo indietro-prosegui);</li>
+		<li>applicabile al pannello principale, al command panel (in questo caso sono disponibili solo le posizioni Left e Right e 
+			  servono per implementare plusantiere di navigazione del tipo indietro-prosegui) e ai FormPanel (disponibile solo per le cartucce 
+			  di layout "neutral" e "nuova rupar");</li>
 			
 		<li>pu&ograve; contenere al massimo 5 sottopannelli, 1 al massimo per sezione, ed &egrave; necessario specificare 
 			  esplicitamente per ciascun elemento il quadrante di destinazione (mediante una <b>UDLRCWidgetLayoutSpec</b>);</li>
@@ -179,6 +182,12 @@
 			
 			<li>Pulsanti che permettono la pulizia della schermata (<b>ResetButton</b>)</li>
 			
+			<li>Select list: selezione singola o multipla da una lista di valori (<b>ComboBox</b>)</li>
+			
+			<li>Radio button: pulsanti a selezione esclusiva (<b>RadioButtons/RadioButton</b>)</li>
+			
+			<li>Comandi di navigazione di TabSet e Wizard (<b>TabSwitcher</b>, widget implicito)</li>
+			
 			<li>Menu (la struttura &egrave; definita centralmente nell'applicativo; questo widget &egrave; solo un segnaposto necessario per
 			collocare il menu all'interno della schermata)</li>
 	  </ul>
@@ -197,6 +206,8 @@
 			<li>possono essere valorizzati in base allo stato dell'applicazione</li> 
 				
 			<li>possono passare l'informazione immessa dall'utente ai moduli di logica applicativa (esclusi <b>Image</b>, <b>StaticText</b>)
+			
+			<li>alcuni di essi possono essere anche dei <b>CommandWidget</b> (es. Table, ComboBox, RadioButton)</li>
 		  </ul>
 		</li>		
 		<li>sono disponibili i seguenti widget:
@@ -209,8 +220,24 @@
 			
 		  <li>Pulsanti a scelta esclusiva (<b>RadioButton</b>)</li>
 			
-		  <li>Tabella di visualizzazione (<b>Table</b>) con possibilità di ordinamento, paginazione, export dei dati in vari formati, selezione di
-		  	  una o pi&ugrave; righe per l'esecuzione di un'azione su di esse, editing &quot;in place&quot; di una cella</li>
+		  <li>Tabella di visualizzazione (<b>Table</b>) con possibilità di:
+		  	<ul>
+		  	<li>ordinamento</li>
+		  	<li>paginazione</li>
+		  	<li>export dei dati in vari formati (pdf, xls)</li>
+		  	<li>selezione di una o pi&ugrave; righe per l'esecuzione di un'azione su di esse</li>
+		  	<li>editing &quot;in place&quot; di una cella con diversificazione della modalit&agrave; di editing a fronte del tipo di dato della
+		  		colonna:
+		  		<ul>
+		  		<li>textfield in caso di tipo Stringa</li>
+		  		<li>checkbox in caso di tipo boolean</li>
+		  		</ul>
+		  	</li>
+		  	<li>editing in place con possibilit&agrave; di selezionare il valore in una lista di opzioni, che possono essere le stesse per
+		  	    tutte le righe oppure diversificate riga pe riga</li>
+		  	<li>possibilit&egrave; di rendere o meno editabile a seconda di condizioni valutate a runtime una singola cella</li>
+		  	</ul> ordinamento, paginazione, export dei dati in vari formati, selezione di
+		  	  una o pi&ugrave; righe per l'esecuzione di un'azione su di esse, editing &quot;in place&quot; di una cella con diversificazione</li>
 		
 		  <li>Albero espandibile (<b>TreeView</b>)
 			
@@ -227,6 +254,15 @@
 	
 	</ul>
 
+	<h5> Strutturazione della GUI </h5>
+	
+	E'possibile utilizzare per la strutturazione della User Interface un approccio componentizzato: &egrave; infatti possibile:
+	<ul>
+	<li>definire un pannello riusabile (con eventuale strutturazione in sottopannelli, binding, event handlers e comandi associati)</li>
+	<li>utilizzare tali pannelli nel modello dell'applicazione, contestualizzandoli (ridefinizione degli application data collegati ai widget, <br>ridefinizione di Actor/Roles/UseCases referenziati nei security constraints).</li>
+	
+	</ul>
+	
 <h4>Securizzazione dell'applicativo</h4>
 <p>
 E' possibile modellare la maggior parte delle caratteristiche di sicurezza dell'applicazione:

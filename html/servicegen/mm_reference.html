@@ -9,29 +9,37 @@
          Servicegen - manuale di riferimento del metamodello
       </h2>
       <h3>Diagramma complessivo</h3>
+      <p>Il metamodello utilizzato da servicegen consta di 5 metamodelli interconnessi:
+      <ol>
+      <li><b>servicegen</b>: metamodello dell'applicazione SOA
+      </li>
+      <li><b>servicedef</b>: metamodello delle interfacce di servizio
+      </li>
+      <li><b>typedef</b>: metamodello dei tipi (base e user defined)
+      </li>
+      <li><b>appresources</b>: metamodello delle risorse utilizzate dall'implementazione del servizio
+      </li>
+      <li><b>svcorch</b>: metamodello delle orchestrazioni
+      </li>
+      </ol>
+      </p>
       <p>
-      Nella figure seguenti &egrave; riportato l'insieme delle metaclassi che costituiscono il metamodello
-      <b>servicegen</b>, complete di:
+      Data la complessit&agrave; dei metamodelli non &egrave; possibile allegare una immagine della struttura
+      delle classi/associazioni.
+      E'possibile visualizzare in Eclipse i metamodelli scaricando i seguenti file ed aprendo i diagrammi.
       <ul>
-      <li>gerarchie di ereditariet&agrave;</li>
-      <li>associazioni</li>
+      <li>Metamodello servicegen: <a href="model/servicegen_metamodel.ecore">servicegen_metamodel.ecore</a></li>
+      <li>Diagramma del metamodello servicegen: <a href="model/servicegen_metamodel.ecorediag">servicegen_metamodel.ecorediag</a></li>
+      <li>Metamodello servicedef: <a href="model/servicedef_metamodel.ecore">servicedef_metamodel.ecore</a></li>
+      <li>Diagramma del metamodello servicedef: <a href="model/servicedef_metamodel.ecorediag">servicedef_metamodel.ecorediag</a></li>
+      <li>Metamodello typedef: <a href="model/typedef_metamodel.ecore">typedef_metamodel.ecore</a></li>
+      <li>Diagramma del metamodello typedef: <a href="model/typedef_metamodel.ecorediag">typedef_metamodel.ecorediag</a></li>
+      <li>Metamodello resources: <a href="model/resources_metamodel.ecore">resources_metamodel.ecore</a></li>
+      <li>Diagramma del metamodello resources: <a href="model/resources_metamodel.ecorediag">resources_metamodel.ecorediag</a></li>
+      <li>Metamodello svcorch: <a href="model/svcorch_metamodel.ecore">svcorch_metamodel.ecore</a></li>
+      <li>Diagramma del metamodello svcorch: <a href="model/svcorch.ecorediag">svcorch.ecorediag</a></li>
       </ul>
       </p>
-      <img src="img/servicegen_mm.gif" alt="servicegen - diagramma metamodello" border="1">
-      <caption>Servicegen - diagramma metamodello</caption>
-      <p/>
-      <img src="img/servicedef_mm.gif" alt="servicedef - diagramma metamodello" border="1">
-      <caption>Servicegen - diagramma metamodello sezione definizione servizi</caption>
-      <p/>
-      <img src="img/typedef_mm.gif" alt="typedef - diagramma metamodello" border="1">
-      <caption>Servicegen - diagramma metamodello sezione definizione tipi</caption>
-      <p/>
-      <img src="img/appresources_mm.gif" alt="appresources - diagramma metamodello" border="1">
-      <caption>Servicegen - diagramma metamodello sezione definizione risorse</caption>
-      <p/>
-      <img src="img/svcorch_mm.gif" alt="svcorch - diagramma metamodello" border="1">
-      <caption>Servicegen - diagramma metamodello sezione definizione orchestrazione</caption>
-      <p/>
       <h3>Documentazione di dettaglio</h3>
       <p>
          Documentazione <i>metamodeldoc</i> del metamodello <a href="metamodeldoc/html/index.html">SERVICEGEN</a>.
