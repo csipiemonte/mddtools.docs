@@ -7,7 +7,29 @@
 	</head><body>
 <h1>Class "guigen :: ExecCommand"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Permette di eseguire logica custom all'intenro di una catena di comandi.
+Al metodo specificato in <i>methodName</i> sar&agave; passata una struttura
+dati contenente:
+<ul>
+<li>i riferimenti agli <b>ApplicationData</b> referenziati
+dal <b>ContentPanel</b> che contiene il comando.</li>
+<li>un riferimento alla sessione applicativa</li>
+<li> alcune informazioni ausiliarie diepndenti dalla struttura del 
+    <b>ContentPanel</b> (es. Id del nodo selezionato in un tree, 
+    informazioni circa il tab su cui si è cliccato, informazioni sulla cella selezionata
+in una tabella) </li>
+</ul>
+Nel metodo il programmatore potr&agrave; eseguire qualsiasi tipo di logica ed in 
+particolare:
+<ul>
+<li> modificare lo stato degli application data o della sessione.</li>
+<li> inserire nel contesto applicativo messaggi informativi o di errore</li>
+<li> determinare la prosecuzione del flusso, selezionando uno tra i 
+<i>results</i> disponibili.</li>
+</ul>
+Al termine dell'esecuzione del metodo il flusso proseguir&agrave; con il comando
+inserito nel <b>CommandOutcome</b> specificato al termine della logica.
+</p>
 
 
 
@@ -66,7 +88,11 @@
 
 
 <h2><a name="at_methodName" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString methodName</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Nome del metodo nel quale sarà contenuta la logica effettiva.
+L'implementazione dipende dalla particolare cartuccia di generazione.
+Nel caso della cartuccia "struts2" verr&agrave; generato un metodo nello
+strato spring, contenente una regione protetta nel quale il programamtore
+dovr&agrave; inserire la logica effettiva.</p>
 
 
 
@@ -118,7 +144,7 @@
 
 
 <h2><a name="re_postExecData" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ApplicationData postExecData</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Occorre dichiarare preventivamente gli application data che saranno modificati nella logica applicativa.</p>
 
 
 
@@ -172,7 +198,7 @@
 </table>
 
 <h2><a name="re_results" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: CommandOutcome results</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>L'elenco delle possibili prosecuzioni a fronte dell'esecuzione del comando.</p>
 
 
 
@@ -227,4 +253,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

@@ -7,7 +7,9 @@
 	</head><body>
 <h1>Class "guigen :: ColumnModel"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Modello delle colonne di una tabella (<b>Table</b>). Determina quali 
+colonne vengono visualizzate, in che ordine e altre caratteristiche della tabella.
+</p>
 
 
 
@@ -58,7 +60,26 @@
 </ul>
 
 <h2><a name="at_valueSelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString valueSelector</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>seleziona il field del record di cui è composta la collezione collegata
+alla Table che deve essere utilizzato come valore di selezione.
+Utilizzato solo in congiunzione con un value-binding (quindi con possibilità
+di selezione).
+Es: se:
+<ul>
+<li> la tabella è collegata ad una collezione di un tipo <i>Persona</i>, 
+costituito dai field:
+  <ul>
+  <li>codFisc: String</li>
+  <li>nome: String</li>
+  <li>cognome: String</li>
+  </ul>
+</li>
+<li>il <i>value-binding</i> &egrave; associato ad un appdata di tipo String</li>
+<li>il <i>valueSelector</i> &egrave; impostato come "codFisc" </li>
+</ul>
+Allora selezionando una riga della tabella l'application data di value-binding 
+sarà impostato con il codice fiscale del record corrispondente.
+</p>
 
 
 
@@ -110,7 +131,7 @@
 
 
 <h2><a name="re_columns" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Column columns</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Elenco (ordinato) delle colonne che devono essere visualizzate.</p>
 
 
 
@@ -165,4 +186,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

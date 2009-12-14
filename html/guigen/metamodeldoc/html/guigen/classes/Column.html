@@ -7,7 +7,7 @@
 	</head><body>
 <h1>Class "guigen :: Column"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Modello della singola colonna di una <b>Table</b>.</p>
 
 
 
@@ -66,7 +66,17 @@
 </ul>
 
 <h2><a name="at_editable" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean editable</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Se impostato a <i>true</i> la colonna &egrave; editabile. Il widget
+utilizzato per l'editing della colonna dipende dal tipo del field associato
+alla colonna (tramite la property <i>selector</i>):
+<ul>
+<li><b>CheckBox</b> in caso di tipo boolean</li>
+<li><b>TextField</b> in tutti gli altri casi (stringhe, numerici, date)</li>
+</ul>
+Inoltre, se sono impostate le property <i>multiDataBinding</i> o 
+<i>multiDataPropertySelector</i>, che comportano la possibilit&agrave;
+di scegliere il valore da una lista di valori, sar&agrave; utilizzata una
+<b>ComboBox</b></p>
 
 
 
@@ -117,6 +127,10 @@
 </table>
 
 <h2><a name="at_editableFlagSelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString editableFlagSelector</h2>
+<p>Permette di stabilire a runtime se una cella della colonna (che deve essere
+dichiarata editabile) sarà effettivamente editabile.
+Rappresenta il selettore di un field del record di cui &egrave; costituita
+la collezione collegata alla tabella: questo field deve essere di tipo boolean.</p>
 
 
 
@@ -167,7 +181,9 @@
 </table>
 
 <h2><a name="at_eventActive" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean eventActive</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Indica che la colonna è cliccabile. Il click permette di scatenare l'evento CLICKED
+sulla tabella. deve essere utilizzato in congiunzione con un event handler
+nella <b>Table</b>, altrimenti non ha nessun effetto.</p>
 
 
 
@@ -218,7 +234,7 @@
 </table>
 
 <h2><a name="at_label" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString label</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Etichetta della testata della colonna</p>
 
 
 
@@ -269,6 +285,8 @@
 </table>
 
 <h2><a name="at_multidataKeySelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString multidataKeySelector</h2>
+<p>Utilizzato in congiunzione con <i>multiDataBinding</i> o <i>multidataPropertySelector</i>.
+Seleziona il field da utilizzare come chiave-valore della combo.</p>
 
 
 
@@ -319,6 +337,15 @@
 </table>
 
 <h2><a name="at_multidataPropertySelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString multidataPropertySelector</h2>
+<p>Permette di associare ad una colonna editabile la possibilit&agrave;
+di scegliere il valore della cella a partire da una collezione di coppie
+chiave/valore. 
+Per specificare quale campo del record di cui &egrave; costituita questa collezione ausiliaria
+utilizzare come chiave e come descrizione, occorre impostare le property
+<i>multidataKeySelector</i> e <i>multidataValueSelector</i>.
+L'insieme dei valori è differenziato riga per riga .
+Nel caso sia sufficiente uno stesso insieme di valori per tutte le righe utilizzare
+<i>multiDataBinding</i></p>
 
 
 
@@ -369,6 +396,8 @@
 </table>
 
 <h2><a name="at_multidataValueSelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString multidataValueSelector</h2>
+<p>Utilizzato in congiunzione con <i>multiDataBinding</i> o <i>multidataPropertySelector</i>.
+Seleziona il field da utilizzare come label descrittiva nella combo.</p>
 
 
 
@@ -419,7 +448,8 @@
 </table>
 
 <h2><a name="at_selector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString selector</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Seleziona il field del record di cui è costituita la collezione associata alla
+tabella.</p>
 
 
 
@@ -470,7 +500,7 @@
 </table>
 
 <h2><a name="at_sortable" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean sortable</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Se impostata a <i>true</i> la colonna è ordinabile cliccando sulla testata.</p>
 
 
 
@@ -522,6 +552,15 @@
 
 
 <h2><a name="re_multiDataBinding" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: AppDataBinding multiDataBinding</h2>
+<p>Permette di associare ad una colonna editabile la possibilit&agrave;
+di scegliere il valore della cella a partire da una collezione di coppie
+chiave/valore. 
+Per specificare quale campo del record di cui è costituita questa collezione ausiliaria
+utilizzare come chiave e come descrizione, occorre impostare le property
+<i>multidataKeySelector</i> e <i>multidataValueSelector</i>.
+La collezione è la stessa per tutte le righe. 
+Nel caso sia necessario differenziare l'insieme di valori a seconda della riga,
+utilizzare <i>multidataPropertySelector</i>.</p>
 
 
 
@@ -576,4 +615,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

@@ -7,7 +7,37 @@
 	</head><body>
 <h1>Class "guigen :: Table"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Tabella di visualizzazione dati. Permette di visualizzare in formato tabellare
+una collezione di record.
+Mette a disposizione alcune funzioni avanzate:
+<ol>
+<li>paginazione
+  <ul>
+  <li>opzionale</li>
+  <li>con possibilit&agrave; di impostare la dimensione della "pagina"</li>
+  <li>resettabile da business logic</li>
+  </ul>
+</li>  
+<li>export dei dati
+  <ul>
+  <li>opzionale</li>
+  <li>in formato PDF, XLS, RTF</li>
+  </ul>
+</li>
+<li>Con selezione della riga (&egrave; è il valore associato al DataWidget Table, utilizzabile nella business logic
+  <ul>
+  <li>opzionale (abilitata solo se è impostato un databinding/valuebinding)</li>
+  <li>singola o multipla (a seconda del tipo del databinding/valuebinding)</li>
+  </ul>
+</li>
+<li>Con possibilit&agrave; di editing delle celle
+  <ul>
+  <li>con widget di editing differenziato a seconda del tipo del dato della cella (TextField se Stringa/numerico, checkbox se boolean</li>
+  <li>con possibilit&agrave; di scegliere a runtime se una singola cella deve essere editabile o meno</li>
+  <li>con possibilit&agrave; di prendere il valore della cella da una collection (tramite combobox); la collection può essere unica per tutta la colonna o variabile per la singola riga</li>
+  </ul>
+</li>
+</ol></p>
 
 
 
@@ -118,7 +148,8 @@
 
 
 <h2><a name="at_customDecorator" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean customDecorator</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Se impostato a true abilita la definizione di un CustomDecorator, 
+per impostazioni grafiche particolari.</p>
 
 
 
@@ -169,7 +200,7 @@
 </table>
 
 <h2><a name="at_enableExport" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean enableExport</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Se impostato a true abilita l'export della tabella.</p>
 
 
 
@@ -220,7 +251,9 @@
 </table>
 
 <h2><a name="at_pageSize" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EInt pageSize</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Numero di record max visualizzati in una pagina. 
+Un valore di "0" significa che la paginazione &egrave; disabilitata: in 
+questo caso vengono visualizzati tutti i record.</p>
 
 
 
@@ -322,7 +355,7 @@
 
 
 <h2><a name="re_columnModel" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ColumnModel columnModel</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Il modello delle colonne che la tabella dovr&agrave; visualizzare.</p>
 
 
 
@@ -377,4 +410,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

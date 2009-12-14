@@ -7,7 +7,7 @@
 	</head><body>
 <h1>Abstract Class "guigen :: Panel"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Classe astratta dalla quale discendono tutti i pannelli</p>
 
 
 
@@ -103,16 +103,17 @@
 
 <p>Referenced by</p>
 <ul>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandOnPanels.html#re_targetPanels">targetPanels</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/CommandOnPanels.html">guigen :: CommandOnPanels</a>)</li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ActivateMultiPanelItemCommand.html#re_activeItem">activeItem</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ActivateMultiPanelItemCommand.html">guigen :: ActivateMultiPanelItemCommand</a>)</li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/PanelDef.html#re_panel">panel</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/PanelDef.html">guigen :: PanelDef</a>)</li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MultiPanel.html#re_panels">panels</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MultiPanel.html">guigen :: MultiPanel</a>)</li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/FormPanel.html#re_subpanels">subpanels</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/FormPanel.html">guigen :: FormPanel</a>)</li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ContentPanel.html#re_panels">panels</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ContentPanel.html">guigen :: ContentPanel</a>)</li>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ActivateMultiPanelItemCommand.html#re_activeItem">activeItem</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ActivateMultiPanelItemCommand.html">guigen :: ActivateMultiPanelItemCommand</a>)</li>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/PanelDef.html#re_panel">panel</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/PanelDef.html">guigen :: PanelDef</a>)</li>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandOnPanels.html#re_targetPanels">targetPanels</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/CommandOnPanels.html">guigen :: CommandOnPanels</a>)</li>
 </ul>
 
 <h2><a name="at_label" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString label</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Etichetta descrittiva del pannello. Il rendering e l'utilizzo di questo elemento
+dipende dal particolare sottotipo di pannello e dalla cartuccia di layout/portale.</p>
 
 
 
@@ -163,7 +164,8 @@
 </table>
 
 <h2><a name="at_name" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString name</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Codice identificativo del pannello. Deve essere univoco all'interno del
+<b>ContentPanel</b> e deve essere un identificatore valido java.</p>
 
 
 
@@ -215,7 +217,13 @@
 
 
 <h2><a name="re_layout" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: PanelLayout layout</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Il layout con cui devono essere organizzati visivamente gli elementi interni
+al pannello, che possono essere, a seconda del sottotipo di pannello,
+dei sottopannelli o dei widget.
+L'impostazioen della disposizione effettiva degli elementi interni, fissato un particolare layout,
+deve essere completata tramite un LayoutSpecifier (su ciascun elemento interno)
+coerente con il tipo di layout scelto (es. Se il layout è un GridLayout, negli elementi interni 
+occorre specificare un GrigWidgetLayoutSpec).</p>
 
 
 
@@ -269,7 +277,8 @@
 </table>
 
 <h2><a name="re_layoutSpec" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: WidgetLayoutSpecifier layoutSpec</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Specificatore del posizionamento di questo pannello all'intenro del layout
+del pannello contenitore.</p>
 
 
 
@@ -324,4 +333,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

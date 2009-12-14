@@ -7,6 +7,9 @@
 	</head><body>
 <h1>Class "guigen :: ScreenState"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Stato di visibili&agrave; / abilitazione dei widget contenuti in un 
+<b>ContentPanel</b>. Per passare da uno stato all'altro &egrave; 
+necessario utilizzare il comando <b>ScreenStateCommand</b>.</p>
 
 
 
@@ -54,12 +57,13 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenState.html">guigen :: ScreenState</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ContentPanel.html#re_defaultState">defaultState</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ContentPanel.html">guigen :: ContentPanel</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenState.html">guigen :: ScreenState</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ScreenStates.html#re_states">states</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenStates.html">guigen :: ScreenStates</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenState.html">guigen :: ScreenState</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ScreenStateCommand.html#re_goTo">goTo</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenStateCommand.html">guigen :: ScreenStateCommand</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenState.html">guigen :: ScreenState</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ContentPanel.html#re_defaultState">defaultState</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ContentPanel.html">guigen :: ContentPanel</a>)</li>
 </ul>
 
 <h2><a name="at_name" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString name</h2>
+<p>codice identificativo dello stato. Deve essere univoco nel content panel.</p>
 
 
 
@@ -111,6 +115,8 @@
 
 
 <h2><a name="re_widgetsOn" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Widget widgetsOn</h2>
+<p>elenco dei widget che devono essere resi editabili se il <b>ContentPanel</b>
+&egrave; in questo stato.</p>
 
 
 
@@ -164,6 +170,8 @@
 </table>
 
 <h2><a name="re_widgetsVisible" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Widget widgetsVisible</h2>
+<p>elenco dei widget che devono essere resi visibili se il <b>ContentPanel</b>
+&egrave; in questo stato.</p>
 
 
 
@@ -218,4 +226,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

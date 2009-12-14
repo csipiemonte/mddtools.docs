@@ -7,7 +7,13 @@
 	</head><body>
 <h1>Class "guigen :: ComboBox"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>MultiDataWidget che permette la selezione di uno o più valori all'interno di 
+un elenco di possibili opzioni.
+Se il value-binding &egrave; impostato su un <b>ApplicationData</b> di tipo
+Simple la combo sar&agrave; a selezione singola; se il value-binding &egrave; impostato su un <b>ApplicationData</b> di tipo
+TypedArray (con component type Simple) la combo sar&agrave; a selezione multipla.
+Alla combo &egrave; possibile associare un event handler relativo all'evento
+VALUE_CHANGED, che viene scatenato nel momento un cui viene modificata la selezione.</p>
 
 
 
@@ -48,6 +54,7 @@
 <p>Direct Attributes</p>
 <ul>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/ComboBox.html#at_keySelector">keySelector</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/ComboBox.html#at_omitHeaderValue">omitHeaderValue</a></li>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/ComboBox.html#at_valueSelector">valueSelector</a></li>
 </ul>
 
@@ -112,7 +119,9 @@
 
 
 <h2><a name="at_keySelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString keySelector</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>nome del campo che deve essere considerato come "key". Il campo deve
+corrispondere ad un field del complex type di cui è costituito l'array
+collegato alla combo (tramite multi-data-binding).</p>
 
 
 
@@ -162,8 +171,61 @@
 </tbody>
 </table>
 
+<h2><a name="at_omitHeaderValue" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean omitHeaderValue</h2>
+<p>Se impostato a true non viene inserita la entry relativa allo stato di selezione nulla.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>false</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>omitHeaderValue</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
 <h2><a name="at_valueSelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString valueSelector</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>nome del campo che deve essere utilizzato come descrizione visualizzata. Il campo deve
+corrispondere ad un field del complex type di cui è costituito l'array
+collegato alla combo (tramite multi-data-binding).</p>
 
 
 
@@ -216,4 +278,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

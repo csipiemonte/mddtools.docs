@@ -7,7 +7,7 @@
 	</head><body>
 <h1>Class "guigen :: AppDataBinding"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Collegamento con un application data o con una parte di esso.</p>
 
 
 
@@ -54,13 +54,23 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/DataWidget.html#re_databinding">databinding</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/DataWidget.html">guigen :: DataWidget</a>)</li>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MultiDataWidget.html#re_multiDataBinding">multiDataBinding</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MultiDataWidget.html">guigen :: MultiDataWidget</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Column.html#re_multiDataBinding">multiDataBinding</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Column.html">guigen :: Column</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MultiDataWidget.html#re_multiDataBinding">multiDataBinding</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MultiDataWidget.html">guigen :: MultiDataWidget</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/DataWidget.html#re_databinding">databinding</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/DataWidget.html">guigen :: DataWidget</a>)</li>
 </ul>
 
 <h2><a name="at_path" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString path</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Se specificato fain modo che il binding non sia sul valore dell'application data, ma
+su uno specifico field del record.
+Ad esempio se un application data "titolare" ha come tipo un <b>ComplexType</b>
+di nome <i>Persona</i>, con un campo <i>nome</i>, &egrave; possibile
+associare un textfield a tale campo impostando nell'<b>AppDataBinding</b>:
+<ul>
+<li>l'elemento <i>appData</i> in modo che punti all'application data "titolare"</li>
+<li>l'elemento <i>path</i> in modo che valga "nome"</li>
+</ul>
+E'ovviamente possibile utilizzare <i>path</i> pi&ugrave; complessi
+(es. "persona.indirizzo.numCivico").</p>
 
 
 
@@ -112,7 +122,7 @@
 
 
 <h2><a name="re_appData" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ApplicationData appData</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>L'application data collegato</p>
 
 
 
@@ -167,4 +177,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

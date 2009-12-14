@@ -7,7 +7,7 @@
 	</head><body>
 <h1>Class "guigen :: EventHandler"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Gestore di un evento di User Interaction.</p>
 
 
 
@@ -55,13 +55,13 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuItem.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuItem.html">guigen :: MenuItem</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Menu.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Menu.html">guigen :: Menu</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_eventHandlers">eventHandlers</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuItem.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuItem.html">guigen :: MenuItem</a>)</li>
 </ul>
 
 <h2><a name="at_eventType" /><img src="../icons/ecore/EAttribute.gif" />Attribute guigen :: EventTypes eventType</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Specifica il tipo di evento per cui &egrave; definito questo event handler.</p>
 
 
 
@@ -112,7 +112,10 @@
 </table>
 
 <h2><a name="at_skipValidation" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean skipValidation</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Se impostato a true non saranno eseguite le logiche automatiche di conversione/validazione
+a fronte dell'occorrenza dell'evento specificato.
+Serve per gestire casi in cui la non conformit&agrave; dei dati immessi non
+&egrave; importante, anzi deve essere ignorata (es. il tasto "indietro" o "annulla").</p>
 
 
 
@@ -164,7 +167,8 @@
 
 
 <h2><a name="re_command" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Command command</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>A fronte dell'evento specificato in <i>eventType</i> sar&agrave; eseguito
+il comando specificato in questo elemento.</p>
 
 
 
@@ -219,4 +223,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

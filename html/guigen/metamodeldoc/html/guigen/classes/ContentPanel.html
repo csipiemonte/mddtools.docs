@@ -7,7 +7,9 @@
 	</head><body>
 <h1>Class "guigen :: ContentPanel"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Il <b>Content Panel</b> rappresenta la singola schermata
+dell'applicativo. Pu&ograve; contenere pannelli strutturati con differenti
+tipi di layout.</p>
 
 
 
@@ -62,10 +64,13 @@
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ContentPanel.html">guigen :: ContentPanel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/JumpCommand.html#re_jumpTo">jumpTo</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/JumpCommand.html">guigen :: JumpCommand</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ContentPanel.html">guigen :: ContentPanel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/AppModule.html#re_contentPanels">contentPanels</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppModule.html">guigen :: AppModule</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ContentPanel.html">guigen :: ContentPanel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ApplicationArea.html#re_contentPanels">contentPanels</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ApplicationArea.html">guigen :: ApplicationArea</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ContentPanel.html">guigen :: ContentPanel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ApplicationArea.html#re_homePage">homePage</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ApplicationArea.html">guigen :: ApplicationArea</a>)</li>
 </ul>
 
 <h2><a name="at_name" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString name</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Nome identificativo del content panel. Deve essee univoco all'interno dell'
+applicazione.
+Deve essere un identificatore valido nello stile Java.</p>
 
 
 
@@ -117,7 +122,9 @@
 
 
 <h2><a name="re_appData" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ApplicationData appData</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Elenco degli <b>ApplicationData</b> utilizzabili per i binding di dati. 
+Deprecato: definire gli <b>ApplicationData</b> in uno o pi&ugrave; 
+<b>AppDataGroup</b>, mantenuti in file separati.</p>
 
 
 
@@ -171,6 +178,7 @@
 </table>
 
 <h2><a name="re_defaultState" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ScreenState defaultState</h2>
+<p>Stato di attivazione del ContentPanel di default.</p>
 
 
 
@@ -224,6 +232,8 @@
 </table>
 
 <h2><a name="re_dialogs" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: DialogPanel dialogs</h2>
+<p>Elenco dei <b>Dialog</b> di feedback associati al content panel.
+Devono essere attivati mediante il comando <b>ShowDialogCommand</b>.</p>
 
 
 
@@ -277,7 +287,12 @@
 </table>
 
 <h2><a name="re_onRefreshCommand" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Command onRefreshCommand</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Comando che viene eseguito ad ogni refresh della pagina, sia che sia 
+conseguente all'invocazione di un event handler, sia che si tratti di un
+puro refresh o della visualizzazione iniziale.
+Nel caso sia conseguente all'invocazione di un <b>EventHandler</b>
+questo comando viene eseguito <b>prima</b> del comando associato.
+</p>
 
 
 
@@ -331,7 +346,7 @@
 </table>
 
 <h2><a name="re_panels" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Panel panels</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Il pannello principale inserito nel content Panel.</p>
 
 
 
@@ -385,6 +400,7 @@
 </table>
 
 <h2><a name="re_states" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ScreenStates states</h2>
+<p>Stati di attivazione del ContentPanel</p>
 
 
 
@@ -439,4 +455,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

@@ -7,7 +7,9 @@
 	</head><body>
 <h1>Class "guigen :: DataWidget"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Classe astratta dalla quale discendono tutte le classi che rappresentano
+widget associabili a dati (<b>ApplicationData</b>). Un <b>DataWidget</b>
+ha un concetto di <i>valore</i> del widget che rappresenta l'input inserito.</p>
 
 
 
@@ -186,7 +188,10 @@
 </table>
 
 <h2><a name="at_required" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean required</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Configurazione di validazione che indica che il valore associato al widget è obbligatorio. 
+Utilizzato solo nel caso di binding ad un application data non strutturato.
+Nel caso di binding con un field di un application data di tipo strutturato, 
+l'eventuale constraint di obbligatoriet&agrave; deve essere impostato nel <b>ComplexType</b>.</p>
 
 
 
@@ -238,7 +243,10 @@
 
 
 <h2><a name="re_dataType" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Type dataType</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Tipo del valore atteso. Deve essere un <b>SimpleType</b> e deve corrispondenre con il tipo del
+binding eventualmente associato.
+Se non viene associato nessun binding, esiste comunque un binding implicito
+a scope USER_ACTION (sconsigliato).</p>
 
 
 
@@ -292,7 +300,8 @@
 </table>
 
 <h2><a name="re_databinding" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: AppDataBinding databinding</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Il binding verso l' <b>ApplicationData</b> nel quale deve essere inserito
+il valore immesso dall'utente tramite il widget.</p>
 
 
 
@@ -347,4 +356,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

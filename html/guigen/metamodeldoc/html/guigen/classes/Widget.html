@@ -7,7 +7,7 @@
 	</head><body>
 <h1>Abstract Class "guigen :: Widget"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Classe astratta dalla quale discendono tutti i vari tipi di widget.</p>
 
 
 
@@ -107,17 +107,17 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/FormPanel.html#re_widgets">widgets</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/FormPanel.html">guigen :: FormPanel</a>)</li>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuPanel.html#re_widgets">widgets</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuPanel.html">guigen :: MenuPanel</a>)</li>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandOnWidgets.html#re_targetWidgets">targetWidgets</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/CommandOnWidgets.html">guigen :: CommandOnWidgets</a>)</li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ScreenState.html#re_widgetsOn">widgetsOn</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenState.html">guigen :: ScreenState</a>)</li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ScreenState.html#re_widgetsVisible">widgetsVisible</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ScreenState.html">guigen :: ScreenState</a>)</li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/FormPanel.html#re_widgets">widgets</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/FormPanel.html">guigen :: FormPanel</a>)</li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandPanel.html#re_widgets">widgets</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/CommandPanel.html">guigen :: CommandPanel</a>)</li>
 	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/WidgetsPanel.html#re_widgets">widgets</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/WidgetsPanel.html">guigen :: WidgetsPanel</a>)</li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandOnWidgets.html#re_targetWidgets">targetWidgets</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/CommandOnWidgets.html">guigen :: CommandOnWidgets</a>)</li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuPanel.html#re_widgets">widgets</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuPanel.html">guigen :: MenuPanel</a>)</li>
 </ul>
 
 <h2><a name="at_defaultEnabled" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean defaultEnabled</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>stato di abilitazione di default del widget</p>
 
 
 
@@ -168,7 +168,7 @@
 </table>
 
 <h2><a name="at_defaultVisible" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean defaultVisible</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>stato di visibilit&agrave; di default del widget</p>
 
 
 
@@ -219,7 +219,7 @@
 </table>
 
 <h2><a name="at_label" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString label</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Etichetta associata al widget.</p>
 
 
 
@@ -270,7 +270,9 @@
 </table>
 
 <h2><a name="at_name" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString name</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Codice identificativo del widget. Deve essere univoco all'interno del 
+<b>ContentPanel</b> che lo contiene e deve essere un identificativo
+valido java.</p>
 
 
 
@@ -322,7 +324,8 @@
 
 
 <h2><a name="re_eventHandlers" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: EventHandler eventHandlers</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Gestori degli eventi associati al widget. Le tipologie di evento gestite sono
+dipendenti dal particolare tipo di widget.</p>
 
 
 
@@ -376,7 +379,9 @@
 </table>
 
 <h2><a name="re_layoutSpec" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: WidgetLayoutSpecifier layoutSpec</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Specifica di posizionamento del widget all'interno del pannello che lo contiene.
+Il tipo dell'oggetto associato deve essere coerente con il tipo di layout del
+pannello contenitore.</p>
 
 
 
@@ -430,7 +435,22 @@
 </table>
 
 <h2><a name="re_securityConstraints" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: UISecurityConstraint securityConstraints</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>E' possibile specificare uno o pi&ugrave; security constraints sul widget, che
+permettono di rendere condizionata la visualizzazione o la abilitazione del
+widget a fronte delle condizioni descritte nel constraint.
+I constraint sono additivi (nel senso booleano) per ciascun <i>constrained behavior</i>
+(comportamento condizionato = {visibilit&agrave; / abilitazione}): se almeno un
+constraint &egrave; verificato il comportamento condizionato sar&agrave; abilitato
+(visibilit&agrave; / editabilit&agrave;).
+Se nessun constraint sar&agrave; verificato, la visualizzazioen/abilitazione sarà condizionata solo allo stato
+di default / comandato, ovvero al valore delle proprietà <b>defaultVisible</b> o 
+<b>defaultEnabled</b> se non è stato in precedenza utilizzato nessun
+comando di tipo <b>ONOFFCommand</b> o <b>VisibilityCommand</b>; se 
+tali comandi sono stati utilizzati allora "vince" l'impostazione derivante da
+questi comandi.
+Se, infine, un constraint &egrave; verificato, comunque un eventuale
+disabilitazione/invisibilit&agrave; comandata (tramite <b>ONOFFCommand</b>
+ o <b>VisibilityCommand</b>) vince.</p>
 
 
 
@@ -485,4 +505,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

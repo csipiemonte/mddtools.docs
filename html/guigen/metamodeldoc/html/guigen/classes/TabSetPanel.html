@@ -7,7 +7,18 @@
 	</head><body>
 <h1>Class "guigen :: TabSetPanel"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Tipo specifico di <b>MultiPanel</b> corredato di componente di controllo
+a "tab": per passare da un tab all'altro è sufficiente selezionare la "linguetta" 
+corrispondente.
+Come per tutti i <b>MultiPanel</b> il programmatore avrà nel model le informazioni
+riguardanti:
+<ul>
+<li>il tab correntemente visualizzato</li>
+<li>il tab "target" (quello sulla cui 2linguetta" si è cliccato; questa informazione 
+&egrave; disponibile solo all'interno di un <b>EventHandler</b> associato
+ al widget fittizio <b>TabSwitcher</b>)</li>.
+</ul>
+Il primo tab è quello visualizzato di default.</p>
 
 
 
@@ -97,6 +108,10 @@
 
 
 <h2><a name="re_switcher" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: TabSwitcher switcher</h2>
+<p>Il <b>TabSwitcher</b> &egrave; un widget fittizio che, se inserito, permette
+di effettuar eil post dei dati e l'esecuzione di logica a fronte dell'evento di
+selezione (click) delle "linguette".
+</p>
 
 
 
@@ -151,4 +166,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

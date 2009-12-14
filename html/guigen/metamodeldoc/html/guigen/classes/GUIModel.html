@@ -7,7 +7,7 @@
 	</head><body>
 <h1>Class "guigen :: GUIModel"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>[[TODO: add documentation here]]</p>
+<p>Modello di un'applicazione</p>
 
 
 
@@ -42,6 +42,7 @@
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ActivationModel.html">guigen :: ActivationModel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/GUIModel.html#re_activationModel">activationModel</a></li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ApplicationDataDefs.html">guigen :: ApplicationDataDefs</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/GUIModel.html#re_appDataDefs">appDataDefs</a></li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/GUIBehaviors.html">guigen :: GUIBehaviors</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/GUIModel.html#re_beahviors">beahviors</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/SecurityModel.html">guigen :: SecurityModel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/GUIModel.html#re_extSecurityModel">extSecurityModel</a></li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/SecurityModel.html">guigen :: SecurityModel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/GUIModel.html#re_securityModel">securityModel</a></li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/GUIStructure.html">guigen :: GUIStructure</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/GUIModel.html#re_structure">structure</a></li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/TargetPlatform.html">guigen :: TargetPlatform</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/GUIModel.html#re_targetPlatform">targetPlatform</a></li>
@@ -64,7 +65,7 @@
 
 
 <h2><a name="at_codComponente" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString codComponente</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>codice componente (caratteri minuscoli)</p>
 
 
 
@@ -115,7 +116,7 @@
 </table>
 
 <h2><a name="at_codProdotto" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString codProdotto</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>codice prodotto (caratteri minuscoli)</p>
 
 
 
@@ -166,7 +167,7 @@
 </table>
 
 <h2><a name="at_portale" /><img src="../icons/ecore/EAttribute.gif" />Attribute guigen :: PortalNames portale</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>OBSOLETE. Il poretale/cartuccia di layout èeve essere impostata nel workflow di generazione.</p>
 
 
 
@@ -217,7 +218,7 @@
 </table>
 
 <h2><a name="at_versioneComponente" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString versioneComponente</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>versione del componente</p>
 
 
 
@@ -268,7 +269,7 @@
 </table>
 
 <h2><a name="at_versioneProdotto" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString versioneProdotto</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>versione del prodotto</p>
 
 
 
@@ -320,6 +321,7 @@
 
 
 <h2><a name="re_activationModel" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ActivationModel activationModel</h2>
+<p>Configurazione delle (eventuali) specifiche di attivazione dell'applicazione.</p>
 
 
 
@@ -373,7 +375,7 @@
 </table>
 
 <h2><a name="re_appDataDefs" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ApplicationDataDefs appDataDefs</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Definizione degli application data utilizzati nell'applicazione</p>
 
 
 
@@ -480,8 +482,65 @@
 </tbody>
 </table>
 
+<h2><a name="re_extSecurityModel" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: SecurityModel extSecurityModel</h2>
+<p>Modello di sicurezza dell'applicazione.
+Deve essere definito esternamente in un modello apposito.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/SecurityModel.html">guigen :: SecurityModel</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>containment</td><td>false</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>extSecurityModel</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>resolveProxies</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
 <h2><a name="re_securityModel" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: SecurityModel securityModel</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Modello di sicurezza dell'applicazione.
+DEPRECATO: utilizzare un securitymodel definito esternamente e referenziato
+nella property extSecurityModel</p>
 
 
 
@@ -535,7 +594,7 @@
 </table>
 
 <h2><a name="re_structure" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: GUIStructure structure</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Struttura della user interface</p>
 
 
 
@@ -589,7 +648,7 @@
 </table>
 
 <h2><a name="re_targetPlatform" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: TargetPlatform targetPlatform</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Serve per generare un pacchetto deployabile su un application server piuttosto che per un altro.</p>
 
 
 
@@ -643,7 +702,8 @@
 </table>
 
 <h2><a name="re_typedefs" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Typedefs typedefs</h2>
-<p>[[TODO: add documentation here]]</p>
+<p>Tipi utilizzati nell'applicazione.
+</p>
 
 
 
@@ -698,4 +758,4 @@
 
 
 
-<div>generated on 25-nov-2009 at 10.24.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 14-dic-2009 at 14.58.19 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
