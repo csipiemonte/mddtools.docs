@@ -3,19 +3,24 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Developer documentation for the model class ActorMappingParam</title>
+	<title>Developer documentation for the model class BeginEditCommand</title>
 	</head><body>
-<h1>Class "guigen :: ActorMappingParam"</h1>
+<h1>Class "guigen :: BeginEditCommand"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Dichiara l'inizio di una sessione di editing, effettuando un backup in memoria
+degli <b>ApplicationData</b> specificati.
+La copia di backup sar&agrave; realizzata per valore e potr&agrave; essere utilizzata
+per ripristinare il valore originario (funzione di <i>undo</i> richiamata
+utilizzando <b>EndEditCommand</b>.</p>
 
 
 
 
 <p>Super and Sub Types</p>
 
-<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/PDefParam.html">guigen :: PDefParam</a>
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Command.html">guigen :: Command</a>
 
-<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: ActorMappingParam</b>
+<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: BeginEditCommand</b>
 
 </li></ul>
 
@@ -31,17 +36,13 @@
 <tr style="vertical-align:top">
 
 
-<td>
-
-</td>
-
 
 
 
 <td>
 <p>Direct References</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Actor.html">guigen :: Actor</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ActorMappingParam.html#re_defActor">defActor</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ApplicationData.html">guigen :: ApplicationData</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/BeginEditCommand.html#re_dataEdited">dataEdited</a></li>
 </ul>
 
 </td>
@@ -54,37 +55,14 @@
 
 
 
-
-<tr style="vertical-align:top">
-
-
-<td>
-<p>Inherited Attributes</p>
-<ul>
-	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/PDefParam.html#at_name">name</a></li>
-</ul>
-
-</td>
-
-
-
-
-<td>
-
-</td>
-
-
-
-
-
-</tr>
 
 
 </table>
 
 
 
-<h2><a name="re_defActor" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Actor defActor</h2>
+<h2><a name="re_dataEdited" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ApplicationData dataEdited</h2>
+<p>Elenco dei dati oggetto dell'editing.</p>
 
 
 
@@ -93,7 +71,7 @@
 <tr><th>Property</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Actor.html">guigen :: Actor</a></td></tr>
+<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ApplicationData.html">guigen :: ApplicationData</a></td></tr>
 
 <tr><td>changeable</td><td>true</td></tr>
 
@@ -110,7 +88,7 @@
 <tr><td>lowerBound</td><td>0</td></tr>
 
 
-<tr><td>name</td><td>defActor</td></tr>
+<tr><td>name</td><td>dataEdited</td></tr>
 
 
 <tr><td>ordered</td><td>true</td></tr>
@@ -128,7 +106,7 @@
 <tr><td>unsettable</td><td>false</td></tr>
 
 
-<tr><td>upperBound</td><td>1</td></tr>
+<tr><td>upperBound</td><td>-1</td></tr>
 
 
 <tr><td>volatile</td><td>false</td></tr>

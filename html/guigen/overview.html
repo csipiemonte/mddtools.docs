@@ -85,29 +85,35 @@
 	Ciascuna schermata contiene <b>Widget</b> di vario genere strutturati in pannelli (<b>Panel</b>) che possono essere dei seguenti tipi:
 	  
 	  <ul>
-	  <li><b>FormPanel</b>: pannello destinato a contenere esclusivamente <b>sottopannelli</b></li>
-	
-	  <li><b>WidgetsPanel</b>: tipo specializzato di <b>Panel</b> destinato a contenere esclusivamente <b>widget</b></li>
+	  
 	  <li><b>CommandPanel</b>: tipo specializzato di <b>Panel</b> che può contenere solo <b>widget</b> di tipo <b>Command</b> (pulsanti)</li>
-		 
+		  
+	  <li><b>DialogPanel</b>: pannello utilizzato per la visualizzazione di popup</li>
+	  
+	  <li><b>FormPanel</b>: pannello destinato a contenere esclusivamente <b>sottopannelli</b></li>
+	     
 	  <li><b>MenuPanel</b>: tipo specializzato di <b>Panel</b> che può contenere solo <b>widget</b> di tipo menu o affini (attualmente
 		   solo <b>MenuView</b> o <b>TreeView</b>).</li>
-		   
-	  <li><b>StdMessagePanel</b>: pannello di visualizzazione di messaggi (di errore ed informativi)</li>
-	
+	  
 	  <li><b>MsgBoxPanel</b>: pannello utilizzabile per la visualizzazione di messaggi o html custom (può contenere soloun tipo di widget: il <b>PlainText</b></li>
-	  
-	  <li><b>UserInfoPanel</b>: pannello utilizzato pe rmostrare in modo standard le informazioni relative all'utente collegato</li>
-	  
-	  <li><b>TabSetPanel</b>: il classico pannello a tab (il contenuto di ciascun tab &egrave; a sua volta un <b>pannello</b>)</li>
-	
-	  <li><b>WizardPanel</b>: implementazione di wizard (il contenuto di ciascuno step &egrave; a sua volta un <b>pannello</b>)</li>
 	  
 	  <li><b>MultiPanel</b>: Pannello mutevole: può assumere differenti forme in base ai sottopannelli contenuti (il contenuto di ciascun sottopannello &egrave; a sua volta un <b>pannello</b>)</li>
 	  
 	  <li><b>PanelDefUse</b>: Utilizzo di pannello definito esternamente: permette la definizione di frammenti di U.I. riusabili in pi&ugrave; modelli / punti del modello.</li>
+	
+	  <li><b>StdMessagePanel</b>: pannello di visualizzazione di messaggi (di errore ed informativi)</li>
+		 
+	  <li><b>TabSetPanel</b>: il classico pannello a tab (il contenuto di ciascun tab &egrave; a sua volta un <b>pannello</b>)</li>
 	  
-	  <li><b>DialogPanel</b>: pannello utilizzato per la visualizzazione di popup</li>
+	  <li><b>UserInfoPanel</b>: pannello utilizzato pe rmostrare in modo standard le informazioni relative all'utente collegato</li>
+	  
+	  <li><b>UserDefinedPanel</b>: pannello altamente personalizzabile (inclusione di sorgente hand written)
+	       da utilizzare in casi molto particolari</li>
+	  
+	  <li><b>WidgetsPanel</b>: tipo specializzato di <b>Panel</b> destinato a contenere esclusivamente <b>widget</b></li>
+	  
+	  <li><b>WizardPanel</b>: implementazione di wizard (il contenuto di ciascuno step &egrave; a sua volta un <b>pannello</b>)</li>
+	 
 	  </ul>
 	  
 	Ciascun singolo pannello prevede uno schema di layout (selezionabile in un insieme di possibilit&agrave;) secondo cui i sottopannelli 
@@ -313,6 +319,10 @@ Lo sviluppatore ha inoltre a disposizione nella business logic le info relative 
 	  		<li>per tutta la durata della <b>sessione utente</b> (scope = USER_SESSION)</li>
 	  		</ul>
 	  	</li>
+	  	
+	  	<li>sono coinvolti in <i>sessioni di editing</i>, con possibilit&agrave; di effettuare <i>undo</i>
+	  	    delle modifiche apportate da U.I. tramite appositi comandi. 
+	  	</li>
 	  </ul>
 	</li>
 	</ul>
@@ -359,10 +369,21 @@ Lo sviluppatore ha inoltre a disposizione nella business logic le info relative 
 			<li><b>ShowDialogCommand</b>: passare alla visualizzazione di una pagina corrispondente ad un <b>DialogPanel</b>;
 		</ul>
 		</li>		
-		<li>comandi di richiamo dell abusiness logic
+		<li>comandi di richiamo della business logic
 		<ul>
 			<li><b>ExecCommand</b>: eseguire una logica applicativa java (il cui codice deve essere scritto manualmente) e, a seconda dell'esito eseguire altre 
 	  		sequenze di comandi</li>
+		</ul>
+		</li>
+		<li>comandi di gestioen dello stato applicativo
+		<ul>
+		  <li><b>BeginEditSession</b>: inizia una sessione di editing su un insieme di <b>ApplicationData</b>
+		      mantenendo automaticamente un backup dei dati per un eventuale necessità di <i>undo</i> 
+		  </li>
+		  <li><b>EndEditSession</b>: termina una sessione di editing su un insieme di <b>ApplicationData</b>,
+		      permettendo (se specificato) di effettuare l'<i>undo</i> delle modifiche effettuate durante
+		      la sessione
+		  </li>
 		</ul>
 		</li>
 		<li>altri comandi
