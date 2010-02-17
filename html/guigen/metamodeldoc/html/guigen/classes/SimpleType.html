@@ -36,7 +36,10 @@
 <p>Direct Attributes</p>
 <ul>
 	<li><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/SimpleTypeCodes.html">guigen :: SimpleTypeCodes</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/SimpleType.html#at_code">code</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/SimpleType.html#at_dataTypeModifiers">dataTypeModifiers</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/SimpleType.html#at_editHintMsg">editHintMsg</a></li>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/SimpleType.html#at_nillable">nillable</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/SimpleType.html#at_userDefined">userDefined</a></li>
 </ul>
 
 </td>
@@ -82,7 +85,14 @@
 </ul>
 
 <h2><a name="at_code" /><img src="../icons/ecore/EAttribute.gif" />Attribute guigen :: SimpleTypeCodes code</h2>
-<p>codice che serve per discriminare il tipo base specifico.</p>
+<p>Codice che serve per discriminare il tipo base (scalare) specifico.
+Se &egrave; impostato <i>userDefined</i> a false allora il tipo
+corrisponde ad un tipo base del linguaggio host (es int, java.lang.Double).
+Se invece <i>userDefined</i> &egrave; impostato a true, viene generato
+un nuovo tipo di dato astratto basato sul tipo scalare corrispondente e 
+nel quale &egrave; possibile specificare meglio il dominio di valori ammessi e
+alcune caratteristiche di formattazione.
+</p>
 
 
 
@@ -109,6 +119,114 @@
 
 
 <tr><td>name</td><td>code</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_dataTypeModifiers" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString dataTypeModifiers</h2>
+<p>Utilizzato solo se <i>userDefined</i> = true.
+Permette di specificare il tipo di dato, in termini di restrizioni sul dominio
+di valori ammessi, opzioni di formattazione etc.<br />[[TODO: documentare sintassi ]]</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>dataTypeModifiers</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>-1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_editHintMsg" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString editHintMsg</h2>
+<p>Utilizzato solo se <i>userDefined</i> == true.
+Permette di specificare il messaggio che deve essere utilizzato per descrivere
+il range di valori ammessi. Può essere utilizzato, a seconda delle cartucce di 
+generazione, come tooltip oppure come messaggio di errore in caso di 
+immissione di un valore scorretto.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>editHintMsg</td></tr>
 
 
 <tr><td>ordered</td><td>true</td></tr>
@@ -183,7 +301,60 @@
 </tbody>
 </table>
 
+<h2><a name="at_userDefined" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean userDefined</h2>
+<p>Se impostato a true viene generata una classe che rappresenta il tipo di dato
+e everr&agrave; utilizzata questa classe al posto del tipo scalare corrispondente,
+che sar&agrave; utilizzato come contenitore del dato internamente alla classe.</p>
 
 
 
-<div>generated on 18-dic-2009 at 9.57.24 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>false</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>userDefined</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+
+
+<div>generated on 17-feb-2010 at 10.43.55 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

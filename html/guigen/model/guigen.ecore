@@ -772,6 +772,13 @@
         <details key="documentation" value="Occorre dichiarare preventivamente gli application data che saranno modificati nella logica applicativa."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customTemplate" eType="#//CustomTemplate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extraModels" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Eventuali modelli (porzioni di modello) aggiuntivi utilizzabili dalle varie cartucce&#xD;&#xA;di generazione 100% (es. modello del mapping RDB, ... modello di una&#xD;&#xA;interfaccia di servizio, ...)&#xD;&#xA;&#xD;&#xA;&lt;b>Attenzione&lt;/b>: Questa opzione &amp;egrave; da considerarsi una possibilit&amp;agrave; &lt;b>avanzata&lt;/b> &#xD;&#xA;da utilizzarsi con cautela."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EventHandler">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1074,7 +1081,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="#//SimpleTypeCodes">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="codice che serve per discriminare il tipo base specifico."/>
+        <details key="documentation" value="Codice che serve per discriminare il tipo base (scalare) specifico.&#xD;&#xA;Se &amp;egrave; impostato &lt;i>userDefined&lt;/i> a false allora il tipo&#xD;&#xA;corrisponde ad un tipo base del linguaggio host (es int, java.lang.Double).&#xD;&#xA;Se invece &lt;i>userDefined&lt;/i> &amp;egrave; impostato a true, viene generato&#xD;&#xA;un nuovo tipo di dato astratto basato sul tipo scalare corrispondente e &#xD;&#xA;nel quale &amp;egrave; possibile specificare meglio il dominio di valori ammessi e&#xD;&#xA;alcune caratteristiche di formattazione.&#xD;&#xA;"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nillable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -1082,11 +1089,29 @@
         <details key="documentation" value="Se impostato a true, il tipo ammette il vlaore &lt;i>null&lt;/i> nel suo dominio."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userDefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Se impostato a true viene generata una classe che rappresenta il tipo di dato&#xD;&#xA;e everr&amp;agrave; utilizzata questa classe al posto del tipo scalare corrispondente,&#xD;&#xA;che sar&amp;agrave; utilizzato come contenitore del dato internamente alla classe."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataTypeModifiers" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Utilizzato solo se &lt;i>userDefined&lt;/i> = true.&#xD;&#xA;Permette di specificare il tipo di dato, in termini di restrizioni sul dominio&#xD;&#xA;di valori ammessi, opzioni di formattazione etc.&#xD;&#xA;&#xD;&#xA;[[TODO: documentare sintassi ]]"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="editHintMsg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Utilizzato solo se &lt;i>userDefined&lt;/i> == true.&#xD;&#xA;Permette di specificare il messaggio che deve essere utilizzato per descrivere&#xD;&#xA;il range di valori ammessi. Può essere utilizzato, a seconda delle cartucce di &#xD;&#xA;generazione, come tooltip oppure come messaggio di errore in caso di &#xD;&#xA;immissione di un valore scorretto."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexType" eSuperTypes="#//Type">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Struttura dati definita da utente. &#xD;&#xA;Nel caso di questa sottoclasse di &lt;b>Type&lt;/b> l'attributo &lt;i>name&lt;/i>&#xD;&#xA;deve essere un identificativo valido per java."/>
     </eAnnotations>
+    <eOperations name="getAllFields" upperBound="-1" eType="#//Field"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
         eType="#//Field" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1099,6 +1124,7 @@
         <details key="documentation" value="Se impostato a true, i field di tipo complex sono inizializzati&#xD;&#xA;(con struttura vuota al momento dell'istaziazione di oggetti di questo tipo).&#xD;&#xA;Es. Se un tipo &quot;Persona&quot; contiene un field &quot;residenza&quot; di tipo &quot;Indirizzo&quot; e &lt;i>initFields&lt;/i>&#xD;&#xA; &amp;egrave; impostato a true, allora il field &quot;residenza&quot; viene impostato con&#xD;&#xA;un'oggetto di tipo &quot;Indirizzo&quot;."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//ComplexType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypedArray" eSuperTypes="#//Type">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1766,6 +1792,9 @@
         <details key="documentation" value="PER FUTURI SVILUPPI"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" eType="#//PanelDefStates"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultState" eType="#//PanelDefState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PDefParam" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1843,5 +1872,237 @@
   <eClassifiers xsi:type="ecore:EClass" name="ActivationParam">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SimpleType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BeginEditCommand" eSuperTypes="#//Command">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Dichiara l'inizio di una sessione di editing, effettuando un backup in memoria&#xD;&#xA;degli &lt;b>ApplicationData&lt;/b> specificati.&#xD;&#xA;La copia di backup sar&amp;agrave; realizzata per valore e potr&amp;agrave; essere utilizzata&#xD;&#xA;per ripristinare il valore originario (funzione di &lt;i>undo&lt;/i> richiamata&#xD;&#xA;utilizzando &lt;b>EndEditCommand&lt;/b>."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataEdited" upperBound="-1"
+        eType="#//ApplicationData">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Elenco dei dati oggetto dell'editing."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndEditCommand" eSuperTypes="#//Command">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Permette di terminare una sessione di editing su un certo insieme di &lt;b>ApplicationData&lt;/b>,&#xD;&#xA;con la possibilità di effettuare un &lt;i>undo&lt;/i> sui dati specificati.&#xD;&#xA;Utilizzato in congiunzione con &lt;b>BeginEditCommand&lt;/b>. &#xD;&#xA;Nota: data la struttura dei due comandi di inizio e fine della sessione di&#xD;&#xA;editing &amp;egrave; possibile effettuare l'&lt;i>undo&lt;/i> di una parte degli&#xD;&#xA;application data specificati nel comando di inizio editing (specificando&#xD;&#xA;nel &lt;b>EndEditCommand&lt;/b> solo una parte degli application data&#xD;&#xA;precedentemente specificati nel &lt;b>BeginEditCommand&lt;/b>.&#xD;&#xA;Si consiglia, in questi casi, di terminare correttamente la sessione di &#xD;&#xA;editing per &lt;b>tutti&lt;/b> gli application data per evitar eche rimangano &#xD;&#xA;in memoria dati di backup obsoleti.&#xD;&#xA;Per far ci&amp;ograve; &amp;egrave; sufficiente utilizzare due volte il comando&#xD;&#xA;&lt;b>EndEditCommand&lt;/b>: la prima volta con &lt;i>undo&lt;/i> impostato a&#xD;&#xA;true (e specificando solo i dati di cui si vuole effettuare l'undo) e&#xD;&#xA;una seconda volta con &lt;i>undo&lt;/i> impostato a false, specificando &#xD;&#xA;i restanti dati.&#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataEdited" upperBound="-1"
+        eType="#//ApplicationData">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Elenco dei dati oggetto dell'editing."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="undo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Se impostato a true viene ripristinato il valore originario di tutti gli&#xD;&#xA;&lt;b>ApplicationData&lt;/b> indicati."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChkEditStatusCommand" eSuperTypes="#//Command">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Permette di verificare se, all'interno di una sessione di editing, vi sono state&#xD;&#xA;delle variazioni al valore di uno o pi&amp;ugrave; &lt;b>ApplicationData&lt;/b>.&#xD;&#xA;Affinch&amp;egrave; il check sia veritiero è necessario che gli &lt;b>ApplicationData&lt;/b>&#xD;&#xA;oggetto di verifica siano un sottoinsieme dell'insieme di &lt;b>ApplicationData&lt;/b>&#xD;&#xA;indicati nel comando &lt;b>BeginEditCommand&lt;/b> che ha originato&#xD;&#xA;la sessione di editing (altrimenti non sar&amp;agrave; disponibile il valore originario&#xD;&#xA;con il quale effettuare il check di modifica).&#xD;&#xA;A fronte dell'esito del check sarà possibile proseguire l'esecuzione con uno &#xD;&#xA;tra due comandi (referenziati nei due elementi di tipo &lt;b>CommandOutcome&lt;/b>).&#xD;&#xA;Mediante l'attributo &lt;i>checkAggregation&lt;/i>E'possibile specificare la logica di aggregazione del check relativamente&#xD;&#xA;ai vari &lt;b>ApplicationData&lt;/b> referenziati:&#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>OR: l'esito sar&amp;agrave; di &quot;occorsa variazione&quot; se il valore di almeno uno dei dati&#xD;&#xA;      referenziati avr&amp;agrave; subito una modifica rispatto allo stato originale.&lt;/li>&#xD;&#xA;&lt;li>AND: l'esito sar&amp;agrave; di &quot;occorsa variazione&quot; se il valore di tutti i dati&#xD;&#xA;      referenziati avr&amp;agrave; subito una modifica rispatto allo stato originale.&lt;/li>&#xD;&#xA;&lt;li>XOR: l'esito sar&amp;agrave; di &quot;occorsa variazione&quot; se il valore di uno soltanto tra i dati&#xD;&#xA;      referenziati avr&amp;agrave; subito una modifica rispatto allo stato originale.&lt;/li>&#xD;&#xA;&lt;/ul>"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataChecked" upperBound="-1"
+        eType="#//ApplicationData">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Elenco dei dati oggetto della verifica. Devono essere un sottoinsieme &#xD;&#xA;dei dati referenziati nel corrispondente &lt;b>BeginEditCommand&lt;/b>."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkAggregation" eType="#//LogicAggregationTypes"
+        defaultValueLiteral="OR">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tipo di aggregazione dei check sui dati. Possibilit&amp;agrave;:&#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>OR: l'esito sar&amp;agrave; di &quot;occorsa variazione&quot; se il valore di almeno uno dei dati&#xD;&#xA;      referenziati avr&amp;agrave; subito una modifica rispatto allo stato originale.&lt;/li>&#xD;&#xA;&lt;li>AND: l'esito sar&amp;agrave; di &quot;occorsa variazione&quot; se il valore di tutti i dati&#xD;&#xA;      referenziati avr&amp;agrave; subito una modifica rispatto allo stato originale.&lt;/li>&#xD;&#xA;&lt;li>XOR: l'esito sar&amp;agrave; di &quot;occorsa variazione&quot; se il valore di uno soltanto tra i dati&#xD;&#xA;      referenziati avr&amp;agrave; subito una modifica rispatto allo stato originale.&lt;/li>&#xD;&#xA;&lt;/ul>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doIfChanged" eType="#//CommandOutcome"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifica il branch di elaborazione da eseguire nel caso che i check&#xD;&#xA;specificati indichino che ci sono state delle modifiche."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doIfNotChanged" eType="#//CommandOutcome"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifica il branch di elaborazione da eseguire nel caso che i check&#xD;&#xA;specificati indichino che &lt;i>non&lt;/i> ci sono state delle modifiche."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LogicAggregationTypes">
+    <eLiterals name="OR" value="1" literal="OR"/>
+    <eLiterals name="AND" value="2" literal="AND"/>
+    <eLiterals name="XOR" value="3" literal="XOR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PanelDefState">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Stato di visibili&amp;agrave; / abilitazione dei widget contenuti in un &#xD;&#xA;&lt;b>PanelDef&lt;/b>. Per passare da uno stato all'altro &amp;egrave; &#xD;&#xA;necessario utilizzare il comando &lt;b>PDefStateCommand&lt;/b>."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="codice identificativo dello stato. Deve essere univoco nel &lt;b>PanelDef&lt;/b>."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="widgetsOn" upperBound="-1"
+        eType="#//Widget">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="elenco dei widget che devono essere resi editabili se il &lt;b>PanelDef&lt;/b>&#xD;&#xA;&amp;egrave; in questo stato."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="widgetsVisible" upperBound="-1"
+        eType="#//Widget">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="elenco dei widget che devono essere resi visibili se il &lt;b>PanelDef&lt;/b>&#xD;&#xA;&amp;egrave; in questo stato."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PDefStateCommand" eSuperTypes="#//Command">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Permette di far passare un &lt;b>PanelDef&lt;/b> nello stato specificato. &#xD;&#xA;Pu&amp;ograve; essere utilizzato in due modi:&#xD;&#xA;&lt;ol>&#xD;&#xA;&lt;li>all'interno del &lt;b>PanelDef&lt;/b>, in una catena di comandi referenziata&#xD;&#xA;       da un &lt;b>EventHandler&lt;/b>: in questo caso l'effetto del comando&#xD;&#xA;       &amp;egrave; applicato ai widget dell'istanza di &lt;b>PanelDef&lt;/b> sulla quale&#xD;&#xA;       &amp;egrave; indirizzato l'evento&lt;/li>.&#xD;&#xA;&lt;li>all'interno di un &lt;b>ContentPanel&lt;/b> che referenzia un &lt;b>PanelDef&lt;/b>&#xD;&#xA;tramite &lt;b>PanelDefUse&lt;/b>: in questo caso il comando &amp;egrave; inserito&#xD;&#xA;all'interno di una catena di comandi referenziata da un &lt;b>EventHandler&lt;/b>&#xD;&#xA;associato ad un &lt;b>Widget&lt;/b> definito nel &lt;b>ContentPanel&lt;/b>. Ovviamente&#xD;&#xA;&amp;egrave; necessario indicare, in questo caso, il &lt;b>PanelDefUse&lt;/b> al quale&#xD;&#xA;deve essere inviato il comando (che nel caso precedente &amp;egrave; implicito)&#xD;&#xA;&lt;/li>&#xD;&#xA;&lt;/ol>"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goTo" eType="#//PanelDefState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Lo stato in cui si desidera far passare il &lt;b>PanelDef&lt;/b>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pDefUse" eType="#//PanelDefUse">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Il &lt;b>PanelDefUse&lt;/b> a cui deve essere indirizzato il comando. Deve essere utilizzato solo&#xD;&#xA;nel caso di utilizzo del comando esterno al &lt;b>PanelDef&lt;/b>."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PanelDefStates">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="elenco delgi stati disponibili per un determinato &lt;b>PanelDef&lt;/b>."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//PanelDefState" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableCustomizationParam" eSuperTypes="#//PDefParam">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definizione di parametro di &lt;b>PanelDef&lt;/b> che permette di personalizzare&#xD;&#xA;una &lt;b>Table&lt;/b> contenuta nel &lt;b>PanelDef&lt;/b>.&#xD;&#xA;La personalizzazione consiste nella possibilit&amp;agrave; di:&#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>aggiungere colonne extra in una posizione ben definita rispetto alle colonne&#xD;&#xA;      preessitenti nella tabella base&lt;/li>&#xD;&#xA;&lt;li>nascondere una parte delle colonne presenti nella tabella base&lt;/li>&#xD;&#xA;&lt;/ul>"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseTable" eType="#//Table">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="La &lt;b>Table&lt;/b> su cui &amp;egrave; possibile effettuare la personalizzazione."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtraColumn" eSuperTypes="#//Column">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Tipo specifico di &lt;b>Column&lt;b> utilizzabile in un &lt;b>TableCustomizationParam&lt;/b> &#xD;&#xA;per aggiungere colonne ad una &lt;b>Table&lt;/b> presente in un &lt;b>PanelDef&lt;/b>"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="insertAfter" eType="#//Column">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indica in che posizione deve essere aggiunta la nuova colonna:&#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>se l'attributo non &amp;egrave; impostato la colonna verr&amp;agrave; aggiunta&#xD;&#xA;       in prima posizione&lt;/li>&#xD;&#xA;&lt;li>se l'attributo &amp;egrave; valorizzato la colonna verr&amp;agrave; inserita dopo&#xD;&#xA;la colonna indicata&lt;/li>&#xD;&#xA;&lt;/ul>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableCustomizationPDefVal" eSuperTypes="#//PDefParamVal">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Valorizzazione di parametro di &lt;b>PanelDef&lt;/b> che permette di personalizzare&#xD;&#xA;una &lt;b>Table&lt;/b> per la quale &amp;egrave; stata prevista la personalizzabilit&amp;agrave;&#xD;&#xA;(tramite un &lt;b>TableCustomizationPDefVal&lt;/b>."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extraCols" upperBound="-1"
+        eType="#//ExtraColumn" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="L'elenco delle colonne da aggiungere alle colonne preesistenti nella tabella&#xD;&#xA;base. Le colonne saranno aggiunte secondo quanto specificato nell'&#xD;&#xA;attributo &lt;i>insertAfter&lt;/i> dell'oggetto &lt;b>ExtraColumn&lt;/b> corrispondente.&#xD;&#xA;Se due &lt;b>ExtraColumn&lt;/b> presentano lo stesso valore di tale attributo, esse&#xD;&#xA;saranno inserite nell'ordine in cui sono presenti in questo elenco."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hiddenCols" upperBound="-1"
+        eType="#//Column">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Elenco delle colonne della &lt;b>Table&lt;/b> base che devono essere nascoste."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomCartridge">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Cartuccia custom da utilizzare per la &lt;i>full-code generation&lt;/i> in un &#xD;&#xA;&lt;b>ExecCommand&lt;/b>.&#xD;&#xA;La definizione di una &lt;b>CustomCartridge&lt;/b> &amp;egrave; considerata una &#xD;&#xA;feature avanzata."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Nome mnemonico della cartuccia."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="crtID" eType="#//CustomCartridgeID">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="id della cartuccia"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templates" upperBound="-1"
+        eType="#//CustomTemplate" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Template messi a disposizione dalla cartuccia."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CustomCartridgeID">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Elenco dei codici che possono essere utilizzati per classificare le cartucce.&#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>&#xD;&#xA;I valori &lt;b>PLATF_1&lt;/b> ... &lt;b>PLATF_5&lt;/b> sono riservati alle estensioni&#xD;&#xA;abilitanti all'utilizzo di una &lt;i>piattaforma&lt;/i> (es. BPM-FLUX, ...). Queste estensioni&#xD;&#xA;sono realizzate da chi gestisce la piattaorma in congiunzione con il gruppo di &#xD;&#xA;competenza MDD.&#xD;&#xA;&lt;/li>&#xD;&#xA;&lt;li>&#xD;&#xA;I valori &lt;b>TECH_1&lt;/b> ... &lt;b>TECH_5&lt;/b> sono riservati alle estensioni&#xD;&#xA;specifiche di una determinata problematica &lt;i>tecnologica&lt;/i> (es. accesso al DB, accesso a servizi,, ...)&#xD;&#xA;Queste estensioni sono realizzate da chi gestisce gli standard di sviluppo in congiunzione con il gruppo di &#xD;&#xA;competenza MDD.&#xD;&#xA;&lt;/li>&#xD;&#xA;&lt;li>&#xD;&#xA;I valori &lt;b>CUSTOM_1&lt;/b> ... &lt;b>CUSTOM_3&lt;/b> sono riservati alle estensioni&#xD;&#xA;specifiche di un determinato progetto &lt;i>tecnologica&lt;/i>.&#xD;&#xA;Queste estensioni p'ossono essere realizzate dal gruppo di progetto con il supporto&#xD;&#xA;del gruppo di competenza MDD, ma sono da considerarsi feature &lt;b>AVANZATE&lt;/b>,&#xD;&#xA;da utilizzare quando realmente necessario.&#xD;&#xA;&lt;/li>&#xD;&#xA;&#xD;&#xA;&lt;/ul>"/>
+    </eAnnotations>
+    <eLiterals name="PLATF_1" value="101"/>
+    <eLiterals name="PLATF_2" value="102"/>
+    <eLiterals name="PLATF_3" value="103"/>
+    <eLiterals name="PLATF_4" value="104"/>
+    <eLiterals name="PLATF_5" value="105"/>
+    <eLiterals name="CUSTOM_1" value="201"/>
+    <eLiterals name="CUSTOM_2" value="202"/>
+    <eLiterals name="CUSTOM_3" value="203"/>
+    <eLiterals name="TECH_1" value="301"/>
+    <eLiterals name="TECH_2" value="302"/>
+    <eLiterals name="TECH_3" value="303"/>
+    <eLiterals name="TECH_4" value="304"/>
+    <eLiterals name="TECH_5" value="305"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomTemplate">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Un template custom da utilizzarsi per la generazione &lt;i>full&lt;/i> &#xD;&#xA;del codice a fronte di un &lt;b>ExecCommand&lt;/b>. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tplID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ID mnemonico del template. Il valore di questo attributo sar&amp;agrave; a &#xD;&#xA;disposizione del codiuce che implementa il template &lt;i>XPand&lt;/i>, e &#xD;&#xA;dovrà essere utilizzato per instradare la logica di generazione verso il &#xD;&#xA;template corretto."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="nome del template&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelSlots" upperBound="-1"
+        eType="#//ModelSlotDef" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Dichiarazione degli &lt;i>slot&lt;/i> (opzionali) destinati a contenere eventuali &#xD;&#xA;modelli ausiliarii."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelSlotDef">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definizione di uno slot destinato a contenere un modello ausiliario utilizzabile&#xD;&#xA;da un custom template."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="nome mnemonico dello slot"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="full qualified name della classe Java corrispondente alla classe EMF degli &#xD;&#xA;elementi associabili allo slot."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelSlot">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Valorizzazione di uno slot con un modello utilizzabile dal custom template"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="def" eType="#//ModelSlotDef">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Definizione del model slot di cui questo &lt;b>ModelSlot&lt;/b> rappresenta la&#xD;&#xA;valorizzazione."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Valore dello slot. Il tipo dell'elemento associato deve corrispondere con&#xD;&#xA;quanto dichiarato nell'attributo &lt;i>modelClass&lt;/i> dell'oggetto &#xD;&#xA;&lt;b>ModelSlotDef&lt;/b> corrispondente."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

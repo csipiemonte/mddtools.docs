@@ -17,6 +17,8 @@
     </topic>
     <topic href="html/servicegen/mm_reference.html" label="Guida di riferimento metamodello">
     </topic>
+    <topic href="html/servicegen/models_structure.html" label="Struttura e dipendenza dei modelli">
+    </topic>
     <topic href="html/guigen/faq.html" label="F.A.Q.">
     </topic>
     <topic href="html/servicegen/rationale.html" label="Appendice: design rationale">
@@ -55,11 +57,14 @@
     </topic>
     <topic href="html/guigen/mm_reference.html" label="Guida di riferimento metamodello">
     </topic>
+    <topic href="html/guigen/models_structure.html" label="Struttura e dipendenza dei modelli">
+    </topic>
     <topic label="F.A.Q.">
     </topic>
     <topic href="html/guigen/rationale.html" label="Appendice: design rationale">
     </topic>
     <topic href="html/guigen/bibl.html" label="Appendice: documenti di riferimento">
     </topic>
+    
  </topic>
 </toc>
