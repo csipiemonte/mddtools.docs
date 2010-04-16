@@ -4,7 +4,25 @@
 <toc label="MDDTools - User&apos;s guide">
 	<topic label="MDDTools overview"  href="html/overview.html"> 
 	</topic>
-	<topic href="html/servicegen/overview.html" label="Servicegen">
+	<topic href="html/datagen/overview.html" label="Datagen">
+    <topic href="html/datagen/howto_start.html" label="How to start">
+    </topic>
+    <topic href="html/datagen/tutorials.html" label="Tutorials">
+       <topic href="html/datagen/tutorials/helloworld/helloworld.html" label="Tutorial: hello data!">
+       </topic>
+    </topic>
+    <topic href="html/datagen/mm_reference.html" label="Guida di riferimento metamodello">
+    </topic>
+    <topic href="html/datagen/models_structure.html" label="Struttura e dipendenza dei modelli">
+    </topic>
+    <topic href="html/data/faq.html" label="F.A.Q.">
+    </topic>
+    <topic href="html/datagen/rationale.html" label="Appendice: design rationale">
+    </topic>
+    <topic href="html/datagen/bibl.html" label="Appendice: documenti di riferimento">
+    </topic>
+ </topic>
+ 	<topic href="html/servicegen/overview.html" label="Servicegen">
     <topic href="html/servicegen/howto_start.html" label="How to start">
     </topic>
     <topic href="html/servicegen/tutorials.html" label="Tutorials">
@@ -19,7 +37,7 @@
     </topic>
     <topic href="html/servicegen/models_structure.html" label="Struttura e dipendenza dei modelli">
     </topic>
-    <topic href="html/guigen/faq.html" label="F.A.Q.">
+    <topic href="html/servicegen/faq.html" label="F.A.Q.">
     </topic>
     <topic href="html/servicegen/rationale.html" label="Appendice: design rationale">
     </topic>
