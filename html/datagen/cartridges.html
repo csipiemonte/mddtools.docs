@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Datagen - cartridges disponibili</title>
+   </head>
+
+   <body>
+      <h2>
+         Datagen - Cartridges disponibili
+      </h2>
+      <p>
+         In questo capitolo sono descritte le carucce (<i>cartridge</i>) di generazione disponibili.
+      </p>
+      <h3>cartuccia di genrazione dello strato DAO</h3>
+	  <p>
+	  La generazione dello strato DAO si realizza mendiante la cartuccia
+	  <code>it/csi/mddtools/datagen/workflow/basicDao.oaw</code>, che prevede i seguenti parametri:
+	  
+	  <table border="1">
+	  <thead style="background:silver"><tr><td>parametro</td><td>descrizione</td><td>esempio</td><td>obbl/opz</td></tr></thead>
+	  <tbody>
+	  <tr>
+	  <td>model</td>
+	  <td>percorso del file del modello <i>datagen</i>, a partire dalla root del workspace eclipse</td>
+	  <td><code>myprod.mdd/src/model/myprod/mycomp/mydao.datagen</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>daoTargetProjectName</td>
+	  <td>nome del progetto java in cui devono essere generati i sorgenti</td>
+	  <td><code>mycomp</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>basePackage</td>
+	  <td>package java a partire dal quale generare le classi</td>
+	  <td>impostando <code>it.csi.prod.comp.business</code> il package dei dao sar&agrave; generato a partire dal package
+	  <code>it.csi.prod.comp.business.dao</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  </tbody>
+	  </table>
+	  
+	  </p>
+	  
+	  <p>
+	  Esempio:
+	  <pre>
+&lt;cartridge file="it/csi/mddtools/datagen/workflow/basicDao.oaw"
+   model="myprod.mdd/src/model/myprod/mycomp/mydao.datagen" 
+   daoTargetProjectName="mycomp"
+   basePackage="it.csi.prod.comp.business"   	
+/&gt;
+    </pre>
+	  </p>
+   </body>
+</html>
