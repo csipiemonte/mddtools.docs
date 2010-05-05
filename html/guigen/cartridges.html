@@ -194,5 +194,43 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </tbody>
 </table>
 </p>
+<h3>Setup di plugin contenenti frammenti di modello</h3>
+<p>
+Per poter utilizzare nel proprio modello dei frammenti di modello (es. <b>PanelDef</b>, o <b>TypeNamespace</b>)
+contenuti in un plugin di estensione, &egrave; necessario configurare opportunamente il workflow di generazione,
+per fare in modo che il runtime di generazione riesca a risolvere i riferimenti a tali frammenti
+(che dovranno essere effettuati nei modelli tramite la sintassi <code>platform:/plugin/...</code>).
+A tale scopo &egrave; disponibile un componente da utilizzare nel file di workflow, prima delle componenti
+di check/generazione.
+Di seguito si riporta un esempio di utilizzo.
+
+<pre>
+&nbsp;&nbsp;<font color='#000080'>&lt;bean</font>&nbsp;<font color='#000080'>class=</font><font color='#008000'>"it.csi.mddtools.guigen.workflow.component.GuigenExtensionSetup"</font>&nbsp;<font color='#000080'>></font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;pluginName</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"thirdpartyplugin"</font>&nbsp;<font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;pluginVersion</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"1.0.0.001"</font>&nbsp;<font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;fragmentPath</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"model/pdefplugin/pdefplugin/mypdef.guigen"</font><font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;fragmentPath</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"model/pdefplugin/pdefplugin/cartridge_1.xmi"</font><font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;<font color='#000080'>&lt;/bean&gt;</font>
+ </pre>
+
+Dove:
+<ul>
+<li><code>pluginName</code> &egrave; il nome del plugin che contiene i frammenti da integrare</li>
+<li><code>pluginVersion</code> &egrave; il codice completo di versione del plugin che contiene i frammenti da integrare</li>
+<li><code>fragmentPath</code> contiene il percorso (relativo all'alberatura del plugin) di ciascun frammento da integrare</li>
+</ul>
+
+L'esempio in questione ad esempio permette di mappare i due frammenti con URI:
+<ul>
+<li><code>platform:/plugin/thirdparthyplugin/model/pdefplugin/pdefplugin/mypdef.guigen</code></li>
+<li><code>platform:/plugin/thirdparthyplugin/model/pdefplugin/pdefplugin/cartridge_1.xmi</code></li>
+</ul>
+
+Per poter utilizzare questo componente di setup &egrave; necessario, inoltre, impostare la system 
+property <code>eclipse.home</code> nella configurazione di lancio del workflow:
+<br/>
+<img alt="" src="img/oaw_cfg_eclipse_home.gif" height="650" width="650">
+
+</p>
    </body>
 </html>
