@@ -158,7 +158,7 @@
 		<ul>
 		<li>applicabile solo a sottopannelli</li>
 			
-		<li>pu&ograve; contenere al max. <b>n</b> X <b>m</b> widget o sottopannelli (uno per cella della griglia - ogni widget 
+		<li>pu&ograve; contenere al max. <b>n</b> X <b>m</b> widget (uno per cella della griglia - ogni widget 
 		comprende tutti gli elementi grafici utili a realizzarlo, quali label, widget vero e proprio etc..)</li>
 			  
 		<li>per ciascun widget &egrave; possibile specificare con precisione la posizione nella griglia e, opzionalmente, il numero di colonne
@@ -171,7 +171,10 @@
 	I widget disponibili condividono alcuni comportamenti comuni:
 	<ul>	
 	<li>possono essere disabilitati o abilitati a comando (abiltazione/disabilitazione/stato di default, comandabile singolarmente o utilizzando un concetto di <b>ScreenState</b>): se disabilitati non possono 
-		accettare input o comandi dall'utente;</li>
+		accettare input o comandi dall'utente e, se previsto dallo skin del portale, assumono un'apparenza
+		grafica differente;</li>
+	<li>possono essere resi invisibili/visibili a comando (visibile/invisibile/stato di default, comandabile singolarmente o utilizzando un concetto di <b>ScreenState</b>): se invisibili non 
+		vengono renderizzati nella schermata;</li>
 	<li>possono essere visibili/invisibili o abilitati/disabilitati a fronte di <b>Security constraints</b> che possono essere
 	    o meno soddisfatti per l'utente correntemente collegato all'applicazione;</li>			
 	
@@ -186,12 +189,12 @@
     <h5> Widget disponibili</h5>
 
 	<ul>
-	<li><b>CommandWidget</b>: widget che hanno lo scopo di gestire <i>comandi utente</i>. I <b>CommandWidget</b> condividono la possibilit&agrave; 
+	<li><b>CommandWidget</b>: classe di widget che hanno lo scopo principale di gestire <i>comandi utente</i>. I <b>CommandWidget</b> condividono la possibilit&agrave; 
 	    di catturare eventi di user interaction (vedere sotto). Sono disponibili i seguenti widget: 
 	  <ul>
 			<li>Pulsanti (<b>ConfirmButton</b>) che permettono l'esecuzione di una serie di azioni/comandi</li>
 			
-			<li>Pulsanti che permettono la pulizia della schermata (<b>ResetButton</b>)</li>
+			<li>Pulsanti che permettono la pulizia della schermata senza esecuzione di nessuna logica applicativa (<b>ResetButton</b>)</li>
 			
 			<li>Select list: selezione singola o multipla da una lista di valori (<b>ComboBox</b>)</li>
 			
@@ -208,28 +211,29 @@
 	  <ul>
 		<li>condividono alcuni comportamenti comuni aggiuntivi rispetto ai widget generici:
 		  <ul>		  
-			<li>sono dotati di tipo</li>
+			<li>sono dotati di un <i>tipo</i> del dato associato</li>
 				
 			<li>prevedono la possibilit&agrave; di effettuare una serie di validazioni sull'input immesso</li>
 				
 			<li>possono essere collegati al <i>model</i> mediante appositi binding (<b>AppDataBinding</b>)</li>
 				
-			<li>possono essere valorizzati in base allo stato dell'applicazione</li> 
+			<li>possono essere valorizzati in base allo stato delle variabili (<b>ApplicationData</b>) dell'applicazione</li> 
 				
-			<li>possono passare l'informazione immessa dall'utente ai moduli di logica applicativa (esclusi <b>Image</b>, <b>StaticText</b>)
+			<li>possono passare l'informazione immessa dall'utente ai moduli di logica applicativa (esclusi <b>Image</b>, <b>PlainText</b>)
 			
-			<li>alcuni di essi possono essere anche dei <b>CommandWidget</b> (es. Table, ComboBox, RadioButton)</li>
+			<li>alcuni di essi possono essere anche dei <b>CommandWidget</b> (es. <b>Table</b>, <b>ComboBox</b>, <b>RadioButton</b>)</li>
 		  </ul>
 		</li>		
 		<li>sono disponibili i seguenti widget:
 		  <ul>
 		  <li>Campi di immissione testo monolinea (<b>TextField</b>) o multilinea (<b>TextArea</b>)</li>
 			
-		  <li>Drop-down list (<b>ComboBox</b>)</li>
+		  <li>Drop-down list (<b>ComboBox</b>) con possibilit&agrave; di funzionamento a selezione 
+		      singola o multipla</li>
 			
 		  <li>Pulsante on-off (<b>Check Box</b>)</li>
 			
-		  <li>Pulsanti a scelta esclusiva (<b>RadioButton</b>)</li>
+		  <li>Pulsanti a scelta esclusiva in un insieme di opzioni definite a tempo di design (<b>RadioButton</b>)</li>
 			
 		  <li>Tabella di visualizzazione (<b>Table</b>) con possibilità di:
 		  	<ul>
@@ -245,7 +249,7 @@
 		  		</ul>
 		  	</li>
 		  	<li>editing in place con possibilit&agrave; di selezionare il valore in una lista di opzioni, che possono essere le stesse per
-		  	    tutte le righe oppure diversificate riga pe riga</li>
+		  	    tutte le righe oppure diversificate riga per riga</li>
 		  	<li>possibilit&egrave; di rendere o meno editabile a seconda di condizioni valutate a runtime una singola cella</li>
 		  	</ul> ordinamento, paginazione, export dei dati in vari formati, selezione di
 		  	  una o pi&ugrave; righe per l'esecuzione di un'azione su di esse, editing &quot;in place&quot; di una cella con diversificazione</li>
@@ -265,7 +269,7 @@
 	
 	</ul>
 
-	<h5> Strutturazione della GUI </h5>
+	<h5> Strutturazione modulare della GUI </h5>
 	
 	E'possibile utilizzare per la strutturazione della User Interface un approccio componentizzato: &egrave; infatti possibile:
 	<ul>
@@ -274,6 +278,25 @@
 	
 	</ul>
 	
+	<h5>Funzionalit&agrave; di <i>Rich user experience</i> (stile web2.0 - <font color="red">funzionalit&agrave; sperimentale</font>)</h5>
+	<p>
+	Se abilitate, sono disponibili alcune funzionalit&agrave; di arricchimento della user-experience.
+	Attualmente le funzioni previste sono le seguenti:
+	<ul>
+	<li>refresh selettivo di una porzione di schermata (per aggiornare i dati o visualizzare un tab o un 
+	pannello mutevole senza ricaricare l'intera pagina)</li>
+	<li>ordinamento delle righe di una <b>Table</b> senza ricaricare l'intera schermata</li>
+	<li>comparsa di tooltip sulle label dei widget a fronte del passaggio con il mouse sopra la label stessa</li>
+	<li>comparsa di tooltip sull'intestazione delle colonne di una <b>Table</b> a fronte del passaggio con il mouse sopra l'header stesso</li>
+	<li>possibilit&agrave; di ridimensionare, nascondere, spostare le colonne di una <b>Table</b></li>
+	<li>maschera di immissione dati nei campi di testo coerenti con il tipo di dato associato al widget (es. solo
+	caratteri numerici se il tipo &egrave; numerico)</li>
+	<li>autocompletamento progressivo della selezione di una <b>ComboBox</b> a fronte dell'immissione dei
+	caratteri iniziali della selezione stessa</li>
+	<li>suggestion su <b>TextField</b> con interazione server-side per effettuare la selezione progressiva delle
+	voci suggerite a fronte dell'immissione testuale</li>
+	</ul>
+	</p>
 <h4>Securizzazione dell'applicativo</h4>
 <p>
 E' possibile modellare la maggior parte delle caratteristiche di sicurezza dell'applicazione:
