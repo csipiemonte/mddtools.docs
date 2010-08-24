@@ -9,7 +9,217 @@
          Guigen - Design rationale
       </h2>
       <p>
-         [[TODO]]
+         In questo capitolo sono descritte le scelte di design che sono alla base del codice
+         generato da <b>guigen</b>, con le principali cartucce di generazione, ovvero:
+         <ul>
+         <li>applicazione web struts2 + spring</li>
+         <li>applicazione web struts2 + spring con funzionalit&agrave; ricche</li>
+         <li>applicazione web con strato client <b>fat</b></li>
+         </ul>
+         
       </p>
+      <h3>Architettura target</h3> 
+         E' importante notare in via preliminare che le tre cartucce corrispondono a tre differenti
+         <b>architetture applicative</b> che godono di alcune importanti propriet&agrave;:
+         <ol>
+         <li>l'architettura delle applicazioni generate con la cartuccia <b>struts2+spring</b>
+         &egrave; considerata l'architettura base e risponde alle specifiche del framework di 
+         sviluppo CSI</li>
+         <li>l'architettura delle applicazioni generate con la cartuccia web <b>spring+struts2</b> 
+         con l'abilitazione delle <b>funzionalit&agrave; ricche</b> &egrave; un'<i>estensione</i> 
+         dell'architettura base</li>
+         <li>l'architettura delle applicazioni generate con la cartuccia web con <b>fat client</b> 
+         &egrave; a sua volta un'<i>estensione</i> dell'architettura del punto precedente</li>
+         </ol>  
+         Questa importante propriet&egrave; fa si che sia possibile fa convivere le tre tipologie
+         architetturali nella stessa applicazione in esecuzione.
+         Per questo motivo in questo capitolo verranno descritte le tre tipologie architetturali 
+         (e le conseguenti scelte di design) in modo incrementale, a partire dall'architettura base.
+         Le tre tipologie architetturali saranno di seguito denominate come segue:
+         <ol>
+         <li>base webapp</li>
+         <li>enriched webapp</li>
+         <li>fat webapp</li>
+         </ol>
+      
+      <h4>base webapp</h4>
+      <p>
+      E' l'architettura base, quella che viene generata se si utilizza la cartuccia <b>struts2</b>
+      senza l'abilitazione delle funzionalità <i>ricche</i>.
+      Si tratta di una classica applicazione web realizzata in tecnologia J2EE (compatibile con i 
+      runtime WLS 9.2 e JBoss 4.3). I framework utilizzati sopra lo strato J2EE per la realizzazione
+      del <i>core</i> dell'applicazione sono:
+      <ul>
+      <li><b>struts2</b> per la realizzazione dello strato Model-View-Controller (in particolare
+      lo strato di View &egrave; utilizzata la tecnologia JSP</li>
+      <li><b>spring</b> per la realizzazione dello strato di business logic (non &egrave; previsto
+      uno strato EJB)</li>
+      </ul>
+      </p>
+      <p>
+      L'applicazione pu&ograve; interagire con sistemi esterni tramite accesso a servizi. Inoltre, 
+      a seconda della modalit&agrave; di autenticazione/accesso modellate, l'architettura sar&agrave;
+      completata con l'integrazione opportuna con i sistemi di SSO/security.
+      </p>
+      <p>
+      Per l'implementazione dello strato di accesso ai dati &egrave; possibile utilizzare <b>datagen</b>,
+      che si innesta nell'architettura complessiva nello strato <b>spring</b>. In alternativa &egrave; 
+      possibile utilizzare un backend SOA.
+      </p>
+      <h5>Scelte di design specifiche</h5>
+      
+      <h6>mapping ContentPanel</h6>
+      <p>
+      Ad ogni <b>ContentPanel</b> corrispondono i seguenti elementi del design target:
+      <ul>
+      <li>una <b>pagina JSP</b> che realizza lo strato di View, ed &egrave; composta di tag HTML
+      o JSP combinati a seconda del portale target</li>
+      <li>una <b>struts action</b> che ha la responsabilit&agrave; di:
+      	<ul>
+      	<li>recepire e gestire tutti e soli gli eventi di U.I destinati alla pagina in questione: 
+      	per fare ci&ograve; tali action possiedono un metodo pubblico per ciascun <b>EventHandler</b>
+      	modellato nel <b>ContentPanel</b> in questione</li>
+      	<li>eseguire la logica applicativa associata all'evento implicito di refresh della pagina,
+      	che viene scatenato:
+      		<ul>
+      		<li>al momento della visualizzazione della pagina</li>
+      		<li>prima dell'esecuzione della logica associata ai vari eventi di U.I</li>
+      		</ul>
+      	Per tale motivo questa logica &egrave; scatenata nel metodo <i>prepare</i> della action.
+      	</li>
+      	<li>fornire allo strato JSP eventuali informazioni riguardanti lo stato della schermata 
+      	(principalmente abilitazione/disabilitazione, visibilit&agrave;/invisibilit&agrave; dei
+      	vari widget a fronte dello stato applicativo e/o dei constraint di sicurezza): a questo scopo
+      	la action mette a disposizione alcuni metodi pubblici:
+      		<ul>
+      		<li>isWidgetEnabled</li>
+      		<li>isWidgetVisible</li>
+      		</ul>
+      	</li>
+      	</ul> 
+      </li>
+      <li>uno <b>spring bean</b> che espone allo strato struts un metodo di business per ogni <b>ExecCommand</b>
+      contenuto nella schermata (N.B. questo &egrave; l'unico punto in cui &egrave; necessario
+      inserire codice manualmente) </li>
+      </ul> 
+      </p>
+      <p>
+      Questa scelta di mapping tra il concetto di <b>ContentPanel</b> e gli elementi dei 
+      framework utilizzati si discosta alquanto dalle modalit&agrave; pi&ugrave; frequentemente 
+      utilizzate con il framework struts (che tipicamente non prevedono questa "monoliticit&agrave;"
+      sistematica relativamente alla schermata ma una serie pi&ugrave; liberamente composta di coppie
+      action-&gt;view destinazione) e si ispira in modo pi&ugrave; netto a meccanismi tipici del mondo dei 
+      fat-client. La scelta dipende principalmente da una migliore gestibilit&agrave; della
+      generazione del codice e dalla maggior facilit&agrave; di riutilizzare questo modello
+      nelle architetture estese (entriched e fat-client).
+      </p>
+      <p>
+      A fronte di questa scelta il flusso di navigazione tra schermate &egrave; realizzato sempre
+      tramite il meccansimo di <i>chaining</i> delle action di struts: in pratica, supponendo:
+      <ul>
+      <li>che lo stato
+      dell'applicazione sia tale che la schermata corrente sia <b>S<sub>1</sub></b></li>
+	  <li>che esista un evento di U.I associato ad un widget di <b>S<sub>1</sub></b> (es. "CLICKED" su un
+	  pulsante <b>B<sub>1</sub></b> il cui effetto finale sia quello di passare alla schermata 
+	  <b>S<sub>2</sub></b></li>
+      </ul>
+      allo scatenarsi dell'evento di U.I. viene invocato il metodo <i>handler</i> 
+      (<code>handle_B1_CLICKED()</code>) sulla action associata alla schermata <b>S<sub>1</sub></b>, e questo comporta:
+      <ol>
+      <li>l'invocazione del metodo <code>prepare()</code> della action associata alla schermata
+      <b>S<sub>1</sub></b>, ovvero l'esecuzione della logica associata
+      all'evento implicito di refresh della schermata <b>S<sub>1</sub> (viene eseguito il "programma"
+      di comandi modellato come <i>onRefreshCommand</i></b>)</li>
+      <li>l'invocazione della logica associata all'<b>EventHandler</b> relativo all'evento scatenato
+      (viene eseguito il "programma" di comandi associati all'<b>EventHandler</b></li>
+      <li>viene restituito un <i>result</i> di tipo <i>chain</i> che punta alla action associata
+      alla schermata <b>S<sub>2</sub></b> (metodo <code>execute()</code>) il che comporta:
+      	<ul>
+      	<li>l'esecuzione della logica di "onRefresh" associata alla schermata <b>S<sub>2</sub></b>
+      	(viene eseguito il metodo <code>prepare()</code>) della action associata alla schermata
+      	<b>S<sub>2</sub></b>)</li>
+      	<li>il rendering della view relativa alla schermata <b>S<sub>2</sub></b></li>
+      	</ul>
+      </li>
+      
+      </ol>
+       
+      </p>
+      
+      <h6>command engine</h6>
+      <p>
+      La logica di business &egrave; modellata secondo il pattern <i>command</i>, nei vari punti in cui
+      questo &egrave; previsto (inizializzazione dell'applicazione, refresh della schermata, 
+      event handler).
+      A livello di codice generato il pattern command &egrave; implementato come segue:
+      <ul>
+      <li>vengono messe a disposizione una serie di classi di implementazione dei vari comandi 
+      (es. <b>ExecCommand</b>, <b>JumpCommnad</b>, <b>VisibilityCommand</b>, ...) ciascuna delle
+      quali estende un'interfaccia comune che ha un unico metodo <code>String doCommand()</code>;
+      </li>
+      <li>
+      ciascun tipo di comando avr&agrave; un insieme di parametri di configurazione specifici
+      del tipo di comando (es. <b>JumpCommand</b> -&gt; nome della schermata a cui "saltare")</li>
+      <li>alcuni tipi di comando avranno la possibilit&agrave; di passare il controllo dell'
+      esecuzione ad uno o pi&ugrave; comandi successivi (es. <b>SequenceCommand</b>, 
+      <b>ExecCommand</b>) e questo permette di implementare i flussi di operazioni</li>
+      <li>i comandi specifici vengono istanziati in catene coerenti a quanto modellato</li>
+      <li>l'esecuzione parte dall'invocazione del metodo <code>doCommand()</code> del primo
+      comando della catena, che comporter&agrave;:
+      	<ul>
+      	<li>l'esecuzione della logica specifica del comando</li>
+      	<li>il passaggio (con chiamata ricorsiva sempre al metodo <code>doCommand()</code>) ad 
+      	un eventuale comando successore (se previsto dalla tipologia di comando e dalla logica 
+      	di controllo)</li>
+      	<li>la restituzione allo strato chiamante del codice di esito che rappresenta il
+      	<i>result</i> di struts e che stabilisce quale debba essere la successiva pagina</li>
+      	</ul>
+      </li>
+      </ul> 
+      </p>
+      
+      <h6>stato applicativo</h6>
+      <p>
+      Lo stato di un'applicazione guigen &egrave; definito dalla valorizzazioen dell'insieme degli
+      <b>ApplicationData</b> accessibili ad un certo istante in una certa schermata, ovvero:
+      <ul>
+      <li>gli <b>ApplicationData</b> di tipo USER_REQUEST, la cui valorizzazione &egrave;
+      disponibile a partire dall'evento di U.I fino al termine del successivo rendering di
+      schermata: i dati di questa tipologia sono mantenuti direttamente nello stato della
+      action di struts</li>
+      <li>gli <b>ApplicationData</b> di tipo SESSION, la cui valorizzazione &egrave;
+      disponibile per tutta la durata della sessione applicativa: i dati di questa tipologia
+      sono mantenuti in sessione e i metodi get/set della action puntano alla sessione</li>
+      <li>gli <b>ApplicationData</b> di tipo PAGE, la cui valorizzazione &egrave;
+      disponibile fino a che il flusso applicativo non passa ad una schermata differente: 
+      i dati di questa tipologia sono mantenuti in sessione e i metodi get/set della
+      action puntano alla sessione</li>
+      </ul>
+      </p>
+      
+      <h6>visibilit&agrave;/abilitazione dei widget</h6>
+      <p>Lo stato di visibilit&agrave; o abilitazione dei singoli widget &egrave; un'informazione
+      necessaria allo strato JSP per decidere che tipo di rendering utilizzare per essi.
+      Tale informazione &egrave; messa a disposizione della JSP da un apposita coppia di metodi 
+      disponibili su tutte le action associate ai vari <b>ContentPanel</b>:
+      <ul>
+      <li><code>isWidgetEnabled(&lt;id del widget&gt;)</code></li>
+      <li><code>isWidgetVisible(&lt;id del widget&gt;)</code></li>
+      </ul>
+      La logica secondo la quale questi metodi forniscono l'informazione relativa al singolo widget
+      tiene conto di:
+      <ul>
+      <li>stato di default del widget</li>
+      <li>stato corrente del widget derivante dall'eventuale applicazione di comandi che hanno 
+      come effetto quello di alterare la visibilit&agravE; o la abilitazione (<b>ONOFFCommand</b>, 
+      <b>VisibilityCommand</b>, <b>ScreenStateCommand</b>...)</li>
+      <li>eventuali <b>SecurityConstraint</b></li>
+      </ul>
+      </p> 
+      <h4>enriched webapp</h4>
+      [[TODO]]
+      <h4>fat webapp</h4>
+      [[TODO]]
+      
    </body>
 </html>
