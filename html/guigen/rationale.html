@@ -45,7 +45,7 @@
       <h4>base webapp</h4>
       <p>
       E' l'architettura base, quella che viene generata se si utilizza la cartuccia <b>struts2</b>
-      senza l'abilitazione delle funzionalità <i>ricche</i>.
+      senza l'abilitazione delle funzionalit&agrave; <i>ricche</i>.
       Si tratta di una classica applicazione web realizzata in tecnologia J2EE (compatibile con i 
       runtime WLS 9.2 e JBoss 4.3). I framework utilizzati sopra lo strato J2EE per la realizzazione
       del <i>core</i> dell'applicazione sono:
@@ -216,8 +216,58 @@
       <li>eventuali <b>SecurityConstraint</b></li>
       </ul>
       </p> 
+      
+      <h6>U.I. rendering</h6>
+      <p>
+      Il rendering delle varie schermate &egrave; realizzato tramite pagine JSP.
+      Esiste una JSP per ogni <b>ContentPanel</b>. Tale JSP principale pu&ograve; essere a sua volta
+      strutturata mediante il meccanismo dell'inclusione in <i>frammenti</i> destinati a coprire
+      particolari esigenze di rendering, quali ad esempio:
+      <ul>
+      <li>la visualizzazine del <i>tab</i> selezionato in un <b>TabSetPanel</b></li>
+      <li>la visualizzazione dello step corrente in un <b>WizardPanel</b></li>
+      <li>la visualizzazione del pannello attivo in un <b>MultiPanel</b></li>
+      </ul>
+      Queste tipologie di frammenti sono inclusi a runtime in base allo stato della U.I. 
+      Esistono poi altre tipologie di frammenti che sono inclusi sempre nella
+      schermata, ovvero:
+      <ul>
+      <li>i frammenti di header e footer</li>
+      <li>il frammento relativo alla <b>MenuBar</b> (che viene incluso se nella schermata &egrave;
+      presente un widget <b>MenuView</b></li>
+      <li>i frammenti relativi ad eventuali <b>UserDefinedWidget</b> o <b>UserDefinedPanel</b></li>
+      </ul>   
+      </p>
+      
+      <p>
+      La composizione delle schermate (ovvero il reale contenuto finale della pagina html) dipende dal
+      portale target. Attualmente esistono due grossi filoni:
+      <ol>
+      <li>portali aderenti alle specifiche dell' <b>XHTML universale</b>, che &egrave; un insieme 
+      di pattern/snippet/template di codice XHTML progettati appositamente per l'utilizzo in MDD, 
+      neutri rispetto alla grafica effettiva che dovr&agrave; essere ottenuta e, per questo motivo, 
+      graficabile mediante appositi <i>skin</i> CSS</li>
+      <li>portali non aderenti alle specifiche dell <b>XHTML universale</b> per i quali &egrave;
+      prevista una struttura HTML specifica (modalit&agrave; deprecata e per la quale &egrave; 
+      previsto un piano di dismissione)</li>
+      </ol>
+      </p>
+      <p>
+      Relativamente alla modalit&egrave; "neutral", esistono poi due possibilit&egrave; di referenziazione
+      delle risorse grafiche (immagini, css):
+      <ol>
+      <li>inclusione delle risorse nell'applicazione: le risorse sono contenute nel pacchetto e servite 
+      dall'application server</li>
+      <li>installazione delle risorse nel web server: le risorse sono installate nel virtualhost del 
+      web server e sono servite dal web server stesso</li>
+      </ol>
+      La scelta dell'una o dell'altra modalit&agrave; dipende da diversi fattori (portale di 
+      esposizione, opportunit&agrave; specifiche) e non comporta differenze nella modellazione
+      dell'applicazione.
+      </p>
+      
       <h4>enriched webapp</h4>
-      [[TODO]]
+      
       <h4>fat webapp</h4>
       [[TODO]]
       
