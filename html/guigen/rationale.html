@@ -442,10 +442,33 @@
       
       </p>
       
+      <h6>metodi di data provider</h6>
+      <p>
+      In questa architettura sono utilizzati pesantemente i metodi cosiddetti di
+      <i>data provider</i> introdotti gi&agrave; nell'architettura arricchita per tutti i widget
+      che sono associati ad una collezione/fonte dati.
+      Esempi:
+      <ul>
+      <li>la <b>Table</b> riceve i dati da visualizzare dal corrispondente metodo di <i>data provider</i>
+      (per questo tipo di widget tale metodo ha anche il compito di gestire in modo 
+      del tutto automatico filtri e ordinamenti)</li>
+      <li>la <b>ComboBox</b> riceve l'elenco delle opzioni dal corrispondente metodo di <i>data provider</i></li>
+      </ul> 
+      </p>
+      <p>
+      Il client ha inoltre a disposizione una nuova tipologia di metodo di data provider, associato
+      all'intero <b>ContentPanel</b>: il metodo <code>provide_CPDATA()</code> ha infatti il
+      compito di restituire allo strato client il contenuto degli <b>ApplicationData</b> da utilizzare per popolare i valori dei vari widget coerentemente con lo 
+      stato applicativo. Sono esclusi i dati di tipo collection che sono invece forniti dagli specifici
+      metodi di <i>data provider</i>. La combinazione di queste due tipologie di metodi di fornitura
+      dati permette di mantenere lo stato dell'applicazione sul server e trasferire sul client solo
+      le informazioni necessarie. 
+      </p>
       <h6>flusso tra le schermate</h6>
       <p>
       Il flusso tra due schermate differenti &egrave; realizzato caricando i componenti JS
       relativi alla schermata target, come effetto dei comandi di navigazione (<b>JumpCommand</b>).
       </p>
+      
    </body>
 </html>
