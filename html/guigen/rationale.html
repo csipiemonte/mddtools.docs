@@ -350,8 +350,8 @@
       <p>
       Questi metodi data provider sono utilizzati pesantemente nella modalit&agrave; fat client.
       La scelta di farli generare gi&agrave; nell'architettura <i>enriched webapp</i> &egrave; 
-      stata effettuata per permettere eventuali implementazioni custom. E' invece direttamente 
-      utilizzato nell'implementazione della funzionalit&agrave; di suggestion del <b>TextField</b>:
+      stata effettuata per permettere eventuali implementazioni custom. Sono invece direttamente 
+      utilizzati nell'implementazione della funzionalit&agrave; di suggestion del <b>TextField</b>:
       al termine dell'esecuzione della logica necessaria per effettuare l'estrazione dei dati da
       restituire all'utente come suggestion, invece di restituire direttamente il codice del 
       result, il metodo <i>handler</i> delega l'esecuzione al metodo <i>data provider</i> del
@@ -369,7 +369,83 @@
       </p>
       
       <h4>fat webapp</h4>
-      [[TODO]]
       
+	  <p>
+	  E' un'estensione dell'architettura <i>enriched webapp</i> che permette una implementazione
+	  alternativa dello strato di U.I, che sposta sul client una gran parte della logica di rendering;
+	  proprio per questo si parla di architettura <i>fat webapp</i>. Di fatto lo strato di View+Controller
+	  si sposta totalmente sul client e si trasforma in uno strato costituito da <i>componenti di user interface</i>
+	  che interagiscono con il lato server (business logic + front-controller) principalmente in
+	  modalit&agrave; AJAX. Tale strato server, di fatto, non fornisce pi&ugrave; in risposta al client
+	  un rendering preconfezionato (html) ma fornisce informazioni (dati applicativi e non) 
+	  destinate a popolare i widget che compongono la schermata. 
+	  </p>
+	  <p>
+	  E'importante notare come questa tipologia architetturale possa essere implementata con differenti
+	  tecnologie client di componentizzazione di interfaccia: l'unico vincolo &egrave; che le 
+	  tecnologie candidate siano in grado di implementare le (semplici) specifiche di interazione
+	  con lo strato server. Allo stato attuale la tecnologia client utilizzata &egrave; basata sulle
+	  librerie <i>ExtJS</i> (linguaggio javascript), ma sarebbe ugualmente possibile, ad esempio,
+	  ottenere una implementazione basata su <i>Adobe Flex</i> o <i>java swing</i>, ... 
+	  </p>
+	  
+	  <h5>Scelte di design specifiche</h5>
+	  
+	  Le scelte di design specifiche di questa architettura sono additive rispetto alla architettura
+	  <i>enriched webapp</i>.
+	  
+	  <h6>mapping content panel</h6>
+	  <p>
+	  Rispetto all'architettura base i cambiamenti sono pochi e additivi. Viene mantenuta l'
+	  associazione tra ciascun <b>ContentPanel</b> la action di struts corrispondente, mentre
+	  lo strato di pura view viene implementato con un unico modulo JS che contiene tutta la struttura
+	  dell'applicazione.  
+	  </p>
+      
+      <h6>ripartizione della logica di esecuzione dei comandi tra client e server</h6>
+      <p>
+      Rispetto all'architettura base nella modalit&agrave; fat-client vi &egrave; una differente
+      ripartizione sui vari tier architetturali della responsabilit&agrave; di esecuzion delle
+      catene di comandi.
+      Infatti, mentre nell'architettura base la responsabilit&agrave; completa dell'esecuzione dei comandi
+      &egrave; affidata allo strato server (struts + spring), nella modalit&agrave; fat si verifica
+      una differente ripartizione delle responsabilit&agrave;, guidata da alcuni criteri precisi:
+      <ul>
+      <li>la business logic funzionante nella modalit&agrave; base deve essere totalmente
+      riusabile senza nessun intervento anche nella modalit&agrave; <i>fat</i></li>
+      <li>non deve essere necessario per l'utilizzatore scrivere manualmente codice javascript</li>
+      <li>l'unico codice scritto manualmente deve conrinuare ad essere quello che realizza la business
+      logic e deve essere scritto in java (strato spring)</li>
+      <li>per l'esecuzone di quei comandi che agiscono solo a livello di user interface (es. 
+      accensione/spegnimento di widget) deve essere evitato il pi&ugrave; possibile l'accesso alla
+      componente server</li>
+      <li>i comandi che realizzano logica applicativa possono essere realizzati mediante un
+      "salto" server side</li>
+      </ul>
+      A fronte di questi criteri, dunque, l'esecuzione di ciascuna catena di comandi avviene
+      principalmente lato client, ad eccezione del comando <b>ExecCommand</b> per cui &egrave;
+      prevista una interazione con lo strato server in modo che questo possa invocare il 
+      metodo di business corrispondente (N.B: lo stesso utilizzato nell'architettura base).
+      Lo scambio di informazioni client-server avviene anche in questo caso tramite JSon.  
+      </p>
+      
+      <h6>metodi exec command</h6>
+      <p>
+      Al fine di realizzare la differente ripartizione di responsabilità nell'esecuzione
+      dei comandi (descritta al paragrafo precedente) &egrave; necessario introdurre in ciascuna
+      action una ulteriore serie di metodi, detti di <i>exec command</i> che hanno l'unico scopo
+      di esporre allo strato di componenti client i metodi di business disponibili nello strato spring.
+      Se, durnate l'esecuzione di una catena di comandi lato client, lo step corrente 
+      comprender&agrave; un <b>ExecCommand</b>, l'esecuzione del metodo di business associato verr&agravE;
+      delegata allo strato server, che restituir&agrave; successivamente le informazioni necessarie
+      per aggiornare i widget (con i dati modificati per effetto dell'esecuzione della business logic).
+      
+      </p>
+      
+      <h6>flusso tra le schermate</h6>
+      <p>
+      Il flusso tra due schermate differenti &egrave; realizzato caricando i componenti JS
+      relativi alla schermata target, come effetto dei comandi di navigazione (<b>JumpCommand</b>).
+      </p>
    </body>
 </html>
