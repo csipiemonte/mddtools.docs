@@ -268,6 +268,106 @@
       
       <h4>enriched webapp</h4>
       
+      <p>
+      E' un'estensione dell'architettura base destinata ad assolvere a alcuni requisiti funzionali 
+      aggiuntivi, tipicamente descritti nel <a href="uipatterns/uiwidgets.html">catalogo dei widget</a>
+      come <i>modalit&agrave; ricca</i>, e sintetizzabili come segue:
+      <ul>
+      <li>enhancement di vario genere a livello client dei vari widget (es. tooltip, tabelle
+      personalizzabili, ...)</li>
+      <li>funzionalit&agrave; dinamiche (es. refresh parziale, eventi di selezione, suggestion, ...)</li>
+      </ul>
+      </p>
+      <p>
+      Per l'implementazione di tali funzionalit&agrave; aggiuntive viene usato pesantemente codice 
+      Javascript che gira nel browser dell'utente: solo in questo modo infatti &agrave; possibile
+      eseguire le logiche client-side necessarie. Al fine di garantire l'utilizzabilit&agrave;
+      dell'applicazione anche a chi non dovesse utilizzare un browser compatibile con tale linguaggio
+      &egrave; previsto un meccanismo di <i>downgrade funzionale</i> automatico che, in pratica, 
+      permette di utilizzare l'applicazione nella modalit&agrave; prevista dall'architettura base.
+      Tale meccanismo di basa sul rilevamento client-side della disponibilit&agrave; del linguaggio
+      javascript e la differenziazione server side del rendering a seconda che tale rilevamento abbia 
+      fornito un esito positivo o negativo. Il risultato ottenuto &egrave; che l'utente riuscir&agrave;
+      comunque a svolgere le funzionalità principali rinunciando per&ograve; necessariamente
+      alle sotto-funzionalit&agrave; ausiliarie.
+      </p>
+      
+      <h5>Scelte di design specifiche</h5>
+      <p>
+      Le scelte di design di questo tipo di architettura sono additive rispetto a quelle dell'
+      architettura base.
+      </p>
+      
+      <h6>arricchimento della U.I</h6>
+      <p>
+      L'implementazione delle funzionalit&agrave; "ricche" dal lato client &egrave; realizzata con
+      un meccanismo denominato <i>arricchimento</i> della U.I, che &egrave; il seguente:
+      si parte dalla struttura di U.I prevista dall'architettura base e, per i widget ove questo 
+      sia previsto, viene messo in opera una modifica client-side di tale widget; questa
+      modifica ne determina l'arricchimento ch ed&agrave; il nome al meccanismo.
+      Alcuni esempi di arricchimento:
+      <ul>
+      <li>aggiunta di tooltip a comparsa sulle label dei widget (si applica alle label dei
+      widget esistenti)</li>
+      <li>aggiunta delle funzionalit&agrave; di personalizzazione del layout di una tabella
+      (si applica ad una Table HTML esistente)</li>
+      <li>aggiunta della logica per l'innesco 8in modalit&agrave; AJAX) del metodo server side associato all'evento 
+      di selezione (VALUE_CHANGED) di una <b>ComboBox</b></li>
+      <li>aggiunta di un <i>date picker</i> per l'implementazione completa del widget
+      <b>Calendar</b> (nella modalit&agrave; base il calendar &egrave; un semplice <b>TextField</b>)</li>
+      </ul>
+      </p> 
+      <p>
+      Affinch&egrave; l'effetto di arricchimento delle singole porzioni di schermata sia quello 
+      desiderato questo deve essere applicato nei momenti corretti e il nomero di volte corrette.
+      Al fine di garantire questo corretto comportamento gli arricchimenti relativi ad un singolo
+      <b>ContentPanel</b> sono registrati (con indicazione del frammento "affetto").
+      Il registro cos&igrave; ottenuto pu&ograve; essere perci&ograve; utilizzato per applicare
+      selettivamente gli arricchimenti:
+      <ul>
+      <li>al caricamento della schermata o ad un refresh totale della schermata vengono
+      applicati tutti gli arricchimenti</li>
+      <li>al refresh di una particolare porzione di schermata vengono applicati solo
+      gli arricchimenti associati a quel range di schermata</li>
+      </ul> 
+      </p>
+      
+      <h6>metodi "data provider"</h6>
+      <p>
+      Rispetto alla architettura base la modalit&agrave; <i>enriched webapp</i> prevede la 
+      creazione di una serie di metodi denominati di <i>data provider</i>:
+      <ul>
+      <li>ne viene generato uno per ogni <b>MultiDataWidget</b> (<b>ComboBox</b>, <b>Table</b>, 
+      <b>Textfield</b> utilizzato in modalit&agrave; <i>suggestion</i>)</li>
+      <li>il nome del metodo &egrave; <code>provide_&lt;nome_widget&gt;_DATASET()</code></li>
+      <li>il result struts restituito dai metodi &egrave; sempre "provideData", che
+      corrisponde ad un result globale di tipo stream che restituisce al client il contenuto
+      dell'InputStream contenuto nell'attributo <code>dataProviderStream</code></li>
+      <li>il contenuto della collection che rappresenta la fonte dati viene serializzato
+      in formato JSon</li>
+      </ul> 
+      </p>
+      <p>
+      Questi metodi data provider sono utilizzati pesantemente nella modalit&agrave; fat client.
+      La scelta di farli generare gi&agrave; nell'architettura <i>enriched webapp</i> &egrave; 
+      stata effettuata per permettere eventuali implementazioni custom. E' invece direttamente 
+      utilizzato nell'implementazione della funzionalit&agrave; di suggestion del <b>TextField</b>:
+      al termine dell'esecuzione della logica necessaria per effettuare l'estrazione dei dati da
+      restituire all'utente come suggestion, invece di restituire direttamente il codice del 
+      result, il metodo <i>handler</i> delega l'esecuzione al metodo <i>data provider</i> del
+      widget, il quale provvede a restituire allo strato client l'elenco dei suggerimenti in formato
+      JSon.
+      </p>
+      
+      <h6>metodo per suggestion</h6>
+      <p>L'implementazione del metodo <i>handler</i> relativo alla funzionalit&agrave; di 
+      suggestion su <b>TextField</b> (ovvero quella relativa all'evento KEY_PRESSED associato
+      al campo di testo) differisce leggermente rispetto alla modalit&agrave; normale: al termine
+      dell'esecuzione della catena di comandi, infatti, il controllo viene passato al metodo
+      <i>data provider</i> che provvede a fornire al widget client side l'elenco delle suggestion
+      in formato JSon
+      </p>
+      
       <h4>fat webapp</h4>
       [[TODO]]
       
