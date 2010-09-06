@@ -10,6 +10,11 @@
 <p>Campo di immissione testo multilinea.</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/TextArea.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/TextArea.html#an_uiwidgetdoc">uiwidgetdoc</a></li>
+</ul>
 
 
 <p>Super and Sub Types</p>
@@ -209,5 +214,55 @@ di righe specificate appare una scrollbar verticale.</p>
 
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.widgets</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+<h2><a name="an_uiwidgetdoc" />Annotation uiwidgetdoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td>E' il classico widget di immissione di dati testuali a riga multipla.
+Il widget completo prevede una <i>label</i> ed l'area di immissione associata.
+La <i>label</i> pu&ograve; essere, in casi particolari, vuota.
+La <b>TextArea</b> pu&ograve; essere utilizzata all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia</li>
+</ul>
+Prevede due modalit&agrave; di funzionamento: standard e ricca.
+<h4>modalit&agrave; standard</h4>
+Il funzionamento di base della TextArea prevede:
+<ul>
+<li>la possibilit&agrave; di specificare la dimensione in righe/colonne
+dell'area editabile</li>
+<li>la possibilit&agrave; di effettuare, al momento del submit della form,
+la validazione dell'input immesso a seconda del tipo di dato associato 
+al campo e di alcuni ulteriori specifiche</li>
+<li>la possibilit&agrave; di essere disabilitato a comando</li>
+<li>la possibilit&agrave; di essere reso invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitato/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+<li>la visualizzazione di un marcatore di errore in prossimit&agrave; della label, in caso di fallita
+validazione</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<!-- <li>verifiche client side al momento della digitazione di aderenza dei caratteri immessi al tipo
+di dato previsto (es. solo caratteri numerici per tipi numerici)</li>
+<li>verifiche client side al momento della digitazione di rispetto della dimensione massima del dato</li> -->
+<li>tooltip al passaggio del cursore sulla label del widget</li>
+</ul></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

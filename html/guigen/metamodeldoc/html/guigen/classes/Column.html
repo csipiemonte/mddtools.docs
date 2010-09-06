@@ -10,6 +10,10 @@
 <p>Modello della singola colonna di una <b>Table</b>.</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/Column.html#an_logicpkg">logicpkg</a></li>
+</ul>
 
 
 <p>Super and Sub Types</p>
@@ -39,6 +43,7 @@
 <td>
 <p>Direct Attributes</p>
 <ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Column.html#at_activeFlagSelector">activeFlagSelector</a></li>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Column.html#at_editable">editable</a></li>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Column.html#at_editableFlagSelector">editableFlagSelector</a></li>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Column.html#at_eventActive">eventActive</a></li>
@@ -79,9 +84,63 @@
 <p>Referenced by</p>
 <ul>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Column.html">guigen :: Column</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ColumnModel.html#re_columns">columns</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ColumnModel.html">guigen :: ColumnModel</a>)</li>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Column.html">guigen :: Column</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ExtraColumn.html#re_insertAfter">insertAfter</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ExtraColumn.html">guigen :: ExtraColumn</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Column.html">guigen :: Column</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/TableCustomizationPDefVal.html#re_hiddenCols">hiddenCols</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/TableCustomizationPDefVal.html">guigen :: TableCustomizationPDefVal</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Column.html">guigen :: Column</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ExtraColumn.html#re_insertAfter">insertAfter</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ExtraColumn.html">guigen :: ExtraColumn</a>)</li>
 </ul>
+
+<h2><a name="at_activeFlagSelector" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString activeFlagSelector</h2>
+<p>Permette di stabilire a runtime se una cella della colonna (che deve essere
+dichiarata <i>eventActive</i>) sarà effettivamente attiva (ovvero sarà "cliccabile").
+Rappresenta il selettore di un field del record di cui &egrave; costituita
+la collezione collegata alla tabella: questo field deve essere di tipo boolean.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>activeFlagSelector</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
 
 <h2><a name="at_editable" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean editable</h2>
 <p>Se impostato a <i>true</i> la colonna &egrave; editabile. Il widget
@@ -683,5 +742,15 @@ utilizzare <i>multidataPropertySelector</i>.</p>
 </table>
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.widgets.table</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

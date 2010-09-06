@@ -12,6 +12,11 @@ la struttura della user interface. Non tutte lel possibilità (di layout, di ann
 sono disponibili pe rtutte le cartucce di layout/portale.</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/FormPanel.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/FormPanel.html#an_uipaneldoc">uipaneldoc</a></li>
+</ul>
 
 
 <p>Super and Sub Types</p>
@@ -35,6 +40,10 @@ sono disponibili pe rtutte le cartucce di layout/portale.</p>
 
 
 <td>
+<p>Direct Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/FormPanel.html#at_collapsible">collapsible</a></li>
+</ul>
 
 </td>
 
@@ -93,6 +102,57 @@ sono disponibili pe rtutte le cartucce di layout/portale.</p>
 
 </table>
 
+
+<h2><a name="at_collapsible" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean collapsible</h2>
+<p>Se <i>true</i> il pannello &egrave; collassabile.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>false</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>collapsible</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
 
 
 <h2><a name="re_subpanels" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Panel subpanels</h2>
@@ -212,5 +272,45 @@ widget.</p>
 </table>
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.panels</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+<h2><a name="an_uipaneldoc" />Annotation uipaneldoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td><p>
+Il <b>FormPanel</b> &egrave; un pannello utilizzato principalmente per
+creare la macro struttura della schermata. E'un pannello destinato a 
+contenere altri pannelli con lo scopo di organizzarli in struttura secondo i vari
+layout disponibili. <br/>
+Il <b>FormPanel</b> tipicamente si colloca:
+<ul>
+<li>come pannello principale (pi&ugrave; esterno) della schermata;</li>
+<li>come pannello principale del singolo quadrante all'interno di un <b>FormPanel</b>
+con layout a quadranti (UDLRC)</li>
+<li>come contenitore di ciascun <i>item</i> di un pannello a <i>tab</i>
+o <i>wizard</i></li>
+<li>per ogni <i>item</i> di un <b>MultiPanel</b></li>
+</ul>
+Il <b>FormPanel</b> pu&ograve; essere dotato di <i>titolo</i>. Nel caso di
+<b>FormPanel</b> utilizzato all'interno di un <b>TabSetPanel</b> tale titolo 
+&egrave; utilizzato come etichetta del tab corrispondente, mentre nel caso in cui sia
+utilizzato all'interno di un <b>WizardPanel</b> il titolo viene visualizzato come
+nome dello <i>step</i> corrispondente.
+Il <b>FormPanel</b> non pu&ograve; contenere widget, ma solo sottopannelli.
+</p></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

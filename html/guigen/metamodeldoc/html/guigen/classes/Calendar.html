@@ -11,6 +11,11 @@
 (date picker).</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/Calendar.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/Calendar.html#an_uiwidgetdoc">uiwidgetdoc</a></li>
+</ul>
 
 
 <p>Super and Sub Types</p>
@@ -81,5 +86,54 @@
 
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.widgets</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+<h2><a name="an_uiwidgetdoc" />Annotation uiwidgetdoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td>E' un campo utilizzabile per l'immissione di date (nel formato gg/mm/aaaa).
+Il widget completo prevede una <i>label</i> ed il campo di immissione associato.
+La <i>label</i> pu&ograve; essere, in casi particolari, vuota.
+Il <b>Calendar</b> pu&ograve; essere utilizzato all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia</li>
+</ul>
+Prevede due modalit&agrave; di funzionamento, una <i>standard</i> ed una
+<i>ricca</i>.
+<h4>modalit&agrave; standard</h4>
+Il funzionamento di base del Calnedar prevede:
+<ul>
+<li>la limitazione automatica del numero di caratteri digitabili (gg/mm/aaa=10)</li>
+<li>la possibilit&agrave; di effettuare, al momento del submit della form,
+la validazione dell'input immesso (che deve necessariamente essere di tipo "DATA")</li>
+<li>la possibilit&agrave; di essere disabilitato a comando</li>
+<li>la possibilit&agrave; di essere reso invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitato/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+<li>la visualizzazione di un marcatore di errore in prossimit&agrave; della label, in caso di fallita
+validazione</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<li>verifiche client side al momento della digitazione di aderenza dei caratteri immessi al tipo
+di dato previsto (maschera GG/MM/AAAA)</li>
+<li><i>date-picker</i>: strumento di selezione della data a partire da mini-calendario</li>
+<li>tooltip al passaggio del cursore sulla label del widget</li>
+</ul></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

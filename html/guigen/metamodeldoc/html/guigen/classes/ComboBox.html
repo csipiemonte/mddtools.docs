@@ -16,6 +16,11 @@ Alla combo &egrave; possibile associare un event handler relativo all'evento
 VALUE_CHANGED, che viene scatenato nel momento un cui viene modificata la selezione.</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/ComboBox.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/ComboBox.html#an_uiwidgetdoc">uiwidgetdoc</a></li>
+</ul>
 
 
 <p>Super and Sub Types</p>
@@ -278,5 +283,82 @@ collegato alla combo (tramite multi-data-binding).</p>
 
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.widgets</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+<h2><a name="an_uiwidgetdoc" />Annotation uiwidgetdoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td>E' il widget di selezione di uno (o pi&ugrave;) dati a partire da una lista di dati precaricata.
+Il widget completo prevede una <i>label</i> ed il campo di immissione associato.
+La <i>label</i> pu&ograve; essere, in casi particolari, vuota.
+Il <b>ComboBox</b> pu&ograve; essere utilizzato all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia</li>
+</ul>
+Prevede due modalit&agrave; di funzionamento, una <i>standard</i> ed una
+<i>ricca</i>.
+<h4>modalit&agrave; standard</h4>
+Il funzionamento di base del TextField prevede:
+<ul>
+<li>la possibilit&agrave; di specificare per ogni elemento della lista,
+un valore visualizzato e la corrispondente chiave, utilizzata come valore
+effettivamente seleizonato e utilizzabile dalla logica applicativa</li>
+<li>la scelta tra selezione singola o multipla</li>
+<li>la possibilit&agrave; di effettuare, al momento del submit della form,
+la validazione dell'input immesso a seconda del tipo di dato associato 
+al campo e di alcuni ulteriori specifiche</li>
+<li>la possibilit&agrave; di essere disabilitato a comando</li>
+<li>la possibilit&agrave; di essere reso invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitato/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+<li>la visualizzazione di un marcatore di errore in prossimit&agrave; della label, in caso di fallita
+validazione</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<li>funzione di <i>autocomplete</i> (restrizione dell'elenco di opzioni a fronte dell'immissione 
+progressiva dei caratteri iniziali della selezione stessa)</li>
+<li>tooltip al passaggio del cursore sulla label del widget</li>
+</ul>
+<!-- Inoltre &egrave; possibile, se esplicitamente modellato, associare alla <b>ComboBox</b> la
+funzionalit&agrave; di <i>suggestion</i> che consiste nel fornire, man mano che si digitano i 
+caratteri nel campo di testo, una lista di voci che corrispondono nella loro parte iniziale alla stringa
+di caratteri immessa fino a quel momento (la logica di costruzione progressiva della lista di 
+suggerimenti &egrave; a carico dello sviluppatore). --></td></tr>
+<tr><td>event-value-changed</td><td><p>E'possibile, a fronte della selezione da parte dell'utente di una delle
+opzioni presenti nella lista, scatenare una logica applicativa e modificare di
+conseguenza la schermata visualizzata. Esistono due modalit&agrave; di esecuzione della logica 
+associata: <i>standard</i> e <i>ricca</i>.
+<h5>modalit&agrave; standard</h5>
+Alla selezione di una opzione dalla lista viene eseguita la logica applicativa associata
+e, al termine dell'esecuzione viene ricaricata l'intera schermata
+oppure il flusso passa ad una schermata differente.
+<h5>modalit&agrave; ricca</h5>
+Alla selezione di una opzione dalla lista viene eseguita la logica applicativa associata. Durante
+l'esecuzione viene sospesa l'interazione utente e viene visualizzato un
+indicatore di "operazione in corso".
+Al termine dell'esecuzione i possibili effetti sono:
+<ul>
+<li>il refresh dell'intera schermata corrente, con mantenimento della
+posizione delle eventuali scrollbar</li>
+<li>il refresh di una porzione specifica di schermata</li>
+<li>il passaggio del flusso ad una schermata differente</li>
+</ul>
+</p></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

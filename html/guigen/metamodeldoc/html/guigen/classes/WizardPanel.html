@@ -15,6 +15,11 @@ il comando <b>ActivateMultiPanelItem</b> agganciato ad un evento collegato ad
 un pulsante interno al pannello che descrive ciascuno step.</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/WizardPanel.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/WizardPanel.html#an_uipaneldoc">uipaneldoc</a></li>
+</ul>
 
 
 <p>Super and Sub Types</p>
@@ -214,5 +219,43 @@ CLICK sullo step (utilizzabile solo in modalit&agrave; attiva).</p>
 </table>
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.panels</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+<h2><a name="an_uipaneldoc" />Annotation uipaneldoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td><p>
+Il <b>WizardPanel</b> &egrave; un pannello utilizzato realizzare strutture organizzate
+a <i>wizard</i>:
+Prevede due sezioni visibili:
+<ol>
+<li>la lista di &quot; etichette &quot; che servono per attivare i vari <i>step</i> 
+(con evidenza visiva dello step correntemente selezionato)</li>
+<li>la sezione in cui viene visualizzato il contenuto dello <i>step</i> corrente.</li>
+</ol>
+All'interno del singolo tab &egrave; possibile inserire tutte le tipologie di pannello disponibili.
+Il <b>WizardPanel</b> pu&ograve; funzionare in tre differenti modalit&agrave;:
+<ol>
+<li>wizard <b>passivo</b>: la navigazione tra gli step deve essere comandata dalla business
+logic (es. tasti di &quot;avanti&quot; o &quot;indietro&quot; all'interno dello step)</li>
+<li>wizard <b>attivo</b>: la navigazione tra gli step pu&ograve; essere comandata sia dalla
+business logic (es. tasti di &quot;avanti&quot; o &quot;indietro&quot; all'interno dello step) sia
+tramite click sulle etichette dei vari step.</li>
+</ol>
+</p></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

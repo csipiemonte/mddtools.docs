@@ -10,6 +10,10 @@
 <p>Gestore di un evento di User Interaction.</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/EventHandler.html#an_logicpkg">logicpkg</a></li>
+</ul>
 
 
 
@@ -25,6 +29,7 @@
 <p>Direct Attributes</p>
 <ul>
 	<li><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/EventTypes.html">guigen :: EventTypes</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/EventHandler.html#at_eventType">eventType</a></li>
+	<li><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/MethodProtectionTypes.html">guigen :: MethodProtectionTypes</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/EventHandler.html#at_methodProtection">methodProtection</a></li>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/EventHandler.html#at_skipValidation">skipValidation</a></li>
 </ul>
 
@@ -55,9 +60,9 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuItem.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuItem.html">guigen :: MenuItem</a>)</li>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Menu.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Menu.html">guigen :: Menu</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_eventHandlers">eventHandlers</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Menu.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Menu.html">guigen :: Menu</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuItem.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuItem.html">guigen :: MenuItem</a>)</li>
 </ul>
 
 <h2><a name="at_eventType" /><img src="../icons/ecore/EAttribute.gif" />Attribute guigen :: EventTypes eventType</h2>
@@ -88,6 +93,67 @@
 
 
 <tr><td>name</td><td>eventType</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_methodProtection" /><img src="../icons/ecore/EAttribute.gif" />Attribute guigen :: MethodProtectionTypes methodProtection</h2>
+<p>Permette di proteggere l'esecuzione del metodo associato all'<b>EventHandler</b>
+da effetti indesiderati derivanti dal'eventuale esecuzione contemporanea di altri metodi.
+Le possibili protezioni sono:
+<ol>
+<li><b>allowAll</b>: permette l'esecuzione contemporanea di qualsiasi metodo (nessuna 
+protezione)</li>
+<li><b>rejectSame</b> (<i>default</i>): evita l'esecuzione contemporanea di altre istanze dello stesso 
+metodo (protezione tipica del doppio click su uno stesso pulsante)</li>
+<li><b>rejectAll</b>: evita l'esecuzione contemporanea di altre istanze di qualsiasi 
+metodo (protezione cautelativa globale)</li>
+</ol></p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/MethodProtectionTypes.html">guigen :: MethodProtectionTypes</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>REJECT_SAME</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>methodProtection</td></tr>
 
 
 <tr><td>ordered</td><td>true</td></tr>
@@ -222,5 +288,15 @@ il comando specificato in questo elemento.</p>
 </table>
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.event</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

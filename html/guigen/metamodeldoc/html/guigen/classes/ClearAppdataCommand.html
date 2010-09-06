@@ -3,21 +3,19 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Developer documentation for the model class AppDataMappingPDefVal</title>
+	<title>Developer documentation for the model class ClearAppdataCommand</title>
 	</head><body>
-<h1>Class "guigen :: AppDataMappingPDefVal"</h1>
+<h1>Class "guigen :: ClearAppdataCommand"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
-<p>Valorizzazione di parametro di <b>PanelDef</b> che permette di rimpiazzare 
-l'application data fittizio con quello reale nel <b>PanelDefUse</b></p>
 
 
 
 
 <p>Super and Sub Types</p>
 
-<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/PDefParamVal.html">guigen :: PDefParamVal</a>
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Command.html">guigen :: Command</a>
 
-<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: AppDataMappingPDefVal</b>
+<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: ClearAppdataCommand</b>
 
 </li></ul>
 
@@ -39,7 +37,7 @@ l'application data fittizio con quello reale nel <b>PanelDefUse</b></p>
 <td>
 <p>Direct References</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ApplicationData.html">guigen :: ApplicationData</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/AppDataMappingPDefVal.html#re_actualAppData">actualAppData</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ApplicationData.html">guigen :: ApplicationData</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ClearAppdataCommand.html#re_appData">appData</a></li>
 </ul>
 
 </td>
@@ -52,33 +50,13 @@ l'application data fittizio con quello reale nel <b>PanelDefUse</b></p>
 
 
 
-
-<tr style="vertical-align:top">
-
-
-
-
-
-<td>
-<p>Inherited References</p>
-<ul>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/PDefParam.html">guigen :: PDefParam</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/PDefParamVal.html#re_param">param</a></li>
-</ul>
-
-</td>
-
-
-
-
-
-</tr>
 
 
 </table>
 
 
 
-<h2><a name="re_actualAppData" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ApplicationData actualAppData</h2>
+<h2><a name="re_appData" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ApplicationData appData</h2>
 
 
 
@@ -104,7 +82,7 @@ l'application data fittizio con quello reale nel <b>PanelDefUse</b></p>
 <tr><td>lowerBound</td><td>0</td></tr>
 
 
-<tr><td>name</td><td>actualAppData</td></tr>
+<tr><td>name</td><td>appData</td></tr>
 
 
 <tr><td>ordered</td><td>true</td></tr>
@@ -122,7 +100,7 @@ l'application data fittizio con quello reale nel <b>PanelDefUse</b></p>
 <tr><td>unsettable</td><td>false</td></tr>
 
 
-<tr><td>upperBound</td><td>1</td></tr>
+<tr><td>upperBound</td><td>-1</td></tr>
 
 
 <tr><td>volatile</td><td>false</td></tr>

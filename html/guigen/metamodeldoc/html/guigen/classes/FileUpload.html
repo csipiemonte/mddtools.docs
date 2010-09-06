@@ -10,6 +10,11 @@
 <p>Widget per la selezione e l'upload di un file</p>
 
 
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/FileUpload.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/FileUpload.html#an_uiwidgetdoc">uiwidgetdoc</a></li>
+</ul>
 
 
 <p>Super and Sub Types</p>
@@ -72,5 +77,53 @@
 
 
 
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.widgets</td></tr>
 
-<div>generated on 12-mag-2010 at 16.17.59 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+</tbody>
+</table>
+<h2><a name="an_uiwidgetdoc" />Annotation uiwidgetdoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td>E' il classico widget utilizzabile per la selezione di un <i>file</i> che dovr&agrave; essere inviato
+al server (funzione di <i>file upload</i>).
+Il <b>FileUpload</b> pu&ograve; essere utilizzato all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia, nel caso sia necessario associare il
+pulsante ad altri widget (es. pulsanti di lookup)</li>
+</ul>
+Prevede due modalit&agrave; di funzionamento: <i>standard</i> e <i>ricca</i>.
+<h4>modalit&agrave; standard</h4>
+Il funzionamento di base del FileUpload prevede:
+<ul>
+<li>la possibilit&agrave; di selezionare da file system un file mediante <i>browsing</i> sulle cartelle
+locali alla postazione client</li>
+<li>la possibilit&agrave; di essere disabilitato a comando</li>
+<li>la possibilit&agrave; di essere reso invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitato/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<li>tooltip al passaggio del cursore sulla label del widget</li>
+</ul></td></tr>
+<tr><td>event-clicked</td><td><p>Il widget <b>FileUpload</b> contiene un pulsante che pu&ograve; ricevere un evento di pressione 
+da parte dell'utente a fronte del quale viene visualizzato il <i>dialog</i> di selezione del file da sottomettere al
+server. 
+Questo evento &egrave; implicito (non occorre definire un <b>EventHandler</b> per attivarlo). 
+A fronte di questo evento <b>non</b> &egrave; per&ograve; possibile eseguire logica di business. 
+</p></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
