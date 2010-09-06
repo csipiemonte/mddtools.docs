@@ -3,11 +3,11 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Developer documentation for the model class Updaters</title>
+	<title>Developer documentation for the model class OrderSpecs</title>
 	</head><body>
-<h1>Class "datagen :: Updaters"</h1>
+<h1>Class "datagen :: OrderSpecs"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../datagen/package.html">datagen</a></p>
-<p>Insieme degli <b>Updater</b> messia a disposizione dal <b>DataAccessObject</b></p>
+<p>Specifiche di ordinamento da applicare ai risultati di una query</p>
 
 
 
@@ -27,7 +27,7 @@
 <td>
 <p>Direct References</p>
 <ul>
-	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../datagen/classes/Updater.html">datagen :: Updater</a> <img src="../icons/ecore/EReference.gif" /><a href="../../datagen/classes/Updaters.html#re_updaters">updaters</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../datagen/classes/OrderSpec.html">datagen :: OrderSpec</a> <img src="../icons/ecore/EReference.gif" /><a href="../../datagen/classes/OrderSpecs.html#re_specs">specs</a></li>
 </ul>
 
 </td>
@@ -46,12 +46,14 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../datagen/classes/Updaters.html">datagen :: Updaters</a> <img src="../icons/ecore/EReference.gif" /><a href="../../datagen/classes/DataAccessObject.html#re_updaters">updaters</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../datagen/classes/DataAccessObject.html">datagen :: DataAccessObject</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../datagen/classes/OrderSpecs.html">datagen :: OrderSpecs</a> <img src="../icons/ecore/EReference.gif" /><a href="../../datagen/classes/MultiResFinder.html#re_orderSpecs">orderSpecs</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../datagen/classes/MultiResFinder.html">datagen :: MultiResFinder</a>)</li>
 </ul>
 
 
-<h2><a name="re_updaters" /><img src="../icons/ecore/EReference.gif" />Reference datagen :: Updater updaters</h2>
-<p>Elenco degli <b>Updater</b></p>
+<h2><a name="re_specs" /><img src="../icons/ecore/EReference.gif" />Reference datagen :: OrderSpec specs</h2>
+<p>Contiene l'elenco delle specifiche di ordinamento. L'ordinamento dei
+risultati &egrave; ottenuto applicando le specifiche relative alle singole
+colonne nell'ordine in cui sono inserite in questo elenco.</p>
 
 
 
@@ -60,7 +62,7 @@
 <tr><th>Property</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>type</td><td><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../datagen/classes/Updater.html">datagen :: Updater</a></td></tr>
+<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../datagen/classes/OrderSpec.html">datagen :: OrderSpec</a></td></tr>
 
 <tr><td>changeable</td><td>true</td></tr>
 
@@ -77,7 +79,7 @@
 <tr><td>lowerBound</td><td>0</td></tr>
 
 
-<tr><td>name</td><td>updaters</td></tr>
+<tr><td>name</td><td>specs</td></tr>
 
 
 <tr><td>ordered</td><td>true</td></tr>
