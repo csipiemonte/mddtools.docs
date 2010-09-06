@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Developer documentation for the model class CheckBox</title>
+	</head><body>
+<h1>Class "guigen :: CheckBox"</h1>
+<p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Vidget a due valori: on/off. Il tipo associato deve essere un Boolean</p>
+
+
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/CheckBox.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/CheckBox.html#an_uiwidgetdoc">uiwidgetdoc</a></li>
+</ul>
+
+
+<p>Super and Sub Types</p>
+
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a>
+<ul><li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/DataWidget.html">guigen :: DataWidget</a>
+
+<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: CheckBox</b>
+
+</li></ul>
+
+
+</li></ul>
+</li></ul>
+
+
+
+
+
+<table border="1">
+
+
+
+
+
+<tr style="vertical-align:top">
+
+
+<td>
+<p>Inherited Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/DataWidget.html#at_dataTypeModifier">dataTypeModifier</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/DataWidget.html#at_required">required</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_defaultEnabled">defaultEnabled</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_defaultVisible">defaultVisible</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_label">label</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_name">name</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_tooltip">tooltip</a></li>
+</ul>
+
+</td>
+
+
+
+
+<td>
+<p>Inherited References</p>
+<ul>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Type.html">guigen :: Type</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/DataWidget.html#re_dataType">dataType</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/DataWidget.html#re_databinding">databinding</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_eventHandlers">eventHandlers</a></li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/WidgetLayoutSpecifier.html">guigen :: WidgetLayoutSpecifier</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_layoutSpec">layoutSpec</a></li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/UISecurityConstraint.html">guigen :: UISecurityConstraint</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_securityConstraints">securityConstraints</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
+
+
+</table>
+
+
+
+
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.widgets</td></tr>
+
+</tbody>
+</table>
+<h2><a name="an_uiwidgetdoc" />Annotation uiwidgetdoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td>E' il classico widget di selezione di un valore booleano (si/no).
+Il widget completo prevede una <i>label</i> ed il campo di immissione associato.
+La <i>label</i> pu&ograve; essere, in casi particolari, vuota.
+Il <b>CheckBox</b> pu&ograve; essere utilizzato all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia</li>
+</ul>
+Prevede due modalit&agrave; di funzionamento, una <i>standard</i> ed una
+<i>ricca</i>.
+<h4>modalit&agrave; standard</h4>
+Il funzionamento di base del CheckBox prevede:
+<ul>
+<li>la possibilit&agrave; di effettuare, al momento del submit della form,
+la validazione dell'input immesso (es . campo required)</li>
+<li>la possibilit&agrave; di essere disabilitato a comando</li>
+<li>la possibilit&agrave; di essere reso invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitato/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+<li>la visualizzazione di un marcatore di errore in prossimit&agrave; della label, in caso di fallita
+validazione</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<li>tooltip al passaggio del cursore sulla label del widget</li>
+</ul>
+</td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

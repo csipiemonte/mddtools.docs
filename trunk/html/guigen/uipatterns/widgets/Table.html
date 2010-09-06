@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Scheda del widget Table</title>
+   </head>
+
+   <body>
+      <h2>
+         UI Widgets - scheda del widget [<img src="img/Table.gif"></img>Table]
+      </h2>
+      <p>
+         In questa scheda &egrave; descritto il widget <b>Table</b>, in termini di:
+         <ul>
+         <li>riferimento alla documentazione di dettaglio dell'elemento del metamodello utilizzabile durante la modellazione</li>
+         <li>uno o pi&ugrave; snapshot che rappresentano graficamente il widget</li>
+         <li>una descrizione del widget che ne descrive l'utilizzo e le possibili varianti</li>
+         <li>elenco degli <i>eventi</i> gestibili (implicitamente o esplicitamente) relativamente al widget</li>
+         </ul> 
+      </p> 
+      <h3>Identificativo e riferimenti di dettaglio</h3>
+      <p>
+      	La documentazione <i>metamodeldoc</i> di dettaglio del widget <b>Table</b> &egrave; disponibile
+      	<a href="../../metamodeldoc/html/guigen/classes/Table.html">qui</a>. 
+      </p>
+      <h3>Descrizione</h3>
+      
+      E' il classico widget di visualizzazione/editing di dati in formato tabellare.
+<!--Il widget completo prevede una <i>label</i> ed il campo di immissione associato.
+La <i>label</i> pu&ograve; essere, in casi particolari, vuota.-->
+La <b>Table</b> pu&ograve; essere utilizzata all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia; N.B: deve
+essere l'unico widget all'interno del pannello</li>
+</ul>
+Prevede tre modalit&agrave; di funzionamento, una <i>standard/visualizzazione</i>,
+una <i>standard/editing</i> ed una <i>ricca</i>.
+<h4>modalit&agrave; standard/visualizzazione</h4>
+Il funzionamento di base della Table prevede:
+<ul>
+<li>la possibilit&agrave; di visualizzare le informazioni contenute in una 
+collezione di record, con formattazioen dell'informazione coerente con il tipo di dato
+di ciascuna colonna</li>
+<li>la possibilit&agrave; (opzionale) di effettuare l'ordinamento delle righe in base ai valori
+contenuti in una colonna</li>
+<li>la possibilit&agrave; (opzionale) di <b>paginare</b> i risultati (con dimensione della pagina impostabile)</li>
+<li>la possibilit&agrave; (opzionale) di effettuare l'<b>export</b> dei dati della tabella in formato excel o pdf</li>
+<li>la possibilit&agrave; (opzionale) di <b>selezione</b> singola o multipla delle righe della Tabella, allo scopo
+di eseguire logiche applicative sulle righe selezionate (l'esecuzione della logica deve essere comandata in un momento
+successivo alla selezione da un <b>Button</b> posto nella stessa schermata)</li>
+<li>la possibilit&agrave; di effettuare, al momento del submit della form,
+la validazione dell'input immesso a seconda del tipo di dato associato 
+al campo e di alcuni ulteriori specifiche</li>
+<li>la possibilit&agrave; di essere disabilitata a comando</li>
+<li>la possibilit&agrave; di essere resa invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitata/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+<!--<li>la visualizzazione di un marcatore di errore in prossimit&agrave; della label, in caso di fallita
+validazione</li>-->
+</ul>
+<h4>modalit&agrave; standard/editing</h4>
+Ripsetto alla modalit&agrave; <i>standard/visualizzazione</i> la modalit&agrave; <i>standard/editing</i>
+prevede alcune possibilit&agrave; aggiuntive:
+<ul>
+<li><b>editing <i>in place</i></b> delle celle di una colonna:
+	<ul>
+	<li>il <b>widget di editing</b> della cella dipende dal tipo di dato associato alla colonna:
+		<ul>
+		<li><b>Calendar</b> in caso di tipo DATA</li>
+		<li><b>CheckBox</b> in caso di tipo BOOLEAN</li>
+		<li><b>TextField</b> in tutti gli altri casi</li>
+		</ul>
+	</li>
+	<li>&egrave; possibile selezionare il valore di una cella da una <b>lista di valori</b> (in questo caso il widget utilizzato
+		per l'immissione &egrave; la <b>ComboBox</b>); l'elenco dei valori selezionabili pu&ograve; essere comune a tutte le
+		righe oppure specifico per ciascuna riga
+	</li>
+	<li>&egrave; possibile, nell'ambito di una colonna dichiarata <i>editabile</i>, decidere a runtime l'editabilit&agrave;
+		della singola cella (nel qual caso il widget corrispondente apparir&agrave; disabilitato)
+	</li>
+	</ul>
+</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<li>tooltip al passaggio del cursore sull'intestazione delle colonne</li>
+<li>refresh della sola area della tabella in caso di esecuzione delle funzioni di ordinamento e paginazione</li>
+<li>possibilit&agrave; di ridimensionare/cambiare l'ordine/nascondere le colonne della tabella interattivamente</li>
+</ul>
+      
+      <hr></hr>
+      <h3>Immagini esemplificative</h3>
+      
+      <img src="img/Table_1.gif" border="1"></img>
+      <br></br>
+      <b>fig.1 - esempio di rendering grafico del widget</b>
+      <hr></hr>
+      <h3>Eventi associati al widget</h3>
+      <h4>evento "event-clicked"</h4>
+      <p>In una tabella &egrave; possibile rendere "attive" le celle di alcune
+colonne (purchè esse non siano editabili). L'evento "clicked" &egrave; proprio il "click" dell'utente 
+su tali celle. 
+E'possibile, a fronte ddi questo evento, scatenare una logica applicativa e modificare di
+conseguenza la schermata visualizzata. Esistono due modalit&agrave; di esecuzione della logica 
+associata: <i>standard</i> e <i>ricca</i>.
+<h5>modalit&agrave; standard</h5>
+Al click di una cella viene eseguita la logica applicativa associata
+e, al termine dell'esecuzione viene ricaricata l'intera schermata
+oppure il flusso passa ad una schermata differente.
+<h5>modalit&agrave; ricca</h5>
+Alla click di una cella viene eseguita la logica applicativa associata. Durante
+l'esecuzione viene sospesa l'interazione utente e viene visualizzato un
+indicatore di "operazione in corso".
+Al termine dell'esecuzione i possibili effetti sono:
+<ul>
+<li>il refresh dell'intera schermata corrente, con mantenimento della
+posizione delle eventuali scrollbar</li>
+<li>il refresh di una porzione specifica di schermata</li>
+<li>il passaggio del flusso ad una schermata differente</li>
+</ul>
+</p>
+      
+   </body>
+</html>

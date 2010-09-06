@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Scheda del widget ComboBox</title>
+   </head>
+
+   <body>
+      <h2>
+         UI Widgets - scheda del widget [<img src="img/ComboBox.gif"></img>ComboBox]
+      </h2>
+      <p>
+         In questa scheda &egrave; descritto il widget <b>ComboBox</b>, in termini di:
+         <ul>
+         <li>riferimento alla documentazione di dettaglio dell'elemento del metamodello utilizzabile durante la modellazione</li>
+         <li>uno o pi&ugrave; snapshot che rappresentano graficamente il widget</li>
+         <li>una descrizione del widget che ne descrive l'utilizzo e le possibili varianti</li>
+         <li>elenco degli <i>eventi</i> gestibili (implicitamente o esplicitamente) relativamente al widget</li>
+         </ul> 
+      </p> 
+      <h3>Identificativo e riferimenti di dettaglio</h3>
+      <p>
+      	La documentazione <i>metamodeldoc</i> di dettaglio del widget <b>ComboBox</b> &egrave; disponibile
+      	<a href="../../metamodeldoc/html/guigen/classes/ComboBox.html">qui</a>. 
+      </p>
+      <h3>Descrizione</h3>
+      
+      E' il widget di selezione di uno (o pi&ugrave;) dati a partire da una lista di dati precaricata.
+Il widget completo prevede una <i>label</i> ed il campo di immissione associato.
+La <i>label</i> pu&ograve; essere, in casi particolari, vuota.
+Il <b>ComboBox</b> pu&ograve; essere utilizzato all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia</li>
+</ul>
+Prevede due modalit&agrave; di funzionamento, una <i>standard</i> ed una
+<i>ricca</i>.
+<h4>modalit&agrave; standard</h4>
+Il funzionamento di base del TextField prevede:
+<ul>
+<li>la possibilit&agrave; di specificare per ogni elemento della lista,
+un valore visualizzato e la corrispondente chiave, utilizzata come valore
+effettivamente seleizonato e utilizzabile dalla logica applicativa</li>
+<li>la scelta tra selezione singola o multipla</li>
+<li>la possibilit&agrave; di effettuare, al momento del submit della form,
+la validazione dell'input immesso a seconda del tipo di dato associato 
+al campo e di alcuni ulteriori specifiche</li>
+<li>la possibilit&agrave; di essere disabilitato a comando</li>
+<li>la possibilit&agrave; di essere reso invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitato/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+<li>la visualizzazione di un marcatore di errore in prossimit&agrave; della label, in caso di fallita
+validazione</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<li>funzione di <i>autocomplete</i> (restrizione dell'elenco di opzioni a fronte dell'immissione 
+progressiva dei caratteri iniziali della selezione stessa)</li>
+<li>tooltip al passaggio del cursore sulla label del widget</li>
+</ul>
+<!-- Inoltre &egrave; possibile, se esplicitamente modellato, associare alla <b>ComboBox</b> la
+funzionalit&agrave; di <i>suggestion</i> che consiste nel fornire, man mano che si digitano i 
+caratteri nel campo di testo, una lista di voci che corrispondono nella loro parte iniziale alla stringa
+di caratteri immessa fino a quel momento (la logica di costruzione progressiva della lista di 
+suggerimenti &egrave; a carico dello sviluppatore). -->
+      
+      <hr></hr>
+      <h3>Immagini esemplificative</h3>
+      
+      <img src="img/ComboBox_1.gif" border="1"></img>
+      <br></br>
+      <b>fig.1 - esempio di rendering grafico del widget</b>
+      <hr></hr>
+      <h3>Eventi associati al widget</h3>
+      <h4>evento "event-value-changed"</h4>
+      <p>E'possibile, a fronte della selezione da parte dell'utente di una delle
+opzioni presenti nella lista, scatenare una logica applicativa e modificare di
+conseguenza la schermata visualizzata. Esistono due modalit&agrave; di esecuzione della logica 
+associata: <i>standard</i> e <i>ricca</i>.
+<h5>modalit&agrave; standard</h5>
+Alla selezione di una opzione dalla lista viene eseguita la logica applicativa associata
+e, al termine dell'esecuzione viene ricaricata l'intera schermata
+oppure il flusso passa ad una schermata differente.
+<h5>modalit&agrave; ricca</h5>
+Alla selezione di una opzione dalla lista viene eseguita la logica applicativa associata. Durante
+l'esecuzione viene sospesa l'interazione utente e viene visualizzato un
+indicatore di "operazione in corso".
+Al termine dell'esecuzione i possibili effetti sono:
+<ul>
+<li>il refresh dell'intera schermata corrente, con mantenimento della
+posizione delle eventuali scrollbar</li>
+<li>il refresh di una porzione specifica di schermata</li>
+<li>il passaggio del flusso ad una schermata differente</li>
+</ul>
+</p>
+      
+   </body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_eBSX8AG4Ed-zkKNlY1lDYA" name="model_structure">
+  <elementImport xmi:id="_eCeqwAG4Ed-zkKNlY1lDYA">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_eCeqwQG4Ed-zkKNlY1lDYA">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="_eCeqwgG4Ed-zkKNlY1lDYA">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <elementImport xmi:id="_eCeqwwG4Ed-zkKNlY1lDYA">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jOn_gAG4Ed-zkKNlY1lDYA" name=" Root model (SOABEModel)" clientDependency="_C_l2wAG5Ed-zkKNlY1lDYA _HqW8wAG5Ed-zkKNlY1lDYA _RC4LUAG5Ed-zkKNlY1lDYA _OjgP0BvZEd-r9Mk0ObspFw"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_mjtsAAG4Ed-zkKNlY1lDYA" name="baseTypes">
+    <ownedAttribute xmi:id="_rcixQAG6Ed-zkKNlY1lDYA" name="base_types" aggregation="composite"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_plk6gAG4Ed-zkKNlY1lDYA" name="Servicedef_1" clientDependency="_YkGyEBvZEd-r9Mk0ObspFw">
+    <ownedAttribute xmi:id="_KcTqgAG6Ed-zkKNlY1lDYA" name="operations" aggregation="composite"/>
+    <ownedAttribute xmi:id="_X_HIMAG6Ed-zkKNlY1lDYA" name="types" aggregation="composite"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_q69ZEAG4Ed-zkKNlY1lDYA" name="Orchestration_1_1" clientDependency="_EBiF4BvZEd-r9Mk0ObspFw _EtVb8BvZEd-r9Mk0ObspFw _RzFKMBvZEd-r9Mk0ObspFw _Uk2uQBvZEd-r9Mk0ObspFw">
+    <ownedAttribute xmi:id="_ukEi4AG6Ed-zkKNlY1lDYA" name="data_slots" aggregation="composite"/>
+    <ownedAttribute xmi:id="_vcGXEAG6Ed-zkKNlY1lDYA" name="nodes" aggregation="composite"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ub-BsAG4Ed-zkKNlY1lDYA" name="AppResources" clientDependency="_WLYAIBvZEd-r9Mk0ObspFw _W-e4EBvZEd-r9Mk0ObspFw">
+    <ownedAttribute xmi:id="_iZyXUAG6Ed-zkKNlY1lDYA" name="resourceConnectors" aggregation="composite"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_C_l2wAG5Ed-zkKNlY1lDYA" supplier="_mjtsAAG4Ed-zkKNlY1lDYA" client="_jOn_gAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_HqW8wAG5Ed-zkKNlY1lDYA" supplier="_plk6gAG4Ed-zkKNlY1lDYA" client="_jOn_gAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_RC4LUAG5Ed-zkKNlY1lDYA" supplier="_ub-BsAG4Ed-zkKNlY1lDYA" client="_jOn_gAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6KH1cAG5Ed-zkKNlY1lDYA" name="Supplier Service 1" clientDependency="_jsO9EBvZEd-r9Mk0ObspFw"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="__FoMphvYEd-r9Mk0ObspFw" name="Supplier Service 2" clientDependency="_kZr48BvZEd-r9Mk0ObspFw"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_EBiF4BvZEd-r9Mk0ObspFw" supplier="_6KH1cAG5Ed-zkKNlY1lDYA" client="_q69ZEAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_EtVb8BvZEd-r9Mk0ObspFw" supplier="__FoMphvYEd-r9Mk0ObspFw" client="_q69ZEAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_OjgP0BvZEd-r9Mk0ObspFw" supplier="_q69ZEAG4Ed-zkKNlY1lDYA" client="_jOn_gAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_RzFKMBvZEd-r9Mk0ObspFw" supplier="_plk6gAG4Ed-zkKNlY1lDYA" client="_q69ZEAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_Uk2uQBvZEd-r9Mk0ObspFw" supplier="_ub-BsAG4Ed-zkKNlY1lDYA" client="_q69ZEAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_WLYAIBvZEd-r9Mk0ObspFw" supplier="_6KH1cAG5Ed-zkKNlY1lDYA" client="_ub-BsAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_W-e4EBvZEd-r9Mk0ObspFw" supplier="__FoMphvYEd-r9Mk0ObspFw" client="_ub-BsAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_YkGyEBvZEd-r9Mk0ObspFw" supplier="_mjtsAAG4Ed-zkKNlY1lDYA" client="_plk6gAG4Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_jsO9EBvZEd-r9Mk0ObspFw" supplier="_mjtsAAG4Ed-zkKNlY1lDYA" client="_6KH1cAG5Ed-zkKNlY1lDYA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_kZr48BvZEd-r9Mk0ObspFw" supplier="_mjtsAAG4Ed-zkKNlY1lDYA" client="__FoMphvYEd-r9Mk0ObspFw"/>
+</uml:Model>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Datagen - design rationale</title>
+   </head>
+
+   <body>
+      <h2>
+         Datagen - Design rationale
+      </h2>
+      <p>
+         In questo capitolo sono descritti i razionali di design con cui viene generato il codice che realizza lo 
+         strato di accesso ai dati. 
+      </p>
+      <p>
+	  Tipicamente la modellazione dello strato di accesso ai dati &egrave; costituita da due modelli:
+	  <ul>
+	  <li>il modello dello schema relazionale da accedere</li>
+	  <li>il modello dell'accesso vero e proprio a tali dati</li>
+	  </ul> 
+	  Per i dettagli relativi alla struttura interna dei modelli si faccia riferimento all'apposito paragrafo 
+	  <a href="mm_reference.html">[metamodel reference]</a> 
+      </p>
+      <h3>Struttra del codice generato</h3>
+      <p>
+      Il generatore <b>DATAGEN</b> genera i seguenti componenti software:
+      <ul>
+      <li>uno strato di <i>dto - data transfer object</i> che rappresentano la visione java del singolo record della
+      singola tabella dello schema relazionale</li>
+      <li>uno strato di <i>dao - data access object</i> che rappresentano gli oggetti che realizzano l'effettivo accesso
+      al database e hanno come oggetti di <i>frontiera</i> proprio i <i>dto</i></li>: questi oggetti sono implementati come
+      bean <i>spring</i> e sono gli oggetti che devono essere utilizzati dalla business logic.
+      <li>una serie di classi-libreria che realizzano alcune funzioni comuni a tutti i dao (come ad esempio la costruzione
+      della query in base agli esempi, nel meccanismo di <i>query by example</i>)</li>
+      </ul>
+      </p>
+      <p>
+      Poich&egrave; il modello dello strato di accesso ai dati &egrave; suddiviso in <i>package</i>, questa strutturazione 
+      &egrave; mantenuta anche nell'alberatura del codice generato. 
+      </p>
+      <p>
+      Essendo i <i>dao</i> dei bean di <i>spring</i>, il generatore genera anche la apposita configurazione xml.
+      </p>
+      <h3>Inclusione del codice generato nel progetto principale</h3>
+      <p>
+      <b>DATAGEN</b> &egrave; nato per generare le classi che realizzano lo strato di accesso ai dati all'interno di un
+      progetto complessivo che ha bisogno di implementare tale strato. Di conseguenza &egrave; necessario fare in modo
+      che <b>DATAGEN</b> generi i propri artefatti in modo coerente con l'alberatura del progetto principale.
+      Per permettere ci&ograve; &egrave; necessario impostare adeguatamente alcune property al momento del richiamo della
+      cartuccia di generazione. Per i dettagli vedere la documentazone delle <a href="cartridges.html">cartridge</a> previste.
+      </p>
+   </body>
+</html>

@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Developer documentation for the model class Table</title>
+	</head><body>
+<h1>Class "guigen :: Table"</h1>
+<p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Tabella di visualizzazione dati. Permette di visualizzare in formato tabellare
+una collezione di record.
+Mette a disposizione alcune funzioni avanzate:
+<ol>
+<li>paginazione
+  <ul>
+  <li>opzionale</li>
+  <li>con possibilit&agrave; di impostare la dimensione della "pagina"</li>
+  <li>resettabile da business logic</li>
+  </ul>
+</li>  
+<li>export dei dati
+  <ul>
+  <li>opzionale</li>
+  <li>in formato PDF, XLS, RTF</li>
+  </ul>
+</li>
+<li>Con selezione della riga (&egrave; è il valore associato al DataWidget Table, utilizzabile nella business logic
+  <ul>
+  <li>opzionale (abilitata solo se è impostato un databinding/valuebinding)</li>
+  <li>singola o multipla (a seconda del tipo del databinding/valuebinding)</li>
+  </ul>
+</li>
+<li>Con possibilit&agrave; di editing delle celle
+  <ul>
+  <li>con widget di editing differenziato a seconda del tipo del dato della cella (TextField se Stringa/numerico, checkbox se boolean</li>
+  <li>con possibilit&agrave; di scegliere a runtime se una singola cella deve essere editabile o meno</li>
+  <li>con possibilit&agrave; di prendere il valore della cella da una collection (tramite combobox); la collection può essere unica per tutta la colonna o variabile per la singola riga</li>
+  </ul>
+</li>
+</ol></p>
+
+
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/Table.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/Table.html#an_uiwidgetdoc">uiwidgetdoc</a></li>
+</ul>
+
+
+<p>Super and Sub Types</p>
+
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a>
+<ul><li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/DataWidget.html">guigen :: DataWidget</a>
+
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a>
+<ul><li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MultiDataWidget.html">guigen :: MultiDataWidget</a>
+
+<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: Table</b>
+
+</li></ul>
+
+
+</li></ul>
+</li></ul>
+
+
+</li></ul>
+</li></ul>
+
+
+
+
+
+<table border="1">
+
+
+<tr style="vertical-align:top">
+
+
+<td>
+<p>Direct Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Table.html#at_customDecorator">customDecorator</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Table.html#at_enableExport">enableExport</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Table.html#at_pageSize">pageSize</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Table.html#at_summary">summary</a></li>
+</ul>
+
+</td>
+
+
+
+
+<td>
+<p>Direct References</p>
+<ul>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ColumnModel.html">guigen :: ColumnModel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Table.html#re_columnModel">columnModel</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
+
+
+
+
+<tr style="vertical-align:top">
+
+
+<td>
+<p>Inherited Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/DataWidget.html#at_dataTypeModifier">dataTypeModifier</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/DataWidget.html#at_required">required</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_defaultEnabled">defaultEnabled</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_defaultVisible">defaultVisible</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_label">label</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_name">name</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Widget.html#at_tooltip">tooltip</a></li>
+</ul>
+
+</td>
+
+
+
+
+<td>
+<p>Inherited References</p>
+<ul>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Type.html">guigen :: Type</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/DataWidget.html#re_dataType">dataType</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/DataWidget.html#re_databinding">databinding</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/AppDataBinding.html">guigen :: AppDataBinding</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MultiDataWidget.html#re_multiDataBinding">multiDataBinding</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_eventHandlers">eventHandlers</a></li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/WidgetLayoutSpecifier.html">guigen :: WidgetLayoutSpecifier</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_layoutSpec">layoutSpec</a></li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/UISecurityConstraint.html">guigen :: UISecurityConstraint</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_securityConstraints">securityConstraints</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
+
+
+</table>
+
+<p>Referenced by</p>
+<ul>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Table.html">guigen :: Table</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/TableCustomizationParam.html#re_baseTable">baseTable</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/TableCustomizationParam.html">guigen :: TableCustomizationParam</a>)</li>
+</ul>
+
+<h2><a name="at_customDecorator" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean customDecorator</h2>
+<p>Se impostato a true abilita la definizione di un CustomDecorator, 
+per impostazioni grafiche particolari.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>customDecorator</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_enableExport" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EBoolean enableExport</h2>
+<p>Se impostato a true abilita l'export della tabella.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>true</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>enableExport</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_pageSize" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EInt pageSize</h2>
+<p>Numero di record max visualizzati in una pagina. 
+Un valore di "0" significa che la paginazione &egrave; disabilitata: in 
+questo caso vengono visualizzati tutti i record.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>pageSize</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_summary" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString summary</h2>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>summary</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+<h2><a name="re_columnModel" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: ColumnModel columnModel</h2>
+<p>Il modello delle colonne che la tabella dovr&agrave; visualizzare.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ColumnModel.html">guigen :: ColumnModel</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>containment</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>columnModel</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>resolveProxies</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.widgets</td></tr>
+
+</tbody>
+</table>
+<h2><a name="an_uiwidgetdoc" />Annotation uiwidgetdoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td>E' il classico widget di visualizzazione/editing di dati in formato tabellare.
+<!--Il widget completo prevede una <i>label</i> ed il campo di immissione associato.
+La <i>label</i> pu&ograve; essere, in casi particolari, vuota.-->
+La <b>Table</b> pu&ograve; essere utilizzata all'interno di:
+<ul>
+<li>WidgetsPanel, con layout Verticale, Orizzontale, Griglia; N.B: deve
+essere l'unico widget all'interno del pannello</li>
+</ul>
+Prevede tre modalit&agrave; di funzionamento, una <i>standard/visualizzazione</i>,
+una <i>standard/editing</i> ed una <i>ricca</i>.
+<h4>modalit&agrave; standard/visualizzazione</h4>
+Il funzionamento di base della Table prevede:
+<ul>
+<li>la possibilit&agrave; di visualizzare le informazioni contenute in una 
+collezione di record, con formattazioen dell'informazione coerente con il tipo di dato
+di ciascuna colonna</li>
+<li>la possibilit&agrave; (opzionale) di effettuare l'ordinamento delle righe in base ai valori
+contenuti in una colonna</li>
+<li>la possibilit&agrave; (opzionale) di <b>paginare</b> i risultati (con dimensione della pagina impostabile)</li>
+<li>la possibilit&agrave; (opzionale) di effettuare l'<b>export</b> dei dati della tabella in formato excel o pdf</li>
+<li>la possibilit&agrave; (opzionale) di <b>selezione</b> singola o multipla delle righe della Tabella, allo scopo
+di eseguire logiche applicative sulle righe selezionate (l'esecuzione della logica deve essere comandata in un momento
+successivo alla selezione da un <b>Button</b> posto nella stessa schermata)</li>
+<li>la possibilit&agrave; di effettuare, al momento del submit della form,
+la validazione dell'input immesso a seconda del tipo di dato associato 
+al campo e di alcuni ulteriori specifiche</li>
+<li>la possibilit&agrave; di essere disabilitata a comando</li>
+<li>la possibilit&agrave; di essere resa invisibile a comando</li>
+<li>la possibilit&agrave; di essere disabilitata/invisibile a fronte di regole associate al profilo dell'utente
+collegato</li>
+<!--<li>la visualizzazione di un marcatore di errore in prossimit&agrave; della label, in caso di fallita
+validazione</li>-->
+</ul>
+<h4>modalit&agrave; standard/editing</h4>
+Ripsetto alla modalit&agrave; <i>standard/visualizzazione</i> la modalit&agrave; <i>standard/editing</i>
+prevede alcune possibilit&agrave; aggiuntive:
+<ul>
+<li><b>editing <i>in place</i></b> delle celle di una colonna:
+	<ul>
+	<li>il <b>widget di editing</b> della cella dipende dal tipo di dato associato alla colonna:
+		<ul>
+		<li><b>Calendar</b> in caso di tipo DATA</li>
+		<li><b>CheckBox</b> in caso di tipo BOOLEAN</li>
+		<li><b>TextField</b> in tutti gli altri casi</li>
+		</ul>
+	</li>
+	<li>&egrave; possibile selezionare il valore di una cella da una <b>lista di valori</b> (in questo caso il widget utilizzato
+		per l'immissione &egrave; la <b>ComboBox</b>); l'elenco dei valori selezionabili pu&ograve; essere comune a tutte le
+		righe oppure specifico per ciascuna riga
+	</li>
+	<li>&egrave; possibile, nell'ambito di una colonna dichiarata <i>editabile</i>, decidere a runtime l'editabilit&agrave;
+		della singola cella (nel qual caso il widget corrispondente apparir&agrave; disabilitato)
+	</li>
+	</ul>
+</li>
+</ul>
+<h4>modalit&agrave; ricca</h4>
+La modalit&agrave; ricca prevede di default i seguenti comportamenti aggiuntivi:
+<ul>
+<li>tooltip al passaggio del cursore sull'intestazione delle colonne</li>
+<li>refresh della sola area della tabella in caso di esecuzione delle funzioni di ordinamento e paginazione</li>
+<li>possibilit&agrave; di ridimensionare/cambiare l'ordine/nascondere le colonne della tabella interattivamente</li>
+</ul></td></tr>
+<tr><td>event-clicked</td><td><p>In una tabella &egrave; possibile rendere "attive" le celle di alcune
+colonne (purchè esse non siano editabili). L'evento "clicked" &egrave; proprio il "click" dell'utente 
+su tali celle. 
+E'possibile, a fronte ddi questo evento, scatenare una logica applicativa e modificare di
+conseguenza la schermata visualizzata. Esistono due modalit&agrave; di esecuzione della logica 
+associata: <i>standard</i> e <i>ricca</i>.
+<h5>modalit&agrave; standard</h5>
+Al click di una cella viene eseguita la logica applicativa associata
+e, al termine dell'esecuzione viene ricaricata l'intera schermata
+oppure il flusso passa ad una schermata differente.
+<h5>modalit&agrave; ricca</h5>
+Alla click di una cella viene eseguita la logica applicativa associata. Durante
+l'esecuzione viene sospesa l'interazione utente e viene visualizzato un
+indicatore di "operazione in corso".
+Al termine dell'esecuzione i possibili effetti sono:
+<ul>
+<li>il refresh dell'intera schermata corrente, con mantenimento della
+posizione delle eventuali scrollbar</li>
+<li>il refresh di una porzione specifica di schermata</li>
+<li>il passaggio del flusso ad una schermata differente</li>
+</ul>
+</p></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

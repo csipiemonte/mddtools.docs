@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Guigen - Strutturazione dei vari modelli dell'applicazione</title>
+   </head>
+
+   <body>
+      <h2>
+         Guigen - Strutturazione dei vari modelli dell'applicazione
+      </h2>
+      <p>
+      La descrizione di un'applicazione <b>guigen</b> &egrave; strutturata in differenti modelli ciascuno dei quali descrive
+      una porzione delle caratteristiche dell'applicazione stessa. 
+      Ci&ograve; permette di gestire in modo più efficente e strutturato il modello complessivo, anche in caso
+      di lavoro in team.
+      </p>
+      <h3>Struttura complessiva dei modelli e delle dipendenze</h3>
+      <p>
+      Nell'immagine seguente &egrave; mostrata la struttura delle dipendenze tra i vari sotto-modelli di cui &egrave;
+      composto il modello che descrive un'applicazione <b>guigen</b>:
+      </p>
+      <img src="img/models_structure.jpg" alt="struttura modelli guigen" border="1">
+      <p>
+      Nel disegno:
+      <ul>
+		  <li>ciascuna classe corrisponde ad un differente file di modello:
+		  <ul>
+		  	<li>il modello principale(nell'es: [<i>root model</i>]) contiene un istanza di <b>GUIModel</b></li>
+		  	<li>il modello [<i>security model</i>] contiene le informazioni che caratterizzano il
+		  	modello di sicurezza dell'applicazione (classe <b>SecurityModel</b>)</li>
+		  	<li>il modello [<i>commonTNS</i>] contiene un <b>TypeNamespace</b> che rappresenta una libreria
+		  	di tipi base utilizzabili da tutti gli applicativi</li>
+		  	<li>il modello [<i>commonAppdata</i>] contiene un <b>AppDataGroup</b> che raccoglie un insieme di
+		  	<b>ApplicationData</b> di utilizzo comune a tutti gli applicativi (es. le informazioni dell'
+		  	utente correntemente collegato)</li>
+		  	<li>il modello [<i>app module 1</i>] contiene la modellazione di una porzione di schermate (<b>ContentPanel</b>)
+		  	solitamente rerlative ad una porzione di casi d'uso dell'applicativo (solitamente un'applicazione non
+		  	banale contiene pi&ugrave;, di un <b>AppModule</b>)</li>
+		  	<li>il modello [<i>appdata group 1</i>] contiene la modellazione di un insieme di <b>ApplicationData</b>,
+		  	solitamente (ma non necessariamente) relativi ad un <b>AppModule</b>; (solitamente un'applicazione non 
+		  	banale contiene pi&ugrave; di un <b>AppDataGroup</b>)</li>
+		  	<li>il modello [<i>type namespace 1</i>] contiene la modellazione di un package di tipi/strutture dato
+		  	(solitamente un'applicazione non banale contiene pi&ugrave; di un <b>TypeNamespace</b>)</li>
+		  	<li>il modello [<i>panel def 1</i>] contiene la modellazione di un frammento di UI riusabile (<b>PanelDef</b>).
+		  	Un frammento di questo genere pu&ograve; essere fornito come libreria da un progetto esterno 
+		  	(ad esempio per definire un pannello standard per la gestione delle informazioni di avanzamento di una istanza di
+		  	processo BPM) oppure essere modellato all'interno del progetto stesso, per essere utilizzato in pi&ugrave; schermate.
+		  	</li>
+		  </ul>
+		  </li>
+  		  <li>ciascuna dipendenza tra due classi corrisponde ad una dipendenza tra due file di modello, che si realizza
+  		  in <b>EMF</b>:
+  		  <ul>
+  		  	<li>mediante l'inclusione del modello da cui si dipende nel modello che presenta la dipendenza tramite
+  		  	il comando "load resource..." nell'editor strutturato (es: dall'editor del modello <i>app module 1</i>
+  		  	 includere la risorsa relativa al modello <i>app data group 1</i>)</li>
+  		  	<li>referenziando (dove necessario) un oggetto appartenente al modello incluso in una property di 
+  		  	    un oggetto appartenente al modello che include (es. referenziando un <b>ApplicationData</b> del modello
+  		  	    <i>appdata group 1</i> in un <i>data binding</i> di un <b>Widget</b> contenuto in una schermata 
+  		  	    (<b>ContentPanel</b>) descritta nel modello <i>app module 1</i>)</li>
+  		  </ul>
+  		  <li>i modelli rappresentati con il colore giallo sono modelli specifici dell'applicativo, mentre i modelli
+  		  rappresentati in grigio sono da considerarsi librerie da includere nel progetto</li> 
+	  </ul>	
+
+      </p>
+      
+      <h3>Alberatura dei file di modello</h3>
+      <p>
+      In una applicazione non banale sono tipicamente presenti vari <b>AppModule</b>, vari <b>AppDataGroup</b>,
+      vari <b>TypeNamespace</b>, oltre a poter avere la necessit&agrave; di includere uno o pi&ugrave; modelli di <b>Paneldef</b>.
+      Di conseguenza l'insieme di modelli che complessivamente descrivono l'applicazione pu&ograve; anche avere una elevata
+      cardinalit&agrave;.
+      In pratica il numero complessivo dei modelli dipende da:
+      <ul>
+      <li><code>N<sub>mod</sub></code>: numero degli <b>AppModule</b></li>
+      <li><code>N<sub>dat</sub></code>: numero degli <b>AppDataGroup</b> specifici dell'applicazione</li>
+      <li><code>N<sub>tns</sub></code>: numero dei <b>TypeNamespace</b> specifici dell'applicazione</li>
+      <li><code>N<sub>pdef</sub></code>: numero dei <b>PanelDef</b> inclusi ed utilizzati nella struttura UI dell'applicazione</li>
+      </ul>
+      ed &egrave calcolabile con la seguente formula: <br></br>
+      <code>
+      N<sub>tot</sub> = N<sub>mod</sub> + N<sub>dat</sub> + N<sub>pdef</sub> + 4
+      </code> 
+      <br></br>
+      Di conseguenza &egrave; opportuno addottare anche una strutturazione del file system secondo una alberatura simile alla seguente:
+      <code>
+      <ul>
+      <li><i>&lt;cod_prodotto&gt;</i>
+      <ul>
+      	<li><i>&lt;componente_web&gt;</i>
+      	<ul>
+      		<li><i>&lt;componente_web&gt;</i>.guimodel</li>
+      		<li>securityModel.guimodel</li>
+      		<li>modules
+      		<ul>
+      			<li><i>&lt;module_1&gt;</i>_module.guigen</li>
+      			<li>...</li>
+      			<li><i>&lt;module_N<sub>mod</sub>&gt;</i>_module.guigen</li>
+      		</ul>
+      		</li>
+      		<li>appdata
+      		<ul>
+      			<li><i>&lt;appdata_1&gt;</i>_appdata.guigen</li>
+      			<li>...</li>
+      			<li><i>&lt;appdata_N<sub>dat</sub>&gt;</i>_appdata.guigen</li>
+      		</ul>
+      		</li>
+      		<li>tns
+      		<ul>
+      			<li><i>&lt;package_1&gt;</i>_tns.guigen</li>
+      			<li>...</li>
+      			<li><i>&lt;package_N<sub>tns</sub>&gt;</i>_tns.guigen</li>
+      		</ul>
+      		</li>
+      		<li>fragments
+      		<ul>
+      			<li><i>&lt;panel_def_1&gt;</i>_pdef.guigen</li>
+      			<li>...</li>
+      			<li><i>&lt;panel_def_N<sub>pdef</sub>&gt;</i>_pdef.guigen</li>
+      		</ul>
+      		</li>
+      	</ul>
+      	</li>
+      </ul>
+      </li>
+      <li>commonTNS.guimodel</li>
+      <li>commonAppdata.guimodel</li>
+      </ul>
+      </code>
+      </p>
+   </body>
+</html>

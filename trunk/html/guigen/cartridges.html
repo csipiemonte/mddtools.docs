@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Guigen - cartridges disponibili</title>
+   </head>
+
+   <body>
+      <h2>
+         Guigen - Cartridges disponibili
+      </h2>
+      <p>
+         In questo capitolo sono descritte le carucce (<i>cartridge</i>) di generazione disponibili.
+      </p>
+      <h3>cartuccia di verifica dei modelli</h3>
+	  <p>
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/guigenCheck.oaw</code> serve per effettuare il check semantico
+	  dei vari sotto-modelli e prevede i seguenti parametri:
+	  
+	  <table border="1">
+	  <thead style="background:silver"><tr><td>parametro</td><td>descrizione</td><td>esempio</td><td>obbl/opz</td></tr></thead>
+	  <tbody>
+	  <tr>
+	  <td>model</td>
+	  <td>percorso del file del modello <i>guigen</i>, a partire dalla root del workspace eclipse</td>
+	  <td><code>myprod.mdd/src/model/myprod/mycomp/myapp.guigen</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>portal</td>
+	  <td>codice del portale per cui &egrave; necessario generare il codice. I valori possibili sono
+	  	<ul>
+	  	<li>sisp: sistema piemonte (xhtml specifico)</li>
+	  	<li>rupar: rupar piemonte old style (xhtml specifico)</li>
+	  	<li>intranetrp: intranet regione piemonte (xhtml specifico)</li>
+	  	<li>neutral: nuova cartuccia con xhtml "universale"</li>
+	  	<li>newrupar: alias di "neutral" mantenuto per retrocompatibilit&agrave;</li>
+	  	</ul>
+	  </td>
+	  <td><code>sisp</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  </tbody>
+	  </table>
+	  
+	  </p>
+	  
+	  <p>
+	  Esempio:
+
+<pre>    
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/guigenCheck.oaw"</font>
+  <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
+  <font color='#000080'>portal=</font><font color='#008000'>"sisp"</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color='#000080'>/&gt;</font><br>
+
+</pre>    
+</p>
+
+<h3>cartuccia di generazione completa dell'applicazione</h3>
+	  <p>
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/struts2Basic.oaw</code> serve per effettuare la generazione
+	  completa dell'applicazione, e prevede i seguenti parametri:
+	  
+	  <table border="1">
+	  <thead style="background:silver"><tr><td>parametro</td><td>descrizione</td><td>esempio</td><td>obbl/opz</td></tr></thead>
+	  <tbody>
+	  <tr>
+	  <td>model</td>
+	  <td>percorso del file del modello principale <i>guigen</i>, a partire dalla root del workspace eclipse</td>
+	  <td><code>myprod.mdd/src/model/myprod/mycomp/myapp.guigen</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>portal</td>
+	  <td>codice del portale per cui &egrave; necessario generare il codice. I valori possibili sono
+	  	<ul>
+	  	<li>sisp: sistema piemonte (xhtml specifico)</li>
+	  	<li>rupar: rupar piemonte old style (xhtml specifico)</li>
+	  	<li>intranetrp: intranet regione piemonte (xhtml specifico)</li>
+	  	<li>neutral: nuova cartuccia con xhtml "universale"</li>
+	  	<li>newrupar: alias di "neutral" mantenuto per retrocompatibilit&agrave;</li>
+	  	</ul>
+	  </td>
+	  <td><code>sisp</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>targetProjectName</td>
+	  <td>nome del progetto java nel quale si desidera generare l'applicazione. deve appartenere allo stesso workspace
+	  del progetto generatore</td>
+	  <td><code>mycomp</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>propertiesFile</td>
+	  <td>percorso di un file di properties che pu&ograve; essere utilizzato per pilotare alcuni aspetti della generazione. 
+	  Per un dettaglio delle properties supportate vedere pi&ugrave; avanti</td>
+	  <td><code>myprod.mdd/src/workflow/myprod/mycomp/workflow.properties</code></td>
+	  <td>opz</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>useExternalDaoBeans</td>
+	  <td>(dalla v.1.5) se impostato a <i>true</i> non viene generato il file <i>dao-beans.xml</i>, 
+	  permettendo cos&igrave; di utilizzare il file generato da <i>datagen</i>. Il valore di 
+	  default &egrave;: <i>false</i>
+	  </td>
+	  <td><code>true</code></td>
+	  <td>opz</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>extra-xpt</td>
+	  <td>percorso di un file di template <i>Xpand</i> da utilizzare per:
+	  	<ul>
+	  	<li>la configurazione dei template custom per la generazione <i>full-code</i> degli <b>ExecCommand</b></li>
+	  	<li>la configurazione di eventuali override di template esistenti</li>
+	  	</ul>. 
+	  Nota: questa &egrave; una feature avanzata.</td>
+	  <td><code>template::myprod::mycomp::customTemplates.xpt</code></td>
+	  <td>opz</td>
+	  </tr>
+	  </tbody>
+	  </table>
+	  
+	  </p>
+	  
+	  <p>
+	  Esempio:
+
+<pre>    
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/struts2Basic.oaw"</font>
+  <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
+  <font color='#000080'>portal=</font><font color='#008000'>"sisp"</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <font color='#000080'>propertiesFile=</font><font color='#008000'>"myprod.mdd/src/workflow/myprod/mycomp/workflow.properties"</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color='#000080'>/&gt;</font><br>
+</pre>    
+</p>
+<p>
+In un workflow completo &egrave; necessario applicare prima le cartucce di <i>check</i> su tutti i modelli singolarmente, e
+poi applicare la cartuccia di <i>generazione</i>.
+</p>
+<p>
+E' disponibile anche una variante di questa cartuccia che permette di generare solo <b>singoli moduli</b>: 
+<code>it/csi/mddtools/guigen/workflow/struts2BasicSingleModule.oaw</code><br/>
+Questa cartuccia permette di rigenerare solo una parte dell'applicazione (un'insieme ben definito di <b>ApplicationModule</b>)
+allo scopo di diminuire i tempi di generazione a fronte di modelli molto complessi. L'elenco degli <b>ApplicationModule</b>
+da rigenerare &egrave; gestita in un file di properties tramite la propriet&agrave; <code>generate-appmodules</code>.
+Occorre tenere presente che:
+<ul>
+<li>questa cartuccia non deve essere utilizzata per generazioni che diano origine ad una baseline (di test o collaudo o esercizio),
+poich&egrave; vi è il rischio di mettere in baseline (o nel relativo tag SVN) una versione di codice generato non
+coerente con il modello (in caso di errori nella configurazione della lista di <b>ApplicationModule</b></li>
+<li>se si utilizza questa cartuccia &egrave; necessario assicurarsi che la lista di <b>ApplicationModule</b> configurati
+contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
+</ul>
+</p>
+<h3>Properties supportate</h3>
+<p>Il generatore <b>GUIGEN</b> supporta le seguenti properties
+<table border="1">
+	  <thead style="background:silver"><tr>
+	  <td>property</td>
+	  <td>descrizione</td>
+	  <td>esempio</td>
+	  <td>cartuccia</td>
+	  </tr></thead>
+	  <tbody>
+	  <tr>
+	  <td><code>guigen.remoteresources</code></td>
+	  <td>
+	  	<ul>
+	  	<li>scopo: serve per scegliere se generare header e footer come risorse interne all'
+		applicativo (valore=false) oppure se reperirle come risorsa remota tramite 
+		remote-include (valore=true).</li>
+   		<li>default: false</li>
+	  	</ul>
+	  </td>
+	  <td>false</td>
+	  <td>
+	  	<i>struts2Basic.oaw</i> e <i>struts2BasicSingleModule.oaw</i> con <i>portal</i>="neutral"</td>
+	  </td>
+	  </tr>
+	  
+	  <tr>
+	  <td><code>generate-appmodules</code></td>
+	  <td>
+	  	<ul>
+	  	<li>scopo: serve per la generazione parziale. Se non impostata vengono generati tutti gli
+		ApplicationModule. Se &egrave; impostata con una lista dei nomi di ApplicationModule
+		vengono generati solo tali ApplicationModule.</li>
+   		<li>default: false</li>
+	  	</ul>
+	  </td>
+	  <td><code>modulo1,modulo2</code></td>
+	  <td>
+	  	<i>struts2BasicSingleModule.oaw</i></td>
+	  </td>
+	  </tr>
+	  </tbody>
+</table>
+</p>
+<h3>Setup di plugin contenenti frammenti di modello</h3>
+<p>
+Per poter utilizzare nel proprio modello dei frammenti di modello (es. <b>PanelDef</b>, o <b>TypeNamespace</b>)
+contenuti in un plugin di estensione, &egrave; necessario configurare opportunamente il workflow di generazione,
+per fare in modo che il runtime di generazione riesca a risolvere i riferimenti a tali frammenti
+(che dovranno essere effettuati nei modelli tramite la sintassi <code>platform:/plugin/...</code>).
+A tale scopo &egrave; disponibile un componente da utilizzare nel file di workflow, prima delle componenti
+di check/generazione.
+Di seguito si riporta un esempio di utilizzo.
+
+<pre>
+&nbsp;&nbsp;<font color='#000080'>&lt;bean</font>&nbsp;<font color='#000080'>class=</font><font color='#008000'>"it.csi.mddtools.guigen.workflow.component.GuigenExtensionSetup"</font>&nbsp;<font color='#000080'>></font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;pluginName</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"thirdpartyplugin"</font>&nbsp;<font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;pluginVersion</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"1.0.0.001"</font>&nbsp;<font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;fragmentPath</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"model/pdefplugin/pdefplugin/mypdef.guigen"</font><font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#000080'>&lt;fragmentPath</font>&nbsp;<font color='#000080'>value=</font><font color='#008000'>"model/pdefplugin/pdefplugin/cartridge_1.xmi"</font><font color='#000080'>/&gt;</font>
+&nbsp;&nbsp;<font color='#000080'>&lt;/bean&gt;</font>
+ </pre>
+
+Dove:
+<ul>
+<li><code>pluginName</code> &egrave; il nome del plugin che contiene i frammenti da integrare</li>
+<li><code>pluginVersion</code> &egrave; il codice completo di versione del plugin che contiene i frammenti da integrare</li>
+<li><code>fragmentPath</code> contiene il percorso (relativo all'alberatura del plugin) di ciascun frammento da integrare</li>
+</ul>
+
+L'esempio in questione ad esempio permette di mappare i due frammenti con URI:
+<ul>
+<li><code>platform:/plugin/thirdparthyplugin/model/pdefplugin/pdefplugin/mypdef.guigen</code></li>
+<li><code>platform:/plugin/thirdparthyplugin/model/pdefplugin/pdefplugin/cartridge_1.xmi</code></li>
+</ul>
+
+Per poter utilizzare questo componente di setup &egrave; necessario, inoltre, impostare la system 
+property <code>eclipse.home</code> nella configurazione di lancio del workflow:
+<br/>
+<img alt="" src="img/oaw_cfg_eclipse_home.gif" height="650" width="650">
+
+</p>
+   </body>
+</html>

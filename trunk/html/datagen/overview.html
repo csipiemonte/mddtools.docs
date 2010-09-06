@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Datagen - overview</title>
+   </head>
+
+   <body>
+      <h2>
+         Datagen - overview
+      </h2>
+      <p>
+      <b>DATAGEN</b> &egrave; uno strumento di generazione di codice specifico per la generazione dello strato software
+      che realizza l'accesso ai dati mantenuti in un DBMS relazionale. 
+     
+      </p>
+      Il modello che descrive lo strato di accesso ai dati &egrave;:
+      <ul>
+      <li>basato su un metamodello descritto in dettaglio in <a href="mm_reference.html">[Metamodel reference]</a>;</li>
+      <li>strutturato in un insieme di modelli come descritto in dettaglio in <a href="models_structure.html">[Models structure]</a>;</li>
+      </ul>  
+      <p> 
+      Il generatore non genera un progetto autoconsistente ma crea gli artefatti necessari a definire lo strato di accesso ai dati
+      all'interno di un altro progetto java preesistente, che pu&ograve; essere un progetto di front-end (guigen) o un progetto di servizio SOA (servicegen).
+      </p>
+      
+      <h3>Funzionalit&agrave;</h3>
+      
+      <b>DATAGEN</b> permette la realizzazione dello strato di accesso ai dati in due modalità differenti:
+      <ol>
+      <li>modalit&agrave; <i>top-down</i>, che consiste nella modellazione dello schema relazionale e nella generazione
+          di:
+          <ul>
+          <li>script DDL di creazione dello schema</li>
+          <li>classi java che implementano lo strato <i>DAO</i></li>
+          </ul>
+      </li>
+      <li>modalit&agrave; <i>bottom-up</i>, che consiste nell'effettuare il <i>reverse engeneering</i> dello schema DB nella
+          generazione di:
+          <ul>
+          <li>classi java che implementano lo strato <i>DAO</i></li>
+          </ul>
+      </li>
+      </ol>
+      <p>
+      La modalit&agrave; <i>top-down</i> &egrave; attualmente in stato sperimentale. Per la modalit&agrave; <i>bottom-up</i>
+      &egrave; invece disponibile un <i>wizard</i> che permette di effettuare il <i>reverse engineering</i> a partire da uno
+      schema relazionale esistente.
+      In entrambe le modalit&agrave; svolge un ruolo centrale il modello dello schema relazionale, con la sola differenza che
+      nella modalit&agrave; <i>top-down</i> &egrave; progettato direttamente, mentre nella modalit&agrave; <i>bottom-up</i>
+      &egrave; l'effetto di una lettura dei metadati dello schema oracle.
+      </p>
+      <p>
+      A questo modello dello schema relazionale si affianca un modello dello strato vero e proprio di accesso ai dati che, per
+      ciascuna tabella permette di definire un <b>DataAccessObject</b> che pu&ograve; mettere a disposizione dell'utilizzatore:
+      <ul>
+      <li>le funzioni per inserire un nuovo record (<b>Inserter</b>)(con la possibilit&agrave; di utilizzare, se necessario, una sequence
+      o altre tecniche per la creazione della <i>primary key</i> (<b>PKGenerator</b>)</li>
+      <li>le funzioni per effettuare delle ricerche (<b>Finder</b>):
+      	<ul>
+      	<li>lettura di tutte le righe della tabella (<b>FindAll</b>)</li>
+      	<li>lettura di un singolo record selezionato per <i>primary key</i> (<b>FindByPK</b>)</li>
+      	<li>lettura di un sottoinsieme di record selezionati con criteri <i>custom</i> (<b>CustomFinder</b>, clausola WHERE da scrivere manualmente)</li>
+      	<li>lettura di un sottoinsieme di record selezionati tramite la tecnica del <i>Query By Example</i> (<b>QBEFinder</b>)</li>
+      	</ul>
+      </li>
+      <li>
+      Le funzioni per effettuare modifiche ai dati di uno o pi&ugrave; record, selezionati per <i>primary key</i> o altri criteri custom (<b>Updater</b>)
+      </li>
+      <li>
+      Le funzioni per cancellare uno o pi&ugrave; record, selezionati per <i>primary key</i> o altri criteri custom  (<b>Deleter</b>)
+      </li>
+      </ul>
+      </p> 
+      <p>
+      L'implementazione dei <i>DataAccessObject</i> &egrave; realizzata utilizzando il framework <i>struts</i> e <i>jdbc-template</i>: per
+      utilizzare i <i>DAO</i> nella business logic sarà dunque sufficiente utilizzare i consueti meccanismi di <i>localizzazione</i> dei bean
+      relativi e utilizzarne i metodi.
+      </p>
+      <p>
+      Circa i dettagli sulla struttura e il design del codice generato si rimanda a <a href="rationale.html">[design rationale]</a>.
+      </p>
+    </body>
+	</html>

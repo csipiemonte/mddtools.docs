@@ -1,0 +1,508 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Guigen - per iniziare</title>
+   </head>
+
+   <body>
+      <h2>
+         Guigen - Per iniziare
+      </h2>
+      <p>
+         Questa mini-guida ha l'obiettivo di illustrare i passi necessari per impostare un progetto di generazione
+         <b>guigen</b>.
+         Si d&agrave; per scontata la corretta installazione del bundle <b>eclipse-galileo</b> e dei plugin <b>mddtools</b>
+         e la dimestichezza con le funzionalit&agrave; di base dell'IDE <b>eclipse</b>.          
+      </p>
+      <p>
+      	La struttura di un workspace tipicamente &egrave; costituita da:
+      	<ol>
+		  	<li>un progetto generatore (tecnologia <b>mdd</b>)</li>
+  			<li>un progetto target, contenente il progetto java che realizza l'applicativo vero e proprio (tecnologia <b>j2ee</b>)</li>
+		</ol>
+		Il flusso di lavoro tipico dello sviluppo in modalit&agrave; <b>mdd</b> &egrave; costituito dai seguenti passi:
+		<ol>
+		<li>modellazione dell'applicazione, ottenuta editando i file di modello nel progetto generatore;</li>
+		<li>generazione del progetto target a partire dai file di modello</li>
+		<li>completamento del progetto target mediante codifica manuale nelle <i>regioni protette</i></li>
+		<li>build del progetto target, deploy, test</li>
+		<li>ritorno al passo (1) se &egrave; necessario modificare caratteristiche modellabili dell'applicazione 
+			(es. correggere una label, aggiungere un widget, etc..) oppure al passo (3) se &egrave; necessario
+			apportare delle correzioni alla logica di business scritta nelle regioni protette</li>
+		</ol>
+      </p>
+      <p>
+      E'importante notare che, affinch&egrave; questo flusso iterativo unidirezionale (round trip) vada a buon fine 
+      &egrave; necessario prestare molta attenzione a non modificare manualmente porzioni di codice generato non contenute
+      in regioni protette: in caso contrario le modifiche apportate manualmente in aree non consentite sono irrimediabilmente
+      perse alla rigenerazione successiva. Generalmente questa limitazione non costituisce un problema in quanto
+      la struttura del codice generato &egrave; stata pensata appositamente con l'obiettivo di concentrare le aree di
+      intervento manuale allo stretto indispensabile. Viceversa, una modifica arbitraria al di fuori delle regioni protette
+      pu&ograve; compromettere il funzionamento dell'applicativo.
+      </p>
+      <p>
+      	 In sintesi i passi da compiere al fine di predisporre un progetto <b>guigen</b> sono i seguenti:
+      	 <ol>
+      	 	<li>impostare il progetto generatore
+   			<ol>
+   				<li>creare un <i>progetto generatore</i>(tecnologia <b>mdd</b>)</li>
+      	 		<li>aggiungere le <i>dipendenze</i> dei plugin mddtools</li>
+      	 		<li>creare la struttura delle directory destinate a contenere i modelli e gli script di generazione</li>
+   			</ol>
+   			</li>
+      	 	
+      	 	<li>creare i modelli dell'applicazione
+      	 	<ol>
+      	 		<li>importare nel progetto i <i>modelli comuni</i> (<i>commonTNS.guigen</i> e <i>commonAppdata.guigen</i>)</li>
+      	 		<li>creare il <i>modello principale</i> dell'applicativo impostando le informazioni principali</li>
+    			<li>creare il modello di un <b>AppModule</b> dove sar&agrave; inserito il <b>ContentPanel</b>
+    			destinato ad essere la home page dell'applicativo</li>
+    			<li>creare una home page minimale</li>
+      	 	</ol>
+      	 	</li>
+    		
+    		<li>impostare il progetto java target
+    		</li>
+    		
+    		<li>impostare il workflow di generazione
+    		</li>
+    		
+    		<li>eseguire la generazione
+    		</li>
+    		
+    		<li>configurare, compilare e deployare il progetto generato
+    		</li>
+    	</ol>
+    	<p>
+    	E'possibile scaricare i sorgenti completi del progetto generatore e del progetto generato
+    	<a href="resources/src_tutorial/tutorial_howtostart_src.zip">qui</a>
+    	</p>
+    	<h3>impostare il progetto generatore</h3>
+   		
+   		<h4>creare un <i>progetto generatore</i> (tecnologia <b>mdd</b>)</h4>
+   		
+   		<p>
+   		Per creare il progetto generatore &egrave; necessario utilizzare l'apposito wizard per <b>progetti architectureware</b>,
+   		che si attiva selezionando in <i>eclipse</i> la voce di menu:
+   		</p>
+   		<code>[File] -&gt; [new...] -&gt; [openarchitectureware project]</code>
+      	<br/>
+      	<p>
+      	Inserendo nel campo <code>[project name]</code> il nome del progetto generatore, che solitamente &egrave;
+      	costituito da:
+      	
+      	</p>
+      	<code>&lt;cod_prodotto&gt;mdd</code>.
+      	<br/>
+      	<p>
+      	occorre inoltre lasciare <i>non</i> selezionato il check <code>[create sample]</code>, in quanto non utile.
+      	</p>
+      	<p>Sar&agrave; generata una struttura simile a quella riportat ain figura (nell'esempio il codice prodotto
+      	utilizzato &egrave; <i>myprod</i></p>
+      	
+      	<img src="img/howtostart_1.jpg" border="1"></img>
+      	
+      	
+      	<h4>aggiungere le <i>dipendenze</i> dei plugin mddtools</h4>
+      	
+      	<p>
+      	Per aggiungere al progetto geenratore le dipendenze necessarie &egrave; necessario agire nella apposita
+      	schermata alla quale si accede tramite doppio click sul file <code>META-INF/MANIFEST.MF</code>
+      	</p>
+      	<p>I plugin da aggiungere sono:
+      	<ul>
+      		<li><code>org.openarchitectureware.dependencies</code></li>
+      		<li><code>guigen</code></li>
+      		<li><code>guigen.editor</code></li>
+      	</ul>
+      	Al termine dell'operazione la scheramta apparir&agrave; come in figura:
+      	</p>
+      	<img src="img/howtostart_2.jpg" border="1"/>
+      	
+      	<h4>creare la struttura delle directory del progetto generatore</h4>
+   		
+   		<p>Predisporre la struttura di folder del progetto generatore secondo lo schema rappresentato in figura:
+   		<br/>
+   		<img src="img/howtostart_3.jpg" border="1" />
+   		</p>
+   		<p>
+   		Come si pu&ograve; notare sotto la cartella <code>src</code> sono definite due cartelle:
+   		<ul>
+   		<li><code>model</code>: contiene i modelli dell'intero prodotto</li>
+   		<li><code>workflow</code>: contiene gli script del workflow di generazione dell'intero prodotto</li>
+   		</ul>
+   		</p>
+   		 	
+   		<p>
+   		Entrambe le cartelle sono ulteriormenbte strutturate secondo la struttura del prodotto, ovvero con una 
+   		sottodirectory per ogni componente di rilascio prevista dal prodotto.
+   		Questa strutturazione permette di avere un unico
+   		<i>progetto generatore</i> che pu&ograve; generare uno o pi&ugrave; componenti di prodotto.
+   		</p>
+   		
+      	<h3>creare i modelli dell'applicazione</h3>
+      	
+      	<p>Una volta predisposta la struttura del progetto il passo successivo &egrave; rappresentato
+      	dalla creazioen dei modelli che descrivono l'applicazione.</p>
+      	
+      	<h4>importare nel progetto i <i>modelli comuni</i></h4>
+      	
+      	<p>
+      	Il primo passo da compiere &egrave; rappresentato dalla creazione dei due file di libreria
+      	<code>commonTNS.guigen</code> e <code>commonAppdata.guigen</code>. E' importante notare che 
+      	questi file sono condivisibili da pi&ugrave; di un modello di applicazione guigen: per questo motivo 
+      	&egrave; consigliabile posizionare i file nella cartella dei modelli relativa al prodotto e non
+      	nella cartella relativa al componente web.
+      	</p>
+      	<p>
+      	Per creare i due file in questione &egrave; necessario utilizzare un apposito wizard, che si attiva selezionando da eclipse
+      	la voce di menu:
+      	</p>
+      	
+      	<code>[File] -&gt; [new...] -&gt; [other...]</code>
+      	<p>
+      	E selezionando tra i wizard disponibili il wizard "Librerie standard per modelli GUIGEN", disponibile
+      	nella cartella "guigen wizards". 
+      	</p>
+      	<p>
+      	A questo punto &egrave; necessario impostare nel campo <code>[container]</code> il percorso del
+      	folder dei modelli comuni a tutto il prodotto (nell'esempio: <code>myprodmdd/src/model/myprod</code>).
+      	Il wizard terminer&agrave; e saranno creati i due file di libreria. 
+      	</p>
+      	
+      	<h4>creare il <i>modello principale</i> dell'applicativo</h4>
+    	
+    	Il modello principale dell'applicativo deve essere creato tramite l'apposito wizard, che si attiva selezionando
+    	da eclipse la voce di menu:
+      	</p>
+      	
+      	<code>[File] -&gt; [new...] -&gt; [other...]</code>
+      	<p>
+      	E selezionando tra i wizard disponibili il wizard "Guigen model", disponibile
+      	nella cartella "guigen wizards". 
+      	</p> 
+    	<p>
+    	Nella prima schermata del wizard &egrave; necessario impostare il percorso della cartella dove deve essere creato il file che,
+    	essendo un file specifico del componente web, &egrave; rappresentato dalla cartella omonima 
+    	(nell'esempio: <code>mycomp</code>) e il nome del file stesso, che deve essere nel formato <code>&lt;cod_componente&gt;.guigen</code>.
+    	</p>
+    	<p>
+    	Nella seconda schermata &egrave; necessario selezionare nella combo <code>[model object]</code> l'elemento
+    	<b>GUIModel</b>, corrispondente alla classe dell'elemento che deve essere creato come root del modello.
+    	</p>
+    	<p>
+    	Nella terza schermata &egrave; necessario inserire le informazioni identificative del componente, ovvero:
+    	<ul>
+    		<li>codice anaprod del prodotto (tutti caratteri minuscoli)</li>
+    		<li>versione del prodotto</li>
+    		<li>codice anaprod del componente (tutti caratteri minuscoli)</li>
+    		<li>versione del componente</li>
+    	</ul>
+    	</p>
+    	<p>
+    	Nella quarta schermata &egrave; necessario inserire la posizione della cartella nella quale sono stati creati i 
+    	due file di libreria <code>commonTNS.guigen</code> e <code>commonAppdata.guigen</code>.
+    	</p>
+    	<p>
+    	Al termine dell'esecuzione del wizard sar&agrave; creato lo scheletro del modello dell'applicazione, che referenzier&agrave;
+    	i due file di libreria.
+    	<p>
+    	<img src="img/howtostart_4.jpg" border="1"/> 
+    	<p>
+    	A questo punto &egrave; necessario impostare alcune informazioni generali dell'applicativo:
+    	<ul>
+    		<li>codici applicativo: selezionare nell'albero dell'editor gerarchico l'elemento <b>Header</b>, e inserire
+    		nella view delle properties i valori appropriati (vedere documentazione della classe <b>Header</b>).
+    		<br></br>
+    		<img src="img/howtostart_5.jpg" border="1"/>
+    		</li>
+    		
+    		<li>piattaforma di deploy (<b>TargetPlatform</b>): selezionare nell'albero dell'editor gerarchico l'
+    		elemento <b>GUIModel</b>, tasto destro -&gt; new child -&gt; TargetPlatform, e specificare nella corrispondente scheda delle
+    		properties dell'elemento appena creato nella struttura se si desidera generare un applicazione web deployabile sotto Weblogic 9.2 (codice WLS92)
+    		oppure sotto JBoss 43 (codice JBoss43).
+    		</li>
+    		
+    		<li>aggiungere l'elemento <b>MenuBar</b> come figlio dell'elemento <b>ApplicationArea</b></li>
+    	</ul>
+    	Ricordarsi di salvare il modello al termine dell'operazione.
+    	</p>
+    	
+    	<h4>creare il modello di un <b>AppModule</b> </h4>
+    	
+    	<p>
+    	Il passo successivo &egrave; rappresentato dalla creazione di un <b>AppModule</b> destinato a contenere
+    	la <i>home page</i> dell'applicativo: supponiamo che tale <b>AppModule</b> si chiami <i>home</i>.
+    	Per fare ci&ograve; &egrave; necessario creare un apposito file di modello 
+    	tramite il wizard che si attiva selezionando da eclipse la voce di menu:
+      	</p>
+      	
+      	<code>[File] -&gt; [new...] -&gt; [other...]</code>
+      	<p>
+      	E selezionando tra i wizard disponibili il wizard "Guigen model", disponibile
+      	nella cartella "guigen wizards".
+      	
+      	La creazione di un modello di <b>AppModule</b> &egrave; simile alla creazione del modello principale dell'
+      	applicazione, con la sola differenza che nella schermata di selezione del <code>[model object]</code> &egrave;
+      	necessario selezionare la classe <b>AppModule</b> invece che la classe <b>GUIModel</b>. Il file del modulo 
+      	sar&agrave; creato nella cartella <i>modules</i>.
+    	</p>
+    	<p>
+    	Al termine dell'esecuzione del wizard verr&agrave; aperto l'editor del file di modello appena creato.
+    	A questo punto &egrave; necessario impostare il nome dell' <b>AppModule</b> inserendolo nella property
+    	<i>name</i>. 
+    	</p>
+    	
+    	<h4>creare una home page minimale</h4>
+    	
+    	<p>
+    	E' ora il necessario modellare la home page all'interno dell'<b>AppModule</b> <i>home</i> e successivamente
+    	collegare il modulo e la home page al modello principale. Per semplicit&agrave; nell'esempio si creer&agrave; 
+    	un pannello senza widget (vuoto) con layout verticale.</p>
+    	<p>
+    	Per modellare la home-page &egrave; necessario eseguire i seguenti passi:
+    	<ol>
+    	<li>creare un nuovo <b>ContentPanel</b> nell'<b>AppModule</b>, selezionando il nodo <b>AppModule</b> nell'albero
+    	    dell'editor strutturato e azionando con il tasto destro del
+    	    mouse la voce <code>[new child]-&gt;[content panel]</code></li>
+    	<li>impostare l'attributo <i>name</i> del content panel tramite la finestra delle properties (utilizzare, ad
+    	    esempio, il nome <i>cpHome</i>)
+    	</li>
+    	<li>creare il <b>FormPanel</b> principale, selezionando il nodo relativo al <b>ContentPanel</b> nell'albero
+    	    dell'editor strutturato e azionando con il tasto destro del mouse la voce 
+    	    <code>[new child]-&gt;[form panel]</code>
+    	</li>
+    	<li>impostare l'attributo <i>name</i> del nuovo <b>FormPanel</b> ad esempio a <i>pMain</i>, e 
+    	    l'attributo <i>label</i> ad esempio a "Pagina iniziale dell'applicativo"
+    	</li>
+    	<li>impostare il layout verticale del <b>FormPanel</b> selezionando il nodo corrispondente nell'albero
+    	    dell'editor strutturato e azionando con il tasto destro del
+    	    mouse la voce <code>[new child]-&gt;[vertical flow panel layout]</code>
+    	</li>
+    	<li>salvare il modello</li>
+    	</ol>
+    	A questo punto il modello della home page dovrebbe apparire come nella figura seguente:
+    	<br></br>
+    	<img src="img/howtostart_6.jpg" alt="modello della home page"></img>
+    	</p>
+      	<p>
+      	Per referenziare il nuovo <b>AppModule</b> e la home page nel modello principale dell'applicativo &egrave;
+      	necessario eseguire i seguenti passi:
+      	<ol>
+      	<li>aprire l'editor del modello principale (quello il cui nodo radice &egrave; <b>GUIModel</b></li>
+      	<li>importare la risorsa del modello dell'<b>AppModule</b> <i>home</i>, selezionando il nodo root nell'albero
+    	    dell'editor strutturato e azionando con il tasto destro del
+   			mouse la voce <code>[load resource...]</code> e selezinare nel workspace il file dell'
+   			<b>AppModule</b>	
+      	</li>
+      	<li>aggiungere il modulo <i>home</i> all'elenco dei moduli esterni importati, selezionando il nodo 
+      		<b>ApplicationArea</b> e, nella finestra delle property, attivare l'editor di selezione della
+      		properiet&agrave; <i>ext modules</i>, aggiungendo l'elemento <i>AppModule:home</i> 
+      	</li>
+      	<li>impostare l'attributo <i>home page</i> dell'elemento <b>ApplicationArea</b> in modo che 
+      	punti al <b>ContentPanel</b> <i>home</i>, selezionandolo tramite la apposita lista di selezione</li>
+      	</ol> 
+      	Al termine delle operazioni il modello principale apparir&agrave; come nella figura seguente:
+      	<br></br>
+      	<img src="img/howtostart_7.jpg" alt="modello principale con home page" ></img>
+      	</p>
+      	<p>
+      	A questo punto il modello (seppur molto semplice) &egrave; pronto per una prima generazione.   
+      	</p>
+      	
+      	<h3>impostare il progetto java target</h3>
+    	
+    	Il progetto java che sar&agrave; generato &egrave; un comune progetto java che rispecchia gli standard
+    	di alberatura e build. Di conseguenza &egrave; sufficiente creare un nuovo <i>Java Project</i> in eclipse,
+    	nello stesso workspace nel quale &egrave; presente il progetto generatore. Il nome del progetto java, 
+    	secondo gli standard, dovr&agrave; corrispondere al nome del componente di prodotto corrispondente 
+    	(nell'esempio: <i>mycomp</i>).
+    	A completamento dell'operazione di creazione si consiglia di:
+    	<ul>
+    	<li>impostare la cartella di output (default output folder) in modo che punti alla directory
+    	<code>build/classes</code> (come previsto da standard)</li>
+    	<li>impostare la cartella dei sorgenti java in modo che punti alla directory <code>src/java</code>, 
+    	come previsto da standard</li>
+    	</ul>  
+    	Al termine dell'operazione l'alberatura del workspace dovrebbe risultare come rappresentato nella
+    	figura seguente:
+    	<img src="img/howtostart_8.jpg" alt="progetti generatore e target nel workspace"></img>	
+    	
+    	<h3>impostare il workflow di generazione</h3>
+    	
+    	<p>
+    	Il processo di generazione &egrave; comandato da un <i>workflow di generazione</i> descritto da un
+    	apposito script di workflow <i>openarchitectureware</i>.
+    	Questo engine di generazione permette di costruire workflow anche molto sofisticati. Il minimo workflow
+    	necessario deve prevedere alcuni passi:
+    	<ol>
+    	<li>la verifica dei singoli modelli</li>
+    	<li>la generazione del modello principale</li>
+    	</ol>  
+    	Per creare lo script di generazione &egrave; necessario posizionare il mouse sulla cartella relativa al
+    	componente <i>mycomp</i> all'interno della cartella <code>src/workflow</code>e, tramite tasto destro, 
+    	azionare il wizard di creazione di un nuovo file <code>openarchitectureware-&gt;Workflow file</code>.
+    	A questo punto &egrave; sufficiente copiare il seguente snippet di codice (avendo cura di modificare
+    	se necessario i puntamenti ai file di modello o il nome del progetto target):
+    	
+    	<pre>
+    	
+    	&lt;?xml version="1.0"?&gt;
+    	&lt;workflow&gt;
+	
+    	&lt;!-- test del modulo "home" --&gt;
+    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/guigenCheck.oaw"
+			model="myprodmdd/src/model/myprod/mycomp/modules/home_module.guigen"  
+			portal="neutral"  	
+    	/&gt;
+    	
+    	&lt;!-- test del modello principale --&gt;
+    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/guigenCheck.oaw"
+			model="myprodmdd/src/model/myprod/mycomp/mycomp.guigen"  
+			portal="neutral"  	
+    	/&gt;
+   
+    	&lt;!-- generazione del codice --&gt; 
+    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/struts2Basic.oaw"
+			model="myprodmdd/src/model/myprod/mycomp/mycomp.guigen" 
+			targetProjectName="mycomp" 
+			portal="neutral"  	
+    	/&gt;
+    	&lt;/workflow&gt;
+    	
+    	</pre>
+    	</p>
+    	<p>
+    	Come si pu&ograve; notare nel workflow sono richiamate due <i>cartridge</i> fornite con il plugin
+    	<i>guigen</i>:
+    	<ul>
+    	<li><i>guigenCheck.oaw</i>: permette la verifica semantica del modello</li>
+    	<li><i>struts2Basic.oaw</i>: genera l'applicazione in tecnologia struts2 + spring</li>
+    	</ul>
+    	Nel caso il progetto sia costituito da pi&ugrave; modelli di quelli presenti nell'esempio la cartuccia
+    	<i>guigenChack.oaw</i> deve essere richiamata su tutti i singoli modelli. Non &egrave; infatti sufficiente
+    	richiamare la verifica sul modello principale. Nell'esempio non &egravE; necessario, in quanto non sono state 
+    	apportate modifiche alla struttura iniziale, ma anche il file contenente il modello di sicurezza
+    	(<i>securityModel.guigen</i>) dovrebbe essere soggetto a check. 
+    	</p>
+    	
+    	<p>
+    	Riguardo all'ultima cartridge configurata, ovvero quella di generazione, &egrave; ancora importante spiegare il
+    	significato dell'attributo <i>portal</i>: a seconda del valore di questo attributo verr&agrave; generato
+    	codice coerente con gli standard dei vari portali.
+    	I valori ammessi sono descritti nella tabella seguente:
+    	<br></br>
+    	<table border="1">
+    	<th style="background:cyan;">valore</th><th style="background:cyan;">descrizione</th><th style="background:cyan;">gestione risorse grafiche</th>
+    	<tr>
+    		<td><b>sisp</b></td>
+    		<td>generazione view coerente con gli standard del sito "sistema piemonte"</td>
+    		<td>le risorse grafiche sono mantenute sul web server del sito, header e footer sono incluse tramite <i>remote include</i></td>
+    	</tr>
+    	
+    	<tr>
+    		<td><b>intranetrp</b></td>
+    		<td>generazione view coerente con gli standard del sito intranet della regione piemonte</td>
+    		<td>le risorse grafiche sono contenute nel pacchetto applicativo, header e footer sono incluse nel pacchetto</td>
+    	</tr>
+    	
+    	<tr>
+    		<td><b>rupar</b></td>
+    		<td>generazione view coerente con gli standard del sito "rupar piemonte" (vecchia versione)</td>
+    		<td>le risorse grafiche sono mantenute sul web server del sito, header e footer sono incluse tramite <i>remote include</i></td>
+    	</tr>
+    	
+    	<tr>
+    		<td><b>newrupar</b></td>
+    		<td>generazione view coerente con gli standard del sito "rupar piemonte" (nuova versione)</td>
+    		<td>le risorse grafiche sono mantenute sul web server del sito, header e footer sono incluse tramite <i>remote include</i></td>
+    	</tr>
+    	
+    	<tr>
+    		<td><b>neutral</b></td>
+    		<td>generazione view indipendente dal portale di installazione (xhtml "universale")</td>
+    		<td>le risorse grafiche sono contenute nel pacchetto applicativo, header e footer sono incluse nel pacchetto</td>
+    	</tr>
+    	
+    	</table>
+    	<br></br>
+    	Nell'esempio, per semplicit&agrave;, la geenrazione &egrave; stata configurata per utilizzare la cartuccia
+    	<i>neutral</i>: in questo modo non sar&agrave; necessario avere a disposizione le risorse statiche dell'
+    	applicativo. Per un utilizzo in un progetto reale occorre verificare quale sia la "cartuccia" di geenrazione
+    	pi&ugrave; adatta. Poich&egrave; la cartuccia <i>neutral</i> necessita di risorse grafiche (immagini/css) all'
+    	interno del pacchetto, &egrave; necessario includere nell'alberatura web uno <i>skin</i> adeguato.
+    	Per le esercitazioni/prove &egrave; sufficiente utilizzare lo skin "graybox" (non stilizzato) disponibile
+    	nello zip <a href="resources/ris_neutral_graybox.zip">ris_neutral_graybox.zip</a>: &egrave;
+    	sufficiente scompattare l'archivio, dopo la generazione del progetto, ed inserire la cartella <code>ris</code> all'interno della
+    	cartella <code>src/web/&lt;nome_componente&gt;</code>.
+    	</p>
+    	<h3>eseguire la generazione</h3>
+    	
+    	<p>
+    	Per eseguire il workflow definito al passo precedente &egrave; sufficiente selezionare il file <i>.oaw</i>
+    	e, tramite tasto destro, azionare l'esecuzione (<code>[run as] -&gt; [oaw workflow]</code>).
+    	Se i check e la generazione hanno successo la console presenter&agrave; il messaggio:
+    	<br></br>
+    	<code>INFO  WorkflowRunner     - workflow completed in ... ms!</code>
+    	<br></br>
+    	pi&ugrave; eventuali warning.
+    	</p>
+    	<p>
+    	Nel caso invece in cui vi siano degli errori nel modello, la console li presenter&agrave; al termine dell'esecuzione.
+    	Se ad esempio ci si scordasse di impostare la <i>home page</i>, nella console apparirebbe un messaggio simile al seguente:
+    	<br></br>
+    	<code>ERROR WorkflowRunner     - Deve essere definito il content panel di homePage: [guigen::ApplicationArea, null] [it.csi.mddtools.guigen.impl.ApplicationAreaImpl@e3c624] </code>
+		<br></br>
+		In questo caso sarebbe necessario correggere gli errori sul modello e rilanciare la generazione.
+    	</p>
+    	<p>
+    	Se la generazione ha avuto buon esito nel progetto target compariranno le risorse generate, ovvero:
+    	<ul>
+    	<li>i sorgenti delle pagine JSP che costituiscono la view dell'applicazione</li>
+    	<li>i sorgenti java delle <i>action struts2</i> che realizzano lo strato di controller e i bean <i>spring</i>
+    		che realizzano la business logic</li>
+    	<li>i file di configurazione j2ee</li>
+    	<li>i file di build del progetto</li>
+    	</ul>
+    	Il progetto <i>mycomp</i> dovrebbe dunque presentare un'alberatura simile a quella rappresentata
+    	in figura:
+    	<br></br>
+    	<img src="img/howtostart_9.jpg" alt="alberatura progetto generato"></img>
+    	</p>
+  
+    	<h3>configurare, compilare e deployare il progetto generato</h3>
+  		<p>
+  		Il progetto generato da <i>guigen</i> &egrave; un progetto standard CSI importato in un workspace eclipse:
+  		di conseguenza le operazioni di build/deploy del progetto sono quelle standard che si effettuerebbero
+  		con un progetto java generato manualmente.
+  		Come si pu&ograve; notare il progetto cos&igrave; generato presenta degli errori di compilazione in eclipse:
+  		ci&ograve; &egrave; dovuto alla ovvia mancanza delle librerie da cui dipendono i sorgenti java.
+  		Al fine di ottenere un progetto che compili senza errori nell'IDE &egrave; necessario dunque scaricare da
+  		<i>repart</i>, tramite <i>ivy</i>, tali librerie: questa operazione &egrave; realizzabile richiamando il task
+  		<i>load-dependencies</i> nello script di ant <code>build.xml</code> e, successivamente, impostare tali librerie nel
+  		build path. A tale scopo &egrave; importante notare che
+  		i build standard CSI necessitano dell'estensione per <i>ivy 2.0</i>. La configurazione di <i>ANT</i> in
+  		<i>eclipse</i> esula dagli obiettivi di questo tutorial. 
+  		</p>
+  		<p>TIP: &egrave; consigliabile, dopo ogni rigenerazione effettuare un <i>clean</i> del progetto target.</p>
+  		<p>Prima di poter effettuare il build del progetto &egrave; necessario configurare le properties di configurazione
+  		del <i>target</i> di build: per far ci&ograve; &egrave; necessario creare i file di configurazione
+  		relativi ai target desiderati (es. <code>dev.properties</code>) a partire dal file
+  		<code>target_template_file.properties</code> e configurare i valori delle property necessarie.
+  		L'insieme delle property che sar&agrave; configurare variano a seconda degli elementi di modellazione 
+  		inseriti, ad esempio a seconda del tipo di autenticazione/SSO previsto o a seconda della cartuccia di 
+  		layout utilizzata. 
+  		</p>
+  		<p>
+  		A questo punto &egrave; possibile effettuare il build del progetto e installare il pacchetto
+  		generato nell'application server destinato ad ospitarlo. Per testare l'applicativo sar&agrave; sufficiente
+  		puntare da un browser alla root del contesto web (che ha lo stesso nome del componente, 
+  		nell'esempio <i>http://&lt;hostname:port&gt;/mycomp</i>).
+  		</p>
+  		<p>
+  		Il risultato atteso &egrave; quello rappresentato nella figura seguente.
+  		<br></br>
+  		<img src="img/howtostart_10.jpg" alt="home page"></img>
+  		</p>
+   </body>
+</html>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Developer documentation for the model class DBAccessModel</title>
+	</head><body>
+<h1>Class "datagen :: DBAccessModel"</h1>
+<p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../datagen/package.html">datagen</a></p>
+<p>Modellazione dello strato di accesso ai dati</p>
+
+
+
+
+
+
+
+<table border="1">
+
+
+<tr style="vertical-align:top">
+
+
+<td>
+<p>Direct Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../datagen/classes/DBAccessModel.html#at_codComponente">codComponente</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../datagen/classes/DBAccessModel.html#at_codProdotto">codProdotto</a></li>
+</ul>
+
+</td>
+
+
+
+
+<td>
+<p>Direct References</p>
+<ul>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../datagen/classes/DaoPackage.html">datagen :: DaoPackage</a> <img src="../icons/ecore/EReference.gif" /><a href="../../datagen/classes/DBAccessModel.html#re_daopkgs">daopkgs</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../rdbmdl/classes/Schema.html">rdbmdl :: Schema</a> <img src="../icons/ecore/EReference.gif" /><a href="../../datagen/classes/DBAccessModel.html#re_schema">schema</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
+
+
+
+
+
+</table>
+
+
+<h2><a name="at_codComponente" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString codComponente</h2>
+<p>Codice componente di appartenenza</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>codComponente</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_codProdotto" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString codProdotto</h2>
+<p>Codice prodotto di appartenenza</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>codProdotto</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+<h2><a name="re_daopkgs" /><img src="../icons/ecore/EReference.gif" />Reference datagen :: DaoPackage daopkgs</h2>
+<p>I <b>DataAccessObject</b> sono suddivisi in gruppi logici</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../datagen/classes/DaoPackage.html">datagen :: DaoPackage</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>containment</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>daopkgs</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>resolveProxies</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>-1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="re_schema" /><img src="../icons/ecore/EReference.gif" />Reference rdbmdl :: Schema schema</h2>
+<p>Schema DB di cui viene modellato l'accesso
+</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../rdbmdl/classes/Schema.html">rdbmdl :: Schema</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>containment</td><td>false</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>1</td></tr>
+
+
+<tr><td>name</td><td>schema</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>resolveProxies</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+
+<div>generated on 6-set-2010 at 10.44.18 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

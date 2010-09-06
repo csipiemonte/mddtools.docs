@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Datagen - Strutturazione dei vari modelli dello strato di accesso ai dati</title>
+   </head>
+
+   <body>
+      <h2>
+         Datagen - Strutturazione dei vari modelli dello strato di accesso ai dati
+      </h2>
+      <p>
+      La descrizione dello strato di accesso dati <b>datagen</b> &egrave; strutturata in due differenti modelli. 
+      
+      </p>
+      <h3>Struttura complessiva dei modelli e delle dipendenze</h3>
+      <p>
+      Nell'immagine seguente &egrave; mostrata la struttura delle dipendenze tra i vari sotto-modelli di cui &egrave;
+      composto il modello che descrive lo strato di accesso ai dati <b>datagen</b>:
+      </p>
+      <img src="img/models_structure.jpg" alt="struttura modelli datagen" border="1">
+      <p>
+      Nel disegno:
+      <ul>
+		  <li>ciascuna classe corrisponde ad un differente file di modello:
+		  <ul>
+		  	<li>il modello principale(nell'es: [<i>root model</i>]) contiene un istanza di <b>DBAccessModel</b></li>
+		  	<li>il modello dello schema del DB relazionale da accedere: [<i>schema</i>]</li>
+		  	
+		  	
+		  </ul>
+		  </li>
+  		  <li>ciascuna dipendenza tra due classi corrisponde ad una dipendenza tra due file di modello, che si realizza
+  		  in <b>EMF</b>:
+  		  <ul>
+  		  	<li>mediante l'inclusione del modello da cui si dipende nel modello che presenta la dipendenza tramite
+  		  	il comando "load resource..." nell'editor strutturato</li>
+  		  	<li>referenziando (dove necessario) un oggetto appartenente al modello incluso in una property di 
+  		  	    un oggetto appartenente al modello che include </li>
+  		  </ul>
+  		  <li>i modelli rappresentati con il colore giallo sono modelli specifici dell'applicativo, mentre i modelli
+  		  rappresentati in grigio sono da considerarsi librerie da includere nel progetto</li> 
+	  </ul>	
+
+      </p>
+      
+      
+      <h3>Alberatura dei file di modello</h3>
+      
+ 	[[TODO]]
+       
+      
+      
+   </body>
+</html>

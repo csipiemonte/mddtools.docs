@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Developer documentation for the model class RefreshViewCommand</title>
+	</head><body>
+<h1>Class "guigen :: RefreshViewCommand"</h1>
+<p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Permette di effettuare il re-rendering di una porzione di ContentPanel.
+Funziona solo se sono abilitate le fatures di interazione "ricca", nell'elemento
+<b>TargetPlatform</b>.
+Al fine di garnatire l'accessibilit&agrave;, Nel caso della cartuccia "struts2", se il browser non supporta javascript, 
+la feature effettua un "downgrade" automatico mantenendo il funzionamento
+seppur perdendo la funzione ricca (ovvero si ha il refresh completo della pagina).
+Essendo sottoclasse di <b>CommandOnWidgets</b> e <b>CommandOnPanels</b> &egrave; 
+possibile specificare la porzione di <b>ContentPanel</b> che deve essere aggiornata.
+L'interpretazione delle proeprty <i>targetWidgets</i> e <i>targetPanels</i>
+dipende dalla particolare cartuccia di generazione utilizzata.</p>
+
+
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/RefreshViewCommand.html#an_logicpkg">logicpkg</a></li>
+</ul>
+
+
+<p>Super and Sub Types</p>
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Command.html">guigen :: Command</a>
+
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Command.html">guigen :: Command</a>
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/CommandOnWidgets.html">guigen :: CommandOnWidgets</a>
+
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Command.html">guigen :: Command</a>
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/CommandOnPanels.html">guigen :: CommandOnPanels</a>
+
+<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: RefreshViewCommand</b>
+
+</li></ul>
+
+</li></ul>
+
+
+</li></ul>
+</li></ul>
+
+
+</li></ul>
+</li></ul>
+
+
+
+
+
+<table border="1">
+
+
+
+
+
+<tr style="vertical-align:top">
+
+
+
+
+
+<td>
+<p>Inherited References</p>
+<ul>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandOnPanels.html#re_targetPanels">targetPanels</a></li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/CommandOnWidgets.html#re_targetWidgets">targetWidgets</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
+
+
+</table>
+
+
+
+
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>cmd</td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

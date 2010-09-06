@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Developer documentation for the model class GridWidgetLayoutSpec</title>
+	</head><body>
+<h1>Class "guigen :: GridWidgetLayoutSpec"</h1>
+<p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Specifica di posizionamento di widget in un layout a griglia</p>
+
+
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/GridWidgetLayoutSpec.html#an_logicpkg">logicpkg</a></li>
+</ul>
+
+
+<p>Super and Sub Types</p>
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/WidgetLayoutSpecifier.html">guigen :: WidgetLayoutSpecifier</a>
+
+<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: GridWidgetLayoutSpec</b>
+
+</li></ul>
+
+</li></ul>
+
+
+
+
+
+<table border="1">
+
+
+<tr style="vertical-align:top">
+
+
+<td>
+<p>Direct Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/GridWidgetLayoutSpec.html#at_column">column</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/GridWidgetLayoutSpec.html#at_hspan">hspan</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/GridWidgetLayoutSpec.html#at_row">row</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/GridWidgetLayoutSpec.html#at_vspan">vspan</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+</table>
+
+
+<h2><a name="at_column" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EInt column</h2>
+<p>Colonna in cui deve essere posizionato il Widget (prima colonna = 1)</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>column</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_hspan" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EInt hspan</h2>
+<p>Numero di colonne di occupazione del widget. 
+Se non specificato si assume l'occupazione di una colonna.
+Il widget occuper&agrave; le colonne da <b>column</b> a <b>column+hspan</b> comprese.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>hspan</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_row" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EInt row</h2>
+<p>Riga in cui deve essere posizionato il Widget (prima riga = 1)</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>row</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+<h2><a name="at_vspan" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EInt vspan</h2>
+<p>Numero di righe di occupazione del widget. 
+Se non specificato si assume l'occupazione di una riga.
+Il widget occuper&agrave; le righe da <b>row</b> a <b>row+vspan</b> comprese.</p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EInt.html">ecore :: EInt</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>vspan</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.layout</td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Developer documentation for the model class MenuPanel</title>
+	</head><body>
+<h1>Class "guigen :: MenuPanel"</h1>
+<p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Pannello destinato a contenere una <b>MenuView</b>.</p>
+
+
+<p>Annotations</p>
+<ul>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/MenuPanel.html#an_logicpkg">logicpkg</a></li>
+	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/MenuPanel.html#an_uipaneldoc">uipaneldoc</a></li>
+</ul>
+
+
+<p>Super and Sub Types</p>
+
+<ul><li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Panel.html">guigen :: Panel</a>
+
+<ul><li><b><img src="../icons/ecore/EClass.gif" />guigen :: MenuPanel</b>
+
+</li></ul>
+
+</li></ul>
+
+
+
+
+
+<table border="1">
+
+
+<tr style="vertical-align:top">
+
+
+<td>
+
+</td>
+
+
+
+
+<td>
+<p>Direct References</p>
+<ul>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuPanel.html#re_widgets">widgets</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
+
+
+
+
+<tr style="vertical-align:top">
+
+
+<td>
+<p>Inherited Attributes</p>
+<ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Panel.html#at_label">label</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Panel.html#at_name">name</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/Panel.html#at_scrollable">scrollable</a></li>
+</ul>
+
+</td>
+
+
+
+
+<td>
+<p>Inherited References</p>
+<ul>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/PanelLayout.html">guigen :: PanelLayout</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Panel.html#re_layout">layout</a></li>
+	<li><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/WidgetLayoutSpecifier.html">guigen :: WidgetLayoutSpecifier</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Panel.html#re_layoutSpec">layoutSpec</a></li>
+</ul>
+
+</td>
+
+
+
+
+
+</tr>
+
+
+</table>
+
+
+
+<h2><a name="re_widgets" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: Widget widgets</h2>
+<p>I widget inseribili in questo tipo di pannello sono solo:
+<ul>
+<li>TreeView</li>
+<li>MenuView</li>
+<li>UserDefinedWidget</li>
+</ul></p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>containment</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>widgets</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>resolveProxies</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>-1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
+
+
+<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>pkg</td><td>ui.panels</td></tr>
+
+</tbody>
+</table>
+<h2><a name="an_uipaneldoc" />Annotation uipaneldoc</h2>
+<table border="1">
+<thead>
+<tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>description</td><td><p>
+Il <b>MenuPanel</b> &egrave; un pannello privo di visualizzazione grafica propria, da utilizzarsi
+esclusivamente per contenere il widget <b>MenuView</b>.
+</p></td></tr>
+
+</tbody>
+</table>
+
+<div>generated on 6-set-2010 at 10.31.00 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

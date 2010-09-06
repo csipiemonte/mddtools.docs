@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Scheda della modalit&agrave; di layout GridPanelLayout</title>
+   </head>
+
+   <body>
+      <h2>
+         UI Layout - scheda della modalit&agrave; di layout [<img src="img/GridPanelLayout.gif"></img>GridPanelLayout]
+      </h2>
+      <p>
+         In questa scheda &egrave; descritto il layout <b>GridPanelLayout</b>, in termini di:
+         <ul>
+         <li>riferimento alla documentazione di dettaglio dell'elemento del metamodello utilizzabile durante la modellazione</li>
+         <li>uno o pi&ugrave; snapshot che rappresentano graficamente il tipo di layout</li>
+         <li>una descrizione del layout che ne descrive l'utilizzo e le possibili varianti</li>
+         </ul> 
+      </p> 
+      <h3>Identificativo e riferimenti di dettaglio</h3>
+      <p>
+      	La documentazione <i>metamodeldoc</i> di dettaglio del layout <b>GridPanelLayout</b> &egrave; disponibile
+      	<a href="../../metamodeldoc/html/guigen/classes/GridPanelLayout.html">qui</a>. 
+      </p>
+      <h3>Descrizione</h3>
+      
+      <p>
+Il <b>GridPanelLayout</b> (layout a grigia) &egrave; applicabile esclusivamente
+al pannello <b>WidgetsPanel</b> e prevede che gli elementi contenuti nel pannello
+che possiede questo layout (widget) siano visualizzati in una struttura a griglia.
+E' necessario specificare le dimensioni orizzontali e verticali della griglia e ciascuna cella
+della griglia pu&ograve; contenere al massimo un solo <b>Widget</b>.
+In aggiunta un widget pu&ograve; estendersi orizzontalmente per pi&ugrave; di una cella
+(<i>hspan</i>),
+Di fatto, se il numero di colonne previste dal layout  &egrave; <i>n</i>, 
+occorre tenere in considerazione una struttura costituita da <i>n</i> colonne logiche
+e <i>2*n</i> colonne fisiche (una per la label ed una per il campo effettivo, 
+il tutto moltiplicato per il numero colonne logiche).
+E' possibile regolare le percentuali di occupazione della componente label
+e della componente widget di ciascuna delle colonne logiche. 
+Le percentuali sono relative allo spazio a disposizione dell'interno pannello.
+Nel clacolo occorre inoltre tenere in considerazione anche casi &quot; degeneri &quot; quali:
+<ul>
+<li>label non valorizzate</li>
+<li>span orizzontali maggiori di 1</li>
+</ul>
+</p>
+      
+      <hr></hr>
+      <h3>Immagini esemplificative</h3>
+      
+      <img src="img/GridPanelLayout_1.gif" border="1"></img>
+      <br></br>
+      <b>fig.1 - esempio</b>
+      <hr></hr>      
+   </body>
+</html>
