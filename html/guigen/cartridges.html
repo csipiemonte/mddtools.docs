@@ -58,6 +58,68 @@
 </pre>    
 </p>
 
+
+<h3>cartuccia di generazione prototipo di user interface</h3>
+	  <p>
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/guigenPrototype.oaw</code> serve per effettuare la generazione
+	  di un prototipo <i>navigabile</i> della user interface modellata. Il prototipo così ottenuto &egrave; permette di 
+	  verificare:
+	  
+	  <ul>
+	  <li>la struttura dei singoli <b>ContentPanel</b> in termini di widget, contenimento di pannelli, layout</li>
+	  <li>la logica di user interaction:
+	  	<ul>
+	  	<li>navigazione tra schermate a fronte di azioni utente (menu, pulsanti, eventi speciali)</li>
+	  	<li>attivazione di tab/step di wizard, multipanel</li>
+	  	<li>abilitazione/disabilitazione di widget</li>
+	  	<li>visibilit&agrave;/invisibilit&agrave; di widget</li>
+	  	</ul>
+	  </li>
+	  </ul>
+	  
+	  Il generatore produce un progetto <i>Web Static Project</i> da importare in eclipse oppure da visualizzare 
+	  in un normale browser.
+	  
+	  <table border="1">
+	  <thead style="background:silver"><tr><td>parametro</td><td>descrizione</td><td>esempio</td><td>obbl/opz</td></tr></thead>
+	  <tbody>
+	  <tr>
+	  <td>model</td>
+	  <td>percorso del file del modello principale <i>guigen</i>, a partire dalla root del workspace eclipse</td>
+	  <td><code>myprod.mdd/src/model/myprod/mycomp/myapp.guigen</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>targetProjectName</td>
+	  <td>nome del progetto java nel quale si desidera generare il prototipo. deve appartenere allo stesso workspace
+	  del progetto generatore. <b>Attenzione</b>: deve essere un progetto differente da quello di
+	  generazione dell'applicazione effettiva.</td>
+	  <td><code>mycomp.prototype</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  </tbody>
+	  </table>
+	  
+	  </p>
+	  
+	  <p>
+	  Esempio:
+
+<pre>    
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/guigenPrototype.oaw"</font>
+  <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
+  <font color='#000080'>targetProjectName=</font><font color='#008000'>"mycomp.prototype"</font>&nbsp;
+</pre>    
+</p>
+<p>
+Applicare prima le cartucce di <i>check</i> su tutti i modelli singolarmente, e
+poi applicare la cartuccia di <i>generazione</i> del prototipo.
+</p>
+
+
+
 <h3>cartuccia di generazione completa dell'applicazione</h3>
 	  <p>
 	  La cartuccia <code>it/csi/mddtools/guigen/workflow/struts2Basic.oaw</code> serve per effettuare la generazione

@@ -1,0 +1,10 @@
+div.faq_question {
+	background-color:#FFFF99;
+	border:1px solid;
+	text-align:left;
+	padding-left:10px;
+	padding-right:10px;
+	font-weight:bold;
+}
+
+div.faq_answer {background-color:#E0E0E0;border:1px solid;text-align:left;padding-left:10px;padding-right:10px;}
