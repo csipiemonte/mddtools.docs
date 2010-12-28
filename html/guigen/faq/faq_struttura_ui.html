@@ -260,5 +260,99 @@
      </div>
      <br/>
      
+     <!-- 10 -->
+     <div class="faq_question">
+     <p>Q: E' possibile modellare una ComboBox a selezione multipla?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> Si, &egrave; possibile: una <b>ComboBox</b> a selezione multipla &egrave;
+     semplicmente una <b>ComboBox</b> con un <b>AppDataBinding</b> (<i>value-binding</i>) 
+     che punta ad un <b>ApplicationData</b> di tipo <i>array di tipo semplice</i>.
+     </p>
+      
+     </div>
+     <br/>
+     
+     <!-- 10 -->
+     <div class="faq_question">
+     <p>Q: Come si fa a far apparire il check/radio di selezione multipla/singola a
+     sinistra di una <b>Table</b>?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> Per rendere <i>selezionabile</i> le righe di una <b>Table</b> &egrave;
+     sufficiente:
+     	<ul>
+     	<li>modellare un <b>AppDataBinding</b> (<i>value-binding</i>) sulla tabella:
+     		<ul>
+     		<li>se l'appdata puntato &egrave; di tipo semplice la selezione sar&agrave; singola</li>
+     		<li>se l'appdata puntato &egrave; di tipo array di tipo semplice la selezione sar&agrave; multipla</li>
+     		</ul>
+     	</li>
+     	<li>impostare nel <b>ColumnModel</b> della tabella l'attributo <i>valueSelector</i>
+     	in modo che punti al nome del <b>Field</b> considerato identificativo della struttura
+     	dati contenuta nella tabella. </li>
+     	</ul>
+     </p>
+      
+     </div>
+     <br/>
+     
+     <!-- 10 -->
+     <div class="faq_question">
+     <p>Q: Ho modellato una tabella con una colonna editabile: &egrave; possibile fare in modo
+     che, a runtime, la colonna sia editabile solo per alcune delle righe?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> Data una colonna dichiarata editabile, &egrave; possibile fare in modo che
+     tale editabilit&agrave; sia effettiva solo per alcune righe (calcolate a runtime)
+     impostando l'attributo <i>editableFlagSelector</i> nella <b>Column</b> in modo che
+     punti al nome di un campo <i>di servizio</i> del record che sta alla base della tabella
+     che funger&agrave; da flag (booleano) di attivazione. 
+     </p>
+      
+     </div>
+     <br/>
+     
+     <!-- 10 -->
+     <div class="faq_question">
+     <p>Q: Ho modellato una tabella con una colonna editabile: &egrave; possibile fare in modo
+     che il valore sia scelto da una lista di valori invece che inserito manualmente?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> Si, data una colonna dichiarata editabile, &egrave; possibile fare in modo che
+     il widget di editing sia una combo dalla quale l'utente sceglier&agrave; il valore. 
+     </p>
+     <p>Vi sono due casistiche:
+     	<ol>
+     	<li>la lista di valori &egrave; comune a tutte le righe</li>
+     	<li>la lista di valori vaira da riga a riga</li>
+     	</ol>
+     </p>
+     <h4>lista di valori comune</h4>
+     <p>Occorre modellare nell'oggetto <b>Column</b>:
+     	<ul>
+     	<li>un <b>AppDataBinding</b> che punti all'<b>ApplicationData</b> che contiene la
+     	collezione di chiavi/valori tra cui l'utente dovr&agrave; scegliere</li>
+     	<li>gli attributi <i>multidataKeySelector</i>e <i>multidataValueSelector</i> in modo
+     	che puntino al nome dei campi chiave e valore all'interno dei record della
+     	collection</li>
+     	</ul>
+     </p>
+     <h4>lista valori specifica per riga</h4>
+     <p>Occorre modellare nell'oggetto <b>Column</b>:
+     	<ul>
+     	<li>l'attributo <i>multidataPropertySelector</i> che deve puntare al nome del
+     	campo del record di base della tabella che conterr&agrave; le scelte (chiave/valore)
+     	per ciascuna riga</li>
+     	<li>gli attributi <i>multidataKeySelector</i>e <i>multidataValueSelector</i> in modo
+     	che puntino al nome dei campi chiave e valore all'interno dei record della
+     	collection dereferenziata mediante l'attributo <i>multidataPropertySelector</i></li>
+     	</ul>
+     
+     </p>
+     </div>
+     <br/>
+     
+     
    </body>
 </html>

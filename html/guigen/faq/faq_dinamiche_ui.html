@@ -304,5 +304,114 @@
      </div>
      <br/>
      
+     <!-- 11 -->
+     <div class="faq_question">
+     <p>Q: Ho la necessit&agrave; di rendere invisibili/disabilitate alcune voci di menu
+     a fronte dello stato applicativo: &egrave; possibile?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> Non esiste un analogo per i menu dei comandi che agiscono sui <b>Widget</b>.
+     E' per&ograve; possibile simulare la funzionalit&agrave; utilizzando (un po' impropriamente)
+     il meccanismo dei <b>CustomSecurityConstraint</b>, che permettono di definire la logica con 
+     cui una singola voce di menu deve essere abilitata/visibile. 
+     </p>
+     </div>
+     <br/>
+     
+     <!-- 12 -->
+     <div class="faq_question">
+     <p>Q: Ho aggiunto alcuni widget nella mia schermata (nella quale sono anche modellati
+     degli ScreenState) ma essi non risultano visibili dopo la rigenerazione. Come mai?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> Se in una schermata (<b>ContnetPanel</b>) sono modellati uno o pi&ugrave; 
+     <b>ScreenState</b>, quando si aggiunge un <b>Widget</b> occorre ricordarsi di gestire anche
+     il nuovo widget nei vari <b>ScreenState</b>, altrimenti non sar&agrave; 
+     mai abilitato/visibile</p>
+     </div>
+     <br/>
+     
+     <!-- 13 -->
+     <div class="faq_question">
+     <p>Q: Ho la necessit&agrave; di implementare il pattern di <i>popolamento di combo
+     a cascata</i>: come posso fare?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> In guigen non esiste il concetto di <i>dipendenza modellata tra combo</i>, ma 
+     &egrave; possibile implementare il pattern di interazione richiesto sfruttando altri 
+     strumenti:
+     	<ul>
+     	<li>la gestione dell'evento <i>VALUE_CHANGED</i> sul widget <b>ComboBox</b></li>
+     	<li>il popolamento dinamico (da logica di business) della collezione dati
+     	secondaria a fronte della selezione di un elemento della primaria.</li>
+     	</ul>
+     </p>
+     <p>Nel dettaglio esistono poi differenti modalit&agrave; con cui pu&ograve; essere
+     declinata questo suggerimento implementativo, che si dividono in due classi principali:
+     	<ol>
+     	<li>la logica di caricamento della seconda combo &egrave; modellata direttamente nella 
+     	catena di comandi associata all'<b>EventHandler</b> che agisce sulla prima combo</li>
+     	<li>la logica di caricamento della seconda combo &egrave; modellata come comando 
+     	eseguito all' <i>onRefresh</i> della schermata, mentre sulla prima combo viene
+     	solo modellato l'event-handler necessario per far scatenare il refresh
+     	(e quindi la logica)</li>
+     	</ol>
+     </p>
+     <h4>combo dipendenti con logica sull'evento della prima combo</h4>
+     <p>Sulla combo A viene modellata una struttura simile alla seguente:
+     	<pre>
+     	- ComboBox A
+     	-- EventHandler(VALUE_CHANGED)
+     	--- ExecCommand(caricaSecondaCombo)
+     	---- CommandOutcome:OK
+     	----- NOPCommand (o RefreshViewCommand)
+     	</pre>
+     </p>
+     <p>
+     nel codice del metodo <i>caricaSecondaCombo</i> viene scritta la logica di
+     valorizzazione dell'<b>ApplicationData</b> associato alla combo B. Per fare ci&ograve;
+     si ha a disposizione il valore selezionato nella combo A: &egrave in questo modo che si 
+     crea la dipendenza tra la combo A e la combo B.
+     </p>
+     
+     <h4>combo dipendenti con logica sull'<i>onRefresh</i> della schermata</h4>
+     <p>Sulla combo A viene modellata una struttura simile alla seguente:
+     	<pre>
+     	- ComboBox A
+     	-- EventHandler(VALUE_CHANGED)
+     	--- NOPCommand (o RefreshViewCommand)
+     	</pre>
+     </p>
+     <p>sul comando <i>onRefresh</i> della schermata viene modellata una struttura simile alla
+     seguente:
+     	<pre>
+     	- ExecCommand(gestisciComboB)
+     	-- CommandOutcome:OK
+     	--- NOPCommand
+     	</pre>
+     </p>
+     <p>
+     nel codice del metodo <i>gestisciCombo</i> viene scritta la logica di
+     valorizzazione dell'<b>ApplicationData</b> associato alla combo B. Per fare ci&ograve;
+     si ha a disposizione il valore selezionato nella combo A: &egrave in questo modo che si 
+     crea la dipendenza tra la combo A e la combo B.
+     La valorizzazione deve essere effettuata con il seguente schema algoritmico (pseudo-linguaggio):
+     	<pre>
+     	se (comboA.valore == null) allora {
+     	  comboB.dati = {}
+     	}
+     	altrimenti {
+     	  comboB.dati = calcolaDatiB(comboA.valore);
+     	}
+     	</pre>
+     	In questo modo si gestisce in qualche modo una &quot;invariante&quot; che lega
+     	il valore della combo A e i dati della combo B.
+     </p>
+     <p><b>Nota</b>: la seconda soluzione &egrave; preferibile in molti casi perch&egrave;
+     gestisce correttamente la valorizzazione della combo indipendentemente dal flusso
+     tra le schermate.</p>
+     </div>
+     <br/>
+     
    </body>
 </html>
