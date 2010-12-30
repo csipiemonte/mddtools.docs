@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>FAQ: domande di carattere generale su GUIGEN</title>
+      <link type="text/css" href="mddtools.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+<!-- (body content) -->
+<h1>MDDTOOLS&nbsp;- Usage tracking</h1>
+<p>&nbsp;</p>
+<p>La suite di strumenti MDD, a partire dalle versioni <strong>1.5.0 di guigen</strong> , <strong>1.1.0 di servicegen</strong>, <strong>1.0.0 di datagen</strong>, prevede un <strong>meccanismo di tracking dell'utilizzo degli strumenti</strong>, finalizzato a gestire in maniera efficace l'evoluzione dei tool stessi nei confronti dei suoi utilizzatori.</p>
+
+<p>A partire dalle versioni sopracitate, infatti, il plugin <strong>mddtools</strong>, già deputato a distribuire la documentazione complessiva della suite di strumenti, possiede questa ulteriore funzionalità automaticamente attivata all'utilizzo dei vari plugin di modellazione (<strong>guigen/servicegen/datagen</strong>).</p>
+<p>Alcune conseguenze di ciò:</p>
+<ul><li>i plugin <strong>guigen, servicegen, datagen</strong> hanno ora una dipendenza obbligatoria dal plugin <strong>mddtools</strong>, che deve quindi essere <strong>scaricato, installato e configurato preventivamente</strong>, pena il non funzionamento degli strumenti.</li>
+
+<li>la configurazione del plugin, da effettuarsi dopo la sua installazione,&nbsp;consiste nell'inserimento nell'apposita form di alcune informazioni associate all'utilizzatore: <ul><li><em>nome</em></li>
+<li><em>cognome</em></li>
+<li><em>azienda</em></li>
+<li><em>indirizzo di e-mail</em></li>
+</ul>
+</li>
+</ul>
+<p>Tali informazioni sono utilizzate per raccogliere, su un database centrale,&nbsp;informazioni relative a chi sta utilizzando quale versione di strumento. La raccolta dati avviene mediante invio (via <em>http</em>) delle informazioni citate, più informazioni identificative dello strumento (codice/versione) ad un collettore centrale. Poichè la continuità di servizio degli strumenti è prioritaria rispetto alle esigenze statistiche un eventuale malfunzionamento dell'invio dovuto a problemi contingenti (es. di rete) non è bloccante per l'utilizzatore.</p>
+
+<p>I possibili utilizzi delle informazioni collezionate sono tutti orientati ad una gestione più efficace dell'evoluzione del prodotto e al supporto nell'utilizzo, ad esempio:</p>
+<ul><li>Possibilità di <strong>avvisare tempestivamente gli utilizzatori</strong> di un certo plugin in una certa versione di problemi riscontrati e delle eventuali soluzioni (workaround, versione che risolve il problema). Questo meccanismo risulta particolarmente utile nel caso di utilizzo di rilasci di tipo <em>latest</em>.</li>
+<li>Possibilità di verificare la distribuzione di utilizzo delle varie versioni degli strumenti, al fine di <strong>pianificare evoluzioni, migrazioni, dismissioni</strong>.</li>
+</ul>
+<h2>&nbsp;</h2>
+<h2>Configurazione iniziale</h2>
+
+<p>&nbsp;</p>
+<p>La configurazione iniziale del plugin <strong>mddtools</strong> deve essere effettuata una sola volta per postazione di lavoro accedendo all'apposita form da eclipse, mediante il menu:</p>
+<p>windows --&gt; preferences e seleizonando sulla sinistra il nodo &quot;MDDTools Preferences&quot;:</p>
+<img src="img/mddtools_pref.jpg" border="1"> <p>&nbsp;</p>
+<p>Al termine dell'impostazione è necessario <strong>riavviare eclipse</strong>.&nbsp; Solo in seguito i plugin effettivi di modellazione sono utilizzabili.</p>
+
+<p>Le impostazioni sono conservate nella home directory dell'utente e sono pertanto condivise da tutte le installazioni di eclipse su quella postazione.</p>
+<p>&nbsp;</p>
+<!-- (/body content) -->
+
+   </body>
+</html>

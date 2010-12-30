@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>FAQ: domande di carattere generale su GUIGEN</title>
+      <link type="text/css" href="mddtools.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+      <h2>
+         FAQ: domande di carattere generale sugli strumenti MDDTools
+      </h2>
+      <p>
+         In questa sezione sono riportate le domande di carattere generale pi&ugrave; frequenti
+         emerse durante l'utilizzo degli strumenti <b>mddtools</b>
+      </p>
+      
+      <!-- 1 -->
+      <div class="faq_question">
+      <p>Q: Ho installato pre la prima volta tutti i plugin di mddtools, ma quando tento di aprire un editor
+      ottengo un errore e l'editor non funziona: qual'&egrave; il problema?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> Se &egrave; la prima volta che si installano gli mddtools sulla postazione
+      e per un determinato utente, oppure se era in precedenza presente una versione di tool
+      precedente alla 1.5.0 (guigen), 1.1.0 (servicegen), allora &egrave; necessario configurare
+      le informazioni identificative dell'utilizzatore, che sono utilizzate dal meccanismo di
+      <i>usage tracking</i>. Per i dettagli sul meccanismo e per le modalit&agrave; di configurazione
+      &egrave; disponibile un'apposita <a href="usage_tracking.html">sezione</a>. 
+      </p>
+      </div>
+      <br/>
+      
+      <!-- 2 -->
+      <div class="faq_question">
+      <p>Q: Ho lanciato la generazione del mio progetto tramite l'apposito file .oaw, ma il tool
+      restituisce un errore che parla di un &quot;workflow fragment&quot; non trovato:
+      qual'&egrave; il problema?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> Il frammento non trovato &egrave; di fatto la &quot;cartuccia&quot; di generazione
+      configurata nel file .oaw. Affinch&egrave; il sistema di generazione riesca a lanciare questa
+      cartuccia &egrave; necessario che il progetto generatore abbia tra le proprie dipendenze
+      i plugin dello strumenti geenratore desiderato (guigen|servicegen|datagen). 
+      </p>
+      <p>Per risolvere il problema &egrave; sufficiente aggiungere le dipendenze dall'apposito
+      editor.</p>
+      </div>
+      <br/>
+      
+     
+      <!-- 3 -->
+      <div class="faq_question">
+      <p>Q: Il codice generato dal tool contiene delle regioni protette nelle quali &egrave;
+      possibile inserire il codice custom. Mi sono accorto che mi servirebbe poter inserire
+      del codice custom in altre parti del codice, dove non &egrave; attualmente presente nessuna
+      regione protetta. Come mi devo comportare?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> Non &egrave; possibile inserire codice custo al di fuori delle apposite regioni
+      protette, pena la perdita del codice a fronte di una successiva rigenerazione.</p>
+      <p>Non &egrave; altres&igrave; possibile inserire regioni protette aggiuntive.</p>
+      <p>Occorre pertanto esaminare il caso specifico (e l'esigenza specifica), sottoponendo
+      il problema al gruppo di sviluppo del tool:
+      	<ul>
+      	<li>se l'esigenza ha un carattere di generalit&agrave; &egrave; possibile che la nuova
+      	regione protetta sia effettivamente aggiunta in una verisone successiva del tool</li>
+      	<li>se l'esigenza non ha un carattere di generalit&agrave; verr&agrave; suggerita
+      	una soluzione alternativa.</li>
+      	</ul>
+      </p>
+      </div>
+      <br/>
+     
+     <!-- 4 -->
+      <div class="faq_question">
+      <p>Q: Ho aggiunto dei file/classi a quelle che sono state generate dal generatore.
+      Verranno mantenute a fronte di una successiva rigenerazione?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> I generatori di mddtools non cancellano mai nessun file, pertanto 
+      ogni file/classe aggiuntiva sar&agrave; mantenuta nelle rigenerazioni successive.</p>
+      </div>
+      <br/>
+     
+      <!-- 5 -->
+      <div class="faq_question">
+      <p>Q: Ho rimosso alcuni elementi di modello che generavano alcune classi java. Ho
+      rigenerato il progetto ma le classi java <i>obsolete</i> non sono state cancellate.
+      E' corretto?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> Si, &egrave; corretto. Occorre rimuovere manualmente le classi obsolete 
+      dal progetto.</p>
+      </div>
+      <br/>
+      
+      <!-- 6 -->
+      <div class="faq_question">
+      <p>Q: Ho visto che le regioni protette sono identificate da un codice numerico. 
+      A cosa corrisponde? Come &egrave; ottenuto? Posso modificarlo a mio piacimento?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> l'identificativo delle regioni protette &egrave; ottenuto calcolando
+      l'hash-code di una stringa che identifica univocamente tale regione protetta e
+      non pu&ograve; essere perci&ograve; modificato a piacimento.
+      Tale stringa &egrave; tipicamente ottenuta concatenando varie componenti testuali.
+      Il dettaglio delle componenti costitutive &egrave; un <i>internal</i> del generatore.
+      Il motivo per cui si calcola l'hash-code invece che utilizzare il codice testuale sta
+      nell'evitare che il commento che delimita la regione protetta vada a capo a fronte di
+      formattazioni automatiche del codice generato, rendendo in questo modo impossibile 
+      per il generatore individuare le regioni protette (la lunghezza dell'hash-code &egrave;
+      invece per definizione fissa). 
+      </p>
+      </div>
+      <br/>
+      
+      
+      <!-- 7 -->
+      <div class="faq_question">
+      <p>Q: Ho rigenerato il progetto ma la seconda generazione ha restituito un errore
+      di &quot;ID di regione protetta duplicata&quot;. Qual'&egrave; il problema?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> Occorre innanzitutto verificare nei dettagli dell'errore qual'&egrave; 
+      il path dei due file che presentano lo stesso ID di regione protetta:
+      	<ul>
+      	<li><b>se i due file sono distinti</b> come path ma identici come nome (&egrave; il caso 
+      	pi&ugrave; comune), allora si tratta probabilmente di un problema di configurazione
+      	del progetto generato nel workspace <i>eclipse</i>: tipicamente il processo
+      	di build automatico dell'IDE sposta nella directory target eventuali file di 
+      	configurazione (es. xml). In questo caso all'atto della rigenerazione il modulo 
+      	che gestisce le regioni protette troverebbe uno stesso ID di regione protetta 
+      	in due file differenti, con conseguente errore. Per questa ragione il processo
+      	di generazione come prima operazione cancella le directory standard di build
+      	e di file temporanei. Se in eclipse, per&ograve; la directory di build non &egrave;
+      	impostata con il valore standard CSI (<i>build/classes</i>) ma con, ad esempio,
+      	il valore standard per i progetti eclipse (<i>bin</i>) il processo di
+      	pulizia prelimiare non riuscirebbe a prevenire le regioni duplicate.
+      	La soluzione sta semplicemente nel configurare il percorso di build in modo che 
+      	valga <i>build/classes</i>.</li>
+      	<li>se gli id duplicati sono segnalati sullo stesso file, allora potrebbe esserci un
+      	problema di modellazione o, in casi pi&ugrave; rari, un bug nel generatore. Tipicamente
+      	per capire se siamo nel primo o nel secondo caso &egrave; indicativo analizzare 
+      	il codice nel punto in cui &egrave; segnalato l'errore e verificare se, oltre
+      	all'ID vi sono altri elementi duplicati in modo illegale (es. il nome del metodo java
+      	all'interno del quale vi &egrave; l'ID che ha generato l'errore.</li>
+      	</ul>
+      </p>
+      </div>
+      <br/>
+      
+      <!-- 8 -->
+      <div class="faq_question">
+      <p>Q: Ho rigenerato il progetto. Nelle classi java dove avevo inserito codice custom
+      (nelle apposite regioni protette) dopo la rigenerazione sono scomparsi degli
+      <code>import</code> che avevo aggiunto in precedenza. Li devo riaggiungere manualmente
+      ogni volta che rigenero?
+      </p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> No, &egrave; sufficiente inserire gli statement di import nell'apposita regione
+       protetta e non lasciarli inserire all'IDE con le funzioni di organizzazione dell'import
+ 	   (che rispettano questo vincolo solo casualmente).
+      </p>
+      </div>
+      <br/>
+      
+      <!-- 9 -->
+      <div class="faq_question">
+      <p>Q: Ho verificato la presenza di aggiornamenti sull'update site degli strumenti mdd
+      e ho scoperto che e' disponibile una nuova versione. Mi conviene impostare l'opzione
+      di aggiornamento automatico in modo da usare sempre l'ultima versione disponibile?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> No, non &egrave; consigliato. L'aggiornamento ad una nuova versione di 
+      generatore solitamente non &egrave; fonte di problemi, in quanto vengono gestite 
+      la retrocompatibilit&agrave; funzionale e, parzialmente, di codice generato.
+      E' per&ograve; consigliabile eseguire in modo <i>cosciente</i> la migrazione ad una nuova
+      versione, tenendo presente che:
+      	<ul>
+      	<li>se la nuova versione fornisce una correzione o una nuova funzione che risultano 
+      	di immediata utilit&agrave; per il progetto, l'opportunit&agrave; di migrare &egrave;
+      	superiore</li>
+      	<li>se le correzioni o le nuove funzioni fornite dalla nuova versione non sono
+      	di immediata utilit&agrave; per il progetto l'upgrade pu&ograve; essere rimandato.</li>
+      	</ul>
+      </p>
+      </div>
+      <br/>
+      
+      <!-- 10 -->
+      <div class="faq_question">
+      <p>Q: Ci sono dei particolari accorgimenti per passare ad una nuova versione di un plugin
+      mddtools?</p>
+      
+      </div>
+      <div class="faq_answer">
+      <p><b>A:</b> Gli accorgimenti consigliati per il passaggio ad una nuova versione di plugin
+      sono i seguenti:
+      <ul>
+      <li>effettuare l'operazione solo dopo aver storicizzato su SVN una versione stabile
+      generata con la versione precedente di plugin</li>
+      <li>come prima operazione dopo l'upgrade effettuare una rigenerazione del progetto
+      senza modificare il modello (a meno che non sia richiesto nelle note di release). </li>
+      <li>dopo la prima rigenerazione verificare:
+      	<ul>
+      	<li>se il progetto rigenerato continua a compilare correttamente</li>
+      	<li>quali variazioni ci sono sul codice generato rispetto alla versione consolidata</li>
+      	</ul>
+      </li>
+      <li>E' opportuno pianificare una fase di test di non regressione sull'applicazione
+      rigenerata. come criterio empirico, il livello di approfondimento del test dovrebbe 
+      aumentare tanto quanto pi&ugrave; numerose sono le variazioni rilevate sul codice generato.</li>
+      </ul> 
+      </p>
+      </div>
+      <br/>
+      
+   </body>
+</html>
