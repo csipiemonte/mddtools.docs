@@ -1,0 +1,166 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Elemento di catalogo: StdMessagePanel</title>
+      <link type="text/css" href="./../../..//css/style.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+   	  <a href="./../../../UI Patterns/Panels/index.html">torna all'elenco degli elementi della sezione Panels</a>
+   	  <h1>Elemento di catalogo: StdMessagePanel (<img src="./img/icon.gif" alt="StdMessagePanel"/>)</h1>
+      <h2>Descrizione</h2>
+      <div class="itemDescription">
+            <p>
+Lo <b>stdMessagePanel</b> &egrave; un pannello di tipo informativo utilizzato per mostrare 
+all'utente eventuali messaggi di errore o informativi.
+Se, durante l'elaborazione, si verificano degli errori oppure se la business logic inserisce dei messaggi
+informativi il pannello mostra tali messaggi.
+Se invece non si verifica almeno una di queste due condizioni, il pannello non ha nessuna evidenza
+grafica.
+Le tipologie di messaggio visualizzabili sono:
+<ul>
+<li>messaggi informativi</li>
+<li>messaggi di errore globali</li>
+<li>messaggi di errore relativi a campi specifici</li>
+
+</ul>
+<br/>
+</p>
+
+      </div>
+      
+      <h2>Caratteristiche (features)</h2>
+      <table class="features">
+      <thead><th>cod.</th><th>nome</th><th>descrizione</th></thead>
+      <tbody>
+      
+      
+      
+      <tr><td colspan="3" class="featureCategory">apparenza grafica</td></tr>
+      	
+	<tr>
+	<td class="featureCod">PERR001</td>
+	<td class="featureName">messaggi informativi</td>
+	<td class="featureDescr">Permette la visualizzazione di messaggi di tipo informativo
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">PERR002</td>
+	<td class="featureName">messaggi errore campi</td>
+	<td class="featureDescr">Permette la visualizzazione di messaggi di errore relativi a specifici
+campi della schermata
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">PERR003</td>
+	<td class="featureName">messaggi errore globali</td>
+	<td class="featureDescr">Permette la visualizzazione di messaggi di errore relativi
+all'intera schermata
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">PERR004</td>
+	<td class="featureName">invisibile in assenza messaggi</td>
+	<td class="featureDescr">Viene automaticamente nascosto in caso non vi siano
+messaggi di alcun tipo da visualizzare
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">PERR005</td>
+	<td class="featureName">appare in popup</td>
+	<td class="featureDescr">Appare in una finestra di <i>popup</i>
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">PERR006</td>
+	<td class="featureName">appare in schermata</td>
+	<td class="featureDescr">Appare nella schermata nel punto in cui &egrave; posizionato il pannello
+	</td>
+	</tr>
+      
+      
+      
+      
+      
+      </tbody>
+      </table>
+      
+	<h2>Immagini</h2>
+	
+	<div class="itemDetailImage">
+	<table><tr><td>
+	<img class="itemDetailImage" src="./img/stdmessagepanel_1.gif" alt="stdmessagepanel_1.gif"/>
+	</td></tr>
+	<tr><td class="imageCaption">esempio di standard message panel</td></tr>
+	</table>
+	</div>
+	<br></br>
+      
+      <h2>Grado di implementazione delle varie caratteristiche</h2>
+      <p>
+      Nella tabella seguente &egrave; riportato il grado di implementazione delle
+      varie caratteristiche/funzioni dell'elemento <b>StdMessagePanel</b> nelle differenti implementazioni.
+      </p>
+      
+
+<table class="compMatrixTable">
+<thead>
+<tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
+ <th colspan="2" class="matrixTH product">guigen</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th colspan="2" class="matrixTH productVersion">1.5.0</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
+</tr>
+
+</thead>
+<tbody>
+	<tr><td class="featureCategory" colspan="0">apparenza grafica</td></tr>
+<tr>
+<td>PERR001</td><td class="feature">messaggi informativi</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>PERR002</td><td class="feature">messaggi errore campi</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>PERR003</td><td class="feature">messaggi errore globali</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>PERR004</td><td class="feature">invisibile in assenza messaggi</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>PERR005</td><td class="feature">appare in popup</td>
+<td><img src=./../../../img/no.gif/></td>
+<td><img src=./../../../img/no.gif/></td>
+</tr>
+<tr>
+<td>PERR006</td><td class="feature">appare in schermata</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+
+
+
+
+</tbody>
+</table>
+
+   </body>
+</html>

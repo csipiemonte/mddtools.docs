@@ -1,0 +1,198 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Elemento di catalogo: FormPanel</title>
+      <link type="text/css" href="./../../..//css/style.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+   	  <a href="./../../../UI Patterns/Panels/index.html">torna all'elenco degli elementi della sezione Panels</a>
+   	  <h1>Elemento di catalogo: FormPanel (<img src="./img/icon.gif" alt="FormPanel"/>)</h1>
+      <h2>Descrizione</h2>
+      <div class="itemDescription">
+      <p>
+Il <b>FormPanel</b> &egrave; un pannello utilizzato principalmente per
+creare la macro struttura della schermata. E'un pannello destinato a 
+contenere altri pannelli con lo scopo di organizzarli in struttura secondo i vari
+layout disponibili. <br/>
+Il <b>FormPanel</b> tipicamente si colloca:
+<ul>
+<li>come pannello principale (pi&ugrave; esterno) della schermata;</li>
+
+<li>come pannello principale del singolo quadrante all'interno di un <b>FormPanel</b>
+con layout a quadranti (UDLRC)</li>
+<li>come contenitore di ciascun <i>item</i> di un pannello a <i>tab</i>
+o <i>wizard</i></li>
+<li>per ogni <i>item</i> di un <b>MultiPanel</b></li>
+
+</ul>
+Il <b>FormPanel</b> pu&ograve; essere dotato di <i>titolo</i>. Nel caso di
+<b>FormPanel</b> utilizzato all'interno di un <b>TabSetPanel</b> tale titolo 
+&egrave; utilizzato come etichetta del tab corrispondente, mentre nel caso in cui sia
+utilizzato all'interno di un <b>WizardPanel</b> il titolo viene visualizzato come
+nome dello <i>step</i> corrispondente.
+Il <b>FormPanel</b> non pu&ograve; contenere widget, ma solo sottopannelli.
+
+</p>
+
+      </div>
+      
+      <h2>Caratteristiche (features)</h2>
+      <table class="features">
+      <thead><th>cod.</th><th>nome</th><th>descrizione</th></thead>
+      <tbody>
+      
+      
+      
+      <tr><td colspan="3" class="featureCategory">apparenza grafica</td></tr>
+      	
+	<tr>
+	<td class="featureCod">PFRM001</td>
+	<td class="featureName">label</td>
+	<td class="featureDescr">E' possibile associare al pannello una label che comparir&agrave; in testa
+al pannello stesso.
+	</td>
+	</tr>
+      
+      
+      
+      
+      <tr><td colspan="3" class="featureCategory">struttura</td></tr>
+      	
+	<tr>
+	<td class="featureCod">PFRM002</td>
+	<td class="featureName">contenimento pannelli</td>
+	<td class="featureDescr"><p>Pu&ograve; contenere i seguenti pannelli:
+	
+		<ul>
+	
+		<li>
+			<a href="./../../../UI Patterns/Panels/FormPanel/index.html">FormPanel</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Panels/MenuPanel/index.html">MenuPanel</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Panels/MsgBoxPanel/index.html">MsgBoxPanel</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Panels/StdMessagePanel/index.html">StdMessagePanel</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Panels/WidgetsPanel/index.html">WidgetsPanel</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Panels/MultiPanel/index.html">MultiPanel</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Panels/TabSetPanel/index.html">TabSetPanel</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Panels/WizardPanel/index.html">WizardPanel</a>
+		</li>
+
+		</ul>
+
+	</p>
+	<p>
+	</p>
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">PFRM003</td>
+	<td class="featureName">layout supportati</td>
+	<td class="featureDescr"><p>I sottopannelli possono essere organizzati secondo i seguenti layout:
+	
+		<ul>
+	
+		<li>
+			<a href="./../../../UI Patterns/Layout/HorizontalLayout/index.html">HorizontalLayout</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Layout/VerticalLayout/index.html">VerticalLayout</a>
+		</li>
+
+		<li>
+			<a href="./../../../UI Patterns/Layout/UDLRCLayout/index.html">UDLRCLayout</a>
+		</li>
+
+		</ul>
+
+	</p>
+	<p>
+	</p>
+	</td>
+	</tr>
+      
+      </tbody>
+      </table>
+      
+	<h2>Immagini</h2>
+	
+	<div class="itemDetailImage">
+	<table><tr><td>
+	<img class="itemDetailImage" src="./img/formpanel_1.gif" alt="formpanel_1.gif"/>
+	</td></tr>
+	<tr><td class="imageCaption">esempio di command panel</td></tr>
+	</table>
+	</div>
+	<br></br>
+      
+      <h2>Grado di implementazione delle varie caratteristiche</h2>
+      <p>
+      Nella tabella seguente &egrave; riportato il grado di implementazione delle
+      varie caratteristiche/funzioni dell'elemento <b>FormPanel</b> nelle differenti implementazioni.
+      </p>
+      
+
+<table class="compMatrixTable">
+<thead>
+<tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
+ <th colspan="2" class="matrixTH product">guigen</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th colspan="2" class="matrixTH productVersion">1.5.0</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
+</tr>
+
+</thead>
+<tbody>
+	<tr><td class="featureCategory" colspan="0">apparenza grafica</td></tr>
+<tr>
+<td>PFRM001</td><td class="feature">label</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+
+
+	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
+<tr>
+<td>PFRM002</td><td class="feature">contenimento pannelli</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>PFRM003</td><td class="feature">layout supportati</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+
+
+</tbody>
+</table>
+
+   </body>
+</html>
