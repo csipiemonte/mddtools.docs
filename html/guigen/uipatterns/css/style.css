@@ -1,0 +1,40 @@
+div.domainDescription {background-color:#E0E0E0;border:1px solid;text-align:left;padding-left:10px;padding-right:10px;}
+
+div.itemDescription {background-color:#FFFF99;border:1px solid;text-align:left;padding-left:10px;padding-right:10px;}
+
+.features {width:100%;border: 1px solid #CCCCCC;font-size:12px;border-collapse:collapse;}
+
+.features th {text-align:center;empty-cells:collapse;background-color:#CCCCFF;border:1px solid;}
+
+.features td {text-align:center;border:1px solid;}
+
+td.featureName {font-weight:bold;}
+
+td.featureDescr {text-align:left;padding-left:10px;}
+
+img.itemDetailImage {border:1px solid;padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;}
+
+td.imageCaption {text-align:left;}
+
+
+.compMatrixTable {width:100%;border: 1px solid #CCCCCC;font-size:12px;border-collapse:collapse;}
+
+.compMatrixTable th {text-align:center;empty-cells:collapse;background-color:#CCCCCC;border:1px solid;}
+
+.compMatrixTable td {text-align:center;border:1px solid;}
+
+td.feature, td.featureCategory {text-align:left;border:1px solid;}
+
+td.featureCategory {font-weight:bold;background-color:#EEEEEE;color:#555555;}
+
+td.feature {padding-left:10px;}
+
+th.productEdition {width:100px;}
+
+.glossary {width:100%;border: 1px solid #CCCCCC;font-size:14px;border-collapse:collapse;}
+
+td.glossKey, td.glossText {text-align:left;border:1px solid;}
+
+td.glossText {text-align:left;padding-left:14px;}
+
+td.glossKey {font-weight:bold;background-color:#EEEEEE;color:#555555;} 
