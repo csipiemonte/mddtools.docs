@@ -1,0 +1,280 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Elemento di catalogo: CheckBox</title>
+      <link type="text/css" href="./../../..//css/style.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+   	  <a href="./../../../UI Patterns/Widgets/index.html">torna all'elenco degli elementi della sezione Widgets</a>
+   	  <h1>Elemento di catalogo: CheckBox (<img src="./img/icon.gif" alt="CheckBox"/>)</h1>
+      <h2>Descrizione</h2>
+      <div class="itemDescription">
+      <p>
+E' il classico widget di selezione di un valore booleano (si/no). 
+Il widget completo prevede una label e il campo di immissione associato.
+La label pu&ograve; essere, in casi particolari, vuota. 
+</p>
+<p>
+Solitamente, i checkbox sono mostrati sullo schermo come dei quadrati che possono contenere spazio
+bianco (quando non sono selezionati) e segno di spunta (quando sono selezionati).
+Per invertire lo stato (selezionato/non selezionato) del checkbox &egrave; sufficiente cliccare sul riquadro.
+</p>
+<p>
+Particolarit&agrave; di utilizzo: qualora sia necessario definire un questionario a risposte multiple
+non mutuamente esclusive occorre impostare un check box per ogni risposta. </p>
+<br></br>
+Esempio: Quali software sono installati sul tuo PC? 
+<ul>
+<li>Check Risposta 1: OpenOffice</li>
+<li>Check Risposta 2: StarUML</li>
+<li>Check Risposta 3: LotusNotes</li>
+</ul>
+      </div>
+      
+      <h2>Caratteristiche (features)</h2>
+      <table class="features">
+      <thead><th>cod.</th><th>nome</th><th>descrizione</th></thead>
+      <tbody>
+      
+      
+      
+      <tr><td colspan="3" class="featureCategory">apparenza grafica</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WCHK007</td>
+	<td class="featureName">marcatore errore di validazione</td>
+	<td class="featureDescr">Visualizzazione di un marcatore di errore in prossimit&agrave; della label, 
+in caso di fallita validazione
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WCHK008</td>
+	<td class="featureName">evidenza obbligatoriet&agrave;</td>
+	<td class="featureDescr">Evidenza di obbligatoriet&agrave;  (es. Asterisco a lato della label)
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WCHK009</td>
+	<td class="featureName">evidenza stato abilitazione</td>
+	<td class="featureDescr">Evidenza dello stato di abilitazione (es. differente colore della label 
+in stato editabile rispetto a non editabile)
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WCHK010</td>
+	<td class="featureName">tooltip a comparsa</td>
+	<td class="featureDescr">Comparsa del tooltip al passaggio del cursore sulla label
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Tooltip"><i>Tooltip</i></a>
+)
+	</td>
+	</tr>
+      
+      
+      <tr><td colspan="3" class="featureCategory">dinamica di interazione</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WCHK003</td>
+	<td class="featureName">abilitazione comandabile</td>
+	<td class="featureDescr">Disabilitazione/Abilitazione a comando 
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WCHK004</td>
+	<td class="featureName">visibilit&agrave; a comando</td>
+	<td class="featureDescr">Modalit&agrave; invisibile/visibile a comando
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WCHK005</td>
+	<td class="featureName">profilazione dell'abilitazione</td>
+	<td class="featureDescr">Disabilitazione/Abilitazione a fronte di regole associate al profilo 
+dell'utente collegato
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WCHK006</td>
+	<td class="featureName">profilazione della visibilit&agrave;</td>
+	<td class="featureDescr">Modalit&agrave; invisibile/visibile a fronte di regole associate al profilo 
+dell'utente collegato
+	</td>
+	</tr>
+      
+      
+      <tr><td colspan="3" class="featureCategory">struttura</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WCHK011</td>
+	<td class="featureName">includibilit&agrave; in pannelli</td>
+	<td class="featureDescr"><p>Il widget pu&ograve; essere contenuto nei seguenti pannelli:
+	
+		<ul>
+	
+		<li>
+			<a href="./../../../UI Patterns/Panels/WidgetsPanel/index.html">WidgetsPanel</a>
+		</li>
+
+		</ul>
+
+	</p>
+	<p>
+	</p>
+	</td>
+	</tr>
+      
+      
+      <tr><td colspan="3" class="featureCategory">dati</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WCHK001</td>
+	<td class="featureName">validazione input al submit</td>
+	<td class="featureDescr">Validazione dell'input immesso al  submit della form 
+
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Submit (di una form)"><i>Submit (di una form)</i></a>
+)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WCHK002</td>
+	<td class="featureName">selezione automatica iniziale</td>
+	<td class="featureDescr">Selezione automatica alla presentazione della schermata
+	</td>
+	</tr>
+      
+      </tbody>
+      </table>
+      
+	<h2>Immagini</h2>
+	
+	<div class="itemDetailImage">
+	<table><tr><td>
+	<img class="itemDetailImage" src="./img/checkbox_1.gif" alt="checkbox_1.gif"/>
+	</td></tr>
+	<tr><td class="imageCaption">checkbox</td></tr>
+	</table>
+	</div>
+	<br></br>
+
+	<div class="itemDetailImage">
+	<table><tr><td>
+	<img class="itemDetailImage" src="./img/checkbox_2.gif" alt="checkbox_2.gif"/>
+	</td></tr>
+	<tr><td class="imageCaption">checkbox con marcatore di errore</td></tr>
+	</table>
+	</div>
+	<br></br>
+
+	<div class="itemDetailImage">
+	<table><tr><td>
+	<img class="itemDetailImage" src="./img/checkbox_3.gif" alt="checkbox_3.gif"/>
+	</td></tr>
+	<tr><td class="imageCaption">checkbox obbligatorio</td></tr>
+	</table>
+	</div>
+	<br></br>
+      
+      <h2>Grado di implementazione delle varie caratteristiche</h2>
+      <p>
+      Nella tabella seguente &egrave; riportato il grado di implementazione delle
+      varie caratteristiche/funzioni dell'elemento <b>CheckBox</b> nelle differenti implementazioni.
+      </p>
+      
+
+<table class="compMatrixTable">
+<thead>
+<tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
+ <th colspan="2" class="matrixTH product">guigen</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th colspan="2" class="matrixTH productVersion">1.5.0</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
+</tr>
+
+</thead>
+<tbody>
+	<tr><td class="featureCategory" colspan="0">apparenza grafica</td></tr>
+<tr>
+<td>WCHK007</td><td class="feature">marcatore errore di validazione</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>WCHK008</td><td class="feature">evidenza obbligatoriet&agrave;</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>WCHK009</td><td class="feature">evidenza stato abilitazione</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>WCHK010</td><td class="feature">tooltip a comparsa</td>
+<td><img src=./../../../img/no.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+
+	<tr><td class="featureCategory" colspan="0">dinamica di interazione</td></tr>
+<tr>
+<td>WCHK003</td><td class="feature">abilitazione comandabile</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>WCHK004</td><td class="feature">visibilit&agrave; a comando</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>WCHK005</td><td class="feature">profilazione dell'abilitazione</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>WCHK006</td><td class="feature">profilazione della visibilit&agrave;</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+
+	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
+<tr>
+<td>WCHK011</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+
+	<tr><td class="featureCategory" colspan="0">dati</td></tr>
+<tr>
+<td>WCHK001</td><td class="feature">validazione input al submit</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>WCHK002</td><td class="feature">selezione automatica iniziale</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+
+
+</tbody>
+</table>
+
+   </body>
+</html>
