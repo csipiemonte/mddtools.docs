@@ -1,0 +1,155 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Elemento di catalogo: GridLayout</title>
+      <link type="text/css" href="./../../..//css/style.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+   	  <a href="./../../../UI Patterns/Layout/index.html">torna all'elenco degli elementi della sezione Layout</a>
+   	  <h1>Elemento di catalogo: GridLayout (<img src="./img/icon.gif" alt="GridLayout"/>)</h1>
+      <h2>Descrizione</h2>
+      <div class="itemDescription">
+      <p>
+Il <b>GridPanelLayout</b> (layout a grigia) &egrave; applicabile esclusivamente
+al pannello <b>WidgetsPanel</b> e prevede che gli elementi contenuti nel pannello
+che possiede questo layout (widget) siano visualizzati in una struttura a griglia.
+E' necessario specificare le dimensioni orizzontali e verticali della griglia e ciascuna cella
+della griglia pu&ograve; contenere al massimo un solo <b>Widget</b>.
+In aggiunta un widget pu&ograve; estendersi orizzontalmente per pi&ugrave; di una cella
+(<i>hspan</i>),
+Di fatto, se il numero di colonne previste dal layout  &egrave; <i>n</i>, 
+occorre tenere in considerazione una struttura costituita da <i>n</i> colonne logiche
+e <i>2*n</i> colonne fisiche (una per la label ed una per il campo effettivo, 
+il tutto moltiplicato per il numero colonne logiche).
+E' possibile regolare le percentuali di occupazione della componente label
+e della componente widget di ciascuna delle colonne logiche. 
+Le percentuali sono relative allo spazio a disposizione dell'interno pannello.
+Nel clacolo occorre inoltre tenere in considerazione anche casi &quot; degeneri &quot; quali:
+
+<ul>
+<li>label non valorizzate</li>
+<li>span orizzontali maggiori di 1</li>
+</ul>
+</p>
+
+      </div>
+      
+      <h2>Caratteristiche (features)</h2>
+      <table class="features">
+      <thead><th>cod.</th><th>nome</th><th>descrizione</th></thead>
+      <tbody>
+      
+      
+      
+      <tr><td colspan="3" class="featureCategory">struttura</td></tr>
+      	
+	<tr>
+	<td class="featureCod">LGRD001</td>
+	<td class="featureName">collocazione in cella</td>
+	<td class="featureDescr">I widget contenuti in un pannello che possiede questo tipo di layout
+sono collocati in una specifica cella della griglia. Ciascuna cella contiene
+l'intero widget, ossia la componenete di etichetta + la componente di 
+campo vero e proprio. 
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">LGRD002</td>
+	<td class="featureName">dimensionamento orizzontale</td>
+	<td class="featureDescr">E' possibile specificare la dimensione
+percentuale di occupazione della compoenente <i>label</i> e della componenete
+<i>campo</i> per ciascuan delle colonne definte per la griglia.
+La percentuale &egrave; relativa alla larghezza complessiva della griglia.
+Se ad esempio un pannello possiede un layout a griglia di <i>n</i> colonne
+&egrave; necessario specificare <i>2*n</i> valori, la cui somma deve
+essere 100. 
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">LGRD003</td>
+	<td class="featureName">colspan</td>
+	<td class="featureDescr">E' possibile stabilire quante celle orizzontali devono essere occupate
+da un Widget, a partire dalla cella in cui esso &egrave; inserito
+(<i>colspan</i>). Si tratta di celle logiche. Poich&egrave; il widget &egrave;
+costituito da due componenti affiancate orizzontalmente (label + campo)
+occorre tenere presente che è solo la componente di campo vero e proprio
+che si estende a destra se il valore di span &egrave; maggiore di 1.
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">LGRD004</td>
+	<td class="featureName">rowspan</td>
+	<td class="featureDescr">E' possibile stabilire quante celle verticali devono essere occupate
+da un Widget, a partire dalla cella in cui esso &egrave; inserito
+(<i>rowspan</i>)
+	</td>
+	</tr>
+      
+      </tbody>
+      </table>
+      
+	<h2>Immagini</h2>
+	
+	<div class="itemDetailImage">
+	<table><tr><td>
+	<img class="itemDetailImage" src="./img/gridlayout_1.gif" alt="gridlayout_1.gif"/>
+	</td></tr>
+	<tr><td class="imageCaption">Esempio di layout a griglia</td></tr>
+	</table>
+	</div>
+	<br></br>
+      
+      <h2>Grado di implementazione delle varie caratteristiche</h2>
+      <p>
+      Nella tabella seguente &egrave; riportato il grado di implementazione delle
+      varie caratteristiche/funzioni dell'elemento <b>GridLayout</b> nelle differenti implementazioni.
+      </p>
+      
+
+<table class="compMatrixTable">
+<thead>
+<tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
+ <th colspan="2" class="matrixTH product">guigen</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th colspan="2" class="matrixTH productVersion">1.5.0</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
+</tr>
+
+</thead>
+<tbody>
+	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
+<tr>
+<td>LGRD001</td><td class="feature">collocazione in cella</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>LGRD002</td><td class="feature">dimensionamento orizzontale</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>LGRD003</td><td class="feature">colspan</td>
+<td><img src=./../../../img/yes.gif/></td>
+<td><img src=./../../../img/yes.gif/></td>
+</tr>
+<tr>
+<td>LGRD004</td><td class="feature">rowspan</td>
+<td><img src=./../../../img/no.gif/></td>
+<td><img src=./../../../img/no.gif/></td>
+</tr>
+
+
+</tbody>
+</table>
+
+   </body>
+</html>
