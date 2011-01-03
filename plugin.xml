@@ -9,5 +9,41 @@
             primary="true">
       </toc>
    </extension>
+   <extension
+         point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <category
+            id="mddtools.general"
+            name="MDDTools">
+      </category>
+      <cheatsheet
+            category="mddtools.general"
+            composite="false"
+            contentFile="docs/cheatsheets/newMddProject.xml"
+            id="mddtools.general.newMddProject"
+            name="Nuovo progetto MDD">
+      </cheatsheet>
+      <category
+            id="mddtools.servicegen"
+            name="Servicegen"
+            parentCategory="mddtools.general">
+      </category>
+      <category
+            id="mddtools.datagen"
+            name="Datagen"
+            parentCategory="mddtools.general">
+      </category>
+      <category
+            id="mddtools.guigen"
+            name="Guigen"
+            parentCategory="mddtools.general">
+      </category>
+      <cheatsheet
+            category="mddtools.general/mddtools.guigen"
+            composite="false"
+            contentFile="docs/cheatsheets/guigen/newGuigenModel.xml"
+            id="mddtools.guigen.newGuigenModel"
+            name="Nuovo modello guigen">
+      </cheatsheet>
+   </extension>
 
 </plugin>

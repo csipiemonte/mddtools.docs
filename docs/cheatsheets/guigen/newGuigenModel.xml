@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Creazione di un nuovo modello guigen">
+   <intro>
+      <description>
+         <b>Creazione di un nuovo modello guigen</b>
+<br/>
+Questo tutorial descrive i passi necessari alla creazione da zero di un modello <b>guigen</b>.
+E&apos; dato come prerequisito la presenza di un progetto generatore, all&apos;interno del quale saranno creati i vari 
+artefatti necessari alla modellazione e successiva generazione dell&apos;applicazione di front end.
+      </description>
+   </intro>
+   <item
+         skip="true"
+         title="Creazione delle librerie standard guigen">
+      <description>
+         <b>Creazione dei modelli-libreria standard guigen</b>
+<br/>
+I modelli <b>guigen</b> utilizzano alcuni modelli comuni che contengono:
+<br/>
+- il <b>TypeNamespace</b> dei tipi base (&quot;commonTNS&quot;) <br/>
+- l&apos;<b>AppDataGroup</b> contenente gli <b>ApplicationData</b> di base (&quot;commonAppdata&quot;) <br/>
+<br/>
+Questi file sono referenziati in più punti dai modelli <b>guigen</b> e devono essere inseriti una-tantum
+all&apos;interno dell&apos;alberatura di progetto.
+<br/>
+A tale scopo esiste un <b>wizard</b> di nome &quot;Librerie standard per modelli guigen&quot; che può essere invocato tramite il menu File -&gt; new -&gt; guigen wizards.
+<br/>
+La collocazione tipica dei file creati da questo wizard è nella directory &quot;model&quot;, in quanto questi file potrebbero essere referenziati da modelli guigen relativi a più componenti web.
+<br/><br/>
+Una volta lanciato il wizard occorre specificare:
+<br/> - la directory che conterrà i file (tipicamente &quot;src/model&quot;)
+<br/>
+<br/>
+Al termine dell&apos;operazione la directory specficata conterrà i seguenti file: 
+<br/> - <b>commonTNS.guigen</b>: tipi base
+<br/> - <b>commonAppdata.guigen</b>: application data di base
+<br/> - <b>greaseTNS.guigen</b>: tipi per l&apos;utilizzo delle mappe fornite da GREASE
+<br/>
+<b>nota:</b> Questo step è opzionale se i file sono già stati creati nel progetto (es. in caso di creazione di un modello guigen per un secondo componente di front-end applicativo).
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=it.csi.mddtools.guigen.presentation.CommonFilesNewWizard)"/>
+   </item>
+   <item
+         title="Creazione del modello principale">
+      <description>
+         <b>Creazione del modello principale</b>
+<br/>
+E&apos; ora necessario creare il modello principale dell&apos;applicazione, quello che referenzierà tutti i modelli di dettaglio (dei ,moduli applicativi, dei tipi, ...) e che sarà dato in pasto al generatore al fine di produrre l&apos;applicazione.
+<br/><br/>
+Per svolgere questo task è disponibile il wizard &quot;new guigen model&quot;  che può essere invocato tramite il menu File -&gt; new -&gt; guigen wizards.
+<br/>
+Una volta attivato il wizard sarà necessario specificare:
+<br/> - il folder entro il quale si desidera creare il file: tipicamente è la cartella &quot;model/&lt;nomeprodotto&gt;/&lt;nomecomponente&gt;&quot;
+<br/> - il nome del file: tipicamente uguale al nome del componente con l&apos;estensione &quot;.guigen&quot;
+<br/> - l&apos;oggetto da creare (in questo caso selezionare <b>GUIModel</b>)
+<br/> - i codici identificativi del componente (codice prodotto, codice compoenente) e le relative versioni
+<br/> - il folder che contiene i file comuni di libreria (quelli creati al task precedente)
+<br/>
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=it.csi.mddtools.guigen.presentation.GuigenModelWizardID)"/>
+   </item>
+   <item
+         title="Creazione di un application module">
+      <description>
+         <b>Creazione di un application module</b>
+<br/>
+Un&apos;applicazione guigen è costituita da almeno una schermata (<b>ContentPanel</b>) e dunque da almeno un <b>AppModule</b>).
+<br/>
+Per creare un nuovo appmodule è necessario avviare il wizard &quot;new guigen model&quot;  che può essere invocato tramite il menu File -&gt; new -&gt; guigen wizards.
+&lt;br&gt;
+Una volta avviato il wizard sarà necessario selezionare:
+<br/> - il folder entro il quale si desidera creare il file: tipicamente è la cartella &quot;model/&lt;nomeprodotto&gt;/&lt;nomecomponente&gt;/modules&quot; (creare la cartella &quot;modules&quot; se non presente)
+<br/> - il nome del file: tipicamente è un nome dipendente dal tipo di scomposizione logica che si effettua sull&apos;applicazione (esempi: per gruppi di casi d&apos;uso)
+<br/> - l&apos;oggetto da creare (in questo caso selezionare <b>AppModule</b>)
+<br/> - il folder che contiene i file comuni di libreria (quelli creati al task precedente)
+<br/>
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=it.csi.mddtools.guigen.presentation.GuigenModelWizardID)"/>
+   </item>
+   <item
+         title="Creazione della schermata iniziale">
+      <description>
+         <b>Impostazione del nome dell AppModule</b>
+<br/>
+Impostare la property &quot;name&quot; all&apos;interno dell&apos;oggetto <b>AppModule</b> appena creato.
+<br/>
+<b>nota</b>: E&apos; importante che il nome sia un identificativo valido di package java. Tipicamente coincide con il nome del file di modello del modulo.
+<br/>
+      </description>
+   </item>
+   <item
+         title="Creazione schermata iniziale">
+      <description>
+         <b>Creazione schermata iniziale</b>
+<br/>
+E&apos; necessario creare una schermata che sarà utilizzata come schermata iniziale. La schermata dell&apos;esempio sarà molto semplice: un solo pannello con layout verticale senza contenuti.
+<br/>
+Per fare ciò è necessario prima creare il <b>ContentPanel</b> e poi creare la struttura interna
+      </description>
+      <subitem
+            label="Creare un nuovo ContentPanel: selezionare nell&apos;editor strutturato il nodo relativo all&apos;AppModule, poi con il tasto destro selezionare &quot;new child -&gt; Content Panel&quot;.">
+      </subitem>
+      <subitem
+            label="Impostare nome del ContentPanel: selezionare nell&apos;editor strutturato il nodo relativo al ContentPanel appena creato e nel tab delle property impostare il valore della proprità &quot;name&quot;. Es: &quot;cpName&quot;">
+      </subitem>
+      <subitem
+            label="Creare la struttura della schermata: nell&apos;editor strutturato selezionare il nodo relativo all&apos;AppModule. Poi, con il tasto destro del mouse, attivare il menu &quot;wizards -&gt; crea struttura pagina (con scelta template)&quot;. Seguire le istruzioni del wizard: (1) selezionare il tipo di layout deisderato (nell&apos;esempio: una colonna a sviluppo verticale), (2) impostare il testo dell&apos;etichetta principale (titolo della schermata), (3) impostare il testo dell&apos;etichetta del pannello centrale (l&apos;unico). Non includere la visualizzazione nè del menu nè del pannello di info utente collegato.">
+      </subitem>
+   </item>
+   <item
+         title="Inclusione dell&apos;AppModule nel modello principale">
+      <description>
+         <b>Inclusione dell&apos;AppModule nel modello principale</b>
+<br/>
+E&apos; necessario referenziare il modello dell&apos;AppModule appena creato nel modello principale. Per far questo è necessario: (1) caricare il modello dell&apos;AppModule nel modello principale, (2) referenziare il nuovo AppModule
+      </description>
+      <subitem
+            label="Caricare la risorsa dell&apos;Appmodule: selezionare un nodo qualsiasi del modello principale e, con i tasto destro, attivare il comando &quot;load resource&quot;. Nel browser selezionare il file di modello che contiene la definizione dell&apos;AppModule">
+      </subitem>
+      <subitem
+            label="Aggiungere il nuovo Appmodule all&apos;elenco dei moduli dell&apos;applicazione: selezionare nel modello principale il nodo ApplicationArea e aggiungere nella property &quot;extModules&quot; l&apos;AppModule caricato al passo precedente (spostarlo dalla lista a sinistra nella lista a destra nel dialog che appare premendo il pulsante &quot;...&quot;)">
+      </subitem>
+   </item>
+   <item
+         title="Selezione della schermata iniziale nel modello principale">
+      <description>
+         <b>Selezione della schermata iniziale nel modello principale</b>
+<br/>
+Nell&apos;editor strutturato selezionare il nodo <b>ApplicationArea</b> e, nel tabe delle properties, impostare il valore della property &quot;homePage&quot; in modo che punti al <b>ContentPanel</b> appena creato.
+      </description>
+   </item>
+</cheatsheet>

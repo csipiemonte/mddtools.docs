@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Creazione di un nuovo progetto MDD">
+   <intro>
+      <description>
+         <b>Creazione di un nuovo progetto MDD</b>.
+<br/><br/>
+In questa guida verranno illustrati i passi necessari per
+creare un nuovo progetto MDD.
+<br/>
+Le operazioni descritte sono valide per ogni tipologia
+di generatore.
+<br/><br/>
+Al termine del tutorial si avrà a disposizione uno scheletro di progetto nel quale portanno essere inseriti:
+<br/>
+1 - modelli (delle varie tipologie supportate), 
+<br/>
+2 - workflow di generazione.
+<br/><br/>
+La struttura di directory consigliata prevede una prima strutturazione in due cartelle (&quot;model&quot; e &quot;workflow&quot;)
+all&apos;interno delle quali sarà ulteriormente da costruire una struttura di directory analoga alla strutturazione
+a componenti del prodotto. Di conseguenza, ad esempio, sotto la directory &quot;model&quot; vi sarà una directory
+con il nome del <b>prodotto</b> all&apos;interno della quale vi saranno altre directory, una per ogni <b>componente</b> del prodotto.
+      </description>
+   </intro>
+   <item
+         title="Creare nuovo progetto OAW">
+      <description>
+         <b>Creazione di un nuovo progetto di tipo openarchitectureware</b>
+Creare un nuovo progetto di tipo <b>openarchitectureware</b>, selezionando il comando: file -&gt; new -&gt; openarchitectureware project.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.ui.newWizard(newWizardId=org.openarchitectureware.wizards.OawProjectWizard)"/>
+   </item>
+   <item
+         title="Creare struttura directory">
+      <description>
+         <b>Creare la struttura di directory del progetto</b>
+E&apos; necessario creare la struttura delle directory del progetto che saranno destinate a contenere i <b>modelli</b> e i <b>workflow di generazione</b>.
+<br/>
+Una tipica struttura di directory prevede che sia i file di modello sia i workflow di generazione siano inseriti nella directory <b>src</b>, che è creata all&apos;atto della creazione del nuovo progetto OAW.
+      </description>
+      <subitem
+            label="Creare la directory &quot;model&quot; all&apos;interno della directory &quot;src&quot; che conterrà i modelli del progetto, tramite il comando new -&gt; folder">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.ui.wizards.new.folder)"/>
+      </subitem>
+      <subitem
+            label="Creare la directory &quot;workflow&quot; all&apos;interno della directory &quot;src&quot; che conterrà i workflow di generazione del progetto, tramite il comando new -&gt; folder">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.ui.wizards.new.folder)"/>
+      </subitem>
+      <subitem
+            label="Creare, nella cartella &quot;model&quot; una directory con il nome del prodotto, ad esempio &quot;myprod&quot;, tramite il comando new -&gt; folder">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.ui.wizards.new.folder)"/>
+      </subitem>
+      <subitem
+            label="Creare, anche nella cartella &quot;workflow&quot; una directory con il nome del prodotto, ad esempio &quot;myprod&quot;, tramite il comando new -&gt; folder">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.ui.wizards.new.folder)"/>
+      </subitem>
+      <subitem
+            label="Creare, nella cartella &quot;model/myprod&quot; una cartella destinata a contenere i modelli di un ipotetico componente web, es. &quot;mywebcomp&quot;">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.ui.wizards.new.folder)"/>
+      </subitem>
+      <subitem
+            label="Creare, nella cartella &quot;workflow/myprod&quot; una cartella destinata a contenere i workflow di generazione di un ipotetico componente web, es. &quot;mywebcomp&quot;">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.ui.wizards.new.folder)"/>
+      </subitem>
+   </item>
+   <item
+         title="Impostare le dipendenze del progetto">
+      <description>
+         <b>Impostare le dipendenze del progetto generatore</b>
+<br/>
+Affinchè sia possibile modellare e successivamente generare tramite il progetto generatore che stiamo costruendo, è necessario aggiungere al flie &quot;META-INF/MANIFEST.MF&quot; del progetto generatore le dipendenze necessarie:
+<br/>
+- dipendenza dal runtime openarchitectureware (il plugin &quot;org.openarchitectureware.dependencies&quot;) dovrebbe essere già referenziato dal progetto;
+<br/>
+- dipendenza dal generatore mddtools specifico: se si deve utilizzare, ad esempio, il generatore <b>guigen</b> è necessario aggiungere i plugin &quot;guigen&quot; e &quot;guigen.editor&quot; alle dipendenze;
+      </description>
+   </item>
+</cheatsheet>
