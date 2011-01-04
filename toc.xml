@@ -83,6 +83,12 @@
     </topic>
     <topic href="html/guigen/uipatterns/UI%20Patterns/index.html" label="UI Patterns (progettazione UI con gli elementi a disposizione)">
     </topic>
+    <topic href="html/guigen/wizards.html" label="Wizards di modellazione">
+       <topic href="html/guigen/wizards/wizards_struttura_ui.html" label="Wizard modellazione UI">
+       </topic>
+       <topic href="html/guigen/wizards/wizards_dinamica.html" label="Wizard dinamica">
+       </topic>
+    </topic>
     <topic href="html/guigen/cartridges.html" label="Cartridges">
     </topic>
     <topic href="html/guigen/faq.html" label="F.A.Q.">

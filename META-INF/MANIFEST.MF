@@ -5,6 +5,7 @@ Bundle-SymbolicName: mddtools.docs; singleton:=true
 Bundle-Version: 1.1.0.006
 Bundle-Activator: mddtools.docs.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.ui.cheatsheets
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

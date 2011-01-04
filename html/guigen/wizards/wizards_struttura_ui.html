@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Guigen - wizards modellazione struttura UI</title>
+      <link type="text/css" href="../../mddtools.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+      <h2>
+         Guigen - wizards di modellazione struttura UI
+      </h2>
+      <p>
+         
+      </p>
+      <table class="wizards">
+      <thead>
+      <tr>
+      	<th class="wizardName">wizard</th>
+      	<th class="wizardCtx">classe di attivazione</th>
+      	<th class="wizardCond">condizioni di attivazione</th>
+      	<th class="wizardDesc">descrizione</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <!-- wizard: SimplePageStructure -->
+      <tr>
+      	<td class="wizardName"><i>SimplePageStructure</i>: crea struttura pagina (con scelta template)</td>
+      	<td class="wizardCtx">ContentPanel</td>
+      	<td class="wizardCond">il ContentPanel non deve gi&agrave; contenere nessun pannello</td>
+      	<td class="wizardDesc">Crea la struttura di primo livello della schermata.
+      	Permette di scegliere:
+      		<ul>
+      		<li>quanti quadranti attivare (up/down/left/right/center)</li>
+      		<li>il titolo della schermata</li>
+      		<li>l'etichetta del pannello centrale</li>
+      		<li>se visualizzare il menu, e in caso affermativo se visualizzarlo
+      		in alto (menu orizzontale) o a sinistra (menu verticale)</li>
+      		<li>se vusualizzare il pannello di infornazioni utente</li>
+      		</ul>
+      	</td>
+      </tr>
+      
+      <!-- Wizard: FormFields4RecordAppdata -->
+      <tr>
+      	<td class="wizardName"><i>FormFields4RecordAppdata</i>: crea struttura di campi a partire da application data di tipo struttura</td>
+      	<td class="wizardCtx">FormPanel</td>
+      	<td class="wizardCond">il ContentPanel che contiene il FormPanel selezionato deve
+      	referenziare preventivamente almeno un ApplicationData di tipo ComplexType</td>
+      	<td class="wizardDesc">Crea una struttura di campi in base alla struttura dati a cui 
+      	fa riferimento un ApplicationData e effettua i binding tra i Widget e i Field.
+      	Il wizard presenta all'utente le seguenti scelte:
+      		<ul>
+      		<li>quale tra gli ApplicationData referenziati dal ContentPanel contenitore deve
+      		essere utilizzato come fonte dati</li>
+      		<li>quale deve essere l'etichetta del WidgetsPanel che conterr&agrave; i Widget</li>
+      		<li>quali tra i Field del ComplexType visualizzare</li>
+      		</ul>
+      		Il pannello creato avr&agrave; un layout verticale e i Widget saranno creati in 
+      		base al tipo del campo (es. Data -&gt; Calendar, Stringa o numerico -&gt; TextField, 
+      		booleano -&gt; CheckBox).  
+      	</td>
+      </tr>
+      
+      <!-- Wizard: Table4CollectionAppdata -->
+      <tr>
+      	<td class="wizardName"><i>Table4CollectionAppdata</i>: crea una Table a partire da un ApplicationData
+      	di tipo array di ComplexType</td>
+      	<td class="wizardCtx">WidgetsPanel</td>
+      	<td class="wizardCond">il ContentPanel che contiene il FormPanel selezionato deve
+      	referenziare preventivamente almeno un ApplicationData di tipo TypedArray di ComplexType</td>
+      	<td class="wizardDesc">Crea una Table per visualizzare il contenuto dell'ApplicationData.
+      	Il wizard presenta all'utente le seguenti scelte:
+      		<ul>
+      		<li>quale tra gli ApplicationData referenziati dal ContentPanel contenitore deve
+      		essere utilizzato come fonte dati (collection-binding)</li>
+      		<li>quale deve essere il name della Table</li>
+      		<li>quali tra i Field del ComplexType contenuto nella collection visualizzare</li>
+      		<li>il tipo di selezione che sar&agrave; possibile effettuare sulla tabella
+      		(nessun selezione | selezione singola | selezione multipla)</li>
+      		<li>in caso di selezionabilit&agrave;:
+      			<ul>
+      			<li>il campo che deve essere utilizzato come identificativo del record</li>
+      			<li>l'ApplicationData che dovr&agrave; contenere l'identificativo della riga 
+      			selezionata (value-binding)</li>
+      			</ul>
+      		</li>
+      		
+      		</ul>
+      		Il pannello creato avr&agrave; un layout verticale e i Widget saranno creati in 
+      		base al tipo del campo (es. Data -&gt; Calendar, Stringa o numerico -&gt; TextField, 
+      		booleano -&gt; CheckBox).  
+      	</td>
+      </tr>
+      </tbody>
+      </table>
+   </body>
+</html>

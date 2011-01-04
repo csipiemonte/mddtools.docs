@@ -8,3 +8,21 @@ div.faq_question {
 }
 
 div.faq_answer {background-color:#E0E0E0;border:1px solid;text-align:left;padding-left:10px;padding-right:10px;}
+
+table.wizards {width:100%;border: 1px solid #CCCCCC;font-size:12px;border-collapse:collapse;}
+
+th.wizardName {text-align:center;empty-cells:collapse;background-color:#CCCCCC;border:1px solid;}
+
+th.wizardCtx {text-align:center;empty-cells:collapse;background-color:#CCCCCC;border:1px solid;}
+
+th.wizardCond {text-align:center;empty-cells:collapse;background-color:#CCCCCC;border:1px solid;}
+
+th.wizardDesc {text-align:center;empty-cells:collapse;background-color:#CCCCCC;border:1px solid;}
+
+td.wizardCtx {text-align:center;border:1px solid;}
+
+td.wizardCond {text-align:left;border:1px solid;}
+
+td.wizardName {text-align:center;border:1px solid;}
+
+td.wizardDesc {text-align:left;border:1px solid;}
