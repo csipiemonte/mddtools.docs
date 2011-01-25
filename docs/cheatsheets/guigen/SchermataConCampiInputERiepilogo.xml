@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Creazione di una schermata con campi di input e pagina di riepilogo">
+   <intro>
+      <description>
+         <b>Creazione di una schermata con campi di input e pagina di riepilogo</b>
+<br/>
+Questo tutorial descrive i passi necessari alla creazione da zero di una schermata di ricerca persona e della relativa pagina di visualizzaizone risultati (testo dinamico, non campi).<br/>
+Si impareranno a gestire:<br/>
+ - struttura delle schermate<br/>
+ - widget di base<br/>
+ - variabili applicative<br/>
+ - binding tra widget e variabili<br/>
+ - business logic<br/>
+ - flusso applicazione<br/>
+      </description>
+   </intro>
+   <item
+         title="1 - Creazione schermata di ricerca">
+      <description>
+         <b>Creazione schermata di ricerca:</b><br/>
+La schermata dovrà contenere i seguenti campi:<br/>
+- “codice fiscale” (textfield stringa)<br/>
+- “nome” (textfield stringa)<br/>
+- “cognome” (textfield stringa)<br/>
+-  “eta&apos;” (testo numerico intero)<br/>
+- “email” (testo stringa)<br/>
+- “sesso” (check)<br/>
+- pulsante “cerca”<br/>
+il tutto con <b>layout verticale</b><br/>
+Per creare la schermata sarà necessario selezionare un <b>appmodule</b> e gernerarvi un <b>ContentPanel</b> <br/>
+(vedi Cheat Sheet <b>Creazione di un nuovo modello guigen</b> - passi 3,4 e 5).<br/>
+Una volta creato il nostro ContentPanel siamo pronti per la creazione della schermata vera e propria.<br/>
+      </description>
+      <subitem
+            label="a) Selezionare nell&apos;appmodule il Content Panel poi con il tasto destro selezionare &quot;new child -&gt; Form Panel&quot;.">
+      </subitem>
+      <subitem
+            label="b) Impostare nome e la label del FormPanel: selezionare nell&apos;editor strutturato il nodo relativo al FormPanel appena creato e nel tab delle properties impostare il valore delle proprietà name (Ex. &quot;fpName&quot;) e label (Es. &quot;Ricerca persona&quot;)">
+      </subitem>
+      <subitem
+            label="c) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Vertical Flow Panel Layout&quot;.">
+      </subitem>
+      <subitem
+            label="d) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Text Field&quot;.">
+      </subitem>
+      <subitem
+            label="e) Impostare properties del Text Field: selezionare nell&apos;editor strutturato il nodo relativo al Text Field appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;txCodFisc&quot;), label (Es. &quot;Codice Fiscale&quot;), Field Max Length (Es. 16) e Data Type (Simple Type java.lang.String)">
+      </subitem>
+      <subitem
+            label="f) Procedere analogamente con i passi 1e ed 1f per tutti i Text Field previsti nella descrizione del punto 1 con l&apos;accortezza di variare il Data Type laddove necessario.">
+      </subitem>
+      <subitem
+            label="g) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Check Box&quot;.">
+      </subitem>
+      <subitem
+            label="h) Impostare properties del Check Box: selezionare nell&apos;editor strutturato il nodo relativo al Check Box appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;chSesso&quot;), label (Es. &quot;Sesso M&quot;) e Data Type (Simple Type java.lang.String)">
+      </subitem>
+      <subitem
+            label="i) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Button&quot;.">
+      </subitem>
+      <subitem
+            label="j) Impostare properties del Button: selezionare nell&apos;editor strutturato il nodo relativo al Button appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;btCerca&quot;), label (Es. &quot;Cerca&quot;)">
+      </subitem>
+   </item>
+   <item
+         title="2 - Creazione del TypeNamespace Persona">
+      <description>
+         <b>Creazione del Type Namespace (TNS) Persona</b>&lt;/br&gt;
+Il TNS dovrà contenere le proprietà necessarie ad identificare l&apos;entità persona
+      </description>
+      <subitem
+            label="a) Se non ancora effettuato, occorre creare i files comuni per un progetto guigen. Per fare ciò, tasto destro sul rpogetto &quot;New --&gt; Other... --&gt; Librerie standard per modelli GUIGEN&quot;. Quindi selezionare la cartella in cui vogliamo vengano creati i files (generalmente ${project}/src/model) e cliccare su Finish">
+      </subitem>
+      <subitem
+            label="b) Per creare un TNS selezionare la cartella in cui si vuole creare il file che conterrà i nostri TypeNamespaces (generalmente ${project}/model/guigen/tns) e con il tasto destro &quot;New --&gt; Other... --&gt; Guigen Model&quot;. All&apos;apertura del wizard immettere il nome del file da creare. Nella schermata successiva si dovrà selezionare come Model Object la voce Type Namespace. La schermata successiva non è significativa per la creazione di un TNS quindi verrà skippata cliccando sul tasto Next. A questo punto sarà necessario selezionare la cartella che contiene il file commonTNS.guigen. Cliccare su Finish per concludere l&apos;operazione.">
+      </subitem>
+      <subitem
+            label="c) Impostare properties del Type Namespace: selezionare nell&apos;editor strutturato il nodo relativo al Type Namespace appena creato e nel tab delle properties impostare il valore della proprietà name (Es. RicercaPersonaTNS)">
+      </subitem>
+      <subitem
+            label="d) Ora dovremo creare le &quot;properties&quot; da bindare sugli oggetti precedentemente inseriti nella nostra schermata. Per fare ciò selezionare il Type Namespace poi con il tasto destro &quot;new child -&gt; Complex Type&quot;.">
+      </subitem>
+      <subitem
+            label="e) Impostare properties del Complex Type: selezionare nell&apos;editor strutturato il nodo relativo al Complex Type appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. codFiscale) e settare init fields a true">
+      </subitem>
+      <subitem
+            label="f) Creare le properties da bindare agli altri widgets presenti sulla nostra maschera seguendo le direttive dei punti 2d e 2f.">
+      </subitem>
+   </item>
+   <item
+         title="3 - Creazione di due Application Data">
+      <description>
+         <b>Creazione di due Application Data</b><br/>
+Passiamo ora alla creazione di due <b>application data</b> che utilizzeremo in seguito come <b>dto</b> per i dati necessari alla nostra applicazione.
+      </description>
+      <subitem
+            label="a) Per creare un Application Data selezionare la cartella in cui si vuole creare il file che conterrà i nostri Application data (generalmente ${project}/model/guigen/appdata) e con il tasto destro &quot;New --&gt; Other... --&gt; Guigen Model&quot;. All&apos;apertura del wizard immettere il nome del file da creare. Nella schermata successiva si dovrà selezionare come Model Object la voce App Data Group. La schermata successiva non è significativa per la creazione di un Application Data quindi verrà skippata cliccando sul tasto Next. A questo punto sarà necessario selezionare la cartella che contiene il file commonTNS.guigen. Cliccare su Finish per concludere l&apos;operazione.">
+      </subitem>
+      <subitem
+            label="b) Impostare properties dell&apos;Application Data: selezionare nell&apos;editor strutturato il nodo relativo all&apos;Application Data appena creato e nel tab delle properties impostare il valore della proprietà name (Es. RicercaPersonaAD)">
+      </subitem>
+      <subitem
+            label="c) Ora dovremo creare gli Application Data necessari. Per fare ciò nell&apos;edito strutturato la voce App Data Group e poi con il tasto destro &quot;New Child --&gt; Application Data&quot;">
+      </subitem>
+      <subitem
+            label="d) Creare un secondo Application Data seguendo le direttive dei punti 3a 3b 3c">
+      </subitem>
+      <subitem
+            label="e) Creare un secondo Application Data seguendo le direttive dei punti 3a 3b 3c">
+      </subitem>
+   </item>
+   <item
+         title="4 - Binding dei campi all&apos;Application Data">
+      <description>
+         <b>Binding dei campi all&apos;Application Data</b>
+A questo punto dobbiamo &quot;legare&quot; i widget presenti in maschera ai campi dell&apos;Application Data filtroRicercaPersona.
+      </description>
+      <subitem
+            label="a) Anzitutto è necessario &quot;linkare&quot; il file contenente gli App Data appena creati. Per fare ciò nell&apos;editor strutturato, con il tasto destro &quot;Load Resource&quot;. A questo punto cliccando su Browse Workspace occorre selezionare il file contenente gli Application Data che vorremo bindare sui nostri widgets.">
+      </subitem>
+      <subitem
+            label="b) Nell&apos;editor strutturato selezionare il Content Panel contenente i widget su cui vogliamo effettuare il data binding e sul tab delle properties valorizzare App Data con gli application data che vorremo &quot;bindare&quot; alla maschera corrente (in questo caso l&apos;app data filtroRicercaPersona che abbiamo creato ai punti 3c e 3d)">
+      </subitem>
+      <subitem
+            label="c) Nell&apos;editor strutturato selezionare il primo widget della maschera (txtCodFiscale) e con il tasto destro &quot;New Child --&gt; Databinding App data binding&quot;. Poi nel tab properties dell&apos;oggetto appena creato selezionare l&apos;app data a cui vogliamo bindare il widget (nel nostro caso filtroRicercaPersona) e valorizzare il path con il riferimento alla property dell&apos;app data che vorremo &quot;legare&quot; al widget (in questo caso codFiscale)">
+      </subitem>
+   </item>
+   <item
+         title="5 - Creazione schermata di risultato">
+      <description>
+         <b>Creazione schermata di risultato con soli Plain Text</b><br/>
+Ora dovremo creare la pagina di risultato della ricerca.<br/> Per fare ciò, prendendo spunto dal punto 1, creiamo una schermata e, al posto dei widgets precedentemente utilizzati, in questo caso sceglieremo soli <b>Plain Text</b> (praticamente dei campi testo non editabili).<br/>
+La struttura della paginaa risultante dovrà essere analoga alla seguente:<br/>
+- Content Panel<br/>
+....|_ Form Panel<br/>
+.......|_  WidgestPanel <br/>
+..........|_ PlainText<br/>
+..........|_ PlainText<br/>
+..........|_ .............<br/>
+      </description>
+   </item>
+</cheatsheet>

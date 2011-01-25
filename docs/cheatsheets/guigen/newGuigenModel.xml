@@ -12,7 +12,7 @@ artefatti necessari alla modellazione e successiva generazione dell&apos;applica
    </intro>
    <item
          skip="true"
-         title="Creazione delle librerie standard guigen">
+         title="1 - Creazione delle librerie standard guigen">
       <description>
          <b>Creazione dei modelli-libreria standard guigen</b>
 <br/>
@@ -44,7 +44,7 @@ Al termine dell&apos;operazione la directory specficata conterrà i seguenti fil
             serialization="org.eclipse.ui.newWizard(newWizardId=it.csi.mddtools.guigen.presentation.CommonFilesNewWizard)"/>
    </item>
    <item
-         title="Creazione del modello principale">
+         title="2 - Creazione del modello principale">
       <description>
          <b>Creazione del modello principale</b>
 <br/>
@@ -65,7 +65,7 @@ Una volta attivato il wizard sarà necessario specificare:
             serialization="org.eclipse.ui.newWizard(newWizardId=it.csi.mddtools.guigen.presentation.GuigenModelWizardID)"/>
    </item>
    <item
-         title="Creazione di un application module">
+         title="3 - Creazione di un application module">
       <description>
          <b>Creazione di un application module</b>
 <br/>
@@ -85,7 +85,7 @@ Una volta avviato il wizard sarà necessario selezionare:
             serialization="org.eclipse.ui.newWizard(newWizardId=it.csi.mddtools.guigen.presentation.GuigenModelWizardID)"/>
    </item>
    <item
-         title="Creazione della schermata iniziale">
+         title="4 - Creazione della schermata iniziale">
       <description>
          <b>Impostazione del nome dell AppModule</b>
 <br/>
@@ -96,7 +96,7 @@ Impostare la property &quot;name&quot; all&apos;interno dell&apos;oggetto <b>App
       </description>
    </item>
    <item
-         title="Creazione schermata iniziale">
+         title="5 - Creazione schermata iniziale">
       <description>
          <b>Creazione schermata iniziale</b>
 <br/>
@@ -105,31 +105,31 @@ E&apos; necessario creare una schermata che sarà utilizzata come schermata iniz
 Per fare ciò è necessario prima creare il <b>ContentPanel</b> e poi creare la struttura interna
       </description>
       <subitem
-            label="Creare un nuovo ContentPanel: selezionare nell&apos;editor strutturato il nodo relativo all&apos;AppModule, poi con il tasto destro selezionare &quot;new child -&gt; Content Panel&quot;.">
+            label="a) Creare un nuovo ContentPanel: selezionare nell&apos;editor strutturato il nodo relativo all&apos;AppModule, poi con il tasto destro selezionare &quot;new child -&gt; Content Panel&quot;.">
       </subitem>
       <subitem
-            label="Impostare nome del ContentPanel: selezionare nell&apos;editor strutturato il nodo relativo al ContentPanel appena creato e nel tab delle property impostare il valore della proprità &quot;name&quot;. Es: &quot;cpName&quot;">
+            label="b) Impostare nome del ContentPanel: selezionare nell&apos;editor strutturato il nodo relativo al ContentPanel appena creato e nel tab delle property impostare il valore della proprità &quot;name&quot;. Es: &quot;cpName&quot;">
       </subitem>
       <subitem
-            label="Creare la struttura della schermata: nell&apos;editor strutturato selezionare il nodo relativo all&apos;AppModule. Poi, con il tasto destro del mouse, attivare il menu &quot;wizards -&gt; crea struttura pagina (con scelta template)&quot;. Seguire le istruzioni del wizard: (1) selezionare il tipo di layout deisderato (nell&apos;esempio: una colonna a sviluppo verticale), (2) impostare il testo dell&apos;etichetta principale (titolo della schermata), (3) impostare il testo dell&apos;etichetta del pannello centrale (l&apos;unico). Non includere la visualizzazione nè del menu nè del pannello di info utente collegato.">
+            label="c) Creare la struttura della schermata: nell&apos;editor strutturato selezionare il nodo relativo all&apos;AppModule. Poi, con il tasto destro del mouse, attivare il menu &quot;wizards -&gt; crea struttura pagina (con scelta template)&quot;. Seguire le istruzioni del wizard: (1) selezionare il tipo di layout deisderato (nell&apos;esempio: una colonna a sviluppo verticale), (2) impostare il testo dell&apos;etichetta principale (titolo della schermata), (3) impostare il testo dell&apos;etichetta del pannello centrale (l&apos;unico). Non includere la visualizzazione nè del menu nè del pannello di info utente collegato.">
       </subitem>
    </item>
    <item
-         title="Inclusione dell&apos;AppModule nel modello principale">
+         title="6 - Inclusione dell&apos;AppModule nel modello principale">
       <description>
          <b>Inclusione dell&apos;AppModule nel modello principale</b>
 <br/>
 E&apos; necessario referenziare il modello dell&apos;AppModule appena creato nel modello principale. Per far questo è necessario: (1) caricare il modello dell&apos;AppModule nel modello principale, (2) referenziare il nuovo AppModule
       </description>
       <subitem
-            label="Caricare la risorsa dell&apos;Appmodule: selezionare un nodo qualsiasi del modello principale e, con i tasto destro, attivare il comando &quot;load resource&quot;. Nel browser selezionare il file di modello che contiene la definizione dell&apos;AppModule">
+            label="a) Caricare la risorsa dell&apos;Appmodule: selezionare un nodo qualsiasi del modello principale e, con i tasto destro, attivare il comando &quot;load resource&quot;. Nel browser selezionare il file di modello che contiene la definizione dell&apos;AppModule">
       </subitem>
       <subitem
-            label="Aggiungere il nuovo Appmodule all&apos;elenco dei moduli dell&apos;applicazione: selezionare nel modello principale il nodo ApplicationArea e aggiungere nella property &quot;extModules&quot; l&apos;AppModule caricato al passo precedente (spostarlo dalla lista a sinistra nella lista a destra nel dialog che appare premendo il pulsante &quot;...&quot;)">
+            label="b) Aggiungere il nuovo Appmodule all&apos;elenco dei moduli dell&apos;applicazione: selezionare nel modello principale il nodo ApplicationArea e aggiungere nella property &quot;extModules&quot; l&apos;AppModule caricato al passo precedente (spostarlo dalla lista a sinistra nella lista a destra nel dialog che appare premendo il pulsante &quot;...&quot;)">
       </subitem>
    </item>
    <item
-         title="Selezione della schermata iniziale nel modello principale">
+         title="7 - Selezione della schermata iniziale nel modello principale">
       <description>
          <b>Selezione della schermata iniziale nel modello principale</b>
 <br/>
