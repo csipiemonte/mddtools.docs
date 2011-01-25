@@ -138,6 +138,47 @@ La struttura della paginaa risultante dovrà essere analoga alla seguente:<br/>
 ..........|_ PlainText<br/>
 ..........|_ PlainText<br/>
 ..........|_ .............<br/>
+
+Analogamente ai Widgets della schermata di ricerca anche i PlainText dovranno essere bindati all&apos;application data relativo (in questo caso personaTrovata)
+      </description>
+   </item>
+   <item
+         title="6 - Aggiunta event handler (click) sul pulsante “cerca”">
+      <description>
+         <b>Aggiunta event handler (click) sul pulsante “cerca”</b><br/>
+Ora bisogna collegare il pulsante &quot;Cerca&quot; sulla maschera di ricerca ad un event handler. <br/>
+      </description>
+      <subitem
+            label="a) Nell&apos;editor strutturato selezionare il Button btCerca e con il tasto destro &quot;New Child --&gt; Event Handler&quot;.  Nel relativo tab Properties verificare che la perperty Event Type sia settata a CLICKED">
+      </subitem>
+      <subitem
+            label="b) Selezionare l&apos;Event Handler appena creato e, con il tsto destro &quot;New Child --&gt; Sequence Command&quot;">
+      </subitem>
+      <subitem
+            label="c) Selezionare il Sequence Command appena creato e con il tasto destro &quot;New Child --&gt; Exec Command&quot;">
+      </subitem>
+      <subitem
+            label="d) Selezionare L&apos;Exec Command appena creato e sul relativo tab Properties valorizzare la property Method name inserendo il nome del metodo di business da eseguire all&apos;atto del click sul pulsante btCerca (Es. cercaPersona).">
+      </subitem>
+      <subitem
+            label="e) Selezionare il Sequence Command creato al punto 6b e con il tasto destro &quot;New Child --&gt; Jump Command&quot;">
+      </subitem>
+      <subitem
+            label="f) Nel tab properties del Jump Command valorizzare la property Jump To selezionando dal menu a tendina la schermata dei risultati (nel nostro caso quella creata al passo 5)">
+      </subitem>
+   </item>
+   <item
+         title="7 - Generazione">
+      <description>
+         <b>Generazione del progetto</b><br/>
+Per generare il progetto seguire i passi descritti nel Cheat Sheet <b>Startup progetto MDD</b>
+      </description>
+   </item>
+   <item
+         title="8 - Scrittura della logica di business di “ricerca” con implementazione mock">
+      <description>
+         <b>Scrittura della logica di business di “ricerca” con implementazione mock</b>
+Una volta configurato in eclipse il progetto appena generato.
       </description>
    </item>
 </cheatsheet>
