@@ -42,25 +42,43 @@ Una volta creato il nostro ContentPanel siamo pronti per la creazione della sche
             label="c) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Vertical Flow Panel Layout&quot;.">
       </subitem>
       <subitem
-            label="d) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Text Field&quot;.">
+            label="d) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; WidgetsPanel&quot;.">
       </subitem>
       <subitem
-            label="e) Impostare properties del Text Field: selezionare nell&apos;editor strutturato il nodo relativo al Text Field appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;txCodFisc&quot;), label (Es. &quot;Codice Fiscale&quot;), Field Max Length (Es. 16) e Data Type (Simple Type java.lang.String)">
+            label="e) Selezionare il WidgetsPanel appena creato e nel tab delle Properties valorizzare la proeperty name (Es. wdgPnlRicerca)">
       </subitem>
       <subitem
-            label="f) Procedere analogamente con i passi 1e ed 1f per tutti i Text Field previsti nella descrizione del punto 1 con l&apos;accortezza di variare il Data Type laddove necessario.">
+            label="f) Selezionare il WidgetsPanel poi con il tasto destro selezionare &quot;new child -&gt; Vertical Flow Panel Layout&quot;.">
       </subitem>
       <subitem
-            label="g) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Check Box&quot;.">
+            label="g) Selezionare il WidgetsPanel poi con il tasto destro selezionare &quot;new child -&gt; Text Field&quot;.">
       </subitem>
       <subitem
-            label="h) Impostare properties del Check Box: selezionare nell&apos;editor strutturato il nodo relativo al Check Box appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;chSesso&quot;), label (Es. &quot;Sesso M&quot;) e Data Type (Simple Type java.lang.String)">
+            label="h) Impostare properties del Text Field: selezionare nell&apos;editor strutturato il nodo relativo al Text Field appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;txCodFisc&quot;), label (Es. &quot;Codice Fiscale&quot;), Field Max Length (Es. 16) e Data Type (Simple Type java.lang.String)">
       </subitem>
       <subitem
-            label="i) Selezionare il FormPanel poi con il tasto destro selezionare &quot;new child -&gt; Button&quot;.">
+            label="i) Procedere analogamente con i passi 1e ed 1f per tutti i Text Field previsti nella descrizione del punto 1 con l&apos;accortezza di variare il Data Type laddove necessario.">
       </subitem>
       <subitem
-            label="j) Impostare properties del Button: selezionare nell&apos;editor strutturato il nodo relativo al Button appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;btCerca&quot;), label (Es. &quot;Cerca&quot;)">
+            label="j) Selezionare il WidgetsPanel poi con il tasto destro selezionare &quot;new child -&gt; Check Box&quot;.">
+      </subitem>
+      <subitem
+            label="k) Impostare properties del Check Box: selezionare nell&apos;editor strutturato il nodo relativo al Check Box appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;chSesso&quot;), label (Es. &quot;Sesso M&quot;) e Data Type (Simple Type java.lang.String)">
+      </subitem>
+      <subitem
+            label="l) Selezionare il FormPanel e con il tasto destro &quot;Add Child --&gt; Command Panel&quot;">
+      </subitem>
+      <subitem
+            label="m) Selezionare il CommandPanel poi nel relativo tab dell Properties valorizzare la property name (Es. cmdPnlRicerca)">
+      </subitem>
+      <subitem
+            label="n) Selezionare il CommandPanel poi con il tasto destro selezionare &quot;new child -&gt; Horizontal Flow Panel Layout&quot;.">
+      </subitem>
+      <subitem
+            label="o) Selezionare il CommandPanel poi con il tasto destro selezionare &quot;new child -&gt; Button&quot;.">
+      </subitem>
+      <subitem
+            label="p) Impostare properties del Button: selezionare nell&apos;editor strutturato il nodo relativo al Button appena creato e nel tab delle properties impostare il valore delle proprietà name (Es. &quot;btCerca&quot;), label (Es. &quot;Cerca&quot;)">
       </subitem>
    </item>
    <item
@@ -177,8 +195,19 @@ Per generare il progetto seguire i passi descritti nel Cheat Sheet <b>Startup pr
    <item
          title="8 - Scrittura della logica di business di “ricerca” con implementazione mock">
       <description>
-         <b>Scrittura della logica di business di “ricerca” con implementazione mock</b>
-Una volta configurato in eclipse il progetto appena generato.
+         <b>Scrittura della logica di business di “ricerca” con implementazione mock</b><br/>
+Una volta configurato in eclipse il progetto appena generato,
+è necessario identificare il metodo di buisiness che gestirà la logica di ricerca. <br/>
+Il metodo si troverà nella classe <b>it.csi.${nomeProdotto}.${nomeComponente}.business.${nomeAppModule}.CPBE${nomeContentPanelContenenteLaSchermataDiRicerca}</b> ed il suo nome sarà ovviamente corente cn quanto specificato al punto 6d.<br/>
+A questo punto occorre implementare la logica mock la quale dovrà, ai fini del tutorial, valorizzare sull&apos;oggetto <b>theModel</b> in input al metodo, l&apos;<b>Application Data</b> che abbiamo precedentemente &quot;bindato&quot; ai Plain Text della schermata dei risultati.
+      </description>
+   </item>
+   <item
+         title="9 - Build e installazione progetto target">
+      <description>
+         <b>Build e installazione progetto target</b>
+Abbiamo concluso tutte le operazioni.<br/> Ora sarà sufficiente buildare il progetto generato tramite il relativo <b>build.xml</b> e deployare l&apos;ear generato.<br/>
+L&apos;applicazione risponderà all&apos;url: <b>${nomeHost}:${nomePorta}/${nomeComponente}/</b>
       </description>
    </item>
 </cheatsheet>
