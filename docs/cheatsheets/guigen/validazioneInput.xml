@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Validazione dei campi di input">
+   <intro>
+      <description>
+         <b>Validazione dei campi di input</b> <br/>
+Questo tutorial descrive i passi necessari all&apos;introduzione della validazione dei campi di input. <br/>
+Prerequisito è aver completato il Cheat Sheet <b>Creazione di una schermata con campi di input e pagina di riepilogo</b>
+      </description>
+   </intro>
+   <item
+         title="1 - Creazione di un vincolo di obbligatorietà">
+      <description>
+         <b>Creazione di un vincolo di obbligatorietà</b><br/>
+      </description>
+   </item>
+</cheatsheet>
