@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cheatsheet
       title="Validazione dei campi di input">
-   <intro>
+   <intro
+         href="/mddtools.docs/html/guigen/faq/faq_validazione.html">
       <description>
          <b>Validazione dei campi di input</b> <br/>
 Questo tutorial descrive i passi necessari all&apos;introduzione della validazione dei campi di input. <br/>
@@ -13,5 +14,60 @@ Prerequisito è aver completato il Cheat Sheet <b>Creazione di una schermata con
       <description>
          <b>Creazione di un vincolo di obbligatorietà</b><br/>
       </description>
+      <subitem
+            label="a) Nell&apos;editor strutturato, selezionare il TNS contenente il campo che si vuole rendere obbligatorio e nel tab delle properties, settare la property Required a &apos;true&apos;">
+      </subitem>
+   </item>
+   <item
+         title="2 - Creazione di un vincolo di validazione custom">
+      <description>
+         <b>Creazione di un vincolo di validazione custom di un widget</b>
+      </description>
+      <subitem
+            label="a) Nell&apos;editor strutturato, selezionare il widget di cui si vuole validare il formato email e nel tab delle properties, settare la property Data type modifier a regexp: &apos;^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$&apos; (l&apos;espressione da introdurre nel campo è quella compresa tra gli apici)">
+      </subitem>
+   </item>
+   <item
+         title="3 - Creazione di un vincolo di validazione di tipo range">
+      <description>
+         <b>Creazione di un vincolo di validazione di tipo range</b>
+      </description>
+      <subitem
+            label="a) Nell&apos;editor strutturato, selezionare il widget di cui si vuole verificare l&apos;aderenza del relativo valore numerico inserito al range e nel tab delle properties, settare la property Data type modifier a size:&lt;minsize&gt;,&lt;maxsize&gt;.">
+      </subitem>
+   </item>
+   <item
+         title="4 - Aggiungere outcome per la gestione di validazione fallita">
+      <description>
+         <b>Aggiungere outcome per la gestione di validazione fallita</b><br/>
+Facendo riferimento alla schermata di ricerca del Cheat Sheet &quot;Creazione di una schermata con campi di input e pagina di riepilogo&quot;, ed in particolare al bottone &quot;btnCerca&quot; sarà necessario rivederne la logica dell&apos;event handler.
+      </description>
+      <subitem
+            label="a) Nell&apos;editor strutturato selezionare l&apos;Event Handler associato al button btnCerca e, con il tasto destro selezionare delete. Questa operazione rimuoverà l&apos;intero ramo relativo al Sequence Command che avevamo precedentemente inserito.">
+      </subitem>
+      <subitem
+            label="b) Nell&apos;editor strutturato selezionare l&apos;Event Handler associato al button btnCerca e, con il tasto destro &quot;New child... --&gt; Exec Command&quot;">
+      </subitem>
+      <subitem
+            label="c) Selezionare L&apos;Exec Command appena creato e sul relativo tab Properties valorizzare la property Method name inserendo il nome del metodo di business da eseguire all&apos;atto del click sul pulsante btCerca (Es. cercaPersona).">
+      </subitem>
+      <subitem
+            label="d) Selezionare L&apos;Exec Command appena creato e, con il tasto destro &quot;New Child... --&gt; Command Outcome&quot;">
+      </subitem>
+      <subitem
+            label="e) Selezionare il Command Outcome appena creato e nel tab delle properties valorizzare la property Result code con OK">
+      </subitem>
+      <subitem
+            label="f) Duplicare il command Outcome OK selezionandolo e con il tasto destro selezionare la voce Copy. Ora selezionare l&apos;Exec Command padre e con il tasto destro scegliere la voce Paste. Infine, modificare nel tab properties del Command Outcome duplicato, la property Result Code valorizzandola con la stringa KO.">
+      </subitem>
+      <subitem
+            label="g) A questo punto selezionare il Command Outcome OK e con il tasto destro &quot;New Child... --&gt; Jump Command&quot;">
+      </subitem>
+      <subitem
+            label="h) Nel tab properties del Jump Command valorizzare la property Jump To selezionando dal menu a tendina la schermata dei risultati di ricerca.">
+      </subitem>
+      <subitem
+            label="i) Selezionare il Command Outcome KO e con il tasto destro &quot;New Child... --&gt; NOP Command&quot;">
+      </subitem>
    </item>
 </cheatsheet>
