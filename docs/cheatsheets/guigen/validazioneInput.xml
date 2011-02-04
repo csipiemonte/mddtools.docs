@@ -70,4 +70,36 @@ Facendo riferimento alla schermata di ricerca del Cheat Sheet &quot;Creazione di
             label="i) Selezionare il Command Outcome KO e con il tasto destro &quot;New Child... --&gt; NOP Command&quot;">
       </subitem>
    </item>
+   <item
+         title="5 - Aggiungere uno Std Message Panel">
+      <description>
+         <b>Aggiungere uno Std Message Panel per la visualizzazione dei messaggi all&apos;utente</b>
+      </description>
+      <subitem
+            label="a) Nell&apos;editor strutturato selezionare il Form Panel &apos;contenitore&apos; della schermaata di ricerca e con il tasto destro &quot;New child... --&gt; Std Message Panel&quot;">
+      </subitem>
+   </item>
+   <item
+         title="6 - Rigenerare il progetto">
+      <description>
+         <b>Rigenerare il progetto mdd</b>
+      </description>
+   </item>
+   <item
+         title="7 - Scrittura della logica dei controlli di validazione">
+      <description>
+         <b>Scrittura della logica dei controlli di validazione</b><br/>
+Il metodo su cui agire si troverà nella classe <b>it.csi.${nomeProdotto}.${nomeComponente}.business.${nomeAppModule}.CPBE${nomeContentPanelContenenteLaSchermataDiRicerca}</b> ed il suo nome sarà ovviamente coerente cn quanto specificato nel Exec Command<br/>
+A questo punto occorre implementare la logica di validazione  la quale dovrà, ai fini del tutorial, valorizzare sull&apos;oggetto <b>theModel</b> in input al metodo, la property <b>resultCode</b>. Naturalmente in caso di validazione passata verrà valorizzata a OK, in caso contrario a KO (in testa al metodo su cui agiamo vengono automaticamente generate le due costanti che rappresentano i due outcomes che abbiamo inserito nei punti 4e e 4f, si possono utilizzare quelle per la valorizzazione del resultCode)
+      </description>
+   </item>
+   <item
+         title="8 - Build e installazione progetto target">
+      <description>
+         <b>Build e installazione progetto target</b>
+Abbiamo concluso tutte le operazioni.<br/> Ora sarà sufficiente buildare il progetto generato tramite il relativo <b>build.xml</b> e deployare l&apos;ear generato.<br/>
+L&apos;applicazione risponderà all&apos;url: <b>${nomeHost}:${nomePorta}/${nomeComponente}/</b><br/>
+Effettuare una ricerca e verificare la corretta implementazione delle logiche di validazione.
+      </description>
+   </item>
 </cheatsheet>

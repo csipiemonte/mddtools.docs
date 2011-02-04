@@ -197,8 +197,8 @@ Per generare il progetto seguire i passi descritti nel Cheat Sheet <b>Startup pr
       <description>
          <b>Scrittura della logica di business di “ricerca” con implementazione mock</b><br/>
 Una volta configurato in eclipse il progetto appena generato,
-è necessario identificare il metodo di buisiness che gestirà la logica di ricerca. <br/>
-Il metodo si troverà nella classe <b>it.csi.${nomeProdotto}.${nomeComponente}.business.${nomeAppModule}.CPBE${nomeContentPanelContenenteLaSchermataDiRicerca}</b> ed il suo nome sarà ovviamente corente cn quanto specificato al punto 6d.<br/>
+è necessario identificare il metodo di business che gestirà la logica di ricerca. <br/>
+Il metodo si troverà nella classe <b>it.csi.${nomeProdotto}.${nomeComponente}.business.${nomeAppModule}.CPBE${nomeContentPanelContenenteLaSchermataDiRicerca}</b> ed il suo nome sarà ovviamente coerente cn quanto specificato al punto 6d.<br/>
 A questo punto occorre implementare la logica mock la quale dovrà, ai fini del tutorial, valorizzare sull&apos;oggetto <b>theModel</b> in input al metodo, l&apos;<b>Application Data</b> che abbiamo precedentemente &quot;bindato&quot; ai Plain Text della schermata dei risultati.
       </description>
    </item>
