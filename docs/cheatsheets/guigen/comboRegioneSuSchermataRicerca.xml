@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Aggiungere una combo alla schermata di ricerca">
+   <intro>
+      <description>
+         <b>Aggiungere una combo alla schermata di ricerca</b> <br/>
+Questo tutorial descrive i passi necessari per utilizzare un widget di tipo Combobox<br/>
+Prerequisito è aver completato il Cheat Sheet <b>Creazione di una schermata con campi di input e pagina di riepilogo</b>
+      </description>
+   </intro>
+   <item
+         title="1 - Definire il tipo TNS &quot;Regione&quot;">
+      <description>
+         <b>Definire il tipo TNS &quot;Regione&quot;</b>
+Analogamente a quanto fatto per l&apos;oggetto Persona nel punto 2 del Cheat sheet &quot;Creazione di una schermata con campi di input e pagina di riepilogo&quot;, creare il TNS <b>Regione</b>, che dovrà avere due properties di tipo <b>String</b>: codice e descrizione.
+      </description>
+      <subitem
+            label="a) Analogamente a quanto fatto per l&apos;oggetto Persona nel punto 2 del Cheat sheet &quot;Creazione di una schermata con campi di input e pagina di riepilogo&quot;, creare il TNS Regione, che dovrà avere due properties di tipo String: codice e descrizione.">
+      </subitem>
+      <subitem
+            label="b) Nell&apos;editor strutturato relativo al file contenente i TNS, selezionare il nodo Root Typed Namespace e, con il tasto destro, selezionare la voce Typed Array.">
+      </subitem>
+      <subitem
+            label="c) Nal tab properties relativo all&apos;array appena creato selezionare come Component Type il TNS Regione e valorizzare la property name (Es. Regione[])">
+      </subitem>
+   </item>
+   <item
+         title="2 - Definire L&apos;application Data regioni">
+      <description>
+         <b>Definire L&apos;application Data regioni</b><br/>
+Analogamente a quanto fatto nel Cheat sheet &quot;Creazione di una schermata con campi di input e pagina di riepilogo&quot; al punto 3, creare l&apos;Application Data regioni di tipo (TNS) Regione[]. Una volta creato ovviamente occorre referenziarlo nel Content Panel della schermata di ricerca (vedi punto 4b del Cheat sheet di cui sopra)
+      </description>
+   </item>
+   <item
+         title="3 - Aggiungere la Combo Box alla schermata">
+      <description>
+         <b>Aggiungere la Combo Box alla schermata di ricerca</b>
+Nel relativo tab delle properties assegnamole il nome &quot;cmbRegioni&quot; e come Data Type &quot;Simple Type String&quot;. Oltre a ciò possiamo valorizzare la property Label con la stringa &quot;Regione di residenza&quot;.
+      </description>
+      <subitem
+            label="a) Selezionare la combo box appena creata e, con il tasto destro &quot;New child --&gt; Multi Data Binding App Data Binding&quot;">
+      </subitem>
+      <subitem
+            label="b) Nell&apos;editor strutturato selezionare il tab delle properties e valorizzare la property App Data selezionando l&apos;Application Data regioni creato al punto 2">
+      </subitem>
+   </item>
+   <item
+         title="4 - Aggiungere il field codRegResidenza al TNS Persona">
+      <description>
+         <b>Aggiungere il field codRegResidenza al TNS Persona</b> e bindarlo alla combo creata al punto 3 (tasto destro sulla combo &quot;New child --&gt; Databinding App Data Binding&quot;, poi valorizzare nel tab properties la property app Data con il TNS Persona e la property path con codRegResidenza)
+      </description>
+   </item>
+   <item
+         title="5 - Aggiunta event handler sul refresh della pagina">
+      <description>
+         <b>Aggiunta event handler sul refresh della pagina</b>
+      </description>
+      <subitem
+            label="a) Nell&apos;editor strutturato selezionare il Content Panel relativo alla schermata di ricerca e con il tasto destro &quot;New Child --&gt; Exec Command&quot;">
+      </subitem>
+      <subitem
+            label="b) Selezionare l&apos;Exec Command appena creato e nel tab delle properties valorizzare la property &quot;Method name&quot; con la stringa &quot;gestisciCombo&quot;">
+      </subitem>
+      <subitem
+            label="c) Selezionare l&apos;Exec Command e con il tasto destro &quot;New Child --&gt; Command Outcome&quot;">
+      </subitem>
+      <subitem
+            label="d) Selezionare il Command Outcome appena creato e, nel tab delle properties valorizzare il Result code con la stringa &quot;OK&quot;">
+      </subitem>
+      <subitem
+            label="e) Selezionare il Command Outcome appena creato e con il tasto destro &quot;New Child --&gt; NOP Command&quot;">
+      </subitem>
+      <subitem
+            label="f) rigenerare il progetto">
+      </subitem>
+      <subitem
+            label="g) Identificare il metodo di business che gestirà la logica di caricamento dell&apos;elenco delle regioni.Il metodo si troverà nella classe it.csi.${nomeProdotto}.${nomeComponente}.business.${nomeAppModule}.CPBE${nomeContentPanelContenenteLaSchermataDiRicerca} ed il suo nome sarà ovviamente &quot;gestisciCombo&quot;. A questo punto occorre implementare la logica mock la quale dovrà, ai fini del tutorial, valorizzare sull&apos;oggetto theModel in input al metodo, l&apos;Application Data che abbiamo precedentemente &quot;bindato&quot; alla combo cmbRegioni della schermata di ricerca (si chiama &quot;regioni&quot;).">
+      </subitem>
+   </item>
+   <item
+         title="6 - Build e installazione progetto target">
+      <description>
+         <b>Build e installazione progetto target</b>
+Abbiamo concluso tutte le operazioni.<br/> Ora sarà sufficiente buildare il progetto generato tramite il relativo <b>build.xml</b> e deployare l&apos;ear generato.<br/>
+L&apos;applicazione risponderà all&apos;url: <b>${nomeHost}:${nomePorta}/${nomeComponente}/</b>
+      </description>
+   </item>
+</cheatsheet>
