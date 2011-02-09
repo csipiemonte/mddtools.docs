@@ -84,7 +84,7 @@ Una volta creato il nostro ContentPanel siamo pronti per la creazione della sche
    <item
          title="2 - Creazione del TypeNamespace Persona">
       <description>
-         <b>Creazione del Type Namespace (TNS) Persona</b>&lt;/br&gt;
+         <b>Creazione del Type Namespace (TNS) Persona</b><br/>
 Il TNS dovrà contenere le proprietà necessarie ad identificare l&apos;entità persona
       </description>
       <subitem
