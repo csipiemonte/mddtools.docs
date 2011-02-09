@@ -44,6 +44,20 @@
             id="mddtools.guigen.newGuigenModel"
             name="Nuovo modello guigen">
       </cheatsheet>
+      <cheatsheet
+            category="mddtools.general/mddtools.guigen"
+            composite="false"
+            contentFile="docs/cheatsheets/guigen/SchermataConCampiInputERiepilogo.xml"
+            id="mddtools.guigen.searchAndDetailSample"
+            name="Schermata con campi input e riepilogo">
+      </cheatsheet>
+      <cheatsheet
+            category="mddtools.general/mddtools.guigen"
+            composite="false"
+            contentFile="docs/cheatsheets/guigen/validazioneInput.xml"
+            id="mddtools.guigen.validationSample"
+            name="Validazione dell&apos;input">
+      </cheatsheet>
    </extension>
 
 </plugin>
