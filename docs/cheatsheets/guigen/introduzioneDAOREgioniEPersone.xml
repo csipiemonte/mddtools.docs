@@ -3,13 +3,107 @@
       title="Aggiungere DAO per il reperimento dei dati">
    <intro>
       <description>
-         <b>Body</b>
+         <b>Aggiungere DAO per il reperimento dei dati</b> <br/>
+Questo tutorial descrive i passi necessari per generare lo strato DAO di un&apos;applicazione<br/>
+Prerequisito è aver completato il Cheat Sheet <b>Aggiungere una combo alla schermata di ricerca</b>
       </description>
    </intro>
    <item
-         title="Item">
+         title="1 - Creare le tabelle necessarie">
       <description>
-         <b>Body</b>
+         <b>Creare le tabelle necessarie</b><br/>
+Dato un DB oracle preesistente, creare due tabelle utilizzando i seguenti scripts:<br/>
+CREATE TABLE t_regioni <br/>
+( <br/>
+    id_regione                       NUMBER(10)                      NOT NULL <br/>
+  , descrizione                      VARCHAR2(50)                    NOT NULL <br/>
+); <br/>
+CREATE UNIQUE INDEX t_regioni ON t_regioni <br/>
+( <br/>
+    id_regione <br/>
+); <br/>
+ALTER TABLE t_regioni ADD CONSTRAINT pk_t_regioni PRIMARY KEY <br/>
+( <br/>
+    id_regione <br/>
+);<br/>
+CREATE TABLE t_persone <br/>
+( <br/>
+    id_persona                     NUMBER(10)                      NOT NULL <br/>
+  , cognome                          VARCHAR2(50)                    NOT NULL <br/>
+  , nome                             VARCHAR2(50)                     <br/>
+  , sesso                            CHAR(1)                         NOT NULL <br/>
+  , data_nascita                     DATE                            NOT NULL <br/>
+  , id_regione_resid                NUMBER(10)                      NOT NULL   <br/>
+  , retribuzione                     NUMBER(11,2)                     <br/>
+); <br/>
+CREATE UNIQUE INDEX pk_t_persone ON t_persone <br/>
+( <br/>
+    id_persona <br/>
+); <br/>
+CREATE INDEX t_persone_01 ON t_persone <br/>
+( <br/>
+    cognome <br/>
+  , nome <br/>
+); <br/>
+ALTER TABLE t_persone ADD CONSTRAINT t_persone PRIMARY KEY <br/>
+( <br/>
+    id_persona <br/>
+); <br/>
+ALTER TABLE t_persone ADD CONSTRAINT valid_m_f CHECK (SESSO IN (&apos;M&apos;,&apos;F&apos;)); <br/>
       </description>
+   </item>
+   <item
+         title="2 - Effettuare il reverse engineering dello schema DB">
+      <description>
+         <b>Effettuare il reverse engineering dello schema DB</b>
+      </description>
+      <subitem
+            label="a) Creare la directory datagen nel progetto generatore in cui verranno inseriti i files di modello per i dao. La struttura risultante dovrebbe essere come segue: ${project}/src/model/datagen">
+      </subitem>
+      <subitem
+            label="b) Nell&apos;editor strutturato, con il tasto destro sulla cartella appena creata &quot;New --&gt; Other... --&gt; Datagen wizards --&gt; RDBG Schema Reverse Engineering&quot;">
+      </subitem>
+      <subitem
+            label="c) Nel wizard successivo occorrerà inserire alcune informazioni: la directory che conterrà il file di reverse engineering del DB; il nome del file di modello; l&apos;url jdbc al DB (Es. jdbc:oracle:thin:@nome_host.csi.it:1560:sid); username; password; schema name. Una volta inseriti questi dati cliccare su Finish">
+      </subitem>
+   </item>
+   <item
+         title="3 - Creare file modello per i DAO">
+      <description>
+         <b>Creare file modello per i DAO</b>
+      </description>
+      <subitem
+            label="a) Con il tasto destro sulla cartella creata al punto 2a &quot;New --&gt; Other... --&gt; Datagen wizards --&gt; Datagen Model&quot;. Nel wizard introdurre il nome del file, infine cliccare su Finish">
+      </subitem>
+      <subitem
+            label="b) Nell&apos;editor strutturato del file creato al punto 3a, con il tasto destro &quot;Load Resource --&gt; Browse Workspace&quot;. A questo punto selezionare il file .rdbmdl creato al punto 2c. Cliccare su OK per confermare il caricamento del file.">
+      </subitem>
+      <subitem
+            label="c) Nell&apos;editor strutturato, selezionare DB Access Model e nel tab delle properties valorizzare opportunamente codComponente e codProdotto. Infine selezionare lo schema del nostro DB dal menu a tendina della property Schema.">
+      </subitem>
+      <subitem
+            label="d) Con il tasto destro sul nodo DB Access Model &quot;New child --&gt; DAO Package&quot;">
+      </subitem>
+      <subitem
+            label="e) Nell&apos;editor strutturato, selezionare il DAO Package appena creato e nel tab delle properties valorizzare opportunamente la propery name.">
+      </subitem>
+      <subitem
+            label="f) Nell&apos;editor strutturato, selezionare il DAO Package e con il tasto destro &quot;New Child --&gt; Data Access Object&quot;">
+      </subitem>
+      <subitem
+            label="g) Selezionare il DAO appena creato e nel tab delle properties valorizzare la property Table selezionando dal menu a tendina la tabella T_REGIONI, infine assegnare un nome al DAO.">
+      </subitem>
+      <subitem
+            label="h) Ora con il tasto destro sempre sul DAO relativo alla tabella T_REGIONI &quot;New Child --&gt; Finders&quot;">
+      </subitem>
+      <subitem
+            label="i) Con il tasto destro sull&apos;oggetto Finders &quot;New Child --&gt; Find By PK&quot;">
+      </subitem>
+      <subitem
+            label="j) Con il tasto destro sull&apos;oggetto Finders &quot;New Child --&gt; Find All&quot;">
+      </subitem>
+      <subitem
+            label="k) Ripetere le operazioni dei punti 3g,3h,3i,3j con la tabella T_PERSONE">
+      </subitem>
    </item>
 </cheatsheet>
