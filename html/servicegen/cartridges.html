@@ -11,6 +11,25 @@
       <p>
          In questo capitolo sono descritte le carucce (<i>cartridge</i>) di generazione disponibili.
       </p>
+      
+            <h3>cartuccia di setup</h3>
+	  <p>
+	  Prima di richiamare qualsiasi altra cartuccia &egrave; necessario effettuare il <i>setup</i>del
+	  sistema di generazione, richiamando la cartuccia
+	  <code>it/csi/mddtools/servicegen/workflow/setup.oaw</code>, che non prevede parametri.
+	  	  
+	  </p>
+	  
+	  <p>
+	  Esempio:
+
+<pre>    
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/servicegen/workflow/setup.oaw"</font>
+<font color='#000080'>/&gt;</font><br>
+
+</pre>    
+	  </p>
+	  
       <h3>cartuccia di genrazione dello strato di back-end SOA</h3>
 	  <p>
 	  La generazione dello strato di back-end SOA si realizza mediante la cartuccia
@@ -52,8 +71,8 @@
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/datagen/workflow/csi14.oaw"</font>
-  <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myservice.datagen"</font>&nbsp;
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/servicegen/workflow/csi14.oaw"</font>
+  <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myservice.servicegen"</font>&nbsp;
   <font color='#000080'>targetProjectName=</font><font color='#008000'>"mycomp"</font>
 <font color='#000080'>/&gt;</font><br>
 
@@ -62,6 +81,7 @@
 	  
 	  <b>N.B</b>: &egrave; necessario verificare i singoli modelli componenti prima di richiamare
 	  questa cartuccia, utilizzando le apposite cartucce di test descritte di seguito.
+	  
 	  <h3>Cartuccia di check del modello di interfaccia di servizio (servicedef)</h3>
 	  
 	  <p>
@@ -88,7 +108,7 @@
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/datagen/workflow/checkServicedef.oaw"</font>
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/servicegen/workflow/checkServicedef.oaw"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myserviceinterface.servicedef"</font>&nbsp;
 <font color='#000080'>/&gt;</font><br>
 
@@ -121,7 +141,7 @@
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/datagen/workflow/checkSvcOrch.oaw"</font>
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/servicegen/workflow/checkSvcOrch.oaw"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myorchestration.svcorch"</font>&nbsp;
 <font color='#000080'>/&gt;</font><br>
 
@@ -155,7 +175,7 @@
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/datagen/workflow/checkAppresources.oaw"</font>
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/servicegen/workflow/checkAppresources.oaw"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myresources.appresources"</font>&nbsp;
 <font color='#000080'>/&gt;</font><br>
 
