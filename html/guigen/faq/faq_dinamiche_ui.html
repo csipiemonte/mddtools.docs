@@ -413,5 +413,86 @@
      </div>
      <br/>
      
+     <!-- 14 -->
+     <div class="faq_question">
+     <p>Q: Ho la necessit&agrave; di visualizzare una pagina/report pdf in una nuova finestra o in un 
+     popup dialog. Come posso fare?</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> Attualmente non essite una funzionalit&agrave; nativa per aprire una nuova finestra.
+     E' possibile, sotto certe <i>condizioni</i>, utilizzare le funzionalit&agrave; attualmente disponibili.
+     La soluzione proposta &egrave; la seguente:
+     <ol>
+     <li>Modellare uno <b>UserDefinedWidget</b> che conterr&agrave; i link alle pagine da aprire in una 
+     nuova finestra (il link pu&ograve; essere anche il puntamento ad una custom action che effettua il
+     rendering di un PDF)</li>
+     <li>Nello <b>UserDefinedWidget</b> inserire il codice html del link. Poich&egrave; occorrer&agrave; successivamente
+     referenziare univocamente nel <i>DOM</i> il nodo corrispondente, &egrave; opportuno associare una classe <i>css</i>
+     apposita o un <i>ID</i> specifico.</li>
+     <li>Nella regione protetta del file javascript di arricchimento della schermata che contiene lo <b>UserDefinedWidget</b>
+     inserire il codice di arricchimento che fa in modo di aprire il link in una popup/nuova finestra (vedi esempio sotto).</li>
+     </ol>
+     Condizioni di utilizzabilit&agrave; di questa soluzione:
+     <ul>
+     <li>Devono essere attivate le funzionalit&agrave; ricche</li>
+     <li>il link / action invocata dal link custom deve essere n grado di eseguire il proprio compito utilizzando
+     esclusivamente:
+     	<ul>
+     	<li>i dati in sessione prima del click sul link</li>
+     	<li>eventuali parametri staticamente presenti nel link stesso (staticamente = fissi o calcolati a runtime prima del
+     	rendering della schermata che contiene i link)</li>
+     	</ul>
+     </li>
+     </ul> 
+     Di seguito un esempio di codice html da inserire nello <b>UserDefinedWidget</b>:
+     <pre>
+		&lt;!--PROTECTED REGION ID(R1304109634) ENABLED START--&gt;
+		&lt;!-- Inserire qui il codice del widget --&gt;
+		&lt;a href="http://www.csi.it" class="stdmdd720_newwin"&gt;clicca qui per aprire in una nuova finestra&lt;/a&gt;
+		&lt;a href="http://www.csi.it" class="stdmdd720_dialog"&gt;clicca qui per aprire in una popup&lt;/a&gt;
+		&lt;!--PROTECTED REGION END--&gt;
+     </pre>
+     Quindi un esempio di codice javascript che realizza il custom enrichment:
+     <pre>
+     
+/**
+ * Arricchimenti custom
+ */
+function initCustomEnrichments4CpTest(){
+/*PROTECTED REGION ID(R261996033) ENABLED START*/
+
+	// apertura in NUOVA FINESTRA 
+	var myLinkNewWin = Ext.query(".stdmdd720_newwin"); 
+		
+	Ext.each(myLinkNewWin, function(elemento, index){
+
+		elemento.onclick = function(){			 
+			var dialog = new ExtCsi.ui.windows.HtmlPopup({url: elemento.href, height: '400', width: '600', resizable: true, scrollable: true, toolbar: true});
+			dialog.show();
+			return false;
+		};
+
+	});
+
+	// apertura in POPUP DIALOG
+	var myLinkDialog = Ext.query(".stdmdd720_dialog"); 
+	
+	Ext.each(myLinkDialog, function(elemento, index){
+
+		elemento.onclick = function(){
+			var dialog = new  ExtCsi.ui.windows.HtmlDialog({url: elemento.href, height: '400', width: '600', resizable: true});
+			dialog.show();
+			return false;
+		};
+	});
+/*PROTECTED REGION END*/
+}     
+     
+     
+     </pre>
+     </p>
+     </div>
+     <br/>
+     
    </body>
 </html>
