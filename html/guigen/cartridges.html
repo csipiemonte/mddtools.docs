@@ -111,6 +111,7 @@
 <font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/guigenPrototype.oaw"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
   <font color='#000080'>targetProjectName=</font><font color='#008000'>"mycomp.prototype"</font>&nbsp;
+<font color='#000080'>/&gt;</font><br>
 </pre>    
 </p>
 <p>
@@ -229,6 +230,68 @@ coerente con il modello (in caso di errori nella configurazione della lista di <
 contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 </ul>
 </p>
+
+<h3>cartuccia di generazione del progetto di risorse web</h3>
+	  <p>
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/webres.oaw</code> serve per effettuare la generazione
+	  del progetto ausiliario contenete le risorse statiche (previsto dalla modalit&agrave; <b>M2</b>
+	  della cartuccia <i>struts2basic</i>).
+	  </p>
+	  <p>
+	  In un'ottica di applicazione potenzialmente <i>multiportale</i> per ogni componente <i>j2ee</i>
+	  &egrave; possibile che vi siano una o pi&ugrave; componenti di risorse statiche (una per portale).
+	  Di conseguenza la cartuccia <i>webres</i> generer&agrave; pi&ugrave; progetti: all'utilizzatore
+	  &egrave; richiesto solo di indicare un <i>prefisso</i> del progetto target.
+	  La restante parte del codice sar&agrave; costituita dal codice portale (se la modalit&agrave; multiportale
+	  &egrave; attiva) e da un suffisso finale &quot;webres&quot;.
+	  <font color="red">N.B: la modalit&agrave; multiportale attualmente non &egrave; ancora disponibile.</font> 
+	  </p>
+	  La cartuccia prevede i seguenti parametri:
+	  
+	  <table border="1">
+	  <thead style="background:silver"><tr><td>parametro</td><td>descrizione</td><td>esempio</td><td>obbl/opz</td></tr></thead>
+	  <tbody>
+	  <tr>
+	  <td>model</td>
+	  <td>percorso del file del modello principale <i>guigen</i>, a partire dalla root del workspace eclipse</td>
+	  <td><code>myprod.mdd/src/model/myprod/mycomp/myapp.guigen</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>targetProjectPrefix</td>
+	  <td>prefisso del nome di tutti i progetti di risorse web. 
+	  Deve appartenere allo stesso workspace del progetto generatore.
+	  </td>
+	  <td><code>mycompweb</code></td>
+	  <td>obbl</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>propertiesFile</td>
+	  <td>percorso di un file di properties che pu&ograve; essere utilizzato per pilotare alcuni aspetti della generazione. 
+	  Per un dettaglio delle properties supportate vedere pi&ugrave; avanti</td>
+	  <td><code>src/workflow/myprod/mycomp/workflow.properties</code></td>
+	  <td>opz</td>
+	  </tr>
+	  
+	  </tbody>
+	  </table>
+	  
+	  </p>
+	  
+	  <p>
+	  Esempio:
+
+<pre>    
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/struts2Basic.oaw"</font>
+  <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
+  <font color='#000080'>targetProjectPrefix=</font><font color='#008000'>"mycompweb"</font>&nbsp;  
+  <font color='#000080'>propertiesFile=</font><font color='#008000'>"myprod.mdd/src/workflow/myprod/mycomp/workflow.properties"</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color='#000080'>/&gt;</font><br>
+</pre>    
+</p>
+
 <h3>Properties supportate</h3>
 <p>Il generatore <b>GUIGEN</b> supporta le seguenti properties
 <table border="1">
