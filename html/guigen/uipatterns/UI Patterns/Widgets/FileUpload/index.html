@@ -46,6 +46,35 @@ La verifica del buon esito dell'operazione di upload del file deve essere gestit
 (es.: &quot;Upload&quot; o/e immagine evocativa del documento)
 	</td>
 	</tr>
+
+	<tr>
+	<td class="featureCod">WFIL008</td>
+	<td class="featureName">evidenza obbligatoriet&agrave;</td>
+	<td class="featureDescr">Evidenza di obbligatoriet&agrave;  (es. Asterisco a lato della label)
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WFIL009</td>
+	<td class="featureName">evidenza stato abilitazione</td>
+	<td class="featureDescr">Evidenza dello stato di abilitazione (es. differente colore della label 
+in stato editabile rispetto a non editabile)
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WFIL010</td>
+	<td class="featureName">marcatore errore di validazione</td>
+	<td class="featureDescr">Visualizzazione di un marcatore di errore in prossimit&agrave; della label, 
+in caso di fallita validazione
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
       
       
       <tr><td colspan="3" class="featureCategory">dinamica di interazione</td></tr>
@@ -84,7 +113,7 @@ dell'utente collegato
       <tr><td colspan="3" class="featureCategory">struttura</td></tr>
       	
 	<tr>
-	<td class="featureCod">WCHK011</td>
+	<td class="featureCod">WFIL007</td>
 	<td class="featureName">includibilit&agrave; in pannelli</td>
 	<td class="featureDescr"><p>Il widget pu&ograve; essere contenuto nei seguenti pannelli:
 	
@@ -128,12 +157,15 @@ dell'utente collegato
 <table class="compMatrixTable">
 <thead>
 <tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
- <th colspan="2" class="matrixTH product">guigen</th>
+ <th colspan="4" class="matrixTH product">guigen</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
 <th colspan="2" class="matrixTH productVersion">1.5.0</th>
+<th colspan="2" class="matrixTH productVersion">1.6.0</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
 <th class="matrixTH productEdition">neutral-base</th>
 <th class="matrixTH productEdition">neutral-arricchita</th>
 </tr>
@@ -145,11 +177,36 @@ dell'utente collegato
 <td>WFIL005</td><td class="feature">tooltip a comparsa</td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WFIL006</td><td class="feature">icona tipo documento</td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WFIL008</td><td class="feature">evidenza obbligatoriet&agrave;</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WFIL009</td><td class="feature">evidenza stato abilitazione</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WFIL010</td><td class="feature">marcatore errore di validazione</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">dinamica di interazione</td></tr>
@@ -157,9 +214,13 @@ dell'utente collegato
 <td>WFIL001</td><td class="feature">abilitazione comandabile</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WFIL002</td><td class="feature">visibilit&agrave; a comando</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -167,16 +228,22 @@ dell'utente collegato
 <td>WFIL003</td><td class="feature">profilazione dell'abilitazione</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WFIL004</td><td class="feature">profilazione della visibilit&agrave;</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
 <tr>
-<td>WCHK011</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td>WFIL007</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>

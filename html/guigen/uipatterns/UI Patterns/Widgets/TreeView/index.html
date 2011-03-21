@@ -105,12 +105,31 @@ dell'utente collegato
 di un elemeto dell'albero
 	</td>
 	</tr>
+
+	<tr>
+	<td class="featureCod">WTRE014</td>
+	<td class="featureName">separazione controlli espansione e click</td>
+	<td class="featureDescr">Nel caso sia associato un evento di click ai nodi dell'albero, per i nodi non
+foglia sono presenti due distinti controlli utilizzabili uno per l'espansione/collasso
+del nodo e l'altro per l'attuaizone dell'evento di click (e della corrispondente
+business logic associata).
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WTRE015</td>
+	<td class="featureName">espandibilit&agrave; completa</td>
+	<td class="featureDescr">Possibilit&agrave; di espandere qualsiasi nodo non foglia dell'albero e mantenimento dello
+stato di espansione. L'espanzione pu&ograve; essere comandata da interazione utente ma
+anche impostata da business logic agendo direttamente sul modello della struttura ad albero.
+	</td>
+	</tr>
       
       
       <tr><td colspan="3" class="featureCategory">struttura</td></tr>
       	
 	<tr>
-	<td class="featureCod">WCHK011</td>
+	<td class="featureCod">WTRE013</td>
 	<td class="featureName">includibilit&agrave; in pannelli</td>
 	<td class="featureDescr"><p>Il widget pu&ograve; essere contenuto nei seguenti pannelli:
 	
@@ -182,12 +201,15 @@ di un elemeto dell'albero
 <table class="compMatrixTable">
 <thead>
 <tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
- <th colspan="2" class="matrixTH product">guigen</th>
+ <th colspan="4" class="matrixTH product">guigen</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
 <th colspan="2" class="matrixTH productVersion">1.5.0</th>
+<th colspan="2" class="matrixTH productVersion">1.6.0</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
 <th class="matrixTH productEdition">neutral-base</th>
 <th class="matrixTH productEdition">neutral-arricchita</th>
 </tr>
@@ -199,6 +221,8 @@ di un elemeto dell'albero
 <td>WTRE012</td><td class="feature">tooltip a comparsa</td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">dinamica di interazione</td></tr>
@@ -206,9 +230,13 @@ di un elemeto dell'albero
 <td>WTRE003</td><td class="feature">abilitazione complessiva comandabile</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WTRE004</td><td class="feature">visibilit&agrave; complessiva a comando</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -216,9 +244,13 @@ di un elemeto dell'albero
 <td>WTRE005</td><td class="feature">profilazione dell'abilitazione complessiva</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WTRE006</td><td class="feature">profilazione della visibilit&agrave; complessiva</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -226,9 +258,13 @@ di un elemeto dell'albero
 <td>WTRE007</td><td class="feature">abilitazione voce comandabile</td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
 </tr>
 <tr>
 <td>WTRE008</td><td class="feature">visibilit&agrave; voce a comando</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 </tr>
@@ -236,21 +272,43 @@ di un elemeto dell'albero
 <td>WTRE009</td><td class="feature">profilazione dell'abilitazione voce</td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
 </tr>
 <tr>
 <td>WTRE010</td><td class="feature">profilazione della visibilit&agrave; voce</td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 </tr>
 <tr>
 <td>WTRE011</td><td class="feature">attivazione logica alla selezione</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WTRE014</td><td class="feature">separazione controlli espansione e click</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WTRE015</td><td class="feature">espandibilit&agrave; completa</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
 <tr>
-<td>WCHK011</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td>WTRE013</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -260,9 +318,13 @@ di un elemeto dell'albero
 <td>WTRE001</td><td class="feature">voci albero</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WTRE002</td><td class="feature">ordinamento voci</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 </tr>

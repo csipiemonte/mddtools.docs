@@ -1,0 +1,505 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Elemento di catalogo: MapView</title>
+      <link type="text/css" href="./../../..//css/style.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+   	  <a href="./../../../UI Patterns/Widgets/index.html">torna all'elenco degli elementi della sezione Widgets</a>
+   	  <h1>Elemento di catalogo: MapView (<img src="./img/icon.gif" alt="MapView"/>)</h1>
+      <h2>Descrizione</h2>
+      <div class="itemDescription">
+      <p>
+E' un widget utilizzabile per la visualizzazione di mappe GIS. Oltre alla semplice
+visualizzazione po&ograve; prevedere una serie di attivit&agrave; interattive, quali:
+	<ul>
+	<li>navigazione della mappa (zoom, pan, ...)</li>
+	<li>editing</li>
+	<li>interrogazione spaziale</li>
+	<li>collegamento con componenti alfanumeriche della schermata</li>
+	</ul>
+</p>
+<p>
+
+</p>
+      </div>
+      
+      <h2>Caratteristiche (features)</h2>
+      <table class="features">
+      <thead><th>cod.</th><th>nome</th><th>descrizione</th></thead>
+      <tbody>
+      
+      
+      
+      <tr><td colspan="3" class="featureCategory">apparenza grafica</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WMAP012</td>
+	<td class="featureName">dimensionamento a &quot;taglie&quot;</td>
+	<td class="featureDescr">Possibilit&agrave; di impostare la dimensione della mappa in un range di
+tre <i>taglie</i>:
+<ul>
+<li>small</li>
+<li>medium</li>
+<li>large</li>
+</ul>
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP019</td>
+	<td class="featureName">overview map</td>
+	<td class="featureDescr">Possibilit&agrave; (opzionale) di mettere a disposizione una mappa di
+overview visualizzata, in miniatura, in un angoplo della mappa
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP020</td>
+	<td class="featureName">scalimetro</td>
+	<td class="featureDescr">Possibilit&agrave; di visualizzare uno scalimetro (che esplicita graficamente 
+la scala correntemente visualzzata)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP021</td>
+	<td class="featureName">indicatore coordinate</td>
+	<td class="featureDescr">Possibilit&agrave; di visualizzare opzionalmente le coordinate relative
+alla posizione corrente del puntatore.
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP022</td>
+	<td class="featureName">indicatore U.M.</td>
+	<td class="featureDescr">Possibilit&agrave; di visualizzare opzionalmente il tipo di unit&agrave; di misura
+correntemente utilizzate
+	</td>
+	</tr>
+      
+      
+      <tr><td colspan="3" class="featureCategory">dinamica di interazione</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WMAP001</td>
+	<td class="featureName">visibilit&agrave; a comando</td>
+	<td class="featureDescr">Modalit&agrave; invisibile/visibile a comando
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP002</td>
+	<td class="featureName">profilazione della visibilit&agrave;</td>
+	<td class="featureDescr">Modalit&agrave; invisibile/visibile a fronte di regole associate al profilo 
+dell'utente collegato
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP004</td>
+	<td class="featureName">slide to zoom</td>
+	<td class="featureDescr">Possibilit&agrave; di effettuare lo zoom agendo su un'apposito controllo
+di tipo 'slider'. Lo zoom avviene entro un range prestabilito.
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP005</td>
+	<td class="featureName">click to zoom</td>
+	<td class="featureDescr">Possibilit&agrave; di effettuare lo zoom agendo su una serie di pulsanti
+presenti nella barra di strumenti:
+<ul>
+<li>tasti '+' e '-' per lo soom di un passo in avanti o indietro</li>
+<li>tasti 'zoom massimo' e ' zoom minimo' per saltare ai due livelli estremi
+di zoom
+</ul>
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP006</td>
+	<td class="featureName">drag to pan</td>
+	<td class="featureDescr">Possibilit&agrave; di effettuare il <i>pan</i> della mappa puntando
+il mouse su un punto della mappa e trascinando il puntatore senza rilasciare
+il pulsante destro del mouse. La funzione di <i>pan</i> &egrave;
+utilizzabile quando l'utente ha selezionato la funzione nella barra degli
+strumenti
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP007</td>
+	<td class="featureName">click to pan</td>
+	<td class="featureDescr">Possibilit&agrave; di effettuare il <i>pan</i> della mappa utilizzando
+4 tasti cursore rispettivamente per il pan in una delle 4 direzioni cardinali
+principali
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP008</td>
+	<td class="featureName">posizionamento programmatico</td>
+	<td class="featureDescr">Possibilit&agrave; di effettuare il posizionamento della mappa (in termini
+di <i>envelope</i> visualizzato (e di conseguenza di livello di zoom) 
+da business logic
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP009</td>
+	<td class="featureName">refresh interattivo</td>
+	<td class="featureDescr">Possibilit&agrave; di effettuare il refresh della mappa cliccando su un
+apposito tasto
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP010</td>
+	<td class="featureName">refresh programmatico</td>
+	<td class="featureDescr">Possibilit&agrave; di effettuare il refresh della mappa a comando della
+business logic (a fronte di un evento di user interaction che non riguarda
+direttamente la mappa)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP011</td>
+	<td class="featureName">layer switch</td>
+	<td class="featureDescr">Possibilit&agrave; (opzionale) di effettuare lo switch di sfondo della mappa
+(es. mappa / foto aerea) tramite un apposita coppia di pulsanti che appaiono
+sulla mappa se la funzionalit&agrave; &egrave; abilitata.
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP013</td>
+	<td class="featureName">evento di click</td>
+	<td class="featureDescr">Possibilit&agrave; di scatenare una logica applicativa a fronte del click
+dell'utente su un punto della mappa. La logica verr&agrave; scatenata
+se l'utente ha selezionato la funzione nell'apposita barra degli strumenti.
+La logica di business ha a disposizione l'informazione delle coordinate
+del punto in cui l'utente ha cliccato.
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP016</td>
+	<td class="featureName">ruler</td>
+	<td class="featureDescr">Possibilit&agrave; (opzionale) di attivare uno strumento di misurazione
+lineare (da punto a punto) o areale (area selezionata) sulla mappa 
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP017</td>
+	<td class="featureName">legenda</td>
+	<td class="featureDescr">Possibilit&agrave; di attivare opzionalmente la visualizzazione di una
+legenda relativa alla mappa. I contenuti della legenda sono forniti dal 
+servizio cartografico.
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP018</td>
+	<td class="featureName">print map</td>
+	<td class="featureDescr">Possibilit&agrave; di inviare in stampa la mappa correntemente
+visualizzata
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP023</td>
+	<td class="featureName">editing di geometrie</td>
+	<td class="featureDescr">Possibilit&agrave; di editare geometrie (punti, poligoni, polilinee) sulla mappa. 
+L'editing avviene in due fasi:
+<ul>
+<li>in una prima fase (che inizia quando l'utente seleziona il <i>tool</i> apposito nella
+toolbar) l'utente disegna un insieme finito di geometrie</li>
+<li>in una seconda fase l'utente dichiara teminata l'attivit&agrave; di disegno o 
+confermando l'attivit&agrave; o annullandola</li>
+</ul>
+Nel caso in cui l'utente dichiari confermata l'attivit&agrave; di editing  la mappa:
+<ul>
+<li>passer&agrave; al server la struttura che descrive le geometrie appena disegnate</li>
+<li>invocher&agrave; una eventuale logica di business associata alla terminazione dell'
+attivit&agrave; di editing; in questa business logic il sistema ha a disposizione i dati delle
+geometrie oggetto di inserimento</li>
+</ul>
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP026</td>
+	<td class="featureName">limitazione tipologie di geometrie editabili</td>
+	<td class="featureDescr">Possibilit&agrave; da parte dello sviluppatore di inibire/abilitare solo un
+sottoinsieme di tipologie di editing, scelte tra:
+<ul>
+<li>editing di punti</li>
+<li>editing di (poli)linee</li>
+<li>editing di poligoni</li>
+</ul>
+A seconda delle scelte fatte la mappa presenter&agrave;/non presenter&agrave;
+i tool di editing corretti
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP026</td>
+	<td class="featureName">limitazione editing in modifica</td>
+	<td class="featureDescr">Possibilit&agrave; da parte dello sviluppatore di inibire/abilitare le attivit&agrave;
+di modifica sulle geometrie presenti nel layer di editing.
+A seconda delle scelte fatte la mappa presenter&agrave;/non presenter&agrave;
+il tool di editing in modifica
+	</td>
+	</tr>
+      
+      
+      <tr><td colspan="3" class="featureCategory">struttura</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WMAP003</td>
+	<td class="featureName">includibilit&agrave; in pannelli</td>
+	<td class="featureDescr"><p>Il widget pu&ograve; essere contenuto <b>come unico widget<b> 
+nei seguenti pannelli:
+	
+		<ul>
+	
+		<li>
+			<a href="./../../../UI Patterns/Panels/WidgetsPanel/index.html">WidgetsPanel</a>
+		</li>
+
+		</ul>
+
+	</p>
+	<p>
+	</p>
+	</td>
+	</tr>
+      
+      
+      <tr><td colspan="3" class="featureCategory">dati</td></tr>
+      	
+	<tr>
+	<td class="featureCod">WMAP014</td>
+	<td class="featureName">mappe grease</td>
+	<td class="featureDescr">Permette la visualizzazione di mappe in standard GREASE e configurate
+su GISCOPW
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP015</td>
+	<td class="featureName">mappe non grease</td>
+	<td class="featureDescr">Permette la visualizzazione di mappe in standard differenti da GREASE
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP024</td>
+	<td class="featureName">acetate layer</td>
+	<td class="featureDescr">Possibilit&agrave; di visualizzare un livello di geometrie (livello &quot;acetato&quot;) 
+al di sopra dei layer cartografici. L'insieme di geometrie visualizzate nel layer
+&egrave; popolato da business logic. Il layer &egrave; in sola lettura (non pu&ograve;
+essere oggetto di editing interattivo da parte dell'utente) 
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WMAP025</td>
+	<td class="featureName">pre-popolamento editing layer</td>
+	<td class="featureDescr">Possibilit&agrave; di pre-popolare un insieme di geometrie che saranno oggetto di
+editing. 
+Il layer si comporta come l'<i>acetate</i> layer (WMAP024).
+L'insieme di geometrie visualizzate nel layer
+&egrave; popolato da business logic. 
+	</td>
+	</tr>
+      
+      </tbody>
+      </table>
+      
+	<h2>Immagini</h2>
+	
+	<div class="itemDetailImage">
+	<table><tr><td>
+	<img class="itemDetailImage" src="./img/mapview_1.gif" alt="mapview_1.gif"/>
+	</td></tr>
+	<tr><td class="imageCaption">esempio di map view</td></tr>
+	</table>
+	</div>
+	<br></br>
+      
+      <h2>Grado di implementazione delle varie caratteristiche</h2>
+      <p>
+      Nella tabella seguente &egrave; riportato il grado di implementazione delle
+      varie caratteristiche/funzioni dell'elemento <b>MapView</b> nelle differenti implementazioni.
+      </p>
+      
+
+<table class="compMatrixTable">
+<thead>
+<tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
+ <th colspan="2" class="matrixTH product">guigen</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th colspan="2" class="matrixTH productVersion">1.6.0</th>
+</tr>
+<tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
+</tr>
+
+</thead>
+<tbody>
+	<tr><td class="featureCategory" colspan="0">apparenza grafica</td></tr>
+<tr>
+<td>WMAP012</td><td class="feature">dimensionamento a &quot;taglie&quot;</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP019</td><td class="feature">overview map</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP020</td><td class="feature">scalimetro</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP021</td><td class="feature">indicatore coordinate</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP022</td><td class="feature">indicatore U.M.</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+
+	<tr><td class="featureCategory" colspan="0">dinamica di interazione</td></tr>
+<tr>
+<td>WMAP001</td><td class="feature">visibilit&agrave; a comando</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP002</td><td class="feature">profilazione della visibilit&agrave;</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP004</td><td class="feature">slide to zoom</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP005</td><td class="feature">click to zoom</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP006</td><td class="feature">drag to pan</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP007</td><td class="feature">click to pan</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP008</td><td class="feature">posizionamento programmatico</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP009</td><td class="feature">refresh interattivo</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP010</td><td class="feature">refresh programmatico</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP011</td><td class="feature">layer switch</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP013</td><td class="feature">evento di click</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP016</td><td class="feature">ruler</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP017</td><td class="feature">legenda</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP018</td><td class="feature">print map</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP023</td><td class="feature">editing di geometrie</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP026</td><td class="feature">limitazione tipologie di geometrie editabili</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP026</td><td class="feature">limitazione editing in modifica</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+
+	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
+<tr>
+<td>WMAP003</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+
+	<tr><td class="featureCategory" colspan="0">dati</td></tr>
+<tr>
+<td>WMAP014</td><td class="feature">mappe grease</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP015</td><td class="feature">mappe non grease</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WMAP024</td><td class="feature">acetate layer</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WMAP025</td><td class="feature">pre-popolamento editing layer</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+
+
+</tbody>
+</table>
+
+   </body>
+</html>

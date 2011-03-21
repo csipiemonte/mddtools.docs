@@ -57,6 +57,25 @@ in caso di fallita validazione
 )
 	</td>
 	</tr>
+
+	<tr>
+	<td class="featureCod">WRBS011</td>
+	<td class="featureName">evidenza obbligatoriet&agrave;</td>
+	<td class="featureDescr">Evidenza di obbligatoriet&agrave;  (es. Asterisco a lato della label)
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WRBS012</td>
+	<td class="featureName">evidenza stato abilitazione</td>
+	<td class="featureDescr">Evidenza dello stato di abilitazione (es. differente colore della label 
+in stato editabile rispetto a non editabile)
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
+	</td>
+	</tr>
       
       
       <tr><td colspan="3" class="featureCategory">dinamica di interazione</td></tr>
@@ -182,12 +201,15 @@ di un elemento
 <table class="compMatrixTable">
 <thead>
 <tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
- <th colspan="2" class="matrixTH product">guigen</th>
+ <th colspan="4" class="matrixTH product">guigen</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
 <th colspan="2" class="matrixTH productVersion">1.5.0</th>
+<th colspan="2" class="matrixTH productVersion">1.6.0</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
 <th class="matrixTH productEdition">neutral-base</th>
 <th class="matrixTH productEdition">neutral-arricchita</th>
 </tr>
@@ -199,10 +221,28 @@ di un elemento
 <td>WRBS006</td><td class="feature">marcatore errore di validazione</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WRBS007</td><td class="feature">tooltip a comparsa</td>
 <td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WRBS011</td><td class="feature">evidenza obbligatoriet&agrave;</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+</tr>
+<tr>
+<td>WRBS012</td><td class="feature">evidenza stato abilitazione</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
@@ -211,9 +251,13 @@ di un elemento
 <td>WRBS001</td><td class="feature">abilitazione comandabile</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WRBS002</td><td class="feature">visibilit&agrave; a comando</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -221,14 +265,20 @@ di un elemento
 <td>WRBS003</td><td class="feature">profilazione dell'abilitazione</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WRBS004</td><td class="feature">profilazione della visibilit&agrave;</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WRBS009</td><td class="feature">attivazione logica alla selezione</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -238,6 +288,8 @@ di un elemento
 <td>WRBS010</td><td class="feature">includibilit&agrave; in pannelli</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">dati</td></tr>
@@ -245,9 +297,13 @@ di un elemento
 <td>WRBS005</td><td class="feature">validazione al submit</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WRBS008</td><td class="feature">preselezione di default</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>

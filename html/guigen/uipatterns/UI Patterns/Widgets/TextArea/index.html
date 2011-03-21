@@ -69,15 +69,35 @@ mantenendo fissa la dimensione grafica)
 	</tr>
 
 	<tr>
-	<td class="featureCod"></td>
-	<td class="featureName">formattazione testo</td>
-	<td class="featureDescr">formattazione del testo
+	<td class="featureCod">WTXA017</td>
+	<td class="featureName">evidenza stato abilitazione</td>
+	<td class="featureDescr">Evidenza dello stato di abilitazione (es. differente colore della label 
+in stato editabile rispetto a non editabile)
+(rif. <a href="./../../../UI Patterns/glossary.html#gloss_Label"><i>Label</i></a>
+)
 	</td>
 	</tr>
       
       
       <tr><td colspan="3" class="featureCategory">dinamica di interazione</td></tr>
       	
+	<tr>
+	<td class="featureCod">WTXA001</td>
+	<td class="featureName">blocco digitazione a max caratteri</td>
+	<td class="featureDescr">Blocco della digitazione al raggiungimento del limite massimo di caratteri
+definiti per il dato
+	</td>
+	</tr>
+
+	<tr>
+	<td class="featureCod">WTXA002</td>
+	<td class="featureName">testo formattato</td>
+	<td class="featureDescr">Possibilit&agrave; di inserire (e visualizzare) testo <i>ricco</i>, ovvero
+contenente formattazioni (es. grassetto, corsivo, font differenti, colori,
+...)
+	</td>
+	</tr>
+
 	<tr>
 	<td class="featureCod">WTXA004</td>
 	<td class="featureName">dimensione area editabile</td>
@@ -126,7 +146,7 @@ dell'utente collegato
       <tr><td colspan="3" class="featureCategory">struttura</td></tr>
       	
 	<tr>
-	<td class="featureCod">WCHK011</td>
+	<td class="featureCod">WTXA016</td>
 	<td class="featureName">includibilit&agrave; in pannelli</td>
 	<td class="featureDescr"><p>Il widget pu&ograve; essere contenuto nei seguenti pannelli:
 	
@@ -147,20 +167,6 @@ dell'utente collegato
       
       <tr><td colspan="3" class="featureCategory">dati</td></tr>
       	
-	<tr>
-	<td class="featureCod">WTXA001</td>
-	<td class="featureName">tipi dati ammessi</td>
-	<td class="featureDescr">Tipo dato: stringa, numero o data
-	</td>
-	</tr>
-
-	<tr>
-	<td class="featureCod">WTXA002</td>
-	<td class="featureName">formato dati</td>
-	<td class="featureDescr">Formato (ad es. per la data &quot;gg/mm/aaaa&quot;, per i numeri quante cifre intere e quante decimali) 
-	</td>
-	</tr>
-
 	<tr>
 	<td class="featureCod">WTXA003</td>
 	<td class="featureName">max caratteri</td>
@@ -209,12 +215,15 @@ dell'utente collegato
 <table class="compMatrixTable">
 <thead>
 <tr><th class="matrixTH" rowspan="3">cod</th><th class="matrixTH" rowspan="3">feature</th>
- <th colspan="2" class="matrixTH product">guigen</th>
+ <th colspan="4" class="matrixTH product">guigen</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
 <th colspan="2" class="matrixTH productVersion">1.5.0</th>
+<th colspan="2" class="matrixTH productVersion">1.6.0</th>
 </tr>
 <tr><!--<th class="matrixTH"></th><th class="matrixTH"></th>-->
+<th class="matrixTH productEdition">neutral-base</th>
+<th class="matrixTH productEdition">neutral-arricchita</th>
 <th class="matrixTH productEdition">neutral-base</th>
 <th class="matrixTH productEdition">neutral-arricchita</th>
 </tr>
@@ -226,9 +235,13 @@ dell'utente collegato
 <td>WTXA010</td><td class="feature">marcatore errore di validazione</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WTXA011</td><td class="feature">evidenza obbligatoriet&agrave;</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -236,21 +249,43 @@ dell'utente collegato
 <td>WTXA012</td><td class="feature">testo completo se disabilitato</td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
 </tr>
 <tr>
 <td>WTXA014</td><td class="feature">tooltip a comparsa</td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
-<td></td><td class="feature">formattazione testo</td>
-<td><img src="./../../../img/no.gif" /></td>
-<td><img src="./../../../img/no.gif" /></td>
+<td>WTXA017</td><td class="feature">evidenza stato abilitazione</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">dinamica di interazione</td></tr>
 <tr>
+<td>WTXA001</td><td class="feature">blocco digitazione a max caratteri</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
+<td>WTXA002</td><td class="feature">testo formattato</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
+</tr>
+<tr>
 <td>WTXA004</td><td class="feature">dimensione area editabile</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -258,9 +293,13 @@ dell'utente collegato
 <td>WTXA005</td><td class="feature">abilitazione comandabile</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WTXA006</td><td class="feature">visibilit&agrave; a comando</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -268,9 +307,13 @@ dell'utente collegato
 <td>WTXA007</td><td class="feature">profilazione dell'abilitazione</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WTXA008</td><td class="feature">profilazione della visibilit&agrave;</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
@@ -278,28 +321,24 @@ dell'utente collegato
 <td>WTXA013</td><td class="feature">copy &amp; paste</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
 <tr>
-<td>WCHK011</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td>WTXA016</td><td class="feature">includibilit&agrave; in pannelli</td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">dati</td></tr>
 <tr>
-<td>WTXA001</td><td class="feature">tipi dati ammessi</td>
-<td><img src="./../../../img/yes.gif" /></td>
-<td><img src="./../../../img/yes.gif" /></td>
-</tr>
-<tr>
-<td>WTXA002</td><td class="feature">formato dati</td>
-<td><img src="./../../../img/yes.gif" /></td>
-<td><img src="./../../../img/yes.gif" /></td>
-</tr>
-<tr>
 <td>WTXA003</td><td class="feature">max caratteri</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 </tr>
@@ -307,9 +346,13 @@ dell'utente collegato
 <td>WXA009</td><td class="feature">validazione al submit</td>
 <td><img src="./../../../img/yes.gif" /></td>
 <td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WTXA015</td><td class="feature">validazione al cambio fuoco</td>
+<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 <td><img src="./../../../img/no.gif" /></td>
 </tr>
