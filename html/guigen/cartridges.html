@@ -319,6 +319,25 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </tr>
 	  
 	  <tr>
+	  <td><code>guigen.enableEnrichmentsByDefault</code></td>
+	  <td>
+	  	<ul>
+	  	<li>scopo: se impostato a <i>true</i> e se nel <b>TargetPlatform</b> del modello principale 
+	  &egrave; impostato l'utilizzo delle funzioni ricche vengono abilitati di default
+	  gli arricchimenti per i widget per i quali non sia esplicitamente impostato a <i>false</i>
+	  la propriet&agrave; <i>enableEnrichments</i>; nel caso invece in cui questo parametro sia
+	  impostato a <i>false</i>, il valore di default di abilitazione 
+	  arricchimenti &egrave; <i>false</i>.</li>
+   		<li>default: false</li>
+	  	</ul>
+	  </td>
+	  <td>true</td>
+	  <td>
+	  	<i>struts2Basic.oaw</i> e <i>struts2BasicSingleModule.oaw</i> con <i>portal</i>="neutral", <i>webres.oaw</i></td>
+	  </td>
+	  </tr>
+	  
+	  <tr>
 	  <td><code>generate-appmodules</code></td>
 	  <td>
 	  	<ul>
