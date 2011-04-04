@@ -109,6 +109,10 @@
        <topic href="html/guigen/faq/faq_cartucce.html" label="cartucce di generazione">
        </topic>
     </topic>
+    <topic href="html/guigen/guides/guides.html" label="Guide">
+       <topic href="html/guigen/guides/stilizzazione_grafica/index.html" label="Stilizzazione grafica">
+       </topic>
+    </topic>
     <topic href="html/guigen/rationale.html" label="Appendice: design rationale">
     </topic>
     <topic href="html/guigen/bibl.html" label="Appendice: documenti di riferimento">

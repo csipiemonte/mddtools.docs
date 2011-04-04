@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Guida alla stilizzazione grafica delle applicazioni generate con guigen</title>
+      <link type="text/css" href="../../mddtools.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+      <h2>
+         Guida alla stilizzazione delle applicazioni
+      </h2>
+      <h3>Da cosa dipende l'aspetto grafico delle applicazioni generate da guigen?</h3>
+      <p>
+         L'aspetto grafico delle applicazioni web generate con la cartuccia <i>struts2Basic</i> di <b>guigen</b> 
+         dipende da due fattori:
+         <ol>
+         <li>la <i>cartuccia</i> di generazione utilizzata (ovvero il portale target)</li>
+         <li>le risorse grafiche di stilizzazione (<i>skin CSS</i>)</li>
+         </ol>
+      </p>
+      <h4>Cartuccia struts2Basic e portali target</h4>
+	  <p>
+	  Nell' ambito della cartuccia di generazione <i>struts2Basic</i> esiste la possibilit&agrave; di specificare
+	  il <i>portale target</i>, tramite un parametro (<i>portalName</i>) della cartuccia stessa. Questa possibilit&agrave;
+	  deriva dalla necessit&agrave; di adattare il codice <i>html</i> generato agli standard del particolare portale.
+	  Al momento sono previsti i seguenti <i>portali target</i>:
+	  <ul>
+	  <li><b>sisp</b>: generazione html basato sugli standard legacy del portale <i>sistemapiemonte</i></li>
+	  <li><b>rupar</b>: generazione html basato sugli standard legacy del portale <i>ruparpiemonte</i> (vecchia versione)</li>
+	  <li><b>intranetrp</b>: generazione html basato sugli standard legacy del portale <i>intranet regione piemonte</i></li>
+	  </ul>
+	  In aggiunta a queste modalit&agrave; che permettono di adeguarsi ad alcuni dei portali 'storici' dei clienti 
+	  del CSI, esiste una nuova modalit&agrave;, denominata '<i>neutral</i>', non legata a nessun particolare portale,
+	  ma basata su una struttura di codice xhtml molto flessibile ed utilizzabile per riprodurre differenti strutture
+	  grafiche con l'ausilio di appositi <i>skin CSS</i>.
+	  La modalit&agrave; <i>neutral</i>, a sua volta si presenta sotto due differenti forme che differiscono per lo
+	  schema di referenziazione delle risorse grafiche e che necessitano, dunque, di differenti <i>skin CSS</i>:
+	  <ol>
+	  <li>una modalit&agrave; con schema di referenziazione delle risorse grafiche nuova</li>
+	  <li>una modalit&agrave; con schema di referenziazione delle risorse grafiche vecchia 
+	      (mantenuta per retrocompatibilit&agrave; fincc&egrave; non saranno convertiti tutti gli skin nella
+	      nuova modalit&agrave;)</li>
+	  </ol> 
+	  La scelta della modalit&agrave; da utilizzare si effettua mediante il parametro <i>staticResourcesSchemaVersion</i>
+	  che pu&ograve; valere <i>M1</i> per la vecchia modalit&agrave; ed <i>M2</i> per la nuova modalit&agrave;.
+	  </p>  
+	  <p>
+	  <h4>modalit&agrave; locale vs remote</h4>
+	  <p>
+	  Per alcuni portali &egrave; le risorse statiche sono mantenute globalmente sul web-server e alcuni frammenti di
+	  pagina (header di portale, footer di portale, header di applicativo) devono essere reperiti dall'applicativo
+	  con il meccanismo della <i>remote include</i>, mediante il quale la componente installata sull'application server
+	  reperisce tali frammenti facendo una chiamata server-to-server verso il <i>resource provider</i>, ovvero lo stesso
+	  apache che fornisce le risorse statiche.
+	  </p>
+	  <p>
+	  L'impostazione della modalit&agrave; da utilizzare deve essere effettuata secondo quanto descritto nel manuale
+	  della <a href="../../cartridges.html">cartuccia</a> <i>struts2Basic</i>.
+	  </p>
+	  <h3>Quale <i>target portal</i> utilizzare?</h3>
+	  <p>
+	  La linea strategica a tendere &egrave; quella di abbandonare gradualmente i <i>target portal</i> legacy in favore
+	  della modalit&agrave; <i>neutral</i> stilizzata con gli <i>skin</i> che permettono di riprodurre il tema grafico
+	  dei vari portali.
+	  </p> 
+	  <p>
+	  La logica di scelta del <i>portale target</i> (e quindi l'impostazione dell' opportuno parametro <i>portalName</i>
+	  nella cartuccia di generazione) &egrave; mostrato in figura:
+	  </p>  
+	  <img src="img/scelta_target_portal.gif" alt="scelta target portal"/>
+	  
+	  <h3>Stili (skin) CSS e Specifiche dell' xhtml universale della modalit&agrave; neutral</h3>
+	  <p>
+	  La modalit&agrave; <i>neutral</i> prevede la generazione di codice <i>xhtml</i> cosiddetto &quot;universale&quot;,
+	  ovvero codice sufficientemente generico da essere utilizzato con schermate di varia composizione e che pu&ograve;
+	  essere stilizzato agevolmente mediante stili <i>css</i>.
+	  Per poter realizzare uno skin CSS adatto alla stilizzazione di una pagina che si presenta con xhtml universale
+	  &egrave; necessario tenere presenti le specifiche dell'XHTML universale'. La documentazione relativa a tali 
+	  specifiche &egrave; disponibile <a href="xhtml_universale.html">qui</a>.
+	  </p>
+	  <h3>Struttura delle risorse statiche in modalit&agrave; <i>neutral/M2</i></h3>
+	  <p>
+	  
+	  TODO
+	  </p>
+   </body>
+</html>
