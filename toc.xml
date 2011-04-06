@@ -88,6 +88,8 @@
        </topic>
        <topic href="html/guigen/wizards/wizards_dinamica.html" label="Wizard dinamica">
        </topic>
+       <topic href="html/guigen/wizards/wizards_dati.html" label="Wizard modellazione strutture dati e variabili applicative">
+       </topic>
     </topic>
     <topic href="html/guigen/cartridges.html" label="Cartridges">
     </topic>
@@ -111,6 +113,8 @@
     </topic>
     <topic href="html/guigen/guides/guides.html" label="Guide">
        <topic href="html/guigen/guides/stilizzazione_grafica/index.html" label="Stilizzazione grafica">
+       </topic>
+       <topic href="html/guigen/guides/wysiwyg_editor/index.html" label="Utilizzo editor/vista grafica schermate">
        </topic>
     </topic>
     <topic href="html/guigen/rationale.html" label="Appendice: design rationale">
