@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Guida all'utilizzo dell'editor di schermate (sperimentale)</title>
+      <link type="text/css" href="../../mddtools.css" rel="stylesheet"/>
+   </head>
+
+   <body>
+      <h2>
+         Guida all' utilizzo dell' editor di schermate WYSIWYG <font color="red">(sperimentale)</font>
+      </h2>
+      <p>L' editor/visualizzatore grafico di schermate <i>WYSIWYG</i> (What You See Is What You Get) 
+      &egrave; uno strumento che permette di:
+      <ul>
+      <li>visualizzare in tempo reale nel workbench di modellazione l'aspetto strutturale delle singole
+      schermate (ContentPanel)</li>
+      <li>compiere alcune operazioni di modellazione direttamente sulla vista grafica sulle schermate</li>
+      </ul>
+      </p>
+      
+      <h3>Installazione dell'editor di schermate</h3>
+      <p>L'editor di schermate <i>wysiwyg</i> &egrave; disponibile come feature accessoria nell'update-site
+      di <b>guigen</b>. Per la sua installazione &egrave; dunque sufficiente selezionare anche la feature
+      corrispondente in fase di aggiornamento dei plugin guigen.</p>
+      <p><font color="red">N.B:</font> questa feature necessita del <i>bundle</i> basato su <i>eclipse Helios</i>
+      e non funziona con il <i>bundle</i> basato su <i>eclipse Galileo</i>.</p>
+      
+      <h3>Creazione di un diagramma di schermata a partire da un modello esistente</h3>
+      <p>La modalit&agrave; canonica di utilizzo dell'editor <i>wysiwyg</i> consiste nella creazione dei un 
+      diagramma a partire dal modello di un <b>ContentPanel</b> gi&agrave; esistente.</p>
+      <p>Per fare ci&ograve; &egrave; sufficiente eseguire i seguenti passi:
+      <ol>
+      <li>selezionare nell'albero a sinistra il file contenente il <b>ContentPanel</b> di cui si desidera
+      creare il diagramma;</li>
+      <li>selezionare il menu contestuale &quot;<i>Initialize guigen diagram file</i>&quot;</li>
+      <li>scegliere la collocazione e il nome del file che conterr&agrave; il diagramma, tenendo conto che esiste
+      una relazione 1-n tra modello e diagrammi (ovvero &egrave; necessario creare un diagramma per ogni <b>ContentPanel</b> e un singolo)
+      modello contiene  in genere vari <b>ContentPanel</b>)</li>
+      <li>Navigare nella struttura ad albero del modello e selezionare il nodo relativo al <b>ContentPanel</b> del
+      quale si desidera inizializzare il diagramma</li>
+      </ol>
+      Al termine delle operazioni appena descritte il sistema generer&agrave; un file contenente la struttura
+      grafica del <b>ContentPanel</b> selezionato. Tale diagramma viene automaticamente sincronizzato con il 
+      modello: in questo modo ogni modifica effettuata sul modello &egrave; immediatamente visibile sul diagramma.
+      </p>
+      <p>Nella figura seguente &egrave; mostrato un esempio di diagramma di schermata.</p>
+      <img src="img/wysiwyg_1.gif" alt="esempio di diagramma di schermata" />
+      
+      <h3>Operazioni di modellazione ammesse direttamente sulla vista grafica</h3>
+      <p>L'utilizzo attualmente previsto per il diagrammatore di schermate &egrave; principalmente di 
+      <i>fast preview</i> (editing sulla struttura ad albero e verifica della preview nel diagramma).</p>
+      <p>E' per&ograve; possibile effettuare un insieme limitato di operazioni di modellazione agendo 
+      direttamente sul diagramma. In particolare &egrave; possibile lanciare dal diagramma tutti i 
+      <i>wizard</i> previsti. Per un elenco dei wizard disponobili &egrave; possibile consultare l'apposita
+      <a href="../../wizards.html">sezione</a>.</p>
+      <p>Ovviamente l'attivazione dei wizard avviene agendo con il menu contestuale <i>wizards</i>
+      attivato cliccando con il tasto destro del mouse sull'oggetto per cui tale wizard &egrave; previsto.
+      Esempi:
+      <ul>
+      <li>per creare la struttura inziale della schermata da un <b>ContentPanel</b> vuoto &egrave; sufficiente
+      attivare il menu <i>wizards</i> cliccando sul canvas 'bianco' del diagramma;</li>
+      <li>per creare una struttura di campi relativa ad un <b>ApplicationData</b> di tipo strutturato &egrave;
+      necessario attivare il menu <i>wizards</i> cliccando con il tasto destro dell'area grafica che visualizza
+      un <b>WidgetsPanel</b> pre-esistente.</li>
+      </ul>
+      </p>
+      
+      <h3>Limitazioni conosciute</h3>
+      <p>Attualmente sono conosciute le seguenti limitazioni aggiuntive:
+      <ol>
+      <li>non &egrave; disponibile l'editing delle properties del modello direttamente nel diagrammatore;
+      &egrave; necessario impostare le properties nell'editor ad albero</li>
+      <li>In caso di modello incompleto o scorretto per quanto riguarda le porzioni di modello che definiscono
+      il layout delle schermate il diagamma non sar&agrave; visualizzabile. Per evitare questa situazione &egrave;
+      necessario che:
+      	<ul>
+      	<li>tutti i pannelli abbiano un layout impostato</li>
+      	<li>nei casi in cui un pannello contenitore possieda un layout di tipo <b>UDLRC</b> o <b>Grid</b> 
+      	tutti gli elementi contenuti possiedano il relativo specificatore (quadrante di collocazione nel caso
+      	<b>UDLRC</b> e coordinate della cella nel caso <b>Grid</b>)</li>
+      	</ul>
+      	In tali casi &egrave; necessario correggere il modello dall'editor gerarchico e riaprire il diagramma.
+      </li>
+      </ol>
+      </p>
+   </body>
+</html>
