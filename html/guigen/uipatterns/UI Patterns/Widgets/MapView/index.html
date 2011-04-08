@@ -247,12 +247,28 @@ i tool di editing corretti
 	</tr>
 
 	<tr>
-	<td class="featureCod">WMAP026</td>
-	<td class="featureName">limitazione editing in modifica</td>
-	<td class="featureDescr">Possibilit&agrave; da parte dello sviluppatore di inibire/abilitare le attivit&agrave;
-di modifica sulle geometrie presenti nel layer di editing.
-A seconda delle scelte fatte la mappa presenter&agrave;/non presenter&agrave;
-il tool di editing in modifica
+	<td class="featureCod">WMAP027</td>
+	<td class="featureName">definizione comportamento disabilitazione</td>
+	<td class="featureDescr">Il widget <b>MapView</b> &egrave; un widget complesso. Di conseguenza il 
+comportamento del widget in caso di disabilitazione deve essere definito
+specificando puntualmente quali aspetti del widget devono essere disabilitati.
+Le opzioni possibili (attivabili l'una indipendentemente dall'altra) sono:
+<ul>
+<li>disabilitazione dell' evento di click: se questa opzione &egrave; attivata
+in caso di disabilitazione del widget un eventuale evento di click non sar&agrave;
+disponibile</li>
+<li>disabilitazione delle funzioni di editing: se questa opzione &egrave; attivata
+in caso di disabilitazione del widget le funzionalit&agrave; di editing di geometrie
+non saranno disponibili</li>
+<li>disabilitazione della funzionalit&agrave; di zoom: se questa opzione &egrave; attivata
+in caso di disabilitazione del widget non sar&agrave; possibile effettuare lo 
+zoom sulla mappa</li>
+<li>disabilitazione della funzionalit&agrave; di pan: se questa opzione &egrave; attivata
+in caso di disabilitazione del widget non sar&agrave; possibile effettuare il
+pan sulla mappa</li>
+
+
+</ul>
 	</td>
 	</tr>
       
@@ -430,7 +446,7 @@ L'insieme di geometrie visualizzate nel layer
 <tr>
 <td>WMAP011</td><td class="feature">layer switch</td>
 <td><img src="./../../../img/no.gif" /></td>
-<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
 <td>WMAP013</td><td class="feature">evento di click</td>
@@ -460,12 +476,12 @@ L'insieme di geometrie visualizzate nel layer
 <tr>
 <td>WMAP026</td><td class="feature">limitazione tipologie di geometrie editabili</td>
 <td><img src="./../../../img/no.gif" /></td>
-<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 <tr>
-<td>WMAP026</td><td class="feature">limitazione editing in modifica</td>
+<td>WMAP027</td><td class="feature">definizione comportamento disabilitazione</td>
 <td><img src="./../../../img/no.gif" /></td>
-<td><img src="./../../../img/no.gif" /></td>
+<td><img src="./../../../img/yes.gif" /></td>
 </tr>
 
 	<tr><td class="featureCategory" colspan="0">struttura</td></tr>
