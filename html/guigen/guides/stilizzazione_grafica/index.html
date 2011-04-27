@@ -93,5 +93,84 @@
 	  Nella modalit&agrave; <i>neutral/M2/remota</i> tale cartella &egrave; generata dalla cartuccia di generazione
 	  <i>webres.oaw</i> e deve essere installata (copiata) sul web server unitamente all'installazione dell'applicazione 
 	  J2EE nell'application server</p>
+	  <p>Di fatto, per&ograve; &egrave; necessario creare manualmente le risorse statiche.
+	  Le risorse necessarie sono le seguenti:
+	  <table border="1">
+	  <thead><tr><td><b>risorsa</b></td><td><b>descrizione</b></td><td><b>posizione sul webserver</b></td><td><b>note</b></td></tr></thead>
+	  <tbody>
+	  <tr>
+	  <td>css di applicazione</td>
+	  <td>file CSS che contiene le stilizzazioni specifiche dell'applicativo. Tra le stilizzazioni
+	  specifiche di applicativo rientrano anche ad esempio la stilizzazione dell'header di applicazione
+	   (ad esempio per apporre una immagine sul banner dell'applcativo)</td>
+	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/css/[cod_applicativo].css</code></td>
+	  <td>il file &egrave; opzionale e deve essere creato a carico del progetto. E' consigliabile
+	  comunque creare almeno il file vuoto perch&egrave; il browser lo cerca comunque</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>header di applicazione</td>
+	  <td>file contenente un frammento di codice HTML che contiene il markup dell'header di applicazione,
+	  dove tipicamente viene inserito il nome dell'applicazione, e un eventuale banner grafico.</td>
+	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/include/application_header.html</code></td>
+	  <td>il file &egrave; obbligatorio e deve essere creato a carico del progetto. 
+	  Un esempio di codice &egrave; il seguente: <br>
+	  
+	  <pre>
+	  	&lt;div id="applicationHeader"&gt;
+			&lt;h2&gt;Mio Applicativo&lt;/h2&gt; 
+		&lt;/div&gt;
+	  </pre>
+	  </td>
+	  </tr>
+	  
+	  <tr>
+	  <td>static links</td>
+	  <td>file contenente un frammento di codice HTML che contiene il markup degli &quot;static links&quot;
+	  dell'applicazione (tipicamente i link di help on line e contatti).</td>
+	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/include/static_links.html</code></td>
+	  <td>il file &egrave; obbligatorio e deve essere creato a carico del progetto. 
+	  Un esempio di codice &egrave; il seguente: <br>
+	  
+	  <pre>
+	  	&lt;li&gt;
+			&lt;a href="/ris/utheme/[cod_canale]/[cod_appl]/help.html" class="aprihelp"&gt;
+					help
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="/ris/utheme/[cod_canale]/[cod_appl]/contatti.html" class="apricontatti"&gt;
+					contatti
+			&lt;/a&gt;
+			&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="/ris/utheme/[cod_canale]/[cod_appl]/popup.html" class="apri"&gt;
+					nuova finestra
+			&lt;/a&gt;
+		&lt;/li&gt;
+	  </pre>
+	  (La presenza delle classi &quot;apri&quot;,&quot;apriHelp&quot;,&quot;apriContatti&quot; permette, grazie 
+	  ad un arricchimento standard presente in tutti gli skin, l'apertura del link corrispondente in una
+	  finestra/popup separata, come previsto dagli standard).
+	  </td>
+	  </tr>
+	  
+	  <tr>
+	  <td>immagini di applicazione</td>
+	  <td>immagini specifiche dell'applicazione (es. immagine del banner di applicazione, icone aggiuntive, ...)</td>
+	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/css/im/...<code></td>
+	  <td>la cartella e i relativi files sono opzionali e devono essere creati a carico del progetto.</td>
+	  </tr>
+	  
+	  <tr>
+	  <td>altri file</td>
+	  <td>eventuali altri file necessari per l'applicazione</td>
+	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/...<code></td>
+	  <td>eventuali altri file possono essere liberamente collocati nella cartella relativa all'applicazione o in eventuali
+	  sottocartelle specifiche (es. file di help, file di contatti, ...)</td>
+	  </tr>
+	  </tbody>
+	  </table>
+	  </p>
    </body>
 </html>
