@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Datagen - Reverse Engineering Wizard</title>
+   </head>
+
+   <body>
+      <h2>
+         Datagen - Reverse Engineering Wizard
+      </h2>
+      <p>
+         E' diponibile un <i>wizard</i> per ottenere il modello <i>rdbmdl</i> a partire dai
+         metadati di uno schema Oracle. Il wizard si collega via <i>jdbc</i> ad un database
+         e ne estrae i metadati, producendo il modello che descrive lo schema delle tabelle. 
+      </p>
+      <h3>Configurazione del wizard</h3>
+      <p>Poich&egrave; il wizard ha la necessit&agrave; di collegarsi con un DBMS per estrarre
+      i metadati, &egrave; necessario configurare la posizione del jar che contiene i driver jdbc
+      da utilizzare.</p>
+      <p>Per fare ci&ograve; &egrave; necessario configurare una variabile di sistema nel file 
+      <i>eclipse.ini</i> all'interno della directory di installazione di <i>eclipse</i>.</p>
+      <p>In particolare &egrave; necessario impostare le seguenti variabili:
+      <ul>
+      <li><code>datagen.jdbc.oracle.drivers</code>, deve essere impostato con il percorso completo del 
+      jar dei driver oracle, es. : <code>C:/devtools/libraries/jdbc/oracle/ojdbc14-10.2.0.3.0.jar</code></li>
+      </ul>
+	  Di seguito un esempio di file di configurazione:
+	  <pre>
+-startup
+plugins/org.eclipse.equinox.launcher_1.1.0.v20100507.jar
+--launcher.library
+plugins/org.eclipse.equinox.launcher.win32.win32.x86_1.1.0.v20100503
+-product
+org.eclipse.epp.package.modeling.product
+--launcher.defaultAction
+openFile
+--launcher.XXMaxPermSize
+256M
+-showsplash
+org.eclipse.platform
+--launcher.XXMaxPermSize
+256m
+--launcher.defaultAction
+openFile
+-vmargs
+-Ddatagen.jdbc.postgres.drivers=C:/devtools/libraries/jdbc/postgres/postgresql-9.0-801.jdbc3.jar
+-Ddatagen.jdbc.oracle.drivers=C:/devtools/libraries/jdbc/oracle/ojdbc14-10.2.0.3.0.jar
+-Dosgi.requiredJavaVersion=1.5
+-Xms40m
+-Xmx512m
+	  </pre>
+      </p>
+      <h3>Esecuzione del wizard</h3>
+      <p>Il wizard viene attivato tramite il menu <code>File -&gt; new -&gt; other... -&gt; Datagen Wizards 
+      -&gt; RDB Schema Reverse Engineering</code>.
+      </p>
+      <p>All'avvio del wizard &egrave; necessario: 
+      <ul>
+      <li>selezionare la cartella dove verrà creato il risultato del reverse engineering</li>
+      <li>impostare il nome del file (estensione <code>.rdbmdl</code>).
+      <li>impostare l'url <i>jdbc</i> di connessione al DB</li>
+      <li>impostare lo username e la password di connessione</li>
+      <li>impostare il nome dello schema (tipicamente in oracle coincide con l'utente)</li>
+      </ul>
+      </p>
+      <img src="../img/reverse_wizard.gif" alt="schermata del wizard di reverse engineering"/>
+      <p>
+      Al termine dell'esecuzione del wizard sar&agrave; disponibile alla posizione indicata un modello
+      che contiene le strutture DB del database selezionato. 
+      </p>
+      <img src="../img/sample_rdbmdl_1.gif" />
+   </body>
+</html>
