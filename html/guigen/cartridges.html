@@ -338,6 +338,35 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </tr>
 	  
 	  <tr>
+	  <td><code>guigen.clientLibs.enableAutoServicePack</code></td>
+	  <td>
+	  	<ul>
+	  	<li>scopo: se impostato a <i>true</i> e se nel <b>TargetPlatform</b> del modello principale 
+	  &egrave; impostato l'utilizzo delle funzioni ricche, che prevedono l'utilizzo di librerie JS
+	  per la loro implementazione, verr&agrave; abilitata la possibilit&agrave; di recepire automaticamente
+	  (ovvero senza dover aggiornare il plugin + rigenerare + rideployare) i <i>fix critici</i> apportati alle
+	  librerie JS successivamente alla data di pubblicazione del plugin. Ad esempio, supponendo che alla
+	  data di rilascio della versione 1.6.1 di guigen la libreria <i>extcsienricher</i> utilizzata fosse
+	  la <b>1.4.0</b>, se la property &egrave; impostata a <i>true</i> il codice html referenzier&agrave; 
+	  la cartella <i>1.4.latest</i> mentre se la propriet&agrave; &egrave; impostata a <i>false</i> il codice
+	  html referenzier&agrave; la cartella <i>1.4.0</i>. Nel momento in cui dovesse essere rilasciata una
+	  correzione critica (<i>1.4.1</i>) della libreria questa verrebbe rilasciata sul sito
+	  	<ul>
+	  	<li>in una nuova cartella 1.4.1, per referenziare la quale occorrer&agrave; attendere una nuova
+	  	versione di guigen</li>
+	  	<li>nella cartella 1.4.latest, sovrascrivendo la vecchia versione</li>
+	  	</ul>
+	  </li>
+   		<li>default: false</li>
+	  	</ul>
+	  </td>
+	  <td>true</td>
+	  <td>
+	  	<i>struts2Basic.oaw</i> e <i>struts2BasicSingleModule.oaw</i> con <i>portal</i>="neutral", <i>webres.oaw</i></td>
+	  </td>
+	  </tr>
+	  
+	  <tr>
 	  <td><code>generate-appmodules</code></td>
 	  <td>
 	  	<ul>
