@@ -280,13 +280,89 @@
      	dell'elenco di suggerimenti. La <i>query</i> immessa dall'utente sar&agrave; contenuta
      	nell <b>ApplicationData</b> associato al campo di testo (<i>value-binding</i>) mentre il 
      	risultato (elenco di suggerimenti da restituire al client) deve essere inserito
-     	nell'<b>ApplicationData</b> modellato al punto 2</li>
+     	nell'<b>ApplicationData</b> modellato al punto 1</li>
      	</ol>
+     </p>
+     <p>Opzionalmente &egrave; possibile impostare il numero minimo di caratteri che l'utente deve
+        digitare affinch&egrave; venga lanciata la richiesta allo strato server. Per fare questo &egrave;
+        necessario impostare un elemento nell'attributo <i>eventSpecifiers</i> dell' <b>EventHandler</b>
+        (<i>KEY_PRESSED</i>): il contenuto di tale specificatore di evento deve essere del formato:
+        <code>min_chars=n</code> (dove <i>n</i> deve essere sostituito con il numero di caratteri prescelto).
+     	Il valore di default &egrave di 4 caratteri.
      </p>
      </div>
      <br/>
      
      <!-- 10 -->
+     <div class="faq_question">
+     <p>Q: I requisiti utente prevedono la necessit&agrave; di implementare la funzionalit&agrave;
+     di <i>suggestion</i> su una Combo-Box. Ho letto nel catalogo dei pattern u.i che questa
+     &egrave; una funzionalit&agrave; disponibile, ma non ho capito come sia possibile
+     attivarla.</p>
+     </div>
+     <div class="faq_answer">
+     <p><b>A:</b> La funzionalit&agrave; di <i>suggestion</i> si attiva modellando sulla <b>ComboBox</b>
+     un <b>EventHandler</b> relativo all'evento <i>KEY_PRESSED</i> e implementando la logica di 
+     esecuzione di creazione delle voci suggerite, a fronte dell'immissione parziale nel campo di testo
+     implicitamente associato alla combo. 
+     </p>
+     <p>La funzionalit&agrave; &egrave; per certi versi analoga a quella attivabile sul <b>TextField</b>, ma
+     vi sono alcune importanti considerazioni riguardanti le differenze tra <b>ComboBox</b> con e senza <i>suggestion</i>
+     e le differenze tra <b>TextField</b> con <i>suggestion</i> e <b>ComboBox</b> con <i>suggestion</i>:
+     	<ul>
+     	<li>nel caso del <b>TextField</b> l'<b>ApplicationData</b> che contiene i suggerimenti ottenuti dal server
+     	&egrave; contiene un elenco di testi descrittivi (tipo: array di stringhe), mentre nel caso della <b>ComboBox</b>
+     	esso contiene un elenco di oggetti complessi, esattamente come in una <b>ComboBox</b> senza <i>suggestion</i>:
+     	questo permette di associare come valore di selezione della <b>ComboBox</b> il campo codice e non la sola
+     	descrizione testuale</li>
+     	<li>nel caso della <b>ComboBox</b> con <i>suggestion</i> il <i>value-binding</i> &egrave; di tipo complesso (ovvero dello stesso
+     	tipo delle opzioni selezionabili) mentre nel caso di <b>ComboBox</b> senza <i>suggestion</i> il tipo dato associato al widget
+     	&egrave; di tipo semplice: di conseguenza &egrave; differente il modo in cui si pu&ograve; recuperare l'indicazione
+     	dell'elemento selezionato. Nel caso della suggestion, infatti, &egrave; necessario accedere alla propriet&agrave; chiave dell'oggetto
+     	associato come binding (es.: tipo <code>Comune {cod, descr}</code>: il codice &egrave; contenuto nel campo
+     	&quot;cod&quot;)</li>
+     	<li>nel caso del <b>TextField</b> con <i>suggestion</i> il testo digitato dall'utente &egrave; direttamente disponibile
+     	nel valore dell'<b>ApplicationData</b> associato con <i>value-binding</i>, mentre nel caso della <b>ComboBox</b>
+     	con <i>suggestion</i> tale testo deve essere recuperato accedendo alla propriet&agrave; non-chiave dell'oggetto
+     	associato come <i>value-binding</i> (es.: tipo <code>Comune {cod, descr}</code>: il testo &egrave; contenuto nel campo
+     	&quot;descr&quot;)</li>
+     	</ul>
+     </p>
+     <p>Pi&ugrave; in dettaglio per implementare la <i>suggestion</i> su una <b>ComboBox</b> &egrave; necessario eseguire le seguenti
+        operazioni:
+     	<ol>
+     	<li>modellare un application data a scope SESSION destinato a contenere le opzoni selezionabili, esattamente come nel caso 
+     	della <b>ComboBox</b> senza <i>suggestion</i>; modellare anche il <i>collection-binding</i> come di consueto. 
+     	</li>
+     	<li>modellare un <i>value-binding</i> verso un <b>ApplicationData</b> che abbia come tipo il tipo degli elementi della
+     	<b>ComboBox</b></li>
+     	<li>modellare come di consueto gli attributi <i>keySelector</i> e <i>valueSelector</i></li>
+     	<li>modellare un <b>EventHandler</b>(<i>KEY_PRESSED</i>) sulla <b>ComboBox</b> sul quale 
+     	si vuole attivare la funzione di suggerimento</li>
+     	<li>associare al gestore di evento un unico comando di tipo <b>ExecCommand</b>:
+     	ad esso sar&agrave; associato il metodo java di business logic che implementer&agrave;
+     	la costruzione della lista di suggerimenti. L' <b>ExecCommand</b> dovr&agrave; avere
+     	una unica uscita possibile (es. "OK") con associato un <b>NOPCommand</b></li>
+     	<li>nel metodo java associato all'<b>ExecCommand</b> implementare la logica di costruzione
+     	dell'elenco di suggerimenti. La <i>query</i> immessa dall'utente sar&agrave; contenuta
+     	nell <b>ApplicationData</b> associato ala combo (<i>value-binding</i>), ma nella properiet&agrave;
+     	referenziata nella <b>ComboBox</b> come <i>keySelector</i>,  mentre il 
+     	risultato (elenco di suggerimenti da restituire al client) deve essere inserito
+     	nell'<b>ApplicationData</b> modellato al punto 1</li>
+     	</ol>
+     </p>
+     <p>Opzionalmente &egrave; possibile impostare il numero minimo di caratteri che l'utente deve
+        digitare affinch&egrave; venga lanciata la richiesta allo strato server. Per fare questo &egrave;
+        necessario impostare un elemento nell'attributo <i>eventSpecifiers</i> dell' <b>EventHandler</b>
+        (<i>KEY_PRESSED</i>): il contenuto di tale specificatore di evento deve essere del formato:
+        <code>min_chars=n</code> (dove <i>n</i> deve essere sostituito con il numero di caratteri prescelto).
+        Il valore di default &egrave di 4 caratteri.
+     </p>
+     </div>
+     <br/>
+     
+     
+     <!-- 11 -->
      <div class="faq_question">
      <p>Q: e'possibile impedire il cambio del tab corrente a fronte, ad esempio, di un 
      errore di validazione o di una particolare condizione di logica applicativa?</p>
@@ -306,7 +382,7 @@
      </div>
      <br/>
      
-     <!-- 11 -->
+     <!-- 12 -->
      <div class="faq_question">
      <p>Q: Ho la necessit&agrave; di rendere invisibili/disabilitate alcune voci di menu
      a fronte dello stato applicativo: &egrave; possibile?</p>
@@ -320,7 +396,7 @@
      </div>
      <br/>
      
-     <!-- 12 -->
+     <!-- 13 -->
      <div class="faq_question">
      <p>Q: Ho aggiunto alcuni widget nella mia schermata (nella quale sono anche modellati
      degli ScreenState) ma essi non risultano visibili dopo la rigenerazione. Come mai?</p>
@@ -333,7 +409,7 @@
      </div>
      <br/>
      
-     <!-- 13 -->
+     <!-- 14 -->
      <div class="faq_question">
      <p>Q: Ho la necessit&agrave; di implementare il pattern di <i>popolamento di combo
      a cascata</i>: come posso fare?</p>
@@ -415,7 +491,7 @@
      </div>
      <br/>
      
-     <!-- 14 -->
+     <!-- 15 -->
      <div class="faq_question">
      <p>Q: Ho la necessit&agrave; di visualizzare una pagina/report pdf in una nuova finestra o in un 
      popup dialog. Come posso fare?</p>
