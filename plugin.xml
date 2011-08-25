@@ -5,6 +5,7 @@
    <extension
          point="org.eclipse.help.toc">
       <toc
+            category="MDDTools"
             file="toc.xml"
             primary="true">
       </toc>
