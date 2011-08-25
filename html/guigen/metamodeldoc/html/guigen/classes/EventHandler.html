@@ -28,6 +28,7 @@
 <td>
 <p>Direct Attributes</p>
 <ul>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/EventHandler.html#at_eventSpecifiers">eventSpecifiers</a></li>
 	<li><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/EventTypes.html">guigen :: EventTypes</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/EventHandler.html#at_eventType">eventType</a></li>
 	<li><img src="../../icons/ecore/EEnum.gif" /><a href="../../guigen/datatypes/MethodProtectionTypes.html">guigen :: MethodProtectionTypes</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/EventHandler.html#at_methodProtection">methodProtection</a></li>
 	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EBoolean.html">ecore :: EBoolean</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/EventHandler.html#at_skipValidation">skipValidation</a></li>
@@ -60,10 +61,82 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Menu.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Menu.html">guigen :: Menu</a>)</li>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuItem.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuItem.html">guigen :: MenuItem</a>)</li>
 	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Widget.html#re_eventHandlers">eventHandlers</a> (<img src="../../icons/ecore/DAbstractClass.gif" /><a href="../../guigen/classes/Widget.html">guigen :: Widget</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/MenuItem.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/MenuItem.html">guigen :: MenuItem</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/EventHandler.html">guigen :: EventHandler</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/Menu.html#re_eventHandler">eventHandler</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/Menu.html">guigen :: Menu</a>)</li>
 </ul>
+
+<h2><a name="at_eventSpecifiers" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString eventSpecifiers</h2>
+<p>Permette di specificare ulteriormente la gestione dell'evento. 
+E' possibile inserire 0, 1 o molti specificatori:
+<ul>
+<li>lo specificatore viene scritto in formato testo e la 
+ sintassi di ciascun specificatore &egrave; tipicamente del tipo:
+&lt;cod_specificatore&gt;=&lt;val_specificatore&gt; 
+(esempio: <i>min_chars=3</i>)
+</li>
+<li>le possibili valorizzazioni dipendono fortemente dal tipo di evento gestito.
+Attualmente le possibiit&agrave; sono:
+  <ul>
+  <li>evento <b>KEYPRESSED</b>:
+    <ul>
+    <li><i>min_chars=&lt;numero&gt;</i>: permette di specificare il numero
+           di caratteri minimo affinch&egrave; scatti la query di <i>suggestion</i>
+           (il default &egrave: 4)
+     </li>
+    </ul>
+  </li>
+  </ul>
+</li>
+</ul></p>
+
+
+
+<table border="1">
+<thead>
+<tr><th>Property</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>type</td><td><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a></td></tr>
+
+<tr><td>changeable</td><td>true</td></tr>
+
+
+<tr><td>defaultValueLiteral</td><td>null</td></tr>
+
+
+<tr><td>derived</td><td>false</td></tr>
+
+
+<tr><td>iD</td><td>false</td></tr>
+
+
+<tr><td>lowerBound</td><td>0</td></tr>
+
+
+<tr><td>name</td><td>eventSpecifiers</td></tr>
+
+
+<tr><td>ordered</td><td>true</td></tr>
+
+
+<tr><td>transient</td><td>false</td></tr>
+
+
+<tr><td>unique</td><td>true</td></tr>
+
+
+<tr><td>unsettable</td><td>false</td></tr>
+
+
+<tr><td>upperBound</td><td>-1</td></tr>
+
+
+<tr><td>volatile</td><td>false</td></tr>
+
+
+</tbody>
+</table>
 
 <h2><a name="at_eventType" /><img src="../icons/ecore/EAttribute.gif" />Attribute guigen :: EventTypes eventType</h2>
 <p>Specifica il tipo di evento per cui &egrave; definito questo event handler.</p>
@@ -299,4 +372,4 @@ il comando specificato in questo elemento.</p>
 </tbody>
 </table>
 
-<div>generated on 8-apr-2011 at 11.18.07 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
+<div>generated on 25-ago-2011 at 11.17.13 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>

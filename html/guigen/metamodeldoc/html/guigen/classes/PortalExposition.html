@@ -3,16 +3,16 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Developer documentation for the model class ActivationParam</title>
+	<title>Developer documentation for the model class PortalExposition</title>
 	</head><body>
-<h1>Class "guigen :: ActivationParam"</h1>
+<h1>Class "guigen :: PortalExposition"</h1>
 <p>Defined in package : <img src="../../icons/ecore/EPackage.gif" /><a href="../../guigen/package.html">guigen</a></p>
+<p>Rappresenta la singola esposizione di un'applicazione su uno specifico
+portale, nell'ambito di una esposizione multi-portale.
+Nel caso in cui il portale preveda differenti aree tematiche qui si specifica anche 
+su qyale delle aree tematiche l'applicativo deve essere esposto</p>
 
 
-<p>Annotations</p>
-<ul>
-	<li><img src="../icons/ecore/EAnnotation.gif" /><a href="../../guigen/classes/ActivationParam.html#an_logicpkg">logicpkg</a></li>
-</ul>
 
 
 
@@ -27,7 +27,7 @@
 <td>
 <p>Direct Attributes</p>
 <ul>
-	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/ActivationParam.html#at_name">name</a></li>
+	<li><img src="../../icons/ecore/EDataType.gif" /><a href="../../ecore/datatypes/EString.html">ecore :: EString</a> <img src="../icons/ecore/EAttribute.gif" /><a href="../../guigen/classes/PortalExposition.html#at_areaCode">areaCode</a></li>
 </ul>
 
 </td>
@@ -38,7 +38,7 @@
 <td>
 <p>Direct References</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/SimpleType.html">guigen :: SimpleType</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ActivationParam.html#re_type">type</a></li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/PortalProfile.html">guigen :: PortalProfile</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/PortalExposition.html#re_portal">portal</a></li>
 </ul>
 
 </td>
@@ -57,10 +57,13 @@
 
 <p>Referenced by</p>
 <ul>
-	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ActivationParam.html">guigen :: ActivationParam</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/ActivationModel.html#re_activationParams">activationParams</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/ActivationModel.html">guigen :: ActivationModel</a>)</li>
+	<li><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/PortalExposition.html">guigen :: PortalExposition</a> <img src="../icons/ecore/EReference.gif" /><a href="../../guigen/classes/TargetPlatform.html#re_portalExpositions">portalExpositions</a> (<img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/TargetPlatform.html">guigen :: TargetPlatform</a>)</li>
 </ul>
 
-<h2><a name="at_name" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString name</h2>
+<h2><a name="at_areaCode" /><img src="../icons/ecore/EAttribute.gif" />Attribute ecore :: EString areaCode</h2>
+<p>Codice dell'area tematica del portale nella quale &egrave; esposto l'applicativo.
+In caso di portali che non prevedano aree tematiche differenziate occorre
+specificare l'area tematica &quot;general&quot;</p>
 
 
 
@@ -86,7 +89,7 @@
 <tr><td>lowerBound</td><td>0</td></tr>
 
 
-<tr><td>name</td><td>name</td></tr>
+<tr><td>name</td><td>areaCode</td></tr>
 
 
 <tr><td>ordered</td><td>true</td></tr>
@@ -111,7 +114,9 @@
 </table>
 
 
-<h2><a name="re_type" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: SimpleType type</h2>
+<h2><a name="re_portal" /><img src="../icons/ecore/EReference.gif" />Reference guigen :: PortalProfile portal</h2>
+<p>riferimento al profilo del portale di esposizione
+</p>
 
 
 
@@ -120,7 +125,7 @@
 <tr><th>Property</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/SimpleType.html">guigen :: SimpleType</a></td></tr>
+<tr><td>type</td><td><img src="../../icons/ecore/EClass.gif" /><a href="../../guigen/classes/PortalProfile.html">guigen :: PortalProfile</a></td></tr>
 
 <tr><td>changeable</td><td>true</td></tr>
 
@@ -137,7 +142,7 @@
 <tr><td>lowerBound</td><td>0</td></tr>
 
 
-<tr><td>name</td><td>type</td></tr>
+<tr><td>name</td><td>portal</td></tr>
 
 
 <tr><td>ordered</td><td>true</td></tr>
@@ -165,15 +170,5 @@
 </table>
 
 
-<h2><a name="an_logicpkg" />Annotation logicpkg</h2>
-<table border="1">
-<thead>
-<tr><th>Key</th><th>Value</th></tr>
-</thead>
-<tbody>
-<tr><td>pkg</td><td>app</td></tr>
-
-</tbody>
-</table>
 
 <div>generated on 25-ago-2011 at 11.17.13 by <a href="http://metamodeldoc.randomice.net">metamodeldoc</a></div></body></html>
