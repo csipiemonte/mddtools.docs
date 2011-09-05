@@ -387,7 +387,8 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  <td>
 	  	<ul>
 	  	<li>scopo: serve per impostare la dimensione massima (in byte) per il widget fileUpload. Se la property non viene
-	  	specificata, Struts2 utilizza il default di 2Mb.</li>
+	  	specificata, Struts2 utilizza il default di 2Mb. Agisce come limite per il singolo file e
+	  	non &egrave; differenziabile all'interno dell'applicazione.</li>
    		<li>default: null</li>
 	  	</ul>
 	  </td>
@@ -401,7 +402,8 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  <td>
 	  	<ul>
 	  	<li>scopo: serve per impostare la dimensione massima totale (in byte) per il widget fileUpload, nel caso di upload di file multipli . Se la property non viene
-	  	specificata, si utilizza il default di 4524288 bytes, circa 4.3Mb.</li>
+	  	specificata, si utilizza il default di 4524288 bytes, circa 4.3Mb. Agisce come limite per la
+	  	dimensione totale dell'upload in una stessa schermata.</li>
    		<li>default: null</li>
 	  	</ul>
 	  </td>
