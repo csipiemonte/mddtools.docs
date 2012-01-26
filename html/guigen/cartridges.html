@@ -13,7 +13,7 @@
       </p>
       <h3>cartuccia di verifica dei modelli</h3>
 	  <p>
-	  La cartuccia <code>it/csi/mddtools/guigen/workflow/guigenCheck.oaw</code> serve per effettuare il check semantico
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/guigenCheck.mwe</code> serve per effettuare il check semantico
 	  dei vari sotto-modelli e prevede i seguenti parametri:
 	  
 	  <table border="1">
@@ -50,7 +50,7 @@
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/guigenCheck.oaw"</font>
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/guigenCheck.mwe"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
   <font color='#000080'>portal=</font><font color='#008000'>"sisp"</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <font color='#000080'>/&gt;</font><br>
@@ -61,7 +61,7 @@
 
 <h3>cartuccia di generazione prototipo di user interface</h3>
 	  <p>
-	  La cartuccia <code>it/csi/mddtools/guigen/workflow/guigenPrototype.oaw</code> serve per effettuare la generazione
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/guigenPrototype.mwe</code> serve per effettuare la generazione
 	  di un prototipo <i>navigabile</i> della user interface modellata. Il prototipo così ottenuto &egrave; permette di 
 	  verificare:
 	  
@@ -108,7 +108,7 @@
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/guigenPrototype.oaw"</font>
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/guigenPrototype.mwe"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
   <font color='#000080'>targetProjectName=</font><font color='#008000'>"mycomp.prototype"</font>&nbsp;
 <font color='#000080'>/&gt;</font><br>
@@ -123,7 +123,7 @@ poi applicare la cartuccia di <i>generazione</i> del prototipo.
 
 <h3>cartuccia di generazione completa dell'applicazione</h3>
 	  <p>
-	  La cartuccia <code>it/csi/mddtools/guigen/workflow/struts2Basic.oaw</code> serve per effettuare la generazione
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/struts2Basic.mwe</code> serve per effettuare la generazione
 	  completa dell'applicazione, e prevede i seguenti parametri:
 	  
 	  <table border="1">
@@ -202,7 +202,7 @@ poi applicare la cartuccia di <i>generazione</i> del prototipo.
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/struts2Basic.oaw"</font>
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/struts2Basic.mwe"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
   <font color='#000080'>targetProjectName=</font><font color='#008000'>"mycomp"</font>&nbsp;
   <font color='#000080'>staticResourcesSchemaVersion=</font><font color='#008000'>"M1"</font>&nbsp;  
@@ -217,7 +217,7 @@ poi applicare la cartuccia di <i>generazione</i>.
 </p>
 <p>
 E' disponibile anche una variante di questa cartuccia che permette di generare solo <b>singoli moduli</b>: 
-<code>it/csi/mddtools/guigen/workflow/struts2BasicSingleModule.oaw</code><br/>
+<code>it/csi/mddtools/guigen/workflow/struts2BasicSingleModule.mwe</code><br/>
 Questa cartuccia permette di rigenerare solo una parte dell'applicazione (un'insieme ben definito di <b>ApplicationModule</b>)
 allo scopo di diminuire i tempi di generazione a fronte di modelli molto complessi. L'elenco degli <b>ApplicationModule</b>
 da rigenerare &egrave; gestita in un file di properties tramite la propriet&agrave; <code>generate-appmodules</code>.
@@ -233,7 +233,7 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 
 <h3>cartuccia di generazione del progetto di risorse web</h3>
 	  <p>
-	  La cartuccia <code>it/csi/mddtools/guigen/workflow/webres.oaw</code> serve per effettuare la generazione
+	  La cartuccia <code>it/csi/mddtools/guigen/workflow/webres.mwe</code> serve per effettuare la generazione
 	  del progetto ausiliario contenete le risorse statiche (previsto dalla modalit&agrave; <b>M2</b>
 	  della cartuccia <i>struts2basic</i>).
 	  </p>
@@ -284,7 +284,7 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  Esempio:
 
 <pre>    
-<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/webres.oaw"</font>
+<font color='#000080'>&lt;cartridge</font>&nbsp;<font color='#000080'>file=</font><font color='#008000'>"it/csi/mddtools/guigen/workflow/webres.mwe"</font>
   <font color='#000080'>model=</font><font color='#008000'>"myprod.mdd/src/model/myprod/mycomp/myapp.guigen"</font>&nbsp;
   <font color='#000080'>targetProjectPrefix=</font><font color='#008000'>"mycompweb"</font>&nbsp;  
   <font color='#000080'>propertiesFile=</font><font color='#008000'>"src/workflow/myprod/mycomp/workflow.properties"</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -314,7 +314,7 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </td>
 	  <td>false</td>
 	  <td>
-	  	<i>struts2Basic.oaw</i> e <i>struts2BasicSingleModule.oaw</i> con <i>portal</i>="neutral"</td>
+	  	<i>struts2Basic.mwe</i> e <i>struts2BasicSingleModule.mwe</i> con <i>portal</i>="neutral"</td>
 	  </td>
 	  </tr>
 	  
@@ -333,7 +333,7 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </td>
 	  <td>true</td>
 	  <td>
-	  	<i>struts2Basic.oaw</i> e <i>struts2BasicSingleModule.oaw</i> con <i>portal</i>="neutral", <i>webres.oaw</i></td>
+	  	<i>struts2Basic.mwe</i> e <i>struts2BasicSingleModule.mwe</i> con <i>portal</i>="neutral", <i>webres.mwe</i></td>
 	  </td>
 	  </tr>
 	  
@@ -362,7 +362,7 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </td>
 	  <td>true</td>
 	  <td>
-	  	<i>struts2Basic.oaw</i> e <i>struts2BasicSingleModule.oaw</i> con <i>portal</i>="neutral", <i>webres.oaw</i></td>
+	  	<i>struts2Basic.mwe</i> e <i>struts2BasicSingleModule.mwe</i> con <i>portal</i>="neutral", <i>webres.mwe</i></td>
 	  </td>
 	  </tr>
 	  
@@ -378,7 +378,7 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </td>
 	  <td><code>modulo1,modulo2</code></td>
 	  <td>
-	  	<i>struts2BasicSingleModule.oaw</i></td>
+	  	<i>struts2BasicSingleModule.mwe</i></td>
 	  </td>
 	  </tr>
 	  
@@ -394,7 +394,7 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </td>
 	  <td><code>4000000 (circa 3.8 Mb)</code></td>
 	  <td>
-	  	<i>struts2Basic.oaw e struts2BasicSingleModule.oaw </i></td>
+	  	<i>struts2Basic.mwe e struts2BasicSingleModule.mwe </i></td>
 	  </tr>
 	  
 	  <tr>
@@ -409,10 +409,40 @@ contenga tutti gli <b>ApplicationModule</b> modificati nel modello</li>
 	  </td>
 	  <td><code>4000000 (circa 3.8 Mb)</code></td>
 	  <td>
-	  	<i>struts2Basic.oaw e struts2BasicSingleModule.oaw </i></td>
+	  	<i>struts2Basic.mwe e struts2BasicSingleModule.mwe </i></td>
 	  </tr>
 	  
+	  <tr>
+	  <td><code>guigen.javaPackageOrganizationName</code></td>
+	  <td>
+	  	<ul>
+	  	<li>scopo: serve per impostare un differente prefisso per i package java.
+	  	se non impostato il prefisso di default &egrave; quello standard CSIPiemonte, ovvero
+	  	<i>it.csi</i>.
+	  	</li>
+   		<li>default: null</li>
+	  	</ul>
+	  </td>
+	  <td><code>com.acme</code></td>
+	  <td>
+	  	<i>struts2Basic.mwe e struts2BasicSingleModule.mwe </i></td>
+	  </tr>
 	  
+	  <tr>
+	  <td><code>guigen.ivyRepositoryHost</code></td>
+	  <td>
+	  	<ul>
+	  	<li>scopo: serve per impostare un differente host come repository per ivy.
+	  	Se non impostato l'host di default &egrave; quello standard CSIPiemonte, ovvero
+	  	<i>repart.csi.it</i>.
+	  	</li>
+   		<li>default: null</li>
+	  	</ul>
+	  </td>
+	  <td><code>myrepository.acme.com</code></td>
+	  <td>
+	  	<i>struts2Basic.mwe e struts2BasicSingleModule.mwe </i></td>
+	  </tr>
 	  
 	  </tbody>
 </table>
@@ -452,7 +482,7 @@ L'esempio in questione ad esempio permette di mappare i due frammenti con URI:
 Per poter utilizzare questo componente di setup &egrave; necessario, inoltre, impostare la system 
 property <code>eclipse.home</code> nella configurazione di lancio del workflow:
 <br/>
-<img alt="" src="img/oaw_cfg_eclipse_home.gif" height="650" width="650">
+<img alt="" src="img/mwe_cfg_eclipse_home.gif" height="650" width="650">
 
 </p>
    </body>

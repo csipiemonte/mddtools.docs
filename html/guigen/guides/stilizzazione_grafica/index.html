@@ -11,7 +11,7 @@
       </h2>
       <h3>Da cosa dipende l'aspetto grafico delle applicazioni generate da guigen?</h3>
       <p>
-         L'aspetto grafico delle applicazioni web generate con la cartuccia <i>struts2Basic</i> di <b>guigen</b> 
+         L'aspetto grafico delle applicazioni web generate con la cartuccia <i>struts2Basic</i> di <b>guigen</b>
          dipende da due fattori:
          <ol>
          <li>la <i>cartuccia</i> di generazione utilizzata (ovvero il portale target)</li>
@@ -29,7 +29,7 @@
 	  <li><b>rupar</b>: generazione html basato sugli standard legacy del portale <i>ruparpiemonte</i> (vecchia versione)</li>
 	  <li><b>intranetrp</b>: generazione html basato sugli standard legacy del portale <i>intranet regione piemonte</i></li>
 	  </ul>
-	  In aggiunta a queste modalit&agrave; che permettono di adeguarsi ad alcuni dei portali 'storici' dei clienti 
+	  In aggiunta a queste modalit&agrave; che permettono di adeguarsi ad alcuni dei portali 'storici' dei clienti
 	  del CSI, esiste una nuova modalit&agrave;, denominata '<i>neutral</i>', non legata a nessun particolare portale,
 	  ma basata su una struttura di codice xhtml molto flessibile ed utilizzabile per riprodurre differenti strutture
 	  grafiche con l'ausilio di appositi <i>skin CSS</i>.
@@ -37,13 +37,13 @@
 	  schema di referenziazione delle risorse grafiche e che necessitano, dunque, di differenti <i>skin CSS</i>:
 	  <ol>
 	  <li>una modalit&agrave; con schema di referenziazione delle risorse grafiche nuova</li>
-	  <li>una modalit&agrave; con schema di referenziazione delle risorse grafiche vecchia 
+	  <li>una modalit&agrave; con schema di referenziazione delle risorse grafiche vecchia
 	      (mantenuta per retrocompatibilit&agrave; fincc&egrave; non saranno convertiti tutti gli skin nella
 	      nuova modalit&agrave;)</li>
-	  </ol> 
+	  </ol>
 	  La scelta della modalit&agrave; da utilizzare si effettua mediante il parametro <i>staticResourcesSchemaVersion</i>
 	  che pu&ograve; valere <i>M1</i> per la vecchia modalit&agrave; ed <i>M2</i> per la nuova modalit&agrave;.
-	  </p>  
+	  </p>
 	  <p>
 	  <h4>modalit&agrave; locale vs remote</h4>
 	  <p>
@@ -62,26 +62,26 @@
 	  La linea strategica a tendere &egrave; quella di abbandonare gradualmente i <i>target portal</i> legacy in favore
 	  della modalit&agrave; <i>neutral</i> stilizzata con gli <i>skin</i> che permettono di riprodurre il tema grafico
 	  dei vari portali.
-	  </p> 
+	  </p>
 	  <p>
 	  La logica di scelta del <i>portale target</i> (e quindi l'impostazione dell' opportuno parametro <i>portalName</i>
 	  nella cartuccia di generazione) &egrave; mostrato in figura:
-	  </p>  
+	  </p>
 	  <img src="img/scelta_target_portal.gif" alt="scelta target portal"/>
-	  <!-- 
+	  <!--
 	  <h3>Stili (skin) CSS e Specifiche dell' xhtml universale della modalit&agrave; neutral</h3>
 	  <p>
 	  La modalit&agrave; <i>neutral</i> prevede la generazione di codice <i>xhtml</i> cosiddetto &quot;universale&quot;,
 	  ovvero codice sufficientemente generico da essere utilizzato con schermate di varia composizione e che pu&ograve;
 	  essere stilizzato agevolmente mediante stili <i>css</i>.
 	  Per poter realizzare uno skin CSS adatto alla stilizzazione di una pagina che si presenta con xhtml universale
-	  &egrave; necessario tenere presenti le specifiche dell'XHTML universale'. La documentazione relativa a tali 
+	  &egrave; necessario tenere presenti le specifiche dell'XHTML universale'. La documentazione relativa a tali
 	  specifiche &egrave; disponibile <a href="xhtml_universale.html">qui</a>.
 	  </p>
 	  -->
 	  <h3>Struttura delle risorse statiche in modalit&agrave; <i>neutral/M2</i></h3>
 	  <p>
-	  La struttura (alberatura) delle risorse statiche in modalit&agrave; <i>neutral/M2</i> &egrave; quella riportata in 
+	  La struttura (alberatura) delle risorse statiche in modalit&agrave; <i>neutral/M2</i> &egrave; quella riportata in
 	  figura.
 	  </p>
 	  <img src="img/ris_utheme.gif" alt="alberatura risorse statiche"/>
@@ -91,7 +91,7 @@
 	  </p>
 	  <p>
 	  Nella modalit&agrave; <i>neutral/M2/remota</i> tale cartella &egrave; generata dalla cartuccia di generazione
-	  <i>webres.oaw</i> e deve essere installata (copiata) sul web server unitamente all'installazione dell'applicazione 
+	  <i>webres.mwe</i> e deve essere installata (copiata) sul web server unitamente all'installazione dell'applicazione
 	  J2EE nell'application server</p>
 	  <p>Di fatto, per&ograve; &egrave; necessario creare manualmente le risorse statiche.
 	  Le risorse necessarie sono le seguenti:
@@ -107,31 +107,31 @@
 	  <td>il file &egrave; opzionale e deve essere creato a carico del progetto. E' consigliabile
 	  comunque creare almeno il file vuoto perch&egrave; il browser lo cerca comunque</td>
 	  </tr>
-	  
+
 	  <tr>
 	  <td>header di applicazione</td>
 	  <td>file contenente un frammento di codice HTML che contiene il markup dell'header di applicazione,
 	  dove tipicamente viene inserito il nome dell'applicazione, e un eventuale banner grafico.</td>
 	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/include/application_header.html</code></td>
-	  <td>il file &egrave; obbligatorio e deve essere creato a carico del progetto. 
+	  <td>il file &egrave; obbligatorio e deve essere creato a carico del progetto.
 	  Un esempio di codice &egrave; il seguente: <br>
-	  
+
 	  <pre>
 	  	&lt;div id="applicationHeader"&gt;
-			&lt;h2&gt;Mio Applicativo&lt;/h2&gt; 
+			&lt;h2&gt;Mio Applicativo&lt;/h2&gt;
 		&lt;/div&gt;
 	  </pre>
 	  </td>
 	  </tr>
-	  
+
 	  <tr>
 	  <td>static links</td>
 	  <td>file contenente un frammento di codice HTML che contiene il markup degli &quot;static links&quot;
 	  dell'applicazione (tipicamente i link di help on line e contatti).</td>
 	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/include/static_links.html</code></td>
-	  <td>il file &egrave; obbligatorio e deve essere creato a carico del progetto. 
+	  <td>il file &egrave; obbligatorio e deve essere creato a carico del progetto.
 	  Un esempio di codice &egrave; il seguente: <br>
-	  
+
 	  <pre>
 	  	&lt;li&gt;
 			&lt;a href="/ris/utheme/[cod_canale]/[cod_appl]/help.html" class="aprihelp"&gt;
@@ -149,19 +149,19 @@
 			&lt;/a&gt;
 		&lt;/li&gt;
 	  </pre>
-	  (La presenza delle classi &quot;apri&quot;,&quot;apriHelp&quot;,&quot;apriContatti&quot; permette, grazie 
+	  (La presenza delle classi &quot;apri&quot;,&quot;apriHelp&quot;,&quot;apriContatti&quot; permette, grazie
 	  ad un arricchimento standard presente in tutti gli skin, l'apertura del link corrispondente in una
 	  finestra/popup separata, come previsto dagli standard).
 	  </td>
 	  </tr>
-	  
+
 	  <tr>
 	  <td>immagini di applicazione</td>
 	  <td>immagini specifiche dell'applicazione (es. immagine del banner di applicazione, icone aggiuntive, ...)</td>
 	  <td><code>/ris/utheme/[cod_canale]/[cod_applicativo]/css/im/...<code></td>
 	  <td>la cartella e i relativi files sono opzionali e devono essere creati a carico del progetto.</td>
 	  </tr>
-	  
+
 	  <tr>
 	  <td>altri file</td>
 	  <td>eventuali altri file necessari per l'applicazione</td>

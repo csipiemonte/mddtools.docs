@@ -32,7 +32,7 @@
 		</ol>
       </p>
       <p>
-      E'importante notare che, affinch&egrave; questo flusso iterativo unidirezionale (round trip) vada a buon fine 
+      E' importante notare che, affinch&egrave; questo flusso iterativo unidirezionale (round trip) vada a buon fine 
       &egrave; necessario prestare molta attenzione a non modificare manualmente porzioni di codice generato non contenute
       in regioni protette: in caso contrario le modifiche apportate manualmente in aree non consentite sono irrimediabilmente
       perse alla rigenerazione successiva. Generalmente questa limitazione non costituisce un problema in quanto
@@ -45,7 +45,7 @@
       	 <ol>
       	 	<li>impostare il progetto generatore
    			<ol>
-   				<li>creare un <i>progetto generatore</i>(tecnologia <b>mdd</b>)</li>
+   				<li>creare un <i>progetto generatore</i> (tecnologia <b>mdd</b>)</li>
       	 		<li>aggiungere le <i>dipendenze</i> dei plugin mddtools</li>
       	 		<li>creare la struttura delle directory destinate a contenere i modelli e gli script di generazione</li>
    			</ol>
@@ -74,7 +74,7 @@
     		</li>
     	</ol>
     	<p>
-    	E'possibile scaricare i sorgenti completi del progetto generatore e del progetto generato
+    	E' possibile scaricare i sorgenti completi del progetto generatore e del progetto generato
     	<a href="resources/src_tutorial/tutorial_howtostart_src.zip">qui</a>
     	</p>
     	<h3>impostare il progetto generatore</h3>
@@ -82,23 +82,23 @@
    		<h4>creare un <i>progetto generatore</i> (tecnologia <b>mdd</b>)</h4>
    		
    		<p>
-   		Per creare il progetto generatore &egrave; necessario utilizzare l'apposito wizard per <b>progetti architectureware</b>,
-   		che si attiva selezionando in <i>eclipse</i> la voce di menu:
+   		Per creare il progetto generatore &egrave; necessario utilizzare l'apposito wizard per <b>progetti Xpand</b>,
+   		che si attiva selezionando in <i>Eclipse</i> la voce di menu:
    		</p>
-   		<code>[File] -&gt; [new...] -&gt; [openarchitectureware project]</code>
+   		<code>[File] -&gt; [New] -&gt; [Other...] -&gt; [Xpand] -&gt; [Xpand Project]</code>
       	<br/>
       	<p>
-      	Inserendo nel campo <code>[project name]</code> il nome del progetto generatore, che solitamente &egrave;
+      	Inserendo nel campo <code>[Project name]</code> il nome del progetto generatore, che solitamente &egrave;
       	costituito da:
       	
       	</p>
       	<code>&lt;cod_prodotto&gt;mdd</code>.
       	<br/>
       	<p>
-      	occorre inoltre lasciare <i>non</i> selezionato il check <code>[create sample]</code>, in quanto non utile.
+      	occorre inoltre, nella sezione <b>Meta Models</b>, lasciare <i>selezionata</i> l'opzione <code>Use workspace defaults</code>.
       	</p>
-      	<p>Sar&agrave; generata una struttura simile a quella riportat ain figura (nell'esempio il codice prodotto
-      	utilizzato &egrave; <i>myprod</i></p>
+      	<p>Sar&agrave; generata una struttura simile a quella riportata in figura (nell'esempio il codice prodotto
+      	utilizzato &egrave; <i>myprod</i></p>).
       	
       	<img src="img/howtostart_1.jpg" border="1"></img>
       	
@@ -106,16 +106,15 @@
       	<h4>aggiungere le <i>dipendenze</i> dei plugin mddtools</h4>
       	
       	<p>
-      	Per aggiungere al progetto geenratore le dipendenze necessarie &egrave; necessario agire nella apposita
+      	Per aggiungere al progetto generatore le dipendenze necessarie &egrave; necessario agire nella apposita
       	schermata alla quale si accede tramite doppio click sul file <code>META-INF/MANIFEST.MF</code>
       	</p>
       	<p>I plugin da aggiungere sono:
       	<ul>
-      		<li><code>org.openarchitectureware.dependencies</code></li>
       		<li><code>guigen</code></li>
       		<li><code>guigen.editor</code></li>
       	</ul>
-      	Al termine dell'operazione la scheramta apparir&agrave; come in figura:
+      	Al termine dell'operazione la schermata apparir&agrave; come in figura:
       	</p>
       	<img src="img/howtostart_2.jpg" border="1"/>
       	
@@ -134,7 +133,7 @@
    		</p>
    		 	
    		<p>
-   		Entrambe le cartelle sono ulteriormenbte strutturate secondo la struttura del prodotto, ovvero con una 
+   		Entrambe le cartelle sono ulteriormente strutturate secondo la struttura del prodotto, ovvero con una 
    		sottodirectory per ogni componente di rilascio prevista dal prodotto.
    		Questa strutturazione permette di avere un unico
    		<i>progetto generatore</i> che pu&ograve; generare uno o pi&ugrave; componenti di prodotto.
@@ -332,7 +331,7 @@
     	
     	<p>
     	Il processo di generazione &egrave; comandato da un <i>workflow di generazione</i> descritto da un
-    	apposito script di workflow <i>openarchitectureware</i>.
+    	apposito script di workflow <i>MWE</i>.
     	Questo engine di generazione permette di costruire workflow anche molto sofisticati. Il minimo workflow
     	necessario deve prevedere alcuni passi:
     	<ol>
@@ -341,7 +340,12 @@
     	</ol>  
     	Per creare lo script di generazione &egrave; necessario posizionare il mouse sulla cartella relativa al
     	componente <i>mycomp</i> all'interno della cartella <code>src/workflow</code>e, tramite tasto destro, 
-    	azionare il wizard di creazione di un nuovo file <code>openarchitectureware-&gt;Workflow file</code>.
+    	azionare il wizard di creazione di un nuovo file <code>Workflow file</code>:
+    	</p>
+    	
+    	<code>[New] -&gt; [Other] -&gt; [Modeling Workflow Engine] -&gt; [Workflow File]</code>
+    	
+    	<p>
     	A questo punto &egrave; sufficiente copiare il seguente snippet di codice (avendo cura di modificare
     	se necessario i puntamenti ai file di modello o il nome del progetto target):
     	
@@ -351,19 +355,19 @@
     	&lt;workflow&gt;
 	
     	&lt;!-- test del modulo "home" --&gt;
-    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/guigenCheck.oaw"
+    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/guigenCheck.mwe"
 			model="myprodmdd/src/model/myprod/mycomp/modules/home_module.guigen"  
 			portal="neutral"  	
     	/&gt;
     	
     	&lt;!-- test del modello principale --&gt;
-    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/guigenCheck.oaw"
+    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/guigenCheck.mwe"
 			model="myprodmdd/src/model/myprod/mycomp/mycomp.guigen"  
 			portal="neutral"  	
     	/&gt;
    
     	&lt;!-- generazione del codice --&gt; 
-    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/struts2Basic.oaw"
+    	&lt;cartridge file="it/csi/mddtools/guigen/workflow/struts2Basic.mwe"
 			model="myprodmdd/src/model/myprod/mycomp/mycomp.guigen" 
 			targetProjectName="mycomp" 
 			portal="neutral"  	
@@ -376,11 +380,11 @@
     	Come si pu&ograve; notare nel workflow sono richiamate due <i>cartridge</i> fornite con il plugin
     	<i>guigen</i>:
     	<ul>
-    	<li><i>guigenCheck.oaw</i>: permette la verifica semantica del modello</li>
-    	<li><i>struts2Basic.oaw</i>: genera l'applicazione in tecnologia struts2 + spring</li>
+    	<li><i>guigenCheck.mwe</i>: permette la verifica semantica del modello</li>
+    	<li><i>struts2Basic.mwe</i>: genera l'applicazione in tecnologia struts2 + spring</li>
     	</ul>
     	Nel caso il progetto sia costituito da pi&ugrave; modelli di quelli presenti nell'esempio la cartuccia
-    	<i>guigenChack.oaw</i> deve essere richiamata su tutti i singoli modelli. Non &egrave; infatti sufficiente
+    	<i>guigenChack.mwe</i> deve essere richiamata su tutti i singoli modelli. Non &egrave; infatti sufficiente
     	richiamare la verifica sul modello principale. Nell'esempio non &egravE; necessario, in quanto non sono state 
     	apportate modifiche alla struttura iniziale, ma anche il file contenente il modello di sicurezza
     	(<i>securityModel.guigen</i>) dovrebbe essere soggetto a check. 
@@ -439,8 +443,8 @@
     	<h3>eseguire la generazione</h3>
     	
     	<p>
-    	Per eseguire il workflow definito al passo precedente &egrave; sufficiente selezionare il file <i>.oaw</i>
-    	e, tramite tasto destro, azionare l'esecuzione (<code>[run as] -&gt; [oaw workflow]</code>).
+    	Per eseguire il workflow definito al passo precedente &egrave; sufficiente selezionare il file <i>.mwe</i>
+    	e, tramite tasto destro, azionare l'esecuzione (<code>[Run As] -&gt; [MWE Workflow]</code>).
     	Se i check e la generazione hanno successo la console presenter&agrave; il messaggio:
     	<br></br>
     	<code>INFO  WorkflowRunner     - workflow completed in ... ms!</code>
