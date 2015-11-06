@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: MDDTools Documentation Plug-in
 Bundle-SymbolicName: mddtools.docs; singleton:=true
-Bundle-Version: 3.0.0.001
+Bundle-Version: 3.0.1.001
 Bundle-Activator: mddtools.docs.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
